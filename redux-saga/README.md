@@ -1,68 +1,78 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 미들웨어
 
-## Available Scripts
+### 1. 미들워에란
+- 액션을 디스패치했을 때 리듀서에서 이를 처리하기에 앞서 사전에 지정된 작업들을 실행한다.
+- 여러 종류의 작업을 처리할 수 있다.
+- 특정 조건에 따라 액션을 무시하게 할 수도 있다.
+- 특정 조건에 따라 액션 정보를 가로채서 변경한 후 리듀서에게 전달해 줄 수도 있다.
+- 특정 액션에 기반하여 새로운 액션을 여러 번 디스패치 할 수도 있다.
+- 네트워크 요청과 같은 비동기 작업을 관리하면 매우 유용하다.
 
-In the project directory, you can run:
+```
+액션 -> 미들웨어 -> 리듀서 -> 스토어
+```
+### 2. next 파라미터
+- 함수형태이며 store.dispatch와 비슷한 역할을 한다.
+- next(action)을 호출하면 그다음 처리해야 할 미들웨어에게 액션을 넘겨준다.
+- 만약 그다음 미들웨어가 없다면 디듀서에게 액션을 넘겨준다.
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 3. redux-saga
+```
+yarn add redux-saga
+npm install redux-saga
+```
+- 기존 요청을 취소 처리해야 할 때(불필요한 중복 요청 방지)
+- 특정 액션이 발생했을 때 다른 액션을 발생 시키거나 API 요청 등 리덕스와 관계없는 코드를 실행할 때
+- 웹소켓을 사용할 때
+- API 요청 실패 시 재요청해야 할 때
+- 비동기 작업을 관리!
+- 우리가 디스패치하는 액션을 모니터링해서 그에 따라 필요한 작업을 따로 수행할 수 있는 미들웨어
+- 액션이 중첩되어 디스패치되었을 때는 기존 것들은 무시하고 가장 마지막 액션만 제대로 처리
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+### 4. 제너레이터( generator )
+```
+function* generatorFunction() {
+  console.log('hi');
+  yield 1;
+  console.log('generator function');
+  yield 2;
+  console.log('funtion');
+  yield 3;
+  return 4;
+}
+```
+- 제너레이터 함수를 만들 때는 function* 키워드를 사용
+```
+const generator = generatorFunction();
+```
+- generator.next() 제너레이터 함수를 실행한다.
+- next가 실행되면 yield가 있는 곳까지 호출하고 멈춘다.
+- next()에 파라미터를 넣으면 yield를 사용하여 해당 값을 조회할 수도 있다.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### 5. redux-saga 유용한 기능
+- select : saga 내부에서 현재 상태를 참조해야 하는 상황이 생기면 사용
+```
+const number = yield select(state => state.counter);
+```
+- throttle : 사가가 실행되는 주기를 제한
+```
+yield throttle(3000, ICREASE_ASYNC, increaseSaga);
+```
+- takeLatest : 기존에 실행 중이던 작업이 있다면 취소 후 가장 마지막으로 실행된 작업만 수행
+```
+takeLatest(DECREASE_ASYNC, decreaseSaga);
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
