@@ -1,14 +1,15 @@
-
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import Main from './pages/main';
-import Company from './pages/company';
-import Services from './pages/services';
+import GlobalStyle from 'styles/GlobalStyle';
+import Main from './page/Main';
+import Company from './page/Company';
+import Services from './page/Services';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Helmet>
         <title>포인트아이</title>
       </Helmet>
