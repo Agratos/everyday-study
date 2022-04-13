@@ -29,30 +29,31 @@ const TopRightAreaLeft = styled.div`
     text-align: right;
     margin: 8px;
 `
-const TopRightAreaLefttUl = styled.ul`
-    padding: 0;
-    margin: 0;
-`;
-const TopRightAreaLeftLi = styled.li`
+const TopRightAreaLeftt = styled.div``;
+const TopRightAreaInner = styled.div`
     display: flex;
     text-align: left;
     float: right;
     margin-right: 3vw;
+    :hover {
+        cursor: pointer;
+    }
 `;
 const TopRightAreaRight = styled.div`
     margin: 8px;
     width: 11vw;
 `;
-const SocialImg = styled.div`
+const SocialImg = styled(TopRightAreaInner)`
     float: left;
     margin-right: 1vw;
 `
 const Img = styled.img`
     float:left;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 `;
 const ImgText = styled.p`
+    padding: 2px;
     margin: 0;
 `;
 const HeaderTop = () => {
@@ -64,20 +65,20 @@ const HeaderTop = () => {
                 </HeaderTopLeftArea>
                 <HeaderTopRightArea>
                     <TopRightAreaLeft>
-                        <TopRightAreaLefttUl>
-                            <TopRightAreaLeftLi>                     
+                        <TopRightAreaLeftt>
+                            <TopRightAreaInner>                     
                                 <Img src={phone2} />
                                 <ImgText>02-2204-3001</ImgText>                                
-                            </TopRightAreaLeftLi>
-                            <TopRightAreaLeftLi>
+                            </TopRightAreaInner>
+                            <TopRightAreaInner>
                                 <Img src={phone1} />
                                 <ImgText>02-2204-3000</ImgText>      
-                            </TopRightAreaLeftLi>
-                            <TopRightAreaLeftLi>
+                            </TopRightAreaInner>
+                            <TopRightAreaInner>
                                 <Img src={mail} />
                                 <ImgText>support@pointi.com</ImgText>  
-                            </TopRightAreaLeftLi>
-                        </TopRightAreaLefttUl>
+                            </TopRightAreaInner>
+                        </TopRightAreaLeftt>
                     </TopRightAreaLeft>
                     <TopRightAreaRight>
                         <SocialImg><Img src={kakao} /></SocialImg>

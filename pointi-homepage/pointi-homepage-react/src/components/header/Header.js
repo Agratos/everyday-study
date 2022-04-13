@@ -6,10 +6,12 @@ import HeaderBottom from './HeaderBottom';
 import logo from 'assets/imgs/banner/banner.png';
 //#0181f5
 const Wrapper = styled.div`
-    //background-color: #0181f5;
+    max-height: 750px;
     background-image: url(${logo});
     background-size: cover;
-    opacity: 0.7;
+    opacity: 0.9;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     height: 80vh;
 `;
 
