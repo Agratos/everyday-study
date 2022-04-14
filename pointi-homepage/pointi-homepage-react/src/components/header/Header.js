@@ -7,7 +7,9 @@ import logo from 'assets/imgs/banner/banner.png';
 //#0181f5
 const Wrapper = styled.div`
     max-height: 750px;
-    background-image: url(${logo});
+    //background-image: url(${logo});
+    background: url(${logo});
+    background-color: yellow !important;
     background-size: cover;
     opacity: 0.9;
     width: 100%;
