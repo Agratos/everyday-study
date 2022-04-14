@@ -30,3 +30,18 @@ const Color = styled.div`
 <Color test='yellow'>
 ```
 위의 코드와 같다.
+
+## react-icons 스타일 변경
+```
+import { IoIosArrowDown } from "react-icons/io";
+import styled from 'styled-components';
+
+const Wrappter = styled.div`
+    .dowm-mark {
+        color: yellow;
+        margin: 8px;
+    }
+`;
+
+<IoIosArrowDown className='dowm-mark' />
+```

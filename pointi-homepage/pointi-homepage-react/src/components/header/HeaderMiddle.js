@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
@@ -69,12 +69,6 @@ const DropDownText = styled.div`
 `;
 
 const HeaderMiddle = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const onHover = () => setIsOpen(!isOpen);
-    //const offHover = () => setIsOpen(false);  
-    //const offHover = () => {};
-
-
     return (
         <Wrapper>
             <HeaderMiddleArea>
@@ -85,7 +79,7 @@ const HeaderMiddle = () => {
                     <MenuBar>
                         <MenuBarText id='home'>Home</MenuBarText>
                         <MenuBarText id='introduce'>
-                            회사소개<IoIosArrowDown className='dowm-mark' />
+                            회사소개<IoIosArrowDown />
                             <DropDownWrapper>
                                 <DropDownText>CEO 인사말</DropDownText>
                                 <DropDownText>회사 연역</DropDownText>
