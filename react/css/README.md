@@ -11,8 +11,7 @@ padding: 8px 10px 12px 14px // 위(8) 오른쪽(10) 아래(12) 왼쪽(14)
  - padding 은 안쪽으로의 길이를 넓힌다.
  - maring 은 밖같쪽으로 길이를 넓힌다.
 
- ## 정렬
-    - 가로정렬 float 사용
+ ## 가로정렬 float 사용
 ```
 <Box1 />
 <Box2 />
@@ -22,7 +21,7 @@ padding: 8px 10px 12px 14px // 위(8) 오른쪽(10) 아래(12) 왼쪽(14)
 ㅁ
 ```
 
-    1. 왼쪽
+ 1. 왼쪽
 ```
 모든 박스
 float: left;
@@ -33,7 +32,8 @@ float: left;
 |ㅁㅁㅁ    |
 <Box1> <Box2> <Box3>
 ```
-    2. 오른쪽
+
+ 2. 오른쪽
 ```
 모든 박스
 float: right;
@@ -44,7 +44,8 @@ float: right;
 |    ㅁㅁㅁ|
 <Box3> <Box2> <Box1>
 ```
-    3. 1개만 다르게주기
+
+ 3. 1개만 다르게주기
 ```
 <Box1 /> float left
 <Box2 /> float right
@@ -52,7 +53,8 @@ float: right;
 |ㅁㅁ   ㅁ|
 <Box1> <Box3> <Box2>
 ```
-    4. 2개는 float 1개는 해제
+
+ 4. 2개는 float 1개는 해제
 ```
 <Box1 /> float left
 <Box2 /> float right
