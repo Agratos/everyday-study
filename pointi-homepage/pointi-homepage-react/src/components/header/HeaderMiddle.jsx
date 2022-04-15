@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
+import dummyMenu from 'assets/dummy/dorpDwonMenu.json';
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -24,8 +25,7 @@ const RithtLogo = styled.img`
     }
 `;
 const MenuBarArea = styled.div`
-    width: 50%;
-    
+    width: 50%; 
 `;
 const MenuBar = styled.div`
     text-align: center;
@@ -37,9 +37,9 @@ const DropDownWrapper = styled.div`
     text-align: left;
     padding: 0 24px 0 24px;
     position: absolute;
-    //display: none; // transition 적용x
     opacity: 0;
     transition: all 0.8s;
+    pointer-events: none;
 `;
 const MenuBarText = styled.div`
     display: inline-block;
@@ -55,6 +55,7 @@ const MenuBarText = styled.div`
     }
     &:hover ${DropDownWrapper}{
         opacity: 1;
+        pointer-events: auto;
     }
 `;
 const DropDownText = styled.div`
@@ -65,7 +66,6 @@ const DropDownText = styled.div`
     &:hover {
         background-color: #5db2ff;
     }
-    //transition: all 1s;
 `;
 
 const HeaderMiddle = () => {
@@ -76,7 +76,7 @@ const HeaderMiddle = () => {
                     <RithtLogo src={logo} />
                 </RightLogoArea>
                 <MenuBarArea>
-                    <MenuBar>
+                    {/* <MenuBar>
                         <MenuBarText id='home'>Home</MenuBarText>
                         <MenuBarText id='introduce'>
                             회사소개<IoIosArrowDown />
@@ -97,6 +97,21 @@ const HeaderMiddle = () => {
                                 <DropDownText>입사지원&amp;채용공고</DropDownText>
                             </DropDownWrapper>
                         </MenuBarText>          
+                    </MenuBar> */}
+                    <MenuBar>
+                        { dummyMenu.data.map( data => (
+                            ( data.list.length !== 0 ? (
+                                <MenuBarText>
+                                    {data.title}
+                                    <IoIosArrowDown />
+                                    <DropDownWrapper>
+                                        {data.list.map( list => (
+                                            <DropDownText>{list}</DropDownText>
+                                        ))}
+                                    </DropDownWrapper>
+                                </MenuBarText>
+                            ) :<MenuBarText>{data.title}</MenuBarText>)
+                        ))}
                     </MenuBar>
                 </MenuBarArea>
             </HeaderMiddleArea>

@@ -28,7 +28,7 @@ const TopRightAreaLeft = styled.div`
     width: 46vw;
     text-align: right;
     margin: 8px;
-`
+`;
 const TopRightAreaLeftt = styled.div``;
 const TopRightAreaInner = styled.div`
     display: flex;
@@ -46,7 +46,7 @@ const TopRightAreaRight = styled.div`
 const SocialImg = styled(TopRightAreaInner)`
     float: left;
     margin-right: 1vw;
-`
+`;
 const Img = styled.img`
     float:left;
     width: 24px;
