@@ -68,7 +68,7 @@ const Footer = () => {
                 <LeftPointiInfo>
                     <LogoImg src={logo}/>
                     {dummyFooter.data[0].list.map( (list,index) => (
-                        <LeftPointiInfoText>
+                        <LeftPointiInfoText key={`footer-left-info-${index}`}>
                             {index === 0 && <LeftPointiInfoTextImg src={mail} size='10px'/>}
                             {index === 1 && <LeftPointiInfoTextImg src={phone1} />}
                             {index === 2 && <LeftPointiInfoTextImg src={phone2} />}
@@ -79,11 +79,20 @@ const Footer = () => {
                 <RightPointWrapper>
                     {dummyFooter.data.map((data,index) => (
                         index > 0 && 
-                            <RightPointiMenu>
+                            <RightPointiMenu key={`footer-right-menu-${index}`}>
                                 {data.list.map((list,index) => (
                                     index === 0 ?
-                                        <RightPointMenuText size='20px' weight='bolder' margin='32px' color='black'>{list}</RightPointMenuText>
-                                        : <RightPointMenuButton padding='12px'>{list}</RightPointMenuButton>
+                                        <RightPointMenuText 
+                                            size='20px' 
+                                            weight='bolder' 
+                                            margin='32px' 
+                                            color='black' 
+                                            key={`footer-right-menu-text-${index}`}>
+                                            {list}
+                                        </RightPointMenuText>
+                                        : <RightPointMenuButton padding='12px' key={`footer-right-menu-button-${index}`}>
+                                            {list}
+                                        </RightPointMenuButton>
                                 ))}
                             </RightPointiMenu>
                     ))}

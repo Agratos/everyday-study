@@ -77,18 +77,18 @@ const HeaderDropDown = () => {
                 </RightLogoArea>
                 <MenuBarArea>
                     <MenuBar>
-                        { dummyMenu.data.map( data => (
+                        { dummyMenu.data.map( (data,index) => (
                             ( data.list.length !== 0 ? (
-                                <MenuBarText>
+                                <MenuBarText key={`menu-bar-text-${index}`}>
                                     {data.title}
                                     <IoIosArrowDown />
                                     <DropDownWrapper>
-                                        {data.list.map( list => (
-                                            <DropDownText>{list}</DropDownText>
+                                        {data.list.map( (list,index) => (
+                                            <DropDownText key={`drop-down-text-${index}`}>{list}</DropDownText>
                                         ))}
                                     </DropDownWrapper>
                                 </MenuBarText>
-                            ) :<MenuBarText>{data.title}</MenuBarText>)
+                            ) :<MenuBarText key={`menu-bar-text-${index}`}>{data.title}</MenuBarText>)
                         ))}
                     </MenuBar>
                 </MenuBarArea>

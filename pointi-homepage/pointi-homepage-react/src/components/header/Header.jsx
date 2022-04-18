@@ -60,9 +60,9 @@ const Header = () => {
             <HeaderTop />
             <HeaderMiddle />
             <SliderArea>
-                {dummyHeaderChnageData.data.map(data => (
+                {dummyHeaderChnageData.data.map((data,index) => (
                     ( data.id === dataIndex && (
-                        <SliderAreaTextWrapper >
+                        <SliderAreaTextWrapper key={`slider-area-${index}`}>
                             <SliderAreaText className='text-1'>{data.text1}</SliderAreaText>
                             <SliderAreaText className='text-2'>{data.text2}</SliderAreaText>
                             <SliderAreaTextButton>Our Solutions</SliderAreaTextButton>
