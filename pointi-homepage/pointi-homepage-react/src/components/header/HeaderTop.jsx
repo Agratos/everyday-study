@@ -49,8 +49,10 @@ const SocialImg = styled(TopRightAreaInner)`
 `;
 const Img = styled.img`
     float:left;
-    width: 24px;
-    height: 24px;
+    width: ${props => props.size || '24px'} ;
+    height: ${props => props.size || '24px'};
+    margin-right: 4px;
+    padding-top: ${props => props.padding};
 `;
 const ImgText = styled.p`
     padding: 2px;
@@ -67,15 +69,15 @@ const HeaderTop = () => {
                     <TopRightAreaLeft>
                         <TopRightAreaLeftt>
                             <TopRightAreaInner>                     
-                                <Img src={phone2} />
+                                <Img src={phone2} size='16px' padding='2px' />
                                 <ImgText>02-2204-3001</ImgText>                                
                             </TopRightAreaInner>
                             <TopRightAreaInner>
-                                <Img src={phone1} />
+                                <Img src={phone1} size='16px' padding='2px' />
                                 <ImgText>02-2204-3000</ImgText>      
                             </TopRightAreaInner>
                             <TopRightAreaInner>
-                                <Img src={mail} />
+                                <Img src={mail} size='16px' padding='4px' />
                                 <ImgText>support@pointi.com</ImgText>  
                             </TopRightAreaInner>
                         </TopRightAreaLeftt>

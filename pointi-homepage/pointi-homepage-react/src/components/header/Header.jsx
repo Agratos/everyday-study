@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import HeaderTop from './HeaderTop';
-import HeaderMiddle from './HeaderMiddle';
+import HeaderMiddle from './HeaderDropDown';
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
 import dummyHeaderChnageData from 'assets/dummy/headerChangeData.json';
-//#0181f5
+
 const Wrapper = styled.div`
     max-height: 800px;
     background: url(${props => props.logo});
     background-size: cover;
     opacity: 0.9;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     transition: all 1000ms ease 0s;
     background-blend-mode:multiply;
@@ -47,12 +47,11 @@ const SliderAreaTextButton = styled.button`
 
 const Header = () => {
     const [dataIndex, setDataIndex] = useState(0);
-    const [imgData, setImgeData] = useState([logo1,logo2]);
+    const imgData = [logo1,logo2];
 
     useEffect(() => {
         setTimeout(() =>{
             setDataIndex((dataIndex + 1) % 3)
-            //console.log(dataIndex);
         }, 5000)
     }, [dataIndex] )
 

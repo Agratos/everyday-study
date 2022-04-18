@@ -68,7 +68,7 @@ const DropDownText = styled.div`
     }
 `;
 
-const HeaderMiddle = () => {
+const HeaderDropDown = () => {
     return (
         <Wrapper>
             <HeaderMiddleArea>
@@ -76,28 +76,6 @@ const HeaderMiddle = () => {
                     <RithtLogo src={logo} />
                 </RightLogoArea>
                 <MenuBarArea>
-                    {/* <MenuBar>
-                        <MenuBarText id='home'>Home</MenuBarText>
-                        <MenuBarText id='introduce'>
-                            회사소개<IoIosArrowDown />
-                            <DropDownWrapper>
-                                <DropDownText>CEO 인사말</DropDownText>
-                                <DropDownText>회사 연역</DropDownText>
-                                <DropDownText>조직 구성</DropDownText>
-                                <DropDownText>특허 현황</DropDownText>
-                                <DropDownText>관계사</DropDownText>
-                                <DropDownText>오시는 길</DropDownText>
-                            </DropDownWrapper> 
-                        </MenuBarText>
-                        <MenuBarText id='solution'>솔루션</MenuBarText>
-                        <MenuBarText id='carrer'>
-                            Carrers<IoIosArrowDown />
-                            <DropDownWrapper>
-                                <DropDownText>인재관리철학&amp;인재상</DropDownText>
-                                <DropDownText>입사지원&amp;채용공고</DropDownText>
-                            </DropDownWrapper>
-                        </MenuBarText>          
-                    </MenuBar> */}
                     <MenuBar>
                         { dummyMenu.data.map( data => (
                             ( data.list.length !== 0 ? (
@@ -119,4 +97,4 @@ const HeaderMiddle = () => {
     );
 };
 
-export default HeaderMiddle;
+export default HeaderDropDown;
