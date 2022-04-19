@@ -3,18 +3,18 @@ import styled from 'styled-components';
 import Header from 'components/header/Header';
 import Counter from 'components/counter/Counter';
 import Footer from 'components/footer/Footer';
+import MainSubject from 'components/main/MainSubject';
 
-const Wrappter = styled.div`
-    width: 100vw;
-`
+const Wrapper = styled.div``;
 
 const Main = () => {
     return (
-        <Wrappter>
+        <Wrapper>
             <Header />
+            <MainSubject/>
             <Counter />
             <Footer />
-        </Wrappter>
+        </Wrapper>
     );
 };
 

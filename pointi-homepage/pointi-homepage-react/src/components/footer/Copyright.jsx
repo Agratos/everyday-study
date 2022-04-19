@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width: 100%;
     border-top: 1px solid #eee7e7;
     color: #919191;
 `;

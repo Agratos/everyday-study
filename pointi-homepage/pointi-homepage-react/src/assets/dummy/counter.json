@@ -1,15 +1,19 @@
 {
     "data" : [
         {
+            "img": "assets/imgs/svg_icon/group.svg",
             "title":"수용 가입자 수",
             "mount": 2783124
         },{
+            "img": "CounterImg1",
             "title":"일일 통화량",
             "mount": 5937278
         },{
+            "img": "CounterImg2",
             "title":"일일 데이터 분석",
             "mount": 5628237
         },{
+            "img": "CounterImg3",
             "title":"전체 계약 건",
             "mount": 410
         }

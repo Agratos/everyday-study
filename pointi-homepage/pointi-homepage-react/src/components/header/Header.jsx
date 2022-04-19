@@ -9,18 +9,22 @@ import dummyHeaderChnageData from 'assets/dummy/headerChangeData.json';
 const Wrapper = styled.div`
     max-height: 800px;
     background: url(${props => props.logo});
+    background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
-    width: 100vw;
-    height: 100vh;
     transition: all 1000ms ease 0s;
     background-blend-mode:multiply;
-    background-color: #8bc3f8c3;
+    background-color: #7794b0d9;
 `;
-const SliderArea = styled.div``;
+const SliderArea = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 85vh;
+`;
 const SliderAreaTextWrapper = styled.div`
-    padding: 40px;
-    margin: 10vh 0 0 2vw;
+    margin-left: 10vw;
+    margin-bottom: 20vh;
 `;
 const SliderAreaText = styled.div`
     color: white;
