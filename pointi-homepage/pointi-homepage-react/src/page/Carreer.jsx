@@ -2,17 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
+import CarreerSubject from 'components/carreer/CarreerSubject';
 
 const Wrapper = styled.div``;
 
-const Services = () => {
+const Carreer = () => {
     return (
         <Wrapper>
-            <Header title='PointI Solution' />
-
+            <Header title='Careers' />
+            <CarreerSubject />
             <Footer />
         </Wrapper>
-    );
-};
+    )
+}
 
-export default Services;
+export default Carreer;

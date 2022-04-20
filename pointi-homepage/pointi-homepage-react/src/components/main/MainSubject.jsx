@@ -103,7 +103,7 @@ const MainSubject = () => {
                         <MainIntroTitle>{mainData.intro.title}</MainIntroTitle>
                         <MainIntroText>{mainData.intro.text}</MainIntroText>
                         { mainData.solution.map((solution, index) => (
-                            <SolutionWrapper>
+                            <SolutionWrapper key={`solutionWrapper${index}`}>
                                 <ReactIconWrapper>
                                 {
                                     index === 0 ? <IoIosGlobe size={56} />
@@ -113,8 +113,8 @@ const MainSubject = () => {
                                 }
                                 </ReactIconWrapper>
                                 { solution.map((data, index) =>(
-                                    index === 0 ? <SolutionTitle>{data}</SolutionTitle>
-                                    : <SolutionText>{data}</SolutionText>
+                                    index === 0 ? <SolutionTitle key={`solution${index}`}>{data}</SolutionTitle>
+                                    : <SolutionText key={`solution${index}`}>{data}</SolutionText>
                                 ))}
                             </SolutionWrapper>
                         ))}

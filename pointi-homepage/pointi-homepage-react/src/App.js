@@ -5,6 +5,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/Main';
 import Company from './page/Company';
 import Services from './page/Services';
+import Carreer from 'page/Carreer';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/company" element={<Company />} />
         <Route path="/service" element={<Services />} />
+        <Route path="/carrer" element={<Carreer />} />
       </Routes>
     </BrowserRouter>
   )

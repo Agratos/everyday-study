@@ -20,15 +20,16 @@ const SliderArea = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 85vh;
+    height: ${props => props.height};
 `;
 const SliderAreaTextWrapper = styled.div`
     margin-left: 10vw;
-    margin-bottom: 20vh;
+    margin-bottom: ${props => props.maringBottom};
 `;
 const SliderAreaText = styled.div`
     color: white;
-    font-size: 52px;
+    font-size: ${props => props.size || '52px'};
+    font-weight: ${props => props.weight};
     //transition: all 5000ms linear 0s;
     animation: fade in 3s;
 `;
@@ -43,13 +44,12 @@ const SliderAreaTextButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:16px;
     &:hover {
         background: linear-gradient(45deg,#05aae6,#0181f5);
     }
 `;
 
-const Header = () => {
+const Header = ({ title }) => {
     const [dataIndex, setDataIndex] = useState(0);
     const imgData = [logo1,logo2];
 
@@ -63,17 +63,24 @@ const Header = () => {
         <Wrapper logo={imgData[dataIndex%2]}>
             <HeaderTop />
             <HeaderMiddle />
-            <SliderArea>
-                {dummyHeaderChnageData.data.map((data,index) => (
-                    ( data.id === dataIndex && (
-                        <SliderAreaTextWrapper key={`slider-area-${index}`}>
-                            <SliderAreaText className='text-1'>{data.text1}</SliderAreaText>
-                            <SliderAreaText className='text-2'>{data.text2}</SliderAreaText>
-                            <SliderAreaTextButton>Our Solutions</SliderAreaTextButton>
-                        </SliderAreaTextWrapper>
-                    ))   
-                ))}
-            </SliderArea>
+            { title === undefined ?
+                <SliderArea height='85vh'> 
+                       {dummyHeaderChnageData.data.map((data,index) => (
+                            ( data.id === dataIndex && (
+                                <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
+                                    <SliderAreaText className='text-1'>{data.text1}</SliderAreaText>
+                                    <SliderAreaText className='text-2'>{data.text2}</SliderAreaText>
+                                    <SliderAreaTextButton>Our Solutions</SliderAreaTextButton>
+                                </SliderAreaTextWrapper>
+                            ))   
+                        ))}
+                </SliderArea>
+            :   <SliderArea height='50vh'>
+                    <SliderAreaTextWrapper>
+                        <SliderAreaText weight='bolder' size='64px'>{title}</SliderAreaText>
+                    </SliderAreaTextWrapper>
+                </SliderArea>
+            }
         </Wrapper>
     )
 }
