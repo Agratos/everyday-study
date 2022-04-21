@@ -4,7 +4,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
 import dummyMenu from 'assets/dummy/dorpDwonMenu.json';
 import { Link } from 'react-router-dom';
-import Scroll from 'containers/scroll/Scroll';
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -78,16 +77,8 @@ const LinkWrapper = styled.div`
 
 
 const HeaderDropDown = () => {
-    const [ isUrlChange, setIsUrlChange ] = useState('');
-    useEffect(() => {
-        if(isUrlChange === window.location.href.split('/')[0])
-        console.log('같다');
-    })
-    useEffect(() => {
-        Scroll()
-    },[isUrlChange])
     return (
-        <Wrapper>
+        <Wrapper id="top">
             <HeaderMiddleArea>
                 <RightLogoArea>
                     <Link to='/' ><RithtLogo src={logo} /></Link>

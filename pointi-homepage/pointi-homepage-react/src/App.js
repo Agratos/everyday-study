@@ -16,10 +16,9 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/home" element={<Main />} />
-        <Route path="/company" element={<Company />} />
+        <Route path="/company/:id" element={<Company />} />
         <Route path="/service" element={<Services />} />
-        <Route path="/carrer" element={<Carreer />} />
+        <Route path="/carrer/:id" element={<Carreer />} />
       </Routes>
     </BrowserRouter>
   )
