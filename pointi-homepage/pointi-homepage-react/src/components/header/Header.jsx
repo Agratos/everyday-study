@@ -5,6 +5,7 @@ import HeaderMiddle from './HeaderDropDown';
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
 import dummyHeaderChnageData from 'assets/dummy/headerChangeData.json';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
     max-height: 800px;
@@ -33,7 +34,7 @@ const SliderAreaText = styled.div`
     //transition: all 5000ms linear 0s;
     animation: fade in 3s;
 `;
-const SliderAreaTextButton = styled.button`
+const SliderAreaTextButton = styled(Link)`
     background: linear-gradient(45deg,#0181f5,#05aae6);
     color: white;
     font-size: 16px;
@@ -70,7 +71,7 @@ const Header = ({ title }) => {
                                 <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
                                     <SliderAreaText className='text-1'>{data.text1}</SliderAreaText>
                                     <SliderAreaText className='text-2'>{data.text2}</SliderAreaText>
-                                    <SliderAreaTextButton>Our Solutions</SliderAreaTextButton>
+                                    <SliderAreaTextButton to='/service'>Our Solutions</SliderAreaTextButton>
                                 </SliderAreaTextWrapper>
                             ))   
                         ))}

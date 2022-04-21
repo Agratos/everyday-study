@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import CounterBanner from 'assets/imgs/counter/counter.png'
@@ -43,7 +43,7 @@ const DattaTail = styled.div`
 
 const Counter = () => {
     return(
-        <Wrapper>
+        <Wrapper id='test'>
             {dummyCounter.data.map((data,index) => (
                 <DataWrapper key={`counter-data-wrapper-${index}`}>
                     {

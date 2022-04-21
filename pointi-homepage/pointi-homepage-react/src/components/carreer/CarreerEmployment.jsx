@@ -30,7 +30,7 @@ const EmploymentText = styled.div`
 
 const CarreerEmployment = ({list }) => {
     return (
-        <Wrapper>
+        <Wrapper id="employment">
             <Title>{list.title}</Title>
             <EmploymentWrapper>
                 <EmploymentImg src={picWoman} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/Main';
@@ -16,6 +16,7 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/home" element={<Main />} />
         <Route path="/company" element={<Company />} />
         <Route path="/service" element={<Services />} />
         <Route path="/carrer" element={<Carreer />} />

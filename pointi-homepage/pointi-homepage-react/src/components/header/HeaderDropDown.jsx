@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
 import dummyMenu from 'assets/dummy/dorpDwonMenu.json';
+import { Link } from 'react-router-dom';
+import Scroll from 'containers/scroll/Scroll';
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -28,10 +30,12 @@ const MenuBarArea = styled.div`
     width: 50%; 
 `;
 const MenuBar = styled.div`
-    text-align: center;
-    margin: 4px;
+    display: flex;
+    justify-content: center;
 `;
 const DropDownWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
     background-color: white;
     min-width: 12vw;
     text-align: left;
@@ -41,55 +45,74 @@ const DropDownWrapper = styled.div`
     transition: all 0.8s;
     pointer-events: none;
 `;
-const MenuBarText = styled.div`
+const MenuBarText = styled(Link)`
     display: inline-block;
     color: white;
     font-weight: bolder;
     font-size: 16px;
     margin: 8px 12px 8px 8px;
+    text-decoration: none;
     &:hover {
         cursor: pointer;
         border-bottom: 4px solid #5db2ff;
         padding-bottom: 24px;
         margin-bottom: -24px;
     }
-    &:hover ${DropDownWrapper}{
-        opacity: 1;
-        pointer-events: auto;
-    }
 `;
-const DropDownText = styled.div`
+const DropDownText = styled(Link)`
     padding: 8px;
     margin: 0 10px 0 10px;
     font-weight: normal;
     color: black;
+    text-decoration: none;
     &:hover {
         background-color: #5db2ff;
     }
 `;
+const LinkWrapper = styled.div`
+    &:hover ${DropDownWrapper}{
+            opacity: 1;
+            pointer-events: auto;
+        }
+`;
+
 
 const HeaderDropDown = () => {
+    const [ isUrlChange, setIsUrlChange ] = useState('');
+    useEffect(() => {
+        if(isUrlChange === window.location.href.split('/')[0])
+        console.log('같다');
+    })
+    useEffect(() => {
+        Scroll()
+    },[isUrlChange])
     return (
         <Wrapper>
             <HeaderMiddleArea>
                 <RightLogoArea>
-                    <RithtLogo src={logo} />
+                    <Link to='/' ><RithtLogo src={logo} /></Link>
                 </RightLogoArea>
                 <MenuBarArea>
                     <MenuBar>
                         { dummyMenu.data.map( (data,index) => (
                             ( data.list.length !== 0 ? (
-                                <MenuBarText key={`menu-bar-text-${index}`}>
-                                    {data.title}
-                                    <IoIosArrowDown />
+                                <LinkWrapper key={`menu-bar-text-${index}`}>
+                                    <MenuBarText to={data.path}>
+                                        {data.title}
+                                        <IoIosArrowDown />
+                                    </MenuBarText>
                                     <DropDownWrapper>
                                         {data.list.map( (list,index) => (
-                                            <DropDownText key={`drop-down-text-${index}`}>{list}</DropDownText>
+                                            <DropDownText to={list.path} key={`drop-down-text-${index}`}>{list.text}</DropDownText>
                                         ))}
                                     </DropDownWrapper>
-                                </MenuBarText>
-                            ) :<MenuBarText key={`menu-bar-text-${index}`}>{data.title}</MenuBarText>)
-                        ))}
+                                </LinkWrapper>
+                            )
+                            : 
+                            <LinkWrapper key={`menu-bar-text-${index}`}>
+                                <MenuBarText to={data.path}>{data.title}</MenuBarText>
+                            </LinkWrapper>
+                        )))}
                     </MenuBar>
                 </MenuBarArea>
             </HeaderMiddleArea>

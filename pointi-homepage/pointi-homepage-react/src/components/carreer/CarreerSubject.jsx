@@ -34,7 +34,7 @@ const CarreerSubject = () => {
     return(
         <Wrapper>
             <MainTitle>{dummyCarrerr.title}</MainTitle>
-            <ContentWrapper>
+            <ContentWrapper id='talent'>
                 <ContentImge src={rightPeople1} />
                 <CarreerContentList list={dummyCarrerr.philosophy} />
             </ContentWrapper>
@@ -42,7 +42,6 @@ const CarreerSubject = () => {
                 <CarreerContentList list={dummyCarrerr.talent} margin={'60px'} />
                 <ContentImge src={rightPeople2} />
             </ContentWrapper>
-            {console.log(dummyCarrerr.employment)}
             <ContentWrapper>
                 <CarreerEmployment list={dummyCarrerr.employment} />
             </ContentWrapper>

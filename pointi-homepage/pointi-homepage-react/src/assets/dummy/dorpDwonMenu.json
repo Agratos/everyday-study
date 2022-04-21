@@ -2,29 +2,57 @@
     "data":[
         {
             "id":0,
+            "path":"/", 
             "title":"Home",
             "list": []
         },{
             "id":1,
+            "path":"/company", 
             "title":"회사소개",
             "list": [
-                "CEO 인사말",
-                "회사 연역",
-                "조직 구성",
-                "특허 현황",
-                "관계사",
-                "오시는 길"
+                {
+                    "path" :"/carrer#1",
+                    "text" :"CEO 인사말"
+                },
+                {
+                    "path" :"/carrer#1",
+                    "text" :"회사 연역"
+                },
+                {
+                    "path" :"/carrer#1",
+                    "text" :"조직 구성"
+                },
+                {
+                    "path" :"/carrer#1",
+                    "text" :"특허 현황"
+                },
+                {
+                    "path" :"/carrer#1",
+                    "text" :"관계사"
+                },
+                {
+                    "path" :"/carrer#1",
+                    "text" :"오시는 길"
+                }
             ]
         },{
             "id":2,
+            "path":"/service", 
             "title":"솔루션",
             "list": []
         },{
             "id":4,
+            "path":"/carrer", 
             "title":"Carrers",
             "list": [
-                "인재관리철학&amp;인재상",
-                "입사지원&amp;채용공고"
+                {
+                    "path" :"/carrer#talent",
+                    "text" :"인재관리철학&amp;인재상"
+                },
+                {
+                    "path" :"/carrer#employment",
+                    "text" :"입사지원&amp;채용공고"
+                }
             ]
         }
     ]
