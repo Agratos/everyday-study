@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import mainData from 'assets/dummy/main.json';
 import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
-import { IoIosGlobe, IoIosBarcode  } from "react-icons/io";
+import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/io";
 
 const Wrapper = styled.div`
     margin: 4vh 10vw;
@@ -108,8 +108,8 @@ const MainSubject = () => {
                                 {
                                     index === 0 ? <IoIosGlobe size={56} />
                                     : (index === 1 ? <IoIosBarcode size={56}/>
-                                    : (index === 2 ? <IoIosBarcode size={56}/>
-                                    : <IoIosBarcode size={56}/>))
+                                    : (index === 2 ? <IoIosRadio size={56}/>
+                                    : <IoIosStats size={56}/>))
                                 }
                                 </ReactIconWrapper>
                                 { solution.map((data, index) =>(
