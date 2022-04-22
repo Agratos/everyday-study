@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 import CarreerContentList from './CarreerContentList';
 import CarreerEmployment from './CarreerEmployment';
 import dummyCarrerr from 'assets/dummy/carreer.json';
 import rightPeople1 from 'assets/imgs/carreer/right_people1.png';
 import rightPeople2 from 'assets/imgs/carreer/right_people2.png';
-import useLinkToId from 'containers/hooks/useLinkToId';
+import LinkToId from 'containers/link/LinkToId';
 
 const Wrapper = styled.div`
     //border: 1px solid black;
@@ -33,7 +32,7 @@ const ContentImge = styled.img`
 `;
 
 const CarreerSubject = () => {
-    useLinkToId();
+    LinkToId();
 
     return(
         <Wrapper>

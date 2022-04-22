@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-const useLinkToId = () => {
+const LinkToId = () => {
     let { id } = useParams();
     useEffect(() => {
         document.getElementById(id).scrollIntoView(); 
     },[id])  
 }
 
-export default useLinkToId;
+export default LinkToId;

@@ -7,7 +7,7 @@
             "list": []
         },{
             "id":1,
-            "path":"/company", 
+            "path":"/company/top", 
             "title":"회사소개",
             "list": [
                 {

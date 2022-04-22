@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
@@ -78,7 +78,7 @@ const LinkWrapper = styled.div`
 
 const HeaderDropDown = () => {
     return (
-        <Wrapper id="top">
+        <Wrapper>
             <HeaderMiddleArea>
                 <RightLogoArea>
                     <Link to='/' ><RithtLogo src={logo} /></Link>

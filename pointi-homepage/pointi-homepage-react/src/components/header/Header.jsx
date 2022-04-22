@@ -61,7 +61,7 @@ const Header = ({ title }) => {
     }, [dataIndex] )
 
     return (
-        <Wrapper logo={imgData[dataIndex%2]}>
+        <Wrapper logo={imgData[dataIndex%2]}  id="top">
             <HeaderTop />
             <HeaderMiddle />
             { title === undefined ?
