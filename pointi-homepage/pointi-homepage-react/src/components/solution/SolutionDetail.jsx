@@ -79,7 +79,7 @@ const SolutionDetail = ({data}) => {
             <Title>{data.title}</Title>
             <SolutionWrapper>
                 <ImgWrapper>
-                    <Img src={img.Test} />
+                    <Img src={`imgs/${data.image}`} />
                 </ImgWrapper>
                 <TextWrapper>
                     <TitleWrapper>
