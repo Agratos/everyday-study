@@ -37,6 +37,12 @@
             ]
         },{
             "id":2,
+            "path":"/technology", 
+            "title":"Technology",
+            "list": []
+        }
+        ,{
+            "id":3,
             "path":"/service", 
             "title":"솔루션",
             "list": []

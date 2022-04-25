@@ -4,11 +4,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
 import dummyMenu from 'assets/dummy/dorpDwonMenu.json';
 import { Link } from 'react-router-dom';
+import ScrollEvent from 'containers/scroll/ScrollEvent';
 
 const Wrapper = styled.div`
     padding: 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     height: 78;
+    //position: fixed;
 `;
 const HeaderMiddleArea = styled.div`
     display: flex;
@@ -36,13 +38,14 @@ const DropDownWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background-color: white;
-    min-width: 12vw;
+    //min-width: 10vw;
     text-align: left;
     padding: 0 24px 0 24px;
     position: absolute;
     opacity: 0;
     transition: all 0.8s;
     pointer-events: none;
+    padding: 8px ;
 `;
 const MenuBarText = styled(Link)`
     display: inline-block;
@@ -77,6 +80,8 @@ const LinkWrapper = styled.div`
 
 
 const HeaderDropDown = () => {
+    //const isScrollDowun = ScrollEvent();
+    //console.log(isScrollDowun);
     return (
         <Wrapper>
             <HeaderMiddleArea>

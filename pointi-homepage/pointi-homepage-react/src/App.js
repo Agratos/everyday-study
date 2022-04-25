@@ -6,8 +6,11 @@ import Main from './page/Main';
 import Company from './page/Company';
 import Services from './page/Services';
 import Carreer from 'page/Carreer';
+import Technology from 'page/Technology';
+
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -19,6 +22,7 @@ const App = () => {
         <Route path="/company/:id" element={<Company />} />
         <Route path="/service" element={<Services />} />
         <Route path="/carrer/:id" element={<Carreer />} />
+        <Route path="/technology" element={<Technology />} />
       </Routes>
     </BrowserRouter>
   )

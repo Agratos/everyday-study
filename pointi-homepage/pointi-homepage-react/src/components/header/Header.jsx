@@ -45,6 +45,8 @@ const SliderAreaTextButton = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 3vh;
+    text-decoration-line: none;
     &:hover {
         background: linear-gradient(45deg,#05aae6,#0181f5);
     }

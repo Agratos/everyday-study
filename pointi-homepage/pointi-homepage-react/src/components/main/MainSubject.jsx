@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import mainData from 'assets/dummy/main.json';
 import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
@@ -9,10 +10,9 @@ const Wrapper = styled.div`
     height: fit-content;
 `;
 const MainTitle = styled.div`
-    font-size: 40px;
+    font-size: 48px;
     text-align: center;
-    margin-top: 8vh;
-    margin-bottom: 5vh;
+    margin: 10vh 0;
 `;
 const MainIntroSolutionWrapper = styled.div`
     display: flex;
@@ -82,12 +82,13 @@ const MainSolutionText = styled.div`
     line-height: 24px;
     color: #555454;
 `;
-const MainSolutionButton = styled.div`
+const MainSolutionButton = styled(Link)`
     color: white;
     background-color: #007BFF;
     padding: 12px;
     border-radius: 12px;
     width: fit-content;
+    text-decoration-line: none;
     &:hover {
         cursor: pointer;
     }
@@ -125,7 +126,7 @@ const MainSubject = () => {
                     <MainSolutionTitle>{mainData.mainSolution.title}</MainSolutionTitle>
                     <MainSolutionText>{mainData.mainSolution.text[0]}</MainSolutionText>
                     <MainSolutionText>{mainData.mainSolution.text[1]}</MainSolutionText>
-                    <MainSolutionButton>{mainData.mainSolution.title}</MainSolutionButton>
+                    <MainSolutionButton to='/service'>{mainData.mainSolution.title}</MainSolutionButton>
                 </MainSolution>
             </MainIntroSolutionWrapper>
         </Wrapper>
