@@ -2,24 +2,20 @@
     "data":[
         {
             "id":0,
-            "image":"assets/imgs/banner/banner.png",
             "text1":"Big Oppertunity",
             "text2":"For Your Business"
         },
         {
             "id":1,
-            "image":"assets/imgs/banner/banner_2.png",
             "text1":"Big Oppertunity",
             "text2":"For Your Business"
         },
         {
             "id":2,
-            "image":"assets/imgs/banner/banner.png",
             "text1":"Create IT Solution",
             "text2":"With POINT-I"
         },{
             "id":3,
-            "image":"assets/imgs/banner/banner_2.png",
             "text1":"글로벌 IT기업",
             "text2":"포인트아이"
         }
