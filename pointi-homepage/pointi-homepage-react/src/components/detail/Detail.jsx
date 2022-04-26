@@ -64,9 +64,6 @@ const LinkButton = styled.div`
 `;
 
 const Detail = ({data, type}) => {
-
-    console.log(data);
-
     return (
         <Wrapper>
             <Title>{data.title}</Title>
@@ -80,18 +77,18 @@ const Detail = ({data, type}) => {
                         { type === 'solution' ? <TextTitle>솔루션</TextTitle> : <TextTitle>기능</TextTitle>}
                     </TitleWrapper>
                     {data[type].map((solution, index) => (
-                        <Solution>{solution}</Solution>
+                        <Solution key={`${type}${index}`}>{solution}</Solution>
                     ))}
                     <TitleWrapper>
                         <IconWrapper><BsFillStopFill /></IconWrapper>
                         <TextTitle>주요 기능</TextTitle>
                     </TitleWrapper>
-                    {data.function.map((func) => (
-                        <FunctionWrapper>
+                    {data.function.map((func, index) => (
+                        <FunctionWrapper key={`function${index}`}>
                             <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
                             <FunctionTitle>{func.title}</FunctionTitle>
-                            {func.explan && func.explan.map((ex) => (
-                                <FunctionEx>-{ex}</FunctionEx>
+                            {func.explan && func.explan.map((ex, index) => (
+                                <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
                             ))}
                         </FunctionWrapper>
                     ))}
@@ -102,8 +99,8 @@ const Detail = ({data, type}) => {
                                 <TextTitle>관련 키워드</TextTitle>
                             </TitleWrapper>
                             <KeywordWrapper> 
-                                {data.keyword.map((keyword) => (
-                                    <Keyword>#{keyword}</Keyword>
+                                {data.keyword.map((keyword, index) => (
+                                    <Keyword key={`datakeyword ${index}`}>#{keyword}</Keyword>
                                 ))}
                             </KeywordWrapper>
                         </div>
@@ -114,8 +111,8 @@ const Detail = ({data, type}) => {
                                 <IconWrapper><BsFillStopFill /></IconWrapper>
                                 <TextTitle>적용분야</TextTitle>
                             </TitleWrapper>
-                            {data.adaptation.map((adapt) => (
-                                <FunctionWrapper>
+                            {data.adaptation.map((adapt, index) => (
+                                <FunctionWrapper key={`adaptation ${index}`}>
                                     <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
                                     <FunctionTitle>{adapt}</FunctionTitle>
                                 </FunctionWrapper>
@@ -125,8 +122,8 @@ const Detail = ({data, type}) => {
                 </TextWrapper>
             </DetailWrapper>
             { data.link != undefined &&
-                data.link.map((link) => (
-                    <LinkWrapper>
+                data.link.map((link,index) => (
+                    <LinkWrapper key={`link ${index}`}>
                         <TitleWrapper>
                             <IconWrapper><BsFillStopFill /></IconWrapper>
                             <TextTitle>관련링크</TextTitle>

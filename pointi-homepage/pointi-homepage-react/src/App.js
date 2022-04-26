@@ -7,8 +7,8 @@ import Company from './page/CompanyPage';
 import Services from './page/ServicesPage';
 import Carreer from 'page/CarreerPage';
 import Technology from 'page/TechnologyPage';
-import Header from 'components/header/Header';
-
+import ScrollRestoration from 'containers/scroll/ScrollRestoration';
+import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
 const App = () => {
 
@@ -23,6 +23,7 @@ const App = () => {
         <Route path="/company/:id" element={<Company />} />
         <Route path="/service" element={<Services />} />
         <Route path="/carrer/:id" element={<Carreer />} />
+        <Route path="/carrer" element={<Carreer />} />
         <Route path="/technology" element={<Technology />} />
       </Routes>
     </BrowserRouter>
