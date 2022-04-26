@@ -8,7 +8,7 @@
         },{
             "id":1,
             "path":"/company/top", 
-            "title":"회사소개",
+            "title":"Introduce",
             "list": [
                 {
                     "path" :"/carrer/greetings",
@@ -44,7 +44,7 @@
         ,{
             "id":3,
             "path":"/service", 
-            "title":"솔루션",
+            "title":"Solution",
             "list": []
         },{
             "id":4,

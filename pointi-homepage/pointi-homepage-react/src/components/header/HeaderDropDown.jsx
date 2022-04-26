@@ -10,7 +10,11 @@ const Wrapper = styled.div`
     padding: 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     height: 78;
-    //position: fixed;
+    position: ${props => props.isScrollDowun && 'fixed'};
+    background-color: ${props => props.isScrollDowun && props.color};
+    top: ${props => props.isScrollDowun && '0'};
+    width: ${props => props.isScrollDowun && '100vw'} ;
+    animation: reverse;
 `;
 const HeaderMiddleArea = styled.div`
     display: flex;
@@ -48,7 +52,7 @@ const DropDownWrapper = styled.div`
     padding: 8px ;
 `;
 const MenuBarText = styled(Link)`
-    display: inline-block;
+    display: flex;
     color: white;
     font-weight: bolder;
     font-size: 16px;
@@ -77,13 +81,19 @@ const LinkWrapper = styled.div`
             pointer-events: auto;
         }
 `;
-
+const IconWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 4px;
+    margin-left: 2px;
+`;
 
 const HeaderDropDown = () => {
-    //const isScrollDowun = ScrollEvent();
-    //console.log(isScrollDowun);
+    const isScrollDowun = ScrollEvent();
+
     return (
-        <Wrapper>
+        <Wrapper isScrollDowun={isScrollDowun} color={'#0f0e0e'}>
             <HeaderMiddleArea>
                 <RightLogoArea>
                     <Link to='/' ><RithtLogo src={logo} /></Link>
@@ -95,7 +105,7 @@ const HeaderDropDown = () => {
                                 <LinkWrapper key={`menu-bar-text-${index}`}>
                                     <MenuBarText to={data.path}>
                                         {data.title}
-                                        <IoIosArrowDown />
+                                        <IconWrapper><IoIosArrowDown /></IconWrapper>
                                     </MenuBarText>
                                     <DropDownWrapper>
                                         {data.list.map( (list,index) => (

@@ -1,32 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import  * as img from 'assets/imgs/solution';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 
 const Wrapper = styled.div`
-    border: 1px solid black;
+    border-top: 1px solid #E8E8E8;
 `;
 const Title = styled.div`
-    //border: 1px solid black;
     font-size: 40px;
     text-align: center;
     margin: 48px 0;
 `;
-const SolutionWrapper = styled.div`
+const DetailWrapper = styled.div`
     display: flex;
     line-height: 32px;
 `;
-const ImgWrapper = styled.div`
-    //border: 1px solid black;
-    //width: auto;
-`;
+const ImgWrapper = styled.div``;
 const Img = styled.img``;
 const TextWrapper = styled.div`
     padding: 16px;
 `;
 const TitleWrapper = styled.div`
     display: flex;
-    margin-top: 32px;
 `;
 const IconWrapper = styled.div`
     display: flex;
@@ -69,24 +63,23 @@ const LinkButton = styled.div`
     }
 `;
 
-const SolutionDetail = ({data}) => {
-    console.log(`img.${data.image}`)
-    console.log(img.Test);
-    console.log(img.Test2);
+const Detail = ({data, type}) => {
+
+    console.log(data);
 
     return (
         <Wrapper>
             <Title>{data.title}</Title>
-            <SolutionWrapper>
+            <DetailWrapper>
                 <ImgWrapper>
-                    <Img src={`imgs/${data.image}`} />
+                    <Img src={`imgs/${type}/${data.image}`} />
                 </ImgWrapper>
                 <TextWrapper>
                     <TitleWrapper>
                         <IconWrapper><BsFillStopFill /></IconWrapper>
-                        <TextTitle>솔루션</TextTitle>
+                        { type === 'solution' ? <TextTitle>솔루션</TextTitle> : <TextTitle>기능</TextTitle>}
                     </TitleWrapper>
-                    {data.solution.map((solution, index) => (
+                    {data[type].map((solution, index) => (
                         <Solution>{solution}</Solution>
                     ))}
                     <TitleWrapper>
@@ -102,28 +95,47 @@ const SolutionDetail = ({data}) => {
                             ))}
                         </FunctionWrapper>
                     ))}
-                    <TitleWrapper>
-                        <IconWrapper><BsFillStopFill /></IconWrapper>
-                        <TextTitle>관련 키워드</TextTitle>
-                    </TitleWrapper>
-                    <KeywordWrapper> 
-                        {data.keyword.map((keyword) => (
-                            <Keyword>#{keyword}</Keyword>
-                        ))}
-                    </KeywordWrapper>
+                    { data.keyword != undefined &&
+                        <div>
+                            <TitleWrapper>
+                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                                <TextTitle>관련 키워드</TextTitle>
+                            </TitleWrapper>
+                            <KeywordWrapper> 
+                                {data.keyword.map((keyword) => (
+                                    <Keyword>#{keyword}</Keyword>
+                                ))}
+                            </KeywordWrapper>
+                        </div>
+                    }
+                    { data.adaptation != undefined &&
+                        <div>
+                            <TitleWrapper>
+                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                                <TextTitle>적용분야</TextTitle>
+                            </TitleWrapper>
+                            {data.adaptation.map((adapt) => (
+                                <FunctionWrapper>
+                                    <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
+                                    <FunctionTitle>{adapt}</FunctionTitle>
+                                </FunctionWrapper>
+                            ))}
+                        </div>
+                    }
                 </TextWrapper>
-            </SolutionWrapper>
-            {data.link.map((link) => (
-                <LinkWrapper>
-                    <TitleWrapper>
-                        <IconWrapper><BsFillStopFill /></IconWrapper>
-                        <TextTitle>관련링크</TextTitle>
-                    </TitleWrapper>
-                    <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
-                </LinkWrapper>
-            ))}
+            </DetailWrapper>
+            { data.link != undefined &&
+                data.link.map((link) => (
+                    <LinkWrapper>
+                        <TitleWrapper>
+                            <IconWrapper><BsFillStopFill /></IconWrapper>
+                            <TextTitle>관련링크</TextTitle>
+                        </TitleWrapper>
+                        <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
+                    </LinkWrapper>
+                ))}
         </Wrapper>
     )
 }
 
-export default SolutionDetail;
+export default Detail;

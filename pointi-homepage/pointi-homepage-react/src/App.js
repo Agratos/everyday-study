@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import GlobalStyle from 'styles/GlobalStyle';
-import Main from './page/Main';
-import Company from './page/Company';
-import Services from './page/Services';
-import Carreer from 'page/Carreer';
-import Technology from 'page/Technology';
+import Main from './page/MainPage';
+import Company from './page/CompanyPage';
+import Services from './page/ServicesPage';
+import Carreer from 'page/CarreerPage';
+import Technology from 'page/TechnologyPage';
 
 
 const App = () => {

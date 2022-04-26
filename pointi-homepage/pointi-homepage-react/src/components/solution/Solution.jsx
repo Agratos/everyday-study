@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
-import SolutionListCard from './SolutionListCard';
 import dummySolution from 'assets/dummy/solution.json';
-import SolutionDetail from './SolutionDetail';
+import Detail from 'components/detail/Detail';
 
 const Wrapper = styled.div`
     display: flex;
@@ -15,21 +14,17 @@ const SolutionListWrapper = styled.div`
     padding: 0 4vw;
 `;
 
-const SolutionSubject = () => {
-    const [isClick, setIsClick] = useState('야생동물 감지시스템');
-    
-    useEffect(() => {    
-    },[isClick])
-
+const Solution = () => {
+    const [isClick, setIsClick] = useState('야생동물 감지시스템');  
     
     return (
         <Wrapper>
             <MenuKategorie kategorie={dummySolution.kategorie} width={'58vw'} setIsClick={setIsClick} isClick={isClick}/>
             <SolutionListWrapper >
-                <SolutionDetail data={dummySolution[isClick]} />
+                <Detail data={dummySolution[isClick]} type='solution' />
             </SolutionListWrapper>           
         </Wrapper>
     )
 }
 
-export default SolutionSubject;
+export default Solution;

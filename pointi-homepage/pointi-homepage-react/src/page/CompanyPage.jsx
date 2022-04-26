@@ -2,18 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
-import SolutionSubject from 'components/solution/SolutionSubject';
 
 const Wrapper = styled.div``;
 
-const Services = () => {
+const CompanyPage = () => {
     return (
         <Wrapper>
-            <Header title='PointI Solution' />
-            <SolutionSubject />
+            <Header title='Introduce' />
+
             <Footer />
         </Wrapper>
     );
 };
 
-export default Services;
+export default CompanyPage;

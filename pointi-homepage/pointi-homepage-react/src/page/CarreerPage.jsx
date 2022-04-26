@@ -1,21 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/header/Header';
-import Counter from 'components/counter/Counter';
 import Footer from 'components/footer/Footer';
-import MainSubject from 'components/main/MainSubject';
+import Carreer from 'components/carreer/Carreer';
 
 const Wrapper = styled.div``;
 
-const Main = () => {
+const CarreerPage = () => {
     return (
         <Wrapper>
-            <Header />
-            <MainSubject/>
-            <Counter />
+            <Header title='Careers' />
+            <Carreer />
             <Footer />
         </Wrapper>
-    );
-};
+    )
+}
 
-export default Main;
+export default CarreerPage;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import HeaderTop from './HeaderTop';
-import HeaderMiddle from './HeaderDropDown';
+import HeaderDropDown from './HeaderDropDown';
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
 import dummyHeaderChnageData from 'assets/dummy/headerChangeData.json';
@@ -65,7 +65,7 @@ const Header = ({ title }) => {
     return (
         <Wrapper logo={imgData[dataIndex%2]}  id="top">
             <HeaderTop />
-            <HeaderMiddle />
+            <HeaderDropDown />
             { title === undefined ?
                 <SliderArea height='85vh'> 
                        {dummyHeaderChnageData.data.map((data,index) => (

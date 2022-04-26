@@ -31,7 +31,7 @@ const ContentImge = styled.img`
     margin: 0 16px;
 `;
 
-const CarreerSubject = () => {
+const Carreer = () => {
     LinkToId();
 
     return(
@@ -52,4 +52,4 @@ const CarreerSubject = () => {
     )
 }
 
-export default CarreerSubject;
+export default Carreer;

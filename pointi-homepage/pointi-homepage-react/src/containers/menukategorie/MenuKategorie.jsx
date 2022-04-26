@@ -11,6 +11,7 @@ const Wrapper = styled.div`
     &:hover {
         cursor: pointer;
     }
+    margin-bottom: 48px;
 `;
 const Kategorie = styled.div`
     font-size: 1.2rem;

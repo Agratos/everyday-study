@@ -94,7 +94,7 @@ const MainSolutionButton = styled(Link)`
     }
 `;
 
-const MainSubject = () => {
+const Main = () => {
     return (
         <Wrapper>
             <MainTitle>{mainData.title}</MainTitle>
@@ -133,4 +133,4 @@ const MainSubject = () => {
     )
 }
 
-export default MainSubject;
+export default Main;

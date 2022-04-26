@@ -1,83 +1,101 @@
 {
+    "kategorie" : [
+        "Multi-Media Process",
+        "Mass capacity IP Platform",
+        "Media Analytics Based on Deep Learning",
+        "Operation/Management Service",
+        "Mobile Core Network"
+    ],
     "Multi-Media Process" :{
-        "image" : "~~~~~~~~~~~",
+        "title": "Multi-Media Process",
+        "image" : "multiMediaProcess.png",
         "technology" : [
-            "~~~~~~~~~~~~",
-            "~~~~~~~~~~~~"
+            "대용량(4K/8K) 영상처리 및 Transcoding, Streaming"
         ],
         "function" : [
-            ["~~~~~~~~~","~~~~~~~~~"],
-            ["~~~~~~~~~~"],
-            ["~~~~~~~~~~", "~~~~~~~~~~", "~~~~~~~~~~~~"]
+            {
+                "title": "대용량 실시간 4k/8K Transcoding, Streaming",
+                "explan": []
+            },
+            {
+                "title": "다양한 Audio/Video Codec 지원",
+                "explan": [
+                    "Audio: PCMA, AMR, AMR-WB, AAC, EVS 등",
+                    "Video: H.263, H.264, H.265(HEVC) 등"
+                ]
+            },
+            {
+                "title": "다양한 Media Contents 지원",
+                "explan": [
+                    "3gp, mp4, avi, wmv 등"
+                ]
+            },
+            {
+                "title": "다양한 Media 처리",
+                "explan": [
+                    "Voice Activity Detection, Echo Cancellation 등",
+                    "Text Overlay, Audio/Video Mixing 등",
+                    "Media Play, Record, Relay",
+                    "Protocol : RTP/RTCP, RTSP 등"
+                ]
+            },
+            {
+                "title": "S/W, H/W(DSP, GPU), NFV(가상화) 기반 처리",
+                "explan": []
+            }
         ],
         "adaptation" : [
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~"
+            "영상 회의, CCTV 관제 시스템",
+            "텔레프레즌스, 원격교육/의료, 멀티스크린 방송 등"
         ]
-    },"Mobile Core Network" :{
-        "image" : "~~~~~~~~~~~",
+    },
+    "Mass capacity IP Platform" :{
+        "title": "Mass capacity IP Platform",
+        "image" : "massCapacityIpPlatform.png",
         "technology" : [
-            "~~~~~~~~~~~~",
-            "~~~~~~~~~~~~"
+            "대용량 IP 플랫폼"
         ],
         "function" : [
-            ["~~~~~~~~~","~~~~~~~~~"],
-            ["~~~~~~~~~~"],
-            ["~~~~~~~~~~", "~~~~~~~~~~", "~~~~~~~~~~~~"]
+            {
+                "title": "다양한 연동 Interface 지원",
+                "explan": [
+                    "IP, ATM, E1 기반 Interface"
+                ]
+            },
+            {
+                "title": "다양한 Protocol 지원",
+                "explan": [
+                    "Signal: SIP, SDP, ISUP, SIGTRAN, DIAMETER, SS7 등",
+                    "Media: RTP/RTCP, MEGACO(H.248), H.324 등"
+                ]
+            },
+            {
+                "title": "국가 단위의 Million 가입자 처리",
+                "explan": []
+            },
+            {
+                "title": "다양한 Platform 적용 가능",
+                "explan": [
+                    "Cloud, COTS기반 NFV, ATCA Platform"
+                ]
+            },
+            {
+                "title": "Voice XML 동적 시나리오 지원",
+                "explan": [
+                    "Voice XML기반의 실시간 시나리오 변경",
+                    "DTMF기반의 자동 시나리오 처리"
+                ]
+            },
+            {
+                "title": "가상화(NFV) 플랫폼 지원",
+                "explan": [
+                    "VNFM연동 (Life Cycle, 알람 NOTI 등)",
+                    "가상화 환경 Network 감시, 절체 기능"
+                ]
+            }
         ],
         "adaptation" : [
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~"
-        ]
-    },"Mass capacity IP Platform" :{
-        "image" : "~~~~~~~~~~~",
-        "technology" : [
-            "~~~~~~~~~~~~",
-            "~~~~~~~~~~~~"
-        ],
-        "function" : [
-            ["~~~~~~~~~","~~~~~~~~~"],
-            ["~~~~~~~~~~"],
-            ["~~~~~~~~~~", "~~~~~~~~~~", "~~~~~~~~~~~~"]
-        ],
-        "adaptation" : [
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~"
-        ]
-    },"Media Analytics Based on Deep Learning" :{
-        "image" : "~~~~~~~~~~~",
-        "technology" : [
-            "~~~~~~~~~~~~",
-            "~~~~~~~~~~~~"
-        ],
-        "function" : [
-            ["~~~~~~~~~","~~~~~~~~~"],
-            ["~~~~~~~~~~"],
-            ["~~~~~~~~~~", "~~~~~~~~~~", "~~~~~~~~~~~~"]
-        ],
-        "adaptation" : [
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~"
-        ]
-    },"Operation/Management Service" :{
-        "image" : "~~~~~~~~~~~",
-        "technology" : [
-            "~~~~~~~~~~~~",
-            "~~~~~~~~~~~~"
-        ],
-        "function" : [
-            ["~~~~~~~~~","~~~~~~~~~"],
-            ["~~~~~~~~~~"],
-            ["~~~~~~~~~~", "~~~~~~~~~~", "~~~~~~~~~~~~"]
-        ],
-        "adaptation" : [
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~",
-            "~~~~~~~~~~~~~~~~"
+            "ARS, 음성/영상 RBT(통화연결음), 사서함 등"
         ]
     }
 }
