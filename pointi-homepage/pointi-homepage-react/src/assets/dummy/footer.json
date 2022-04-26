@@ -24,28 +24,33 @@
             "id":2,
             "list":[
                 "솔루션",
-                "Media Process",
-                "VIC",
-                "IMGW",
-                "IBC"
+                "야생동물 감지시스템",
+                "이미지분류서비스",
+                "MEC Router",
+                "T그룹통화",
+                "빅데이터 UI/UX",
+                "MGCF"
             ]
         },{
             "id":3,
             "list":[
                 "솔루션",
-                "M-ARS",
-                "T-ARS",
+                "IBC",
+                "통합관제 (GUI)",
                 "컬러링",
-                "통합사서함"
+                "부가서비스",
+                "사서함",
+                "영상정보센터"
             ]
         },{
             "id":4,
             "list":[
-                "솔루션",
-                "AI/AR",
-                "IoT",
-                "SI",
-                "e-Commerce"
+                "기술",
+                "Multi-Media Process",
+                "Mass capacity IP Platform",
+                "Media Analytics Based on Deep Learning",
+                "Operation/Management Service",
+                "Mobile Core Network"
             ]
         }
     ]

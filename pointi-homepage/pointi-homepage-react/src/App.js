@@ -7,6 +7,7 @@ import Company from './page/CompanyPage';
 import Services from './page/ServicesPage';
 import Carreer from 'page/CarreerPage';
 import Technology from 'page/TechnologyPage';
+import Header from 'components/header/Header';
 
 
 const App = () => {

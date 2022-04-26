@@ -5,7 +5,7 @@ import HeaderDropDown from './HeaderDropDown';
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
 import dummyHeaderChnageData from 'assets/dummy/headerChangeData.json';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Wrapper = styled.div`
     max-height: 800px;
@@ -84,6 +84,7 @@ const Header = ({ title }) => {
                     </SliderAreaTextWrapper>
                 </SliderArea>
             }
+            <Outlet />
         </Wrapper>
     )
 }
