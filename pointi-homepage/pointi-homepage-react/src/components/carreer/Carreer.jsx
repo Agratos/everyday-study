@@ -35,12 +35,12 @@ const Carreer = () => {
         <Wrapper id='talent'>
             <MainTitle>{dummyCarrerr.title}</MainTitle>
             <ContentWrapper>
-                <ContentImge src={`imgs/carreer/${dummyCarrerr.philosophy.image}`} />
+                <ContentImge src={require(`assets/imgs/carreer/${dummyCarrerr.philosophy.image}`)} />
                 <CarreerContentList list={dummyCarrerr.philosophy} />
             </ContentWrapper>
             <ContentWrapper>
                 <CarreerContentList list={dummyCarrerr.talent} margin={'60px'} />
-                <ContentImge src={`imgs/carreer/${dummyCarrerr.talent.image}`} />
+                <ContentImge src={require(`assets/imgs/carreer/${dummyCarrerr.talent.image}`)} />
             </ContentWrapper>
             <ContentWrapper>
                 <CarreerEmployment list={dummyCarrerr.employment} />

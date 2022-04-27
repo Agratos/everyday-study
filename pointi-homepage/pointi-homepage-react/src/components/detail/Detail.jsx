@@ -69,7 +69,7 @@ const Detail = ({data, type}) => {
             <Title>{data.title}</Title>
             <DetailWrapper>
                 <ImgWrapper>
-                    <Img src={`imgs/${type}/${data.image}`} />
+                    <Img src={require(`assets/imgs/${type}/${data.image}`)} />
                 </ImgWrapper>
                 <TextWrapper>
                     <TitleWrapper>

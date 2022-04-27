@@ -3,12 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
-import Company from './page/CompanyPage';
+import IntroducePage from './page/IntroducePage';
 import Services from './page/ServicesPage';
 import Carreer from 'page/CarreerPage';
 import Technology from 'page/TechnologyPage';
-import ScrollRestoration from 'containers/scroll/ScrollRestoration';
-import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
 const App = () => {
 
@@ -20,7 +18,7 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/company/:id" element={<Company />} />
+        <Route path="/introduce/:id" element={<IntroducePage />} />
         <Route path="/service" element={<Services />} />
         <Route path="/carrer/:id" element={<Carreer />} />
         <Route path="/carrer" element={<Carreer />} />

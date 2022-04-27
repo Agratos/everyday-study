@@ -13,7 +13,7 @@ const ScrollToMoveId = () => {
         : currnetUrl === aftertUrl ? window.scroll({top: 0, left: 0, behavior:'smooth'})
         : window.scroll(0,0)
         setCurrentUrl(aftertUrl);
-    },[id])  
+    },[id,currnetUrl,currnetUrl])  
 }
 
 export default ScrollToMoveId;

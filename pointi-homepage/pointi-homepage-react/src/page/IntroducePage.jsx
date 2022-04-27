@@ -6,7 +6,7 @@ import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
 const Wrapper = styled.div``;
 
-const CompanyPage = () => {
+const IntroducePage = () => {
     ScrollToMoveId();
     return (
         <Wrapper>
@@ -17,4 +17,4 @@ const CompanyPage = () => {
     );
 };
 
-export default CompanyPage;
+export default IntroducePage;

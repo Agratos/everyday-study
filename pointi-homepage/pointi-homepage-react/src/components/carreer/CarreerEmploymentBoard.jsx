@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Pagination from "containers/pagenation/Pagination";
-import ScrollToMoveId from "containers/scroll/ScrollToMoveId";
+
 
 const Wrapper = styled.div`
     width: 80%;
@@ -48,16 +48,16 @@ const Img = styled.img`
 
 
 const CarreerEmploymentBoard = ( {list} ) => {
-    const [limit, setLimit] = useState(5);
+    const [ limit ] = useState(5);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
     const [ isClick, setIsClcik ] = useState();
     
     const IsClickHandlle = (e) => {   
-        e.target.id === isClick ? (
+        Number(e.target.id) === isClick ? (
             setIsClcik()
             ) : (
-                setIsClcik(e.target.id)
+                setIsClcik(Number(e.target.id))
             )
         document.getElementById('board-top').scrollIntoView({behavior:'smooth'})
     }
@@ -78,9 +78,9 @@ const CarreerEmploymentBoard = ( {list} ) => {
                         <ListTitleWrapper id={offset + index} onClick={(e) => IsClickHandlle(e)}>{title}</ListTitleWrapper>
                     </TextWrapper>
                     {
-                        isClick == (index + offset) && (
+                        isClick === (index + offset) && (
                             <ImgWrapper>
-                                <Img src={`imgs/carreer/${image}`} />
+                                <Img src={require(`assets/imgs/carreer/${image}`)} />
                             </ImgWrapper>
                         )
                     }

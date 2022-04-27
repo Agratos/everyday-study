@@ -35,7 +35,7 @@ const CarreerEmployment = ({list}) => {
         <Wrapper id="employment" key='employment'>
             <Title>{list.title}</Title>
             <EmploymentWrapper>
-                <EmploymentImg src={`imgs/carreer/${list.image}`} />
+                <EmploymentImg src={require(`assets/imgs/carreer/${list.image}`)} />
                 <TextWrapper>
                     <EmploymentTitle>{list.process[0]}</EmploymentTitle>
                     <EmploymentText>{list.process[1]}</EmploymentText>
