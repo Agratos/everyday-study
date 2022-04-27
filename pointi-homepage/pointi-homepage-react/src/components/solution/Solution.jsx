@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10vh ;;
+    margin: 10vh ;
 `;
 const SolutionListWrapper = styled.div`
     padding: 0 4vw;
@@ -19,7 +19,7 @@ const Solution = () => {
     
     return (
         <Wrapper>
-            <MenuKategorie kategorie={dummySolution.kategorie} width={'58vw'} setIsClick={setIsClick} isClick={isClick}/>
+            <MenuKategorie kategorie={dummySolution.kategorie} width={'80vw'} setIsClick={setIsClick} isClick={isClick}/>
             <SolutionListWrapper >
                 <Detail data={dummySolution[isClick]} type='solution' />
             </SolutionListWrapper>           

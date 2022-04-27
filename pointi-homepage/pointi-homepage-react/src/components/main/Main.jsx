@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import mainData from 'assets/dummy/main.json';
 import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
 import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/io";
-import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
 const Wrapper = styled.div`
     margin: 4vh 10vw;

@@ -20,7 +20,7 @@ const Technology = () => {
 
     return (
         <Wrapper>
-            <MenuKategorie kategorie={dummyTechnology.kategorie} width={'58vw'} setIsClick={setIsClick} isClick={isClick} />
+            <MenuKategorie kategorie={dummyTechnology.kategorie} width={'70vw'} setIsClick={setIsClick} isClick={isClick} />
             <TechnologyListWrapper >
                 <Detail data={dummyTechnology[isClick]} type='technology' />
             </TechnologyListWrapper>

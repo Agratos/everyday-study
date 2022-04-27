@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import CarreerContentList from './CarreerContentList';
 import CarreerEmployment from './CarreerEmployment';
 import dummyCarrerr from 'assets/dummy/carreer.json';
-import rightPeople1 from 'assets/imgs/carreer/right_people1.png';
-import rightPeople2 from 'assets/imgs/carreer/right_people2.png';
+import CarreerEmploymentBoard from './CarreerEmploymentBoard';
 
 const Wrapper = styled.div`
     //border: 1px solid black;
     margin: 10vh 5vw;
 `;
+const TableWrapper = styled.div``;
 const MainTitle = styled.div`
     //border: 1px solid black;
     font-size: 40px;
@@ -35,16 +35,17 @@ const Carreer = () => {
         <Wrapper id='talent'>
             <MainTitle>{dummyCarrerr.title}</MainTitle>
             <ContentWrapper>
-                <ContentImge src={rightPeople1} />
+                <ContentImge src={`imgs/carreer/${dummyCarrerr.philosophy.image}`} />
                 <CarreerContentList list={dummyCarrerr.philosophy} />
             </ContentWrapper>
             <ContentWrapper>
                 <CarreerContentList list={dummyCarrerr.talent} margin={'60px'} />
-                <ContentImge src={rightPeople2} />
+                <ContentImge src={`imgs/carreer/${dummyCarrerr.talent.image}`} />
             </ContentWrapper>
             <ContentWrapper>
                 <CarreerEmployment list={dummyCarrerr.employment} />
             </ContentWrapper>
+            <CarreerEmploymentBoard list={dummyCarrerr.announcement} />
         </Wrapper>
     )
 }

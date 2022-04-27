@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 1200px;
     width: ${props => props.width};
     line-height: 16px;
     &:hover {

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import picWoman from 'assets/imgs/carreer/pic_woman.jpg';
 
 const Wrapper = styled.div`
     width: 100%;
@@ -31,12 +30,12 @@ const EmploymentText = styled.div`
     margin-bottom: 16px;
 `;
 
-const CarreerEmployment = ({list }) => {
+const CarreerEmployment = ({list}) => {
     return (
         <Wrapper id="employment" key='employment'>
             <Title>{list.title}</Title>
             <EmploymentWrapper>
-                <EmploymentImg src={picWoman} />
+                <EmploymentImg src={`imgs/carreer/${list.image}`} />
                 <TextWrapper>
                     <EmploymentTitle>{list.process[0]}</EmploymentTitle>
                     <EmploymentText>{list.process[1]}</EmploymentText>
