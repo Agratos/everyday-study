@@ -66,6 +66,7 @@ const Header = ({ title }) => {
         <Wrapper logo={imgData[dataIndex%2]}  id="top">
             <HeaderTop />
             <HeaderDropDown />
+            <HeaderDropDown scrollMenu={true}/>
             { title === undefined ?
                 <SliderArea height='85vh'> 
                        {dummyHeaderChnageData.data.map((data,index) => (

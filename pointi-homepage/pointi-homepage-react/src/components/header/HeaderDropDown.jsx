@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
 import dummyMenu from 'assets/dummy/dorpDwonMenu.json';
@@ -8,13 +8,18 @@ import ScrollEvent from 'containers/scroll/ScrollEvent';
 
 const Wrapper = styled.div`
     padding: 16px;
+    padding-bottom: 14px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    height: 78;
-    position: ${props => props.isScrollDowun && 'fixed'};
-    background-color: ${props => props.isScrollDowun && props.color};
-    top: ${props => props.isScrollDowun && '0'};
-    width: ${props => props.isScrollDowun && '100vw'} ;
-    animation: reverse;
+    display: ${props => props.scrollMenu && 'none'};
+    ${(props) => props.isScrollDowun && props.scrollMenu &&
+        css`
+            display: block;
+            background-color: #0f0e0e;
+            position: fixed;
+            top: 0;
+            width: 100vw;
+        ` 
+    }
 `;
 const HeaderMiddleArea = styled.div`
     display: flex;
@@ -89,11 +94,11 @@ const IconWrapper = styled.div`
     margin-left: 2px;
 `;
 
-const HeaderDropDown = () => {
+const HeaderDropDown = ({scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
 
     return (
-        <Wrapper isScrollDowun={isScrollDowun} color={'#0f0e0e'}>
+        <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'}>
             <HeaderMiddleArea>
                 <RightLogoArea>
                     <Link to='/' ><RithtLogo src={logo} /></Link>
