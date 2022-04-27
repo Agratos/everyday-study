@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Pagination from "containers/pagenation/Pagination";
+import ScrollToMoveId from "containers/scroll/ScrollToMoveId";
 
 const Wrapper = styled.div`
     width: 80%;
@@ -53,11 +54,16 @@ const CarreerEmploymentBoard = ( {list} ) => {
     const [ isClick, setIsClcik ] = useState();
     
     const IsClickHandlle = (e) => {   
-        e.target.id === isClick ? setIsClcik() : setIsClcik(e.target.id);
+        e.target.id === isClick ? (
+            setIsClcik()
+            ) : (
+                setIsClcik(e.target.id)
+            )
+        document.getElementById('board-top').scrollIntoView({behavior:'smooth'})
     }
     
     return (
-        <Wrapper>
+        <Wrapper id='board-top'>
             <Title>채용 공고</Title>
             <ListWrapper>
                 <TextWrapper none={true} position={'top'} weight={`bolder`}>

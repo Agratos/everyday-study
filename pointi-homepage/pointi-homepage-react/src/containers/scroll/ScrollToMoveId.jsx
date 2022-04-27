@@ -6,6 +6,7 @@ const ScrollToMoveId = () => {
     let { id } = useParams();
     let aftertUrl = window.location.href.split('/')[3];
 
+
     useEffect(() => {
         id !== undefined ? document.getElementById(id).scrollIntoView({behavior:'smooth'}) 
         : aftertUrl === `` ? window.scroll(0,0)
