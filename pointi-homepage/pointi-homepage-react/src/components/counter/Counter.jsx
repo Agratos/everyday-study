@@ -44,7 +44,7 @@ const DattaTail = styled.div`
 const Counter = () => {
     return(
         <Wrapper id='test'>
-            {dummyCounter.data.map((data,index) => (
+            {dummyCounter.data.map(({mount, title, img},index) => (
                 <DataWrapper key={`counter-data-wrapper-${index}`}>
                     {
                         index === 0 ? <DataImg src={CounterImg.GroupImg} />
@@ -53,7 +53,7 @@ const Counter = () => {
                         : <DataImg src={CounterImg.RespectImg} />))
                     }
                     <DataNumber >
-                        <CountUp end={data.mount} duration={15} />
+                        <CountUp end={mount} duration={15} />
                         {
                             index === 0 ? <DattaTail>+</DattaTail>
                             : (index === 1 ? <DattaTail size='0.8em'>호</DattaTail>
@@ -61,7 +61,7 @@ const Counter = () => {
                             : <DattaTail size=''>+</DattaTail>))
                         }
                     </DataNumber>
-                    <DataText>{data.title}</DataText>
+                    <DataText>{title}</DataText>
                 </DataWrapper>
             ))}
             {/* <CountUp end={300} /> */}

@@ -69,11 +69,11 @@ const Header = ({ title }) => {
             <HeaderDropDown scrollMenu={true}/>
             { title === undefined ?
                 <SliderArea height='85vh'> 
-                       {dummyHeaderChnageData.data.map((data,index) => (
-                            ( data.id === dataIndex && (
+                       {dummyHeaderChnageData.data.map(({id, text1, text2},index) => (
+                            ( id === dataIndex && (
                                 <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
-                                    <SliderAreaText className='text-1'>{data.text1}</SliderAreaText>
-                                    <SliderAreaText className='text-2'>{data.text2}</SliderAreaText>
+                                    <SliderAreaText className='text-1'>{text1}</SliderAreaText>
+                                    <SliderAreaText className='text-2'>{text2}</SliderAreaText>
                                     <SliderAreaTextButton to='/service'>Our Solutions</SliderAreaTextButton>
                                 </SliderAreaTextWrapper>
                             ))   

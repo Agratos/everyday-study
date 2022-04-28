@@ -9,7 +9,6 @@ const Wrapper = styled.div`
     //border: 1px solid black;
     margin: 10vh 5vw;
 `;
-const TableWrapper = styled.div``;
 const MainTitle = styled.div`
     //border: 1px solid black;
     font-size: 40px;

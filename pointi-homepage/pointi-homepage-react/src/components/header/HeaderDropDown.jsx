@@ -105,23 +105,23 @@ const HeaderDropDown = ({scrollMenu}) => {
                 </RightLogoArea>
                 <MenuBarArea>
                     <MenuBar>
-                        { dummyMenu.data.map( (data,index) => (
-                            ( data.list.length !== 0 ? (
+                        { dummyMenu.data.map( ({list, path, title},index) => (
+                            ( list.length !== 0 ? (
                                 <LinkWrapper key={`menu-bar-text-${index}`}>
-                                    <MenuBarText to={data.path}>
-                                        {data.title}
+                                    <MenuBarText to={path}>
+                                        {title}
                                         <IconWrapper><IoIosArrowDown /></IconWrapper>
                                     </MenuBarText>
                                     <DropDownWrapper>
-                                        {data.list.map( (list,index) => (
-                                            <DropDownText to={list.path} key={`drop-down-text-${index}`}>{list.text}</DropDownText>
+                                        {list.map( ({path, text},index) => (
+                                            <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
                                         ))}
                                     </DropDownWrapper>
                                 </LinkWrapper>
                             )
                             : 
                             <LinkWrapper key={`menu-bar-text-${index}`}>
-                                <MenuBarText to={data.path}>{data.title}</MenuBarText>
+                                <MenuBarText to={path}>{title}</MenuBarText>
                             </LinkWrapper>
                         )))}
                     </MenuBar>

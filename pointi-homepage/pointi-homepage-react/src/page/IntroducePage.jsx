@@ -2,16 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
+import Introduce from 'components/introduce/Introduce';
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
+
+
 
 const Wrapper = styled.div``;
 
 const IntroducePage = () => {
     ScrollToMoveId();
     return (
-        <Wrapper>
+        <Wrapper id='introduce-page-wrapper'>
             <Header title='Introduce' />
-
+            <Introduce />
             <Footer />
         </Wrapper>
     );

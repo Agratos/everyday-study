@@ -83,16 +83,16 @@ const Detail = ({data, type}) => {
                         <IconWrapper><BsFillStopFill /></IconWrapper>
                         <TextTitle>주요 기능</TextTitle>
                     </TitleWrapper>
-                    {data.function.map((func, index) => (
+                    {data.function.map(({title, explan}, index) => (
                         <FunctionWrapper key={`function${index}`}>
                             <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
-                            <FunctionTitle>{func.title}</FunctionTitle>
-                            {func.explan && func.explan.map((ex, index) => (
+                            <FunctionTitle>{title}</FunctionTitle>
+                            {explan && explan.map((ex, index) => (
                                 <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
                             ))}
                         </FunctionWrapper>
                     ))}
-                    { data.keyword != undefined &&
+                    { data.keyword !== undefined &&
                         <div>
                             <TitleWrapper>
                                 <IconWrapper><BsFillStopFill /></IconWrapper>
@@ -105,7 +105,7 @@ const Detail = ({data, type}) => {
                             </KeywordWrapper>
                         </div>
                     }
-                    { data.adaptation != undefined &&
+                    { data.adaptation !== undefined &&
                         <div>
                             <TitleWrapper>
                                 <IconWrapper><BsFillStopFill /></IconWrapper>
@@ -121,7 +121,7 @@ const Detail = ({data, type}) => {
                     }
                 </TextWrapper>
             </DetailWrapper>
-            { data.link != undefined &&
+            { data.link !== undefined &&
                 data.link.map((link,index) => (
                     <LinkWrapper key={`link ${index}`}>
                         <TitleWrapper>
