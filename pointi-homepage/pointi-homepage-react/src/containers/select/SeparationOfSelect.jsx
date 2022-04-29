@@ -10,7 +10,6 @@ const SeparationOfSelect = (data, isClick) => {
                 : (clickList[0] <= date && date <= clickList[1] && selectList.push({date, list}))
         ))
     }
-    console.log(clickList);
     SelectionList();
     return selectList;
 }

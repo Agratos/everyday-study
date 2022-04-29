@@ -1,12 +1,24 @@
 {
     "kategorie" : [
-        "Multi-Media Process",
-        "Mass capacity IP Platform",
-        "Media Analytics Based on Deep Learning",
-        "Operation/Management Service",
-        "Mobile Core Network"
+        {
+            "title": "Multi-Media Process",
+            "id":"multiMediaProcess"
+        },
+        {
+            "title": "Mass capacity IP Platform",
+            "id":"massCapacityIpPlatform"
+        }, {
+            "title": "Media Analytics Based on Deep Learning",
+            "id":"test1"
+        }, {
+            "title": "Operation/Management Service",
+            "id":"test2"
+        }, {
+            "title": "Mobile Core Network",
+            "id":"test3"
+        }
     ],
-    "Multi-Media Process" :{
+    "multiMediaProcess" :{
         "title": "Multi-Media Process",
         "image" : "multiMediaProcess.png",
         "technology" : [
@@ -49,7 +61,7 @@
             "텔레프레즌스, 원격교육/의료, 멀티스크린 방송 등"
         ]
     },
-    "Mass capacity IP Platform" :{
+    "massCapacityIpPlatform" :{
         "title": "Mass capacity IP Platform",
         "image" : "massCapacityIpPlatform.png",
         "technology" : [

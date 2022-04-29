@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import Copyright from './Copyright';
+
 import logo from 'assets/imgs/footer/logo.png';
 import mail from 'assets/imgs/footer/mail.png';
 import phone1 from 'assets/imgs/footer/phone1.png';
 import phone2 from 'assets/imgs/footer/phone2.png';
 import dummyFooter from 'assets/dummy/footer.json';
-import Copyright from './Copyright';
+
+
 
 const Wrapper = styled.div`   
      margin: 0 80px;
@@ -43,6 +48,8 @@ const RightPointWrapper = styled.div`
     width: 68vw;
 `;
 const RightPointiMenu = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 160px;
     min-height: 5vh;
     padding: 0 15px;
@@ -54,7 +61,11 @@ const RightPointMenuText = styled.div`
     padding: ${props => props.padding} 0;
     color: ${props => props.color || '#919191'};
 `;
-const RightPointMenuButton = styled(RightPointMenuText)`
+const RightPointMenuButton = styled(Link)`
+    padding: 8px 0;
+    font-weight: normal;
+    color: #919191;
+    text-decoration: none;
     &:hover {
         cursor: pointer;
         color: #a3cbf6;
@@ -80,18 +91,18 @@ const Footer = () => {
                     {dummyFooter.data.map((data,index) => (
                         index > 0 && 
                             <RightPointiMenu key={`footer-right-menu-${index}`}>
-                                {data.list.map((list,index) => (
+                                {data.list.map(({path, text},index) => (
                                     index === 0 ?
                                         <RightPointMenuText 
                                             size='20px' 
                                             weight='bolder' 
                                             margin='32px' 
-                                            color='black' 
+                                            color='black'
                                             key={`footer-right-menu-text-${index}`}>
-                                            {list}
+                                            {text}
                                         </RightPointMenuText>
-                                        : <RightPointMenuButton padding='12px' key={`footer-right-menu-button-${index}`}>
-                                            {list}
+                                        : <RightPointMenuButton padding='12px' key={`footer-right-menu-button-${index}`} to={path}>
+                                            {text}
                                         </RightPointMenuButton>
                                 ))}
                             </RightPointiMenu>

@@ -48,7 +48,7 @@ const PatentBoard = ({data}) => {
     const offset = (page - 1) * limit;
     
     return (
-        <Wrapper id='patentBoard'>
+        <Wrapper id='patent'>
             <Title>{data.title}</Title>
             <ListWrapper>
                 <TextWrapper none={true} position={'top'} weight={`bolder`}>

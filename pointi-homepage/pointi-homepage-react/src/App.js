@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
 import IntroducePage from './page/IntroducePage';
-import Services from './page/ServicesPage';
+import SolutionPage from './page/SolutionPage';
 import Carreer from 'page/CarreerPage';
 import Technology from 'page/TechnologyPage';
 
@@ -22,8 +22,8 @@ const App = () => {
         <Route path="/introduce/" element={<IntroducePage />} />
         <Route path="/technology/:id" element={<Technology />} />
         <Route path="/technology" element={<Technology />} />
-        <Route path="/service/:id" element={<Services />} />
-        <Route path="/service" element={<Services />} />
+        <Route path="/solution/:id" element={<SolutionPage />} />
+        <Route path="/solution" element={<SolutionPage />} />
         <Route path="/carrer/:id" element={<Carreer />} />
         <Route path="/carrer" element={<Carreer />} />
       </Routes>

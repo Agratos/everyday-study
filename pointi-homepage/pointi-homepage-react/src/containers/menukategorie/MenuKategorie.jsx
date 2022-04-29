@@ -35,14 +35,14 @@ const MenuKategorie = ({ kategorie, width, setIsClick, isClick }) => {
     
     return(
         <Wrapper width={width} >
-            { kategorie.map((kategorie, index) => (
+            { kategorie.map(({title,id}, index) => (
                 <Kategorie 
-                    key={`menuKategroie${kategorie}`} 
-                    id={kategorie}  
+                    key={`menuKategroie${title}`} 
+                    id={id}  
                     onClick={(e) => onClick(e)}
                     isClick={isClick}
                 >
-                    {kategorie}
+                    {title}
                 </Kategorie>
             ))}
         </Wrapper>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import dummyTechnology from 'assets/dummy/technology.json';
@@ -15,9 +15,12 @@ const TechnologyListWrapper = styled.div`
     padding: 0 4vw;
 `;
 
-const Technology = () => {
-    const [ isClick, setIsClick ] = useState('Multi-Media Process');
-
+const Technology = ({id}) => {
+    const [isClick, setIsClick] = useState('multiMediaProcess');  
+    useEffect(() => {
+        id !== undefined && setIsClick(id)
+    },[id])
+    
     return (
         <Wrapper>
             <MenuKategorie kategorie={dummyTechnology.kategorie} width={'70vw'} setIsClick={setIsClick} isClick={isClick} />

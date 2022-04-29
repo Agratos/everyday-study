@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import styled from 'styled-components';
+
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import dummySolution from 'assets/dummy/solution.json';
 import Detail from 'components/detail/Detail';
+
+
 
 const Wrapper = styled.div`
     display: flex;
@@ -14,9 +18,12 @@ const SolutionListWrapper = styled.div`
     padding: 0 4vw;
 `;
 
-const Solution = () => {
-    const [isClick, setIsClick] = useState('야생동물 감지시스템');  
-    
+const Solution = ({id}) => {
+    const [isClick, setIsClick] = useState('wildAnimalDetection');  
+    useEffect(() => {
+        id !== undefined && setIsClick(id)
+    },[id])
+
     return (
         <Wrapper>
             <MenuKategorie kategorie={dummySolution.kategorie} width={'80vw'} setIsClick={setIsClick} isClick={isClick}/>

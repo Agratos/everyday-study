@@ -1,19 +1,42 @@
 { 
     "kategorie" : [
-        "야생동물 감지시스템",
-        "이미지분류서비스",
-        "MEC Router",
-        "T그룹통화",
-        "빅데이터 UI/UX",
-        "MGCF",
-        "IBC",
-        "통합관제 (GUI)",
-        "컬러링",
-        "부가서비스",
-        "사서함",
-        "영상정보센터"
+        {
+            "title": "야생동물 감지 시스템",
+            "id":"wildAnimalDetection"
+        },
+        {
+            "title": "이미지분류서비스",
+            "id":"imageClassfication"
+        }, {
+            "title": "MEC Route",
+            "id":"test1"
+        }, {
+            "title": "빅데이터 UI/UX",
+            "id":"test2"
+        }, {
+            "title": "MGCF",
+            "id":"test3"
+        }, {
+            "title": "IBC",
+            "id":"test4"
+        }, {
+            "title": "통합관제 (GUI)",
+            "id":"test5"
+        }, {
+            "title": "컬러링",
+            "id":"test6"
+        }, {
+            "title": "부가서비스",
+            "id":"test7"
+        }, {
+            "title": "사서함",
+            "id":"test8"
+        },{
+            "title": "영상정보센터",
+            "id":"test9"
+        }
     ],
-    "야생동물 감지시스템" :{
+    "wildAnimalDetection" :{
         "title" : "영상분석 통합플랫폼 - 야생동물 감지 시스템",
         "image" : "wildAnimalDetection.png",
         "solution" : [
@@ -57,7 +80,7 @@
         ]
     }
     ,
-    "이미지분류서비스" :{
+    "imageClassfication" :{
         "title" : "영상분석 통합플랫폼 - 이미지 분류 서비스",
         "image" : "imageClassfication.png",
         "solution" : [

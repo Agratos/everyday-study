@@ -12,7 +12,8 @@ import Location from './Location';
 import dummyIntroduce from 'assets/dummy/introduce.json';
 
 const Wrapper = styled.div`
-        margin: 10vh 10vw;
+    margin: 10vh 10vw;
+    align-items: center;
 `;
 
 const Introduce = () => {

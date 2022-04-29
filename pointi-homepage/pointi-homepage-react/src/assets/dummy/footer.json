@@ -12,45 +12,126 @@
         },{
             "id":1,
             "list":[
-                "회사소개",
-                "CEO 인사말",
-                "회사 연혁",
-                "조직 구성",
-                "특허 현황",
-                "관계사",
-                "오시는 길"
+                {
+                    "path" :"",
+                    "text" :"회사소개"
+                },
+                {
+                    "path" :"/introduce/greeting",
+                    "text" :"CEO 인사말"
+                },
+                {
+                    "path" :"/introduce/history",
+                    "text" :"회사 연역"
+                },
+                {
+                    "path" :"/introduce/organization",
+                    "text" :"조직 구성"
+                },
+                {
+                    "path" :"/introduce/patent",
+                    "text" :"특허 현황"
+                },
+                {
+                    "path" :"/introduce/relative",
+                    "text" :"관계사"
+                },
+                {
+                    "path" :"/introduce/location",
+                    "text" :"오시는 길"
+                }
             ]
         },{
             "id":2,
             "list":[
-                "솔루션",
-                "야생동물 감지시스템",
-                "이미지분류서비스",
-                "MEC Router",
-                "T그룹통화",
-                "빅데이터 UI/UX",
-                "MGCF"
+                {
+                    "path" :"",
+                    "text" :"솔루션"
+                },
+                {
+                    "path" :"/solution/wildAnimalDetection",
+                    "text" :"야생동물 감지시스템"
+                },
+                {
+                    "path" :"/solution/imageClassfication",
+                    "text" :"이미지분류서비스"
+                },
+                {
+                    "path" :"",
+                    "text" :"MEC Router"
+                },
+                {
+                    "path" :"",
+                    "text" :"T그룹통화"
+                },
+                {
+                    "path" :"",
+                    "text" :"빅데이터 UI/UX"
+                },
+                {
+                    "path" :"",
+                    "text" :"MGCF"
+                }
             ]
         },{
             "id":3,
             "list":[
-                "솔루션",
-                "IBC",
-                "통합관제 (GUI)",
-                "컬러링",
-                "부가서비스",
-                "사서함",
-                "영상정보센터"
+                {
+                    "path" :"",
+                    "text" :"솔루션"
+                },
+                {
+                    "path" :"",
+                    "text" :"IBC"
+                },
+                {
+                    "path" :"",
+                    "text" :"통합관제 (GUI)"
+                },
+                {
+                    "path" :"",
+                    "text" :"컬러링"
+                },
+                {
+                    "path" :"",
+                    "text" :"부가서비스"
+                },
+                {
+                    "path" :"",
+                    "text" :"사서함"
+                },
+                {
+                    "path" :"",
+                    "text" :"영상정보센터"
+                }
             ]
         },{
             "id":4,
             "list":[
-                "기술",
-                "Multi-Media Process",
-                "Mass capacity IP Platform",
-                "Media Analytics Based on Deep Learning",
-                "Operation/Management Service",
-                "Mobile Core Network"
+                {
+                    "path" :"",
+                    "text" :"기술"
+                },
+                {
+                    "path" :"/technology/multiMediaProcess",
+                    "text" :"Multi-Media Process"
+                },
+                {
+                    "path" :"/technology/massCapacityIpPlatform",
+                    "text" :"Mass capacity IP Platform"
+                },
+                {
+                    "path" :"",
+                    "text" :"Media Analytics Based on Deep Learning"
+                },
+                {
+                    "path" :"",
+                    "text" :"Operation/Management Service"
+                },
+                {
+                    "path" :"",
+                    "text" :"Mobile Core Network"
+                }
             ]
         }
     ]

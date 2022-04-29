@@ -7,31 +7,31 @@
             "list": []
         },{
             "id":1,
-            "path":"/introduce/top", 
+            "path":"/introduce", 
             "title":"Introduce",
             "list": [
                 {
-                    "path" :"/carrer/greetings",
+                    "path" :"/introduce/greeting",
                     "text" :"CEO 인사말"
                 },
                 {
-                    "path" :"/carrer/history",
+                    "path" :"/introduce/history",
                     "text" :"회사 연역"
                 },
                 {
-                    "path" :"/carrer/oraganization",
+                    "path" :"/introduce/organization",
                     "text" :"조직 구성"
                 },
                 {
-                    "path" :"/carrer/status",
+                    "path" :"/introduce/patent",
                     "text" :"특허 현황"
                 },
                 {
-                    "path" :"/carrer/customers",
+                    "path" :"/introduce/relative",
                     "text" :"관계사"
                 },
                 {
-                    "path" :"/carrer/location",
+                    "path" :"/introduce/location",
                     "text" :"오시는 길"
                 }
             ]
@@ -43,7 +43,7 @@
         }
         ,{
             "id":3,
-            "path":"/service", 
+            "path":"/solution", 
             "title":"Solution",
             "list": []
         },{
