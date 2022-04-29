@@ -48,15 +48,15 @@
             "list": []
         },{
             "id":4,
-            "path":"/carer", 
-            "title":"Carers",
+            "path":"/career", 
+            "title":"Careers",
             "list": [
                 {
-                    "path" :"/carer/talent",
+                    "path" :"/career/talent",
                     "text" :"인재관리철학&amp;인재상"
                 },
                 {
-                    "path" :"/carer/employment",
+                    "path" :"/career/employment",
                     "text" :"입사지원&amp;채용공고"
                 }
             ]
