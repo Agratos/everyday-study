@@ -17,7 +17,7 @@ const Img = styled.img``;
 
 const Organization = ({data}) => {
     return (
-        <Wrapper>
+        <Wrapper id={`organization`}>
             <Title>{data.title}</Title>
             <Img src={require(`assets/imgs/introduce/${data.image}`)} />
         </Wrapper>

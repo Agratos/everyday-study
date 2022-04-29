@@ -7,6 +7,7 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     font-size: 40px;
+    font-weight: bolder;
     margin-bottom: 24px;
     text-align: center;
 `;
@@ -47,7 +48,7 @@ const PatentBoard = ({data}) => {
     const offset = (page - 1) * limit;
     
     return (
-        <Wrapper id='board-top'>
+        <Wrapper id='patentBoard'>
             <Title>{data.title}</Title>
             <ListWrapper>
                 <TextWrapper none={true} position={'top'} weight={`bolder`}>

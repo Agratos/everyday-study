@@ -4,7 +4,7 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 import Introduce from 'components/introduce/Introduce';
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
-
+import KakaoMap from 'containers/kakaomap/KakaoMap';
 
 
 const Wrapper = styled.div``;

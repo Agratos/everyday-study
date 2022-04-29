@@ -16,6 +16,8 @@ const Wrapper = styled.div`
     transition: all 1000ms ease 0s;
     background-blend-mode:multiply;
     background-color: #7794b0d9;
+    position: relative;
+    z-index: 2;
 `;
 const SliderArea = styled.div`
     display: flex;
@@ -66,7 +68,7 @@ const Header = ({ title }) => {
         <Wrapper logo={imgData[dataIndex%2]}  id="top">
             <HeaderTop />
             <HeaderDropDown />
-            <HeaderDropDown scrollMenu={true}/>
+            <HeaderDropDown scrollMenu={true} />
             { title === undefined ?
                 <SliderArea height='85vh'> 
                        {dummyHeaderChnageData.data.map(({id, text1, text2},index) => (

@@ -21,9 +21,8 @@ const DataWrapperIn = styled.div`
     border: 1px solid black;
     box-shadow: 4px 4px 4px #919191; 
     text-align: center;
-    justify-content: center;
     flex-basis: 30%;
-    margin: ${props => (props.index % 3) === 1 && '0 calc(9.4%/2)'};
+    margin: 0 calc(9.4%/6);
     margin-bottom: 5vh;
 `;
 const DataImg = styled.img`
@@ -42,29 +41,18 @@ const DataText = styled.div`
 `;
 
 const Relative = ({data}) => {
-
-    console.log(data.length)
     return (
-        <Wrapper>
+        <Wrapper id={`relative`}>
             <Title>관계사</Title>
                 <DataWrapperOut>
                     { data.slice(0,data.length).map(({image, title, text},index) => (
-                        <DataWrapperIn index={index} last={data.length}>
+                        <DataWrapperIn index={index} last={data.length} key={`relative${index}`}>
                             <DataImg src={require(`assets/imgs/introduce/${image}`)} />
                             <DataTitle>{title}</DataTitle>
                             <DataText>{text}</DataText>              
                         </DataWrapperIn>
                     ))}
                 </DataWrapperOut>
-            {/* <DataWrapperOut>
-                { data.slice(0,data.length).map(({image, title, text},index) => (
-                    <DataWrapperIn index={index}>
-                        <DataImg src={require(`assets/imgs/introduce/${image}`)} />
-                        <DataTitle>{title}</DataTitle>
-                        <DataText>{text}</DataText>              
-                    </DataWrapperIn>
-                ))}
-            </DataWrapperOut> */}
         </Wrapper>
     )
 }

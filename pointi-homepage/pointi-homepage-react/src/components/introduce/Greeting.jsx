@@ -33,7 +33,7 @@ const Text = styled.div`
 const Greeting = ({data}) => {
 
     return (
-        <Wrapper>
+        <Wrapper id={`greeting`}>
             <Title>{data.title}</Title>
             <DataWrapper>
                 <Img src={require(`assets/imgs/introduce/${data.image}`)} />

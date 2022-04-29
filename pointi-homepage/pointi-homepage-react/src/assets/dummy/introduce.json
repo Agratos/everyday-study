@@ -101,5 +101,169 @@
             "title" : "SK C&C",
             "text": "Consumer Products Consulting"
         }
+    ],
+    "history" : [
+        {
+            "date" : "2020",
+            "list" : [
+                "NIA (한국철도공사) 스마트 철도 안전관리 통합플랫폼 구축 및 실증사업",
+                "SKP 2020년 컬러링(CRBT) 시스템 운영 효율화 SW Package",
+                "SKT Core기술팀 1차 운용투자 비즈링(BRBT) Multi Prefix 기능 개발"
+            ]
+        },{
+            "date" : "2019",
+            "list" : [
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수",
+                "SKT Core솔루션팀 TestBed 유지보수",
+                "SKP CRBT CP 패킷 복제 GW 개발",
+                "SK 서비스 인프라(메모링, VMS, T-ARS) 유지보수",
+                "SK Infra운용그룹_IMGW,IBC 유지보수",
+                "SKT Core망 서비스 인프라 유지보수 Linux OS 및 Carepack",
+                "SKP T메모링 - T통화꾸러미 지원 기능 개발"
+            ]
+        },{
+            "date" : "2018",
+            "list" : [
+                "SKP CRBT서비스고도화(검증환경구축) 컬러링통합 SW Package 개발",
+                "SK Core솔루션팀 운용투자4차 SW 아키텍쳐 가이드 적용 IMGW",
+                "SK CN Lab NUGU Call SCP 연동 IBC 고도화 개발",
+                "SK CN Lab_3차투자사업 SKB VoIP HDV 직접 연동을 위한 IBC개발",
+                "SKTX/컬러링서비스 통합관리시스템 구축 Smart CRBT SW Packagee",
+                "SKTX/18년 Core망 서비스 인프라 유지보수 HW SW App",
+                "SKTX/HDV 컬러링 추가장비 CRBT SW App 유지보수",
+                "Core솔루션팀 TestBed 유지보수 용역",
+                "Infra솔루션팀 ICT Core망 기술지원 용역 IMGW, IBC, 비즈링",
+                "CN Lab HDV 서비스 차별 성 강화 IBC SDP 보정기능 고도화",
+                "서비스 인프라 유지보수"
+            ]
+        },{
+            "date" : "2017",
+            "list" : [
+                "(연구개발특구재단)2017년 기술이전사업화 : 가상화 GPU기반 고확장성 Maas 플랫폼 개발"
+            ]
+        },{
+            "date" : "2015",
+            "list" : [
+                "주식회사 아이오케이컴퍼니 흡수 합병",
+                "SKT ICT IMGW 공급계약",
+                "SKT ICT 6차 IBC 증설",
+                "SKP/CORE망 서비스 인프라 유지보수"
+            ]
+        },{
+            "date" : "2019",
+            "list" : [
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수",
+                "SKT Core솔루션팀 TestBed 유지보수",
+                "SKP CRBT CP 패킷 복제 GW 개발",
+                "SK 서비스 인프라(메모링, VMS, T-ARS) 유지보수",
+                "SK Infra운용그룹_IMGW,IBC 유지보수",
+                "SKT Core망 서비스 인프라 유지보수 Linux OS 및 Carepack",
+                "SKP T메모링 - T통화꾸러미 지원 기능 개발"
+            ]
+        },{
+            "date" : "2019",
+            "list" : [
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수",
+                "SKT Core솔루션팀 TestBed 유지보수",
+                "SKP CRBT CP 패킷 복제 GW 개발",
+                "SK 서비스 인프라(메모링, VMS, T-ARS) 유지보수"
+            ]
+        },{
+            "date" : "2019",
+            "list" : [
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수",
+                "SKT Core솔루션팀 TestBed 유지보수",
+                "SKP CRBT CP 패킷 복제 GW 개발",
+                "SK 서비스 인프라(메모링, VMS, T-ARS) 유지보수",
+                "SK Infra운용그룹_IMGW,IBC 유지보수",
+                "SKT Core망 서비스 인프라 유지보수 Linux OS 및 Carepack",
+                "SKP T메모링 - T통화꾸러미 지원 기능 개발",
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수"
+            ]
+        },{
+            "date" : "2019",
+            "list" : [
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수"
+            ]
+        },{
+            "date" : "2019",
+            "list" : [
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수",
+                "SKT Core솔루션팀 TestBed 유지보수",
+                "SKP CRBT CP 패킷 복제 GW 개발",
+                "SK 서비스 인프라(메모링, VMS, T-ARS) 유지보수",
+                "SK Infra운용그룹_IMGW,IBC 유지보수",
+                "SKT Core망 서비스 인프라 유지보수 Linux OS 및 Carepack",
+                "SKP T메모링 - T통화꾸러미 지원 기능 개발",
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수",
+                "SKT Core솔루션팀 TestBed 유지보수",
+                "SKP CRBT CP 패킷 복제 GW 개발",
+                "SK 서비스 인프라(메모링, VMS, T-ARS) 유지보수",
+                "SK Infra운용그룹_IMGW,IBC 유지보수",
+                "SKT Core망 서비스 인프라 유지보수 Linux OS 및 Carepack",
+                "SKP T메모링 - T통화꾸러미 지원 기능 개발",
+                "SKP 음성사서함(VMS) 시나리오 변경 개발",
+                "SKP 음성사서함(VMS) 대개체 개발",
+                "SKP HDV 컬러링 유지보수",
+                "SKP 위탁운영 서비스 유지보수",
+                "SKT Core솔루션팀 TestBed 유지보수",
+                "SKP CRBT CP 패킷 복제 GW 개발",
+                "SK 서비스 인프라(메모링, VMS, T-ARS) 유지보수",
+                "SK Infra운용그룹_IMGW,IBC 유지보수",
+                "SKT Core망 서비스 인프라 유지보수 Linux OS 및 Carepack",
+                "SKP T메모링 - T통화꾸러미 지원 기능 개발"
+            ]
+        }
+    ],
+    "kategorie" : [
+        "All",
+        "2019 ~ 현재",
+        "2017 ~ 2018",
+        "2015 ~ 2016",
+        "2013 ~ 2014",
+        "2011 ~ 2012",
+        "2009 ~ 2010",
+        "2007 ~ 2008"
+    ],
+    "location": [
+        {
+            "image" : "phone.png",
+            "text" : ["02-2204-3000"]
+        },{
+            "image" : "mail.png",
+            "text" : ["support@pointi.com"]
+        },{
+            "image" : "home.png",
+            "text" : [
+                "본사: 서울시 강남구 언주로148길 19, 청호빌딩 5층",
+                "지사: 전북 전주시 완산구 홍산로 275, 2층 205E호"
+            ]
+        },{
+            "image" : "click.png",
+            "text" : ["맵 클릭시 카카오 맵으로 이동합니다."]
+        }
     ]
 }
