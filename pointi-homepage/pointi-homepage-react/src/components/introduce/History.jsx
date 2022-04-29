@@ -18,6 +18,9 @@ const Title = styled.div`
     text-align: center;
     margin-bottom: 7vh;
 `;
+const MenuKategorieWrapper = styled.div`
+    margin: 0 auto;
+`;
 const ListWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -53,7 +56,9 @@ const History = ({data, kategorie}) => {
     return (
         <Wrapper id={`history`}>
             <Title>회사 연혁</Title>
-            <MenuKategorie isClick={isClick} setIsClick={setIsClick} kategorie={kategorie} width={'100%'}/>
+            <MenuKategorieWrapper>
+                <MenuKategorie isClick={isClick} setIsClick={setIsClick} kategorie={kategorie} width={'80vw'} isWrap={'nowrap'}/>
+            </MenuKategorieWrapper>
             <ListWrapper>
                 {
                     selected.map(({date, list}, index) => (

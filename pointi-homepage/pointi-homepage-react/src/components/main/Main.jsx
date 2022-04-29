@@ -128,7 +128,7 @@ const Main = () => {
                     <MainSolutionTitle>{mainData.mainSolution.title}</MainSolutionTitle>
                     <MainSolutionText>{mainData.mainSolution.text[0]}</MainSolutionText>
                     <MainSolutionText>{mainData.mainSolution.text[1]}</MainSolutionText>
-                    <MainSolutionButton to='/service'>{mainData.mainSolution.title}</MainSolutionButton>
+                    <MainSolutionButton to='/solution'>{mainData.mainSolution.title}</MainSolutionButton>
                 </MainSolution>
             </MainIntroSolutionWrapper>
         </Wrapper>

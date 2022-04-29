@@ -30,7 +30,7 @@ const EmploymentText = styled.div`
     margin-bottom: 16px;
 `;
 
-const CarreerEmployment = ({list}) => {
+const CareerEmployment = ({list}) => {
     return (
         <Wrapper id="employment" key='employment'>
             <Title>{list.title}</Title>
@@ -47,4 +47,4 @@ const CarreerEmployment = ({list}) => {
     )
 }
 
-export default CarreerEmployment;
+export default CareerEmployment;

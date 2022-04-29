@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import CarreerContentList from './CarreerContentList';
-import CarreerEmployment from './CarreerEmployment';
+
+import CareerContentList from './CareerContentList';
+import CareerEmployment from './CareerEmployment';
 import dummyCarrerr from 'assets/dummy/carreer.json';
-import CarreerEmploymentBoard from './CarreerEmploymentBoard';
+import CareerEmploymentBoard from './CareerEmploymentBoard';
 
 const Wrapper = styled.div`
     //border: 1px solid black;
@@ -29,24 +30,24 @@ const ContentImge = styled.img`
     margin: 0 16px;
 `;
 
-const Carreer = () => {
+const Career = () => {
     return(
         <Wrapper id='talent'>
             <MainTitle>{dummyCarrerr.title}</MainTitle>
             <ContentWrapper>
                 <ContentImge src={require(`assets/imgs/carreer/${dummyCarrerr.philosophy.image}`)} />
-                <CarreerContentList list={dummyCarrerr.philosophy} />
+                <CareerContentList list={dummyCarrerr.philosophy} />
             </ContentWrapper>
             <ContentWrapper>
-                <CarreerContentList list={dummyCarrerr.talent} margin={'60px'} />
+                <CareerContentList list={dummyCarrerr.talent} margin={'60px'} />
                 <ContentImge src={require(`assets/imgs/carreer/${dummyCarrerr.talent.image}`)} />
             </ContentWrapper>
             <ContentWrapper>
-                <CarreerEmployment list={dummyCarrerr.employment} />
+                <CareerEmployment list={dummyCarrerr.employment} />
             </ContentWrapper>
-            <CarreerEmploymentBoard list={dummyCarrerr.announcement} />
+            <CareerEmploymentBoard list={dummyCarrerr.announcement} />
         </Wrapper>
     )
 }
 
-export default Carreer;
+export default Career;

@@ -5,7 +5,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
 import IntroducePage from './page/IntroducePage';
 import SolutionPage from './page/SolutionPage';
-import Carreer from 'page/CarreerPage';
+import Career from 'page/CareerPage';
 import Technology from 'page/TechnologyPage';
 
 const App = () => {
@@ -24,8 +24,8 @@ const App = () => {
         <Route path="/technology" element={<Technology />} />
         <Route path="/solution/:id" element={<SolutionPage />} />
         <Route path="/solution" element={<SolutionPage />} />
-        <Route path="/carrer/:id" element={<Carreer />} />
-        <Route path="/carrer" element={<Carreer />} />
+        <Route path="/carer/:id" element={<Career />} />
+        <Route path="/carer" element={<Career />} />
       </Routes>
     </BrowserRouter>
   )

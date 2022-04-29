@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: ${props => props.isWrap || 'wrap'};
     max-width: 1200px;
     width: ${props => props.width};
     line-height: 16px;
@@ -27,14 +27,14 @@ const Kategorie = styled.div`
     }
 `;
 
-const MenuKategorie = ({ kategorie, width, setIsClick, isClick }) => {
+const MenuKategorie = ({ kategorie, width, setIsClick, isClick, isWrap}) => {
 
     const onClick = (e) => {
         setIsClick(e.target.id)
     }
     
     return(
-        <Wrapper width={width} >
+        <Wrapper width={width} wrap={isWrap}>
             { kategorie.map(({title,id}, index) => (
                 <Kategorie 
                     key={`menuKategroie${title}`} 

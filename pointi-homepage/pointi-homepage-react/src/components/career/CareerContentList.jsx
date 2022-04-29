@@ -40,7 +40,7 @@ const ListText = styled.div`
 `;
 
 
-const CarreerContentList = ({ list, margin }) => {
+const CareerContentList = ({ list, margin }) => {
     return (
         <Wrapper margin={margin}>
             <Title>{list.title}</Title>
@@ -55,4 +55,4 @@ const CarreerContentList = ({ list, margin }) => {
     )
 }
 
-export default CarreerContentList;
+export default CareerContentList;

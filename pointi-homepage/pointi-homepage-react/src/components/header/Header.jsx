@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import HeaderTop from './HeaderTop';
+
 import HeaderDropDown from './HeaderDropDown';
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
@@ -76,7 +77,7 @@ const Header = ({ title }) => {
                                 <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
                                     <SliderAreaText className='text-1'>{text1}</SliderAreaText>
                                     <SliderAreaText className='text-2'>{text2}</SliderAreaText>
-                                    <SliderAreaTextButton to='/service'>Our Solutions</SliderAreaTextButton>
+                                    <SliderAreaTextButton to='/solution'>Our Solutions</SliderAreaTextButton>
                                 </SliderAreaTextWrapper>
                             ))   
                         ))}

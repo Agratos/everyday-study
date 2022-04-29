@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { IoIosArrowDown } from "react-icons/io";
 import logo from 'assets/imgs/custom/logo.white.png';
-import dummyMenu from 'assets/dummy/dorpDwonMenu.json';
+import dummyMenu from 'assets/dummy/dorpDownMenu.json';
 import { Link } from 'react-router-dom';
 import ScrollEvent from 'containers/scroll/ScrollEvent';
 

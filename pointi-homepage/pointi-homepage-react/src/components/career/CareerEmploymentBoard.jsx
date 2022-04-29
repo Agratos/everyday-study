@@ -47,7 +47,7 @@ const Img = styled.img`
 `;
 
 
-const CarreerEmploymentBoard = ( {list} ) => {
+const CareerEmploymentBoard = ( {list} ) => {
     const [ limit ] = useState(5);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
@@ -97,4 +97,4 @@ const CarreerEmploymentBoard = ( {list} ) => {
 }
 
 
-export default CarreerEmploymentBoard;
+export default CareerEmploymentBoard;
