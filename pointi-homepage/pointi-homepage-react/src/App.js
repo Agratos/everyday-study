@@ -20,10 +20,12 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/introduce/:id" element={<IntroducePage />} />
         <Route path="/introduce/" element={<IntroducePage />} />
+        <Route path="/technology/:id" element={<Technology />} />
+        <Route path="/technology" element={<Technology />} />
+        <Route path="/service/:id" element={<Services />} />
         <Route path="/service" element={<Services />} />
         <Route path="/carrer/:id" element={<Carreer />} />
         <Route path="/carrer" element={<Carreer />} />
-        <Route path="/technology" element={<Technology />} />
       </Routes>
     </BrowserRouter>
   )

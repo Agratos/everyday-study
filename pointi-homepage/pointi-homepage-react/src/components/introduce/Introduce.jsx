@@ -19,16 +19,11 @@ const Introduce = () => {
     return (
         <Wrapper id={`introduce`}>
             <Greeting data={dummyIntroduce.ceo} />
+            <History data={dummyIntroduce.history} kategorie={dummyIntroduce.kategorie}/>
             <Organization data={dummyIntroduce.organization} />
             <PatentBoard data={dummyIntroduce.patent} />
             <Relative data={dummyIntroduce.relative} />
-            <History data={dummyIntroduce.history} kategorie={dummyIntroduce.kategorie}/>
-            <Location 
-                // phone={dummyIntroduce.location.phone}
-                // mail={dummyIntroduce.location.mail}
-                // address={dummyIntroduce.location.address}
-                data={dummyIntroduce.location}
-            />
+            <Location data={dummyIntroduce.location} />
         </Wrapper>
     )
 }

@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 30vh;
 `;
 const Title = styled.div`
     font-size: 40px;
@@ -16,15 +17,10 @@ const Title = styled.div`
     text-align: center;
 `;
 const ListWrapper = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
 
 `;
 const HistoryWrapper = styled.div`
-    flex: 0 0 auto;
-    border: 1px solid black;
-    height: 50vh;
+
 `;
 const HistroyYear = styled.div`
     font-size: 32px;
@@ -39,11 +35,9 @@ const HistoryList = styled.div`
 const History = ({data, kategorie}) => {
     const [isClick, setIsClick] = useState('All');  
     const [selected, setSelected] = useState(data);
-    console.log(data);
-    console.log(selected);
 
     useEffect(() => {
-        let asd = SeparationOfSelect(data,isClick); 
+        setSelected(SeparationOfSelect(data,isClick)); 
     },[isClick])
 
     return (
@@ -52,7 +46,7 @@ const History = ({data, kategorie}) => {
             <MenuKategorie isClick={isClick} setIsClick={setIsClick} kategorie={kategorie} width={'80vw'}/>
             <ListWrapper>
                 {
-                    data.map(({date, list}, index) => (
+                    selected.map(({date, list}, index) => (
                         <HistoryWrapper key={`history${index}`}>
                             <HistroyYear>{date}년</HistroyYear>
                             <HistroyListWrapper>
