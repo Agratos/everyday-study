@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import CareerContentList from './CareerContentList';
 import CareerEmployment from './CareerEmployment';
-import dummyCarrerr from 'assets/dummy/carreer.json';
+import dummyCarerr from 'assets/dummy/career.json';
 import CareerEmploymentBoard from './CareerEmploymentBoard';
 
 const Wrapper = styled.div`
@@ -33,19 +33,19 @@ const ContentImge = styled.img`
 const Career = () => {
     return(
         <Wrapper id='talent'>
-            <MainTitle>{dummyCarrerr.title}</MainTitle>
+            <MainTitle>{dummyCarerr.title}</MainTitle>
             <ContentWrapper>
-                <ContentImge src={require(`assets/imgs/carreer/${dummyCarrerr.philosophy.image}`)} />
-                <CareerContentList list={dummyCarrerr.philosophy} />
+                <ContentImge src={require(`assets/imgs/carreer/${dummyCarerr.philosophy.image}`)} />
+                <CareerContentList list={dummyCarerr.philosophy} />
             </ContentWrapper>
             <ContentWrapper>
-                <CareerContentList list={dummyCarrerr.talent} margin={'60px'} />
-                <ContentImge src={require(`assets/imgs/carreer/${dummyCarrerr.talent.image}`)} />
+                <CareerContentList list={dummyCarerr.talent} margin={'60px'} />
+                <ContentImge src={require(`assets/imgs/carreer/${dummyCarerr.talent.image}`)} />
             </ContentWrapper>
             <ContentWrapper>
-                <CareerEmployment list={dummyCarrerr.employment} />
+                <CareerEmployment list={dummyCarerr.employment} />
             </ContentWrapper>
-            <CareerEmploymentBoard list={dummyCarrerr.announcement} />
+            <CareerEmploymentBoard list={dummyCarerr.announcement} />
         </Wrapper>
     )
 }

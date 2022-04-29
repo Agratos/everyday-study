@@ -7,12 +7,7 @@ const Wrapper = styled.div`
 const Map = styled.div`
     z-index: 1;
 `;
-const Title = styled.div`
-    font-size: 40px;
-    font-weight: bolder;
-    margin-bottom: 32px;
-    text-align: center;
-`;
+
 const KakaoMap = () => {
     const options = {
         //지도를 생성할 때 필요한 기본 옵션
