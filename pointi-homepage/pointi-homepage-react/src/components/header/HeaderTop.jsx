@@ -57,9 +57,11 @@ const Img = styled.img`
     margin-right: 4px;
     padding-top: ${props => props.padding};
 `;
-const ImgText = styled.p`
-    padding: 2px;
+const ImgText = styled.a`
+    padding: ${props => props.padding || '2px'};
     margin: 0;
+    text-decoration-line: none;
+    color: black;
 `;
 const HeaderTop = () => {
     return (
@@ -81,13 +83,13 @@ const HeaderTop = () => {
                             </TopRightAreaInner>
                             <TopRightAreaInner>
                                 <Img src={mail} size='16px' padding='4px' />
-                                <ImgText>support@pointi.com</ImgText>  
+                                <ImgText href={'mailto:support@pointi.com'} target={'top'}>support@pointi.com</ImgText>  
                             </TopRightAreaInner>
                         </TopRightAreaLeftt>
                     </TopRightAreaLeft>
                     <TopRightAreaRight>
                         <KakaoShare imgUrl={kakao}/>
-                        <SocialImg><Img src={facebook} /></SocialImg>        
+                        <SocialImg><ImgText target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.pointi.com%2F&amp;src=sdkpreparse" padding={`0px`}><Img src={facebook} /></ImgText></SocialImg>        
                     </TopRightAreaRight>
                 </HeaderTopRightArea>
             </HeaderTopArea>
