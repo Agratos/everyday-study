@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
-import KakaoMap from 'containers/kakaomap/KakaoMap';
+import KakaoMap from 'containers/kakao/KakaoMap';
 
 const Wrapper = styled.div`
     margin-top: 30vh;

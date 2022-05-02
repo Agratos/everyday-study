@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+
+import KakaoShare from 'containers/kakao/KaKaoShare';
+
 import mail from 'assets/imgs/header/mail.png';
 import phone1 from 'assets/imgs/header/phone1.png';
 import phone2 from 'assets/imgs/header/phone2.png';
@@ -83,8 +86,8 @@ const HeaderTop = () => {
                         </TopRightAreaLeftt>
                     </TopRightAreaLeft>
                     <TopRightAreaRight>
-                        <SocialImg><Img src={kakao} /></SocialImg>
-                        <SocialImg><Img src={facebook} /></SocialImg>
+                        <KakaoShare imgUrl={kakao}/>
+                        <SocialImg><Img src={facebook} /></SocialImg>        
                     </TopRightAreaRight>
                 </HeaderTopRightArea>
             </HeaderTopArea>
