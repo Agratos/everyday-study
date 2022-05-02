@@ -42,7 +42,7 @@ const KakaoShare= ({imgUrl}) => {
       content: {
         title: 'Point-I',
         description: '#IT #CoreNF #VAS Solution #AI # AR # IoT #Data Analytics',
-        imageUrl: imgUrl,
+        imageUrl: 'https://i.imgur.com/K6zAfiA.png',
         link: {
           mobileWebUrl: url,
           webUrl: url,
