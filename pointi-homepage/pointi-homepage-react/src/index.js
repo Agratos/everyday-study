@@ -7,11 +7,9 @@ import reportWebVitals from './reportWebVitals';
 const rootNode = document.getElementById('root');
 
 ReactDOM.createRoot(rootNode).render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </React.StrictMode>,
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>
 );
 
 reportWebVitals();

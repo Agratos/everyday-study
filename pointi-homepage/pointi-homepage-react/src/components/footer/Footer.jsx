@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
 import Copyright from './Copyright';
+import sendApi from 'api/sendApi';
 
 import logo from 'assets/imgs/footer/logo.png';
 import mail from 'assets/imgs/footer/mail.png';
 import phone1 from 'assets/imgs/footer/phone1.png';
 import phone2 from 'assets/imgs/footer/phone2.png';
-import dummyFooter from 'assets/dummy/footer.json';
+//import dummyFooter from 'assets/dummy/footer.json';
 
 
 
@@ -73,12 +73,19 @@ const RightPointMenuButton = styled(Link)`
 `;
 
 const Footer = () => {
+    const [ test, setTest ] = useState(null);
+    useEffect(() => {
+        sendApi.getFooter().then((res) => {setTest(res.data)})
+    },[])
+    console.log(test);
+    
     return (
+        test != null && (
         <Wrapper>
             <BottomNaviWrapper>
                 <LeftPointiInfo>
                     <LogoImg src={logo}/>
-                    {dummyFooter.data[0].list.map( (list,index) => (
+                    {test.data[0].list.map( (list,index) => (
                         <LeftPointiInfoText key={`footer-left-info-${index}`}>
                             {index === 0 && <LeftPointiInfoTextImg src={mail} size='10px'/>}
                             {index === 1 && <LeftPointiInfoTextImg src={phone1} />}
@@ -88,7 +95,7 @@ const Footer = () => {
                     ))}
                 </LeftPointiInfo>
                 <RightPointWrapper>
-                    {dummyFooter.data.map((data,index) => (
+                    {test.data.map((data,index) => (
                         index > 0 && 
                             <RightPointiMenu key={`footer-right-menu-${index}`}>
                                 {data.list.map(({path, text},index) => (
@@ -111,7 +118,7 @@ const Footer = () => {
             </BottomNaviWrapper>
             <Copyright />
         </Wrapper>
-    )
+    ))
 }
 
 export default Footer;

@@ -2,6 +2,7 @@
   "name": "pointi-homepage-react",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.27.2",
     "cra-template": "1.1.3",

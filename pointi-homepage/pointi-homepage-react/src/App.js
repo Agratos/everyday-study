@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import axios from 'axios';
+
 import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
 import IntroducePage from './page/IntroducePage';
