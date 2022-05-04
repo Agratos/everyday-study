@@ -4,11 +4,21 @@ import { HelmetProvider } from 'react-helmet-async'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './modules';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 const rootNode = document.getElementById('root');
+const store = createStore(rootReducer,composeWithDevTools());
+console.log(store.getState());
+//axios.defaults.baseURL = 'http://localhost:3001';
 
 ReactDOM.createRoot(rootNode).render(
   <HelmetProvider>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>  
   </HelmetProvider>
 );
 

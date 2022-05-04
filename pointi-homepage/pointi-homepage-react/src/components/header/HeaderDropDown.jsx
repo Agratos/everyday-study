@@ -1,10 +1,13 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { IoIosArrowDown } from "react-icons/io";
-import logo from 'assets/imgs/custom/logo.white.png';
-import dummyMenu from 'assets/dummy/dorpDownMenu.json';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+
+import { IoIosArrowDown } from "react-icons/io";
 import ScrollEvent from 'containers/scroll/ScrollEvent';
+//import dummyMenu from 'assets/dummy/dorpDownMenu.json';
+import logo from 'assets/imgs/custom/logo.white.png';
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -98,6 +101,9 @@ const IconWrapper = styled.div`
 const HeaderDropDown = ({scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
 
+    const test = useSelector(state => state.setDataReducer.menu);
+    
+
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'}>
             <HeaderMiddleArea>
@@ -106,7 +112,7 @@ const HeaderDropDown = ({scrollMenu}) => {
                 </RightLogoArea>
                 <MenuBarArea>
                     <MenuBar>
-                        { dummyMenu.data.map( ({list, path, title},index) => (
+                        { test.data.map( ({list, path, title},index) => (
                             ( list.length !== 0 ? (
                                 <LinkWrapper key={`menu-bar-text-${index}`}>
                                     <MenuBarText to={path}>

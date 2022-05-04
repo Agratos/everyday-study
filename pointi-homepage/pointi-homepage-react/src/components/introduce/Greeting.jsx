@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
+
 const Wrapper = styled.div`
     text-align: center;
 `;
@@ -31,7 +33,7 @@ const Text = styled.div`
 `;
 
 const Greeting = ({data}) => {
-
+    //ScrollToMoveId();
     return (
         <Wrapper id={`greeting`}>
             <Title>{data.title}</Title>

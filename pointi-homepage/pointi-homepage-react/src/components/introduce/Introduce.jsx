@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import useTest from 'assets/dummy/useTest';
+
 import Greeting from './Greeting';
 import Organization from './Organization';
 import PatentBoard from './PatentBoard';
