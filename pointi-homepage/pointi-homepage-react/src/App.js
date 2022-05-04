@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import sendApi from 'api/sendApi';
@@ -13,13 +13,21 @@ import Technology from 'page/TechnologyPage';
 import { useSelector, useDispatch } from 'react-redux';
 
 const App = () => {
+  // useHook로 변경 예정
   const dispatch = useDispatch();
   useEffect(() => {
-    sendApi.getMenu().then(response => {
-      console.log(response);
+    sendApi.getAll().then(response => {
+      console.log(`response: `,response)
       dispatch({
         type: 'SET_DATA',
-        data: response.data,
+        menu: response[0],
+        header: response[1],
+        footer: response[2],
+        main: response[3],
+        introduce: response[4],
+        technology: response[5],
+        solution: response[6],
+        career: response[7],
       })
     })
   },[])
@@ -27,7 +35,7 @@ const App = () => {
 
   if (useSelector(state=>state.setDataReducer.isLoading)) {
       return <div>Loading...</div>;
-  }
+  } // 삼항 연산자로 변경 예정
 
   return (
     <BrowserRouter>

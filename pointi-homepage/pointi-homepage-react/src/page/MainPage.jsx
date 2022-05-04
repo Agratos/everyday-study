@@ -6,8 +6,6 @@ import Footer from 'components/footer/Footer';
 import Main from 'components/main/Main';
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
-import { useSelector } from 'react-redux';
-
 const Wrapper = styled.div``;
 
 const MainPage = () => {

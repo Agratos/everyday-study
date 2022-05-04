@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 import CareerContentList from './CareerContentList';
 import CareerEmployment from './CareerEmployment';
-import dummyCarerr from 'assets/dummy/career.json';
 import CareerEmploymentBoard from './CareerEmploymentBoard';
 
 const Wrapper = styled.div`
@@ -31,21 +31,22 @@ const ContentImge = styled.img`
 `;
 
 const Career = () => {
+    const careerData = useSelector(state => state.setDataReducer.career);
     return(
         <Wrapper id='talent'>
-            <MainTitle>{dummyCarerr.title}</MainTitle>
+            <MainTitle>{careerData.title}</MainTitle>
             <ContentWrapper>
-                <ContentImge src={require(`assets/imgs/carreer/${dummyCarerr.philosophy.image}`)} />
-                <CareerContentList list={dummyCarerr.philosophy} />
+                <ContentImge src={require(`assets/imgs/carreer/${careerData.philosophy.image}`)} />
+                <CareerContentList list={careerData.philosophy} />
             </ContentWrapper>
             <ContentWrapper>
-                <CareerContentList list={dummyCarerr.talent} margin={'60px'} />
-                <ContentImge src={require(`assets/imgs/carreer/${dummyCarerr.talent.image}`)} />
+                <CareerContentList list={careerData.talent} margin={'60px'} />
+                <ContentImge src={require(`assets/imgs/carreer/${careerData.talent.image}`)} />
             </ContentWrapper>
             <ContentWrapper>
-                <CareerEmployment list={dummyCarerr.employment} />
+                <CareerEmployment list={careerData.employment} />
             </ContentWrapper>
-            <CareerEmploymentBoard list={dummyCarerr.announcement} />
+            <CareerEmploymentBoard list={careerData.announcement} />
         </Wrapper>
     )
 }

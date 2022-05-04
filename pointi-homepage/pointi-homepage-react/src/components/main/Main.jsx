@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import mainData from 'assets/dummy/main.json';
+import { useSelector } from 'react-redux';
+
 import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
 import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/io";
 
@@ -95,7 +96,7 @@ const MainSolutionButton = styled(Link)`
 `;
 
 const Main = () => {
-    //ScrollToMoveId();
+    const mainData = useSelector(state=>state.setDataReducer.main);
 
     return (
         <Wrapper>

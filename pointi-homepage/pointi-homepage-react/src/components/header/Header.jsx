@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import HeaderTop from './HeaderTop';
+import { useSelector } from 'react-redux';
 
+import HeaderTop from './HeaderTop';
 import HeaderDropDown from './HeaderDropDown';
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
-import dummyHeaderChnageData from 'assets/dummy/headerChangeData.json';
 import { Link, Outlet } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -58,6 +58,7 @@ const SliderAreaTextButton = styled(Link)`
 const Header = ({ title }) => {
     const [dataIndex, setDataIndex] = useState(0);
     const imgData = [logo1,logo2];
+    const headerData = useSelector(state => state.setDataReducer.header);
 
     useEffect(() => {
         setTimeout(() =>{
@@ -72,7 +73,7 @@ const Header = ({ title }) => {
             <HeaderDropDown scrollMenu={true} />
             { title === undefined ?
                 <SliderArea height='85vh'> 
-                       {dummyHeaderChnageData.data.map(({id, text1, text2},index) => (
+                       {headerData.data.map(({id, text1, text2},index) => (
                             ( id === dataIndex && (
                                 <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
                                     <SliderAreaText className='text-1'>{text1}</SliderAreaText>

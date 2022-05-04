@@ -25,4 +25,7 @@ export default {
     getCareer : () => {
         return api.get('/career');
     },
+    getAll : () => {
+        return api.getAll('/menu','/menu/header','/menu/footer', '/main', '/introduce','/technology','/solution','/career');
+    }
 }  

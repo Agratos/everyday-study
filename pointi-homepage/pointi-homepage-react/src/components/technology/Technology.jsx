@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
-import dummyTechnology from 'assets/dummy/technology.json';
 import Detail from 'components/detail/Detail';
 
 
@@ -16,16 +17,17 @@ const TechnologyListWrapper = styled.div`
 `;
 
 const Technology = ({id}) => {
-    const [isClick, setIsClick] = useState('multiMediaProcess');  
+    const [isClick, setIsClick] = useState('multiMediaProcess');
+    const technologyData = useSelector(state => state.setDataReducer.technology);
     useEffect(() => {
         id !== undefined && setIsClick(id)
     },[id])
     
     return (
         <Wrapper>
-            <MenuKategorie kategorie={dummyTechnology.kategorie} width={'70vw'} setIsClick={setIsClick} isClick={isClick} />
+            <MenuKategorie kategorie={technologyData.kategorie} width={'70vw'} setIsClick={setIsClick} isClick={isClick} />
             <TechnologyListWrapper >
-                <Detail data={dummyTechnology[isClick]} type='technology' />
+                <Detail data={technologyData[isClick]} type='technology' />
             </TechnologyListWrapper>
         </Wrapper>
     )

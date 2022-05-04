@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import useTest from 'assets/dummy/useTest';
+import { useSelector } from 'react-redux';
 
 import Greeting from './Greeting';
 import Organization from './Organization';
@@ -10,23 +10,22 @@ import Relative from './Relative';
 import History from './History';
 import Location from './Location';
 
-
-import dummyIntroduce from 'assets/dummy/introduce.json';
-
 const Wrapper = styled.div`
     margin: 10vh 10vw;
     align-items: center;
 `;
 
 const Introduce = () => {
+    const introduceData = useSelector(state => state.setDataReducer.introduce);
+
     return (
         <Wrapper id={`introduce`}>
-            <Greeting data={dummyIntroduce.ceo} />
-            <History data={dummyIntroduce.history} kategorie={dummyIntroduce.kategorie}/>
-            <Organization data={dummyIntroduce.organization} />
-            <PatentBoard data={dummyIntroduce.patent} />
-            <Relative data={dummyIntroduce.relative} />
-            <Location data={dummyIntroduce.location} />
+            <Greeting data={introduceData.ceo} />
+            <History data={introduceData.history} kategorie={introduceData.kategorie}/>
+            <Organization data={introduceData.organization} />
+            <PatentBoard data={introduceData.patent} />
+            <Relative data={introduceData.relative} />
+            <Location data={introduceData.location} />
         </Wrapper>
     )
 }

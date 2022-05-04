@@ -3,7 +3,11 @@ const initialState = {
     menu: null,
     header: null,
     footer: null,
+    main: null,
     introduce: null,
+    technology: null,
+    solution: null,
+    career: null,
     isLoading: true,
 };
 
@@ -13,7 +17,14 @@ export default function setDataReducer ( state = initialState, action ) {
         case 'SET_DATA':
             return {
                 ...state,
-                menu: action.data,
+                menu: action.menu,
+                header: action.header,
+                footer: action.footer,
+                main: action.main,
+                introduce: action.introduce,
+                technology: action.technology,
+                solution: action.solution,
+                career: action.career,
                 isLoading: false,
             };
         default:

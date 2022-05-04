@@ -11,7 +11,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootNode = document.getElementById('root');
 const store = createStore(rootReducer,composeWithDevTools());
-console.log(store.getState());
+
 //axios.defaults.baseURL = 'http://localhost:3001';
 
 ReactDOM.createRoot(rootNode).render(

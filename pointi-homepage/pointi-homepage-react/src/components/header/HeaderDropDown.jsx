@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 
 import { IoIosArrowDown } from "react-icons/io";
 import ScrollEvent from 'containers/scroll/ScrollEvent';
-//import dummyMenu from 'assets/dummy/dorpDownMenu.json';
 import logo from 'assets/imgs/custom/logo.white.png';
 
 const Wrapper = styled.div`
@@ -100,8 +99,7 @@ const IconWrapper = styled.div`
 
 const HeaderDropDown = ({scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
-
-    const test = useSelector(state => state.setDataReducer.menu);
+    const dropDownData = useSelector(state => state.setDataReducer.menu);
     
 
     return (
@@ -112,7 +110,7 @@ const HeaderDropDown = ({scrollMenu}) => {
                 </RightLogoArea>
                 <MenuBarArea>
                     <MenuBar>
-                        { test.data.map( ({list, path, title},index) => (
+                        { dropDownData.data.map( ({list, path, title},index) => (
                             ( list.length !== 0 ? (
                                 <LinkWrapper key={`menu-bar-text-${index}`}>
                                     <MenuBarText to={path}>
