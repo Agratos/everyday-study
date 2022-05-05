@@ -1,3 +1,12 @@
-# 해야할 일
-1. css 반응형으로 바꾸기
-2. footer 작성
+# 1차 완료
+
+1. 서버 연동
+
+- redux axios 사용
+- axios all 여러개 요청
+- redux에 저장후 rendering
+
+# 코드 리팩토링
+
+1. 반응형 css 로 변경
+2. 코드 모듈로 묶기
