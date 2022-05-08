@@ -12,3 +12,4 @@
 2. 코드 모듈로 묶기
 3. styled 중복 합치기
 4. global 선언
+5. 반복되는 기능 container로 빼기
