@@ -32,30 +32,6 @@ const App = () => {
     })
   },[])
 
-  // if (useSelector(state=>state.setDataReducer.isLoading)) {
-  //     return <div>Loading...</div>;
-  // } // 삼항 연산자로 변경 예정
-
-  // return (
-  //   <BrowserRouter>
-  //     <GlobalStyle />
-  //     <Helmet>
-  //       <title>포인트아이</title>
-  //     </Helmet>
-  //     <Routes>
-  //       <Route path="/" element={<Main />} />
-  //       <Route path="/introduce/:id" element={<IntroducePage />} />
-  //       <Route path="/introduce/" element={<IntroducePage />} />
-  //       <Route path="/technology/:id" element={<Technology />} />
-  //       <Route path="/technology" element={<Technology />} />
-  //       <Route path="/solution/:id" element={<SolutionPage />} />
-  //       <Route path="/solution" element={<SolutionPage />} />
-  //       <Route path="/career/:id" element={<Career />} />
-  //       <Route path="/career" element={<Career />} />
-  //     </Routes>
-  //   </BrowserRouter>
-  // )
-
   return useSelector(state=>state.setDataReducer.isLoading) ? <div>Loading...</div> :
   <BrowserRouter>
       <GlobalStyle />
