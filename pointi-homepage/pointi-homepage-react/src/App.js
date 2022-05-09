@@ -31,7 +31,6 @@ const App = () => {
       })
     })
   },[])
-  console.log(`isLoading :`,useSelector(state=>state.setDataReducer.isLoading));
 
   if (useSelector(state=>state.setDataReducer.isLoading)) {
       return <div>Loading...</div>;

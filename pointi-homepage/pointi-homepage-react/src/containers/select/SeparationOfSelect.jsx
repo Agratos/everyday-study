@@ -1,3 +1,4 @@
+// 카테고리 선택시 데이터 분리
 const SeparationOfSelect = (data, isClick) => {
     let selectList = []
     const clickList = isClick.split(' ~ ');

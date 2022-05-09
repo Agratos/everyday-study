@@ -12,8 +12,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 const rootNode = document.getElementById('root');
 const store = createStore(rootReducer,composeWithDevTools());
 
-//axios.defaults.baseURL = 'http://localhost:3001';
-
 ReactDOM.createRoot(rootNode).render(
   <HelmetProvider>
     <Provider store={store}>

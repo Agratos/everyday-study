@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+// 메인 페이지 숫자 증가 애니메이션
 const CountUp = ({ end, start = 0 , timer = 50}) => {
     const [state, setState] = useState(null);
     const ref = useRef(start);
