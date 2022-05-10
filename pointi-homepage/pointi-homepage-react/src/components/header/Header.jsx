@@ -9,31 +9,30 @@ import logo2 from 'assets/imgs/banner/banner_2.png'
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-    max-height: 800px;
+    max-height: 440px;
     background: url(${props => props.logo});
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.9;
-    transition: all 1000ms ease 0s;
     background-blend-mode:multiply;
     background-color: #7794b0d9;
     position: relative;
+    opacity: 0.9;
+    transition: all 1000ms ease 0s;
     z-index: 2;
 `;
 const SliderArea = styled.div`
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    height: ${props => props.height};
+    justify-content: center;
+    margin-top: 5vh;
 `;
 const SliderAreaTextWrapper = styled.div`
-    margin-left: 10vw;
+    margin-left: 5vw;
     margin-bottom: ${props => props.maringBottom};
 `;
 const SliderAreaText = styled.div`
     color: white;
-    font-size: ${props => props.size || '52px'};
-    font-weight: ${props => props.weight};
+    font-size: ${props => props.size || '2rem'};
     //transition: all 5000ms linear 0s;
     animation: fade in 3s;
 `;
@@ -55,7 +54,7 @@ const SliderAreaTextButton = styled(Link)`
     }
 `;
 
-const Header = ({ title }) => {
+const Header = ({ page }) => {
     const [dataIndex, setDataIndex] = useState(0);
     const imgData = [logo1,logo2];
     const headerData = useSelector(state => state.setDataReducer.header);
@@ -70,9 +69,9 @@ const Header = ({ title }) => {
         <Wrapper logo={imgData[dataIndex%2]}  id="top">
             <HeaderTop />
             <HeaderDropDown />
-            <HeaderDropDown scrollMenu={true} />
-            { title === undefined ?
-                <SliderArea height='85vh'> 
+            {/* <HeaderDropDown scrollMenu={true} /> */}
+            { page === 'main' &&
+                <SliderArea> 
                        {headerData.data.map(({id, text1, text2},index) => (
                             ( id === dataIndex && (
                                 <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
@@ -82,11 +81,6 @@ const Header = ({ title }) => {
                                 </SliderAreaTextWrapper>
                             ))   
                         ))}
-                </SliderArea>
-            :   <SliderArea height='50vh'>
-                    <SliderAreaTextWrapper>
-                        <SliderAreaText weight='bolder' size='64px'>{title}</SliderAreaText>
-                    </SliderAreaTextWrapper>
                 </SliderArea>
             }
         </Wrapper>

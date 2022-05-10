@@ -84,7 +84,6 @@ const IconWrapper = styled.div`
 const HeaderDropDown = ({scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
     //const dropDownData = useSelector(state => state.setDataReducer.menu);
-    
 
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'}>

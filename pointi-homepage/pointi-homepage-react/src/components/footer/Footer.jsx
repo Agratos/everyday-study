@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import footerData from 'assets/dummy/footer.json';
 import Copyright from './Copyright';
 import logo from 'assets/imgs/footer/logo.png';
 import mail from 'assets/imgs/footer/mail.png';
@@ -11,72 +12,100 @@ import phone2 from 'assets/imgs/footer/phone2.png';
 
 
 
-const Wrapper = styled.div`   
-     margin: 0 80px;
-`;
-const BottomNaviWrapper = styled.div`
-    padding: 145px 0 129px 0;
-    display: flex;
+// const Wrapper = styled.div`   
+//      margin: 0 80px;
+// `;
+// const BottomNaviWrapper = styled.div`
+//     padding: 145px 0 129px 0;
+//     display: flex;
     
-`;
-const LeftPointiInfo = styled.div`
-    width: 320px;
-    padding: 0 15px;
-`;
-const LogoImg = styled.img`
-    margin-bottom: 40px;    
-    &:hover {
-        cursor: pointer;
-    }
-`;
-const LeftPointiInfoText = styled.div`
-    color: #919191;
-    margin: 8px 0;
-    font-weight: normal;
-    font-size: 13px;
-`;
-const LeftPointiInfoTextImg = styled.img`
-    position: relative;
-    bottom: 0;
-    height: ${ props => props.size};
-    margin-right:2px;
-`;
-const RightPointWrapper = styled.div`
+// `;
+// const LeftPointiInfo = styled.div`
+//     //width: 320px;
+//     //padding: 0 15px;
+//     display: flex;
+//     justify-content: center;
+// `;
+// const LogoImg = styled.img`
+//     /* margin-bottom: 40px;    
+//     &:hover {
+//         cursor: pointer;
+//     } */
+// `;
+// const LeftPointiInfoText = styled.div`
+//     color: #919191;
+//     margin: 8px 0;
+//     font-weight: normal;
+//     font-size: 13px;
+// `;
+// const LeftPointiInfoTextImg = styled.img`
+//     position: relative;
+//     bottom: 0;
+//     height: ${ props => props.size};
+//     margin-right:2px;
+// `;
+// const RightPointWrapper = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     width: 68vw;
+// `;
+// const RightPointiMenu = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     width: 160px;
+//     min-height: 5vh;
+//     padding: 0 15px;
+// `;
+// const RightPointMenuText = styled.div`
+//     font-size: ${props => props.size};
+//     font-weight: ${props => props.weight};
+//     margin-bottom: ${props => props.margin};;
+//     padding: ${props => props.padding} 0;
+//     color: ${props => props.color || '#919191'};
+// `;
+// const RightPointMenuButton = styled(Link)`
+//     padding: 8px 0;
+//     font-weight: normal;
+//     color: #919191;
+//     text-decoration: none;
+//     &:hover {
+//         cursor: pointer;
+//         color: #a3cbf6;
+//     }
+// `;
+
+const Wrapper = styled.div`
     display: flex;
     justify-content: center;
-    width: 68vw;
+    margin-bottom: 16px;
+    font-size: 0.8rem;
 `;
-const RightPointiMenu = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 160px;
-    min-height: 5vh;
-    padding: 0 15px;
+const Logo = styled.img`
+    margin: auto 0;
+    margin-right: 16px;
+    width: 128px;
+    height: 48px;
 `;
-const RightPointMenuText = styled.div`
-    font-size: ${props => props.size};
-    font-weight: ${props => props.weight};
-    margin-bottom: ${props => props.margin};;
-    padding: ${props => props.padding} 0;
-    color: ${props => props.color || '#919191'};
+const TextArea = styled.div`
+    margin-left: 16px;
 `;
-const RightPointMenuButton = styled(Link)`
-    padding: 8px 0;
-    font-weight: normal;
-    color: #919191;
-    text-decoration: none;
-    &:hover {
-        cursor: pointer;
-        color: #a3cbf6;
-    }
+const TextWrapper = styled.div`
+    font-weight: bolder;
 `;
-
 const Footer = () => {
-    const footerData = useSelector(state => state.setDataReducer.footer);
+    //const footerData = useSelector(state => state.setDataReducer.footer);
 
     return (
         <Wrapper>
-            <BottomNaviWrapper>
+            <Logo src={logo} />
+            <TextArea>
+                {footerData.data[0].list.map((list,index) => (
+                    <TextWrapper key={`footer-text-wrapper${index}`}>
+                        {list}
+                    </TextWrapper>
+                ))}
+            </TextArea>
+            {/* <BottomNaviWrapper>
                 <LeftPointiInfo>
                     <LogoImg src={logo}/>
                     {footerData.data[0].list.map( (list,index) => (
@@ -110,7 +139,7 @@ const Footer = () => {
                     ))}
                 </RightPointWrapper>
             </BottomNaviWrapper>
-            <Copyright />
+            <Copyright /> */}
         </Wrapper>
     )
 }

@@ -12,9 +12,9 @@ const MainPage = () => {
     ScrollToMoveId();
     return (
         <Wrapper>
-            <Header />
-            <Main/>
-            <Counter />
+            <Header page={'main'} />
+            <Main />
+            {/* <Counter /> */}
             <Footer />
         </Wrapper>
     );
