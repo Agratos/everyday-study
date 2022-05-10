@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     body{
-        padding: 0 10vw 0 10vw;
+        padding: 0 15vw 0 15vw;
         margin: 0;
         font-family: 'Noto Sans KR', sans-serif;
         font-size: 16px;

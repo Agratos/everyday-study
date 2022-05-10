@@ -1,3 +1,15 @@
 {
-    
+    "data": [
+        {
+            "title" : "Ai ⦁ 5G ⦁ 빅데이터",
+            "image" : "https://www.techm.kr/news/photo/202004/70500_60671_050.jpg",
+            "path": "",
+            "text": "Ai ⦁ 5G ⦁ 빅데이터와 함께하세요"
+        },{
+            "title" : "IoT",
+            "image" : "https://www.boannews.com/media/upFiles2/2021/09/843306412_4553.jpg",
+            "path": "",
+            "text": "IoT의 기술로 편한 삶을 만드세요"
+        }
+    ]
 }

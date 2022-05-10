@@ -83,14 +83,15 @@ const Wrapper = styled.div`
 const Logo = styled.img`
     margin: auto 0;
     margin-right: 16px;
-    width: 128px;
-    height: 48px;
+    width: 120px;
+    height: 40px;
 `;
 const TextArea = styled.div`
     margin-left: 16px;
 `;
 const TextWrapper = styled.div`
     font-weight: bolder;
+    font-size: 0.76rem;
 `;
 const Footer = () => {
     //const footerData = useSelector(state => state.setDataReducer.footer);

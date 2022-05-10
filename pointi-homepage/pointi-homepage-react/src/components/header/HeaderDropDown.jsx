@@ -45,10 +45,10 @@ const DropDownWrapper = styled.div`
 `;
 const MenuBarText = styled(Link)`
     display: flex;
+    margin: 8px 32px;
     color: white;
     font-weight: bolder;
-    font-size: 16px;
-    margin: 8px 32px;
+    font-size: 1.1rem;
     text-decoration: none;
     &:hover {
         cursor: pointer;
