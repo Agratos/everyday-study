@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 
 import HeaderTop from './HeaderTop';
@@ -9,16 +9,21 @@ import logo2 from 'assets/imgs/banner/banner_2.png'
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-    max-height: 440px;
-    background: url(${props => props.logo});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode:multiply;
-    background-color: #7794b0d9;
-    position: relative;
-    opacity: 0.9;
-    transition: all 1000ms ease 0s;
-    z-index: 2;
+    background-color: none;
+    ${props => props.page === 'main' &&
+        css`
+            max-height: 440px;
+            background: url(${props => props.logo});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-blend-mode:multiply;
+            background-color: #7794b0d9;
+            position: relative;
+            opacity: 0.9;
+            transition: all 1000ms ease 0s;
+            z-index: 2;
+        `
+    }
 `;
 const SliderArea = styled.div`
     display: flex;
@@ -66,25 +71,29 @@ const Header = ({ page }) => {
     }, [dataIndex] )
 
     return (
-        <Wrapper logo={imgData[dataIndex%2]}  id="top">
+        page === 'main' ? (
+        <Wrapper logo={imgData[dataIndex%2]}  id="top" page={page}>
             <HeaderTop />
-            <HeaderDropDown />
+            <HeaderDropDown test={`test`} page={page} />
             {/* <HeaderDropDown scrollMenu={true} /> */}
-            { page === 'main' &&
-                <SliderArea> 
-                       {headerData.data.map(({id, text1, text2},index) => (
-                            ( id === dataIndex && (
-                                <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
-                                    <SliderAreaText className='text-1'>{text1}</SliderAreaText>
-                                    <SliderAreaText className='text-2'>{text2}</SliderAreaText>
-                                    <SliderAreaTextButton to='/solution'>Our Solutions</SliderAreaTextButton>
-                                </SliderAreaTextWrapper>
-                            ))   
-                        ))}
-                </SliderArea>
-            }
+            <SliderArea> 
+                    {headerData.data.map(({id, text1, text2},index) => (
+                        ( id === dataIndex && (
+                            <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
+                                <SliderAreaText className='text-1'>{text1}</SliderAreaText>
+                                <SliderAreaText className='text-2'>{text2}</SliderAreaText>
+                                <SliderAreaTextButton to='/solution'>Our Solutions</SliderAreaTextButton>
+                            </SliderAreaTextWrapper>
+                        ))   
+                    ))}
+            </SliderArea>
         </Wrapper>
-    )
+    ) : (
+        <Wrapper>
+            <HeaderTop />
+            <HeaderDropDown page={page}/>
+        </Wrapper>
+    ))
 }
 
 export default Header;

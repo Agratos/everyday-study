@@ -8,7 +8,7 @@ const Title = styled.div`
     font-size: 40px;
     font-weight: bolder;
     text-align: center;
-    margin: 10vh 5vw 15vh 5vw;
+    margin: 32px;
 `;
 const EmploymentWrapper = styled.div`
     display: flex;

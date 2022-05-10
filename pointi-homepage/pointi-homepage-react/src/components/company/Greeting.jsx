@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
 const Wrapper = styled.div`
+    width: 60%;
     text-align: center;
+    margin: 0 auto;
 `;
 const Title = styled.div`
     font-size: 40px;
@@ -13,7 +15,7 @@ const Title = styled.div`
 `;
 const DataWrapper = styled.div`
     display: flex;
-    margin-top: 15vh;
+    margin-top: 5vh;
 `;
 const Img = styled.img`
     width: 40vw;
@@ -38,7 +40,7 @@ const Greeting = ({data}) => {
         <Wrapper id={`greeting`}>
             <Title>{data.title}</Title>
             <DataWrapper>
-                <Img src={require(`assets/imgs/introduce/${data.image}`)} />
+                {/* <Img src={require(`assets/imgs/introduce/${data.image}`)} /> */}
                 <TextWrapper>
                     {data.text.map((text,index) => (
                         <Text key={`greetingText${index}`}>{text}</Text>

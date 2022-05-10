@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    margin-top: 30vh;
+    margin: 0 auto;
 `;
 const Title = styled.div`
     font-size: 40px;
@@ -12,22 +12,20 @@ const Title = styled.div`
 `;
 const DataWrapperOut = styled.div`
     margin-top: 10vh;
-    width: 95%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
 `; 
 const DataWrapperIn = styled.div`
     border: 1px solid black;
+    width: 30%;
     box-shadow: 4px 4px 4px #919191; 
     text-align: center;
-    flex-basis: 30%;
     margin: 0 calc(9.4%/6);
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
 `;
 const DataImg = styled.img`
-    width: 20vw;
-    height: 25vh;
+    width: 100%;
 `;
 const DataTitle = styled.div`
     color: #919191;

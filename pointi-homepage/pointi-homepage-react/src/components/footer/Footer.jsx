@@ -77,8 +77,7 @@ import phone2 from 'assets/imgs/footer/phone2.png';
 const Wrapper = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 16px;
-    font-size: 0.8rem;
+    padding: 40px;
 `;
 const Logo = styled.img`
     margin: auto 0;
@@ -91,7 +90,7 @@ const TextArea = styled.div`
 `;
 const TextWrapper = styled.div`
     font-weight: bolder;
-    font-size: 0.76rem;
+    font-size: 0.9rem;
 `;
 const Footer = () => {
     //const footerData = useSelector(state => state.setDataReducer.footer);

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Pagination from 'containers/pagenation/Pagination';
 
 const Wrapper = styled.div`
-    margin-top: 30vh;
+    margin: 0 auto;
 `;
 const Title = styled.div`
     font-size: 40px;

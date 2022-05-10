@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import KakaoMap from 'containers/kakao/KakaoMap';
 
 const Wrapper = styled.div`
-    margin-top: 30vh;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 `;

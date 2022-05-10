@@ -7,25 +7,20 @@ import CareerEmployment from './CareerEmployment';
 import CareerEmploymentBoard from './CareerEmploymentBoard';
 
 const Wrapper = styled.div`
-    //border: 1px solid black;
-    margin: 10vh 5vw;
+    margin: 32px 5vw;
 `;
 const MainTitle = styled.div`
-    //border: 1px solid black;
     font-size: 40px;
     font-weight: bolder;
     text-align: center;
-    margin: 10vh 0;
 `;
 const ContentWrapper = styled.div`
-    //border: 1px solid black;
     display: flex;
     justify-content: space-around;
-    padding: 50px 0;
+    padding: 32px 0;
     border-top: 1px dotted #eee;
 `;
 const ContentImge = styled.img`
-    //border: 1px solid black;
     width: 40%;
     margin: 0 16px;
 `;

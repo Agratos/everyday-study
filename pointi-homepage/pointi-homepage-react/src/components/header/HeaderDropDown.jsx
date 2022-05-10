@@ -11,7 +11,9 @@ const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
     padding: 8px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #ccbebe;
+
+    //border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
@@ -34,9 +36,9 @@ const MenuBar = styled.div`
 const DropDownWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #cdcbcb;
     text-align: left;
-    padding: 0 24px 0 24px;
+    //padding: 0 24px 0 24px;
     position: absolute;
     opacity: 0;
     transition: all 0.8s;
@@ -46,20 +48,20 @@ const DropDownWrapper = styled.div`
 const MenuBarText = styled(Link)`
     display: flex;
     margin: 8px 32px;
-    color: white;
+    color: ${props => props.page === 'main' && 'white' || 'black'};
     font-weight: bolder;
     font-size: 1.1rem;
     text-decoration: none;
     &:hover {
         cursor: pointer;
         border-bottom: 4px solid #5db2ff;
-        padding-bottom: 24px;
-        margin-bottom: -24px;
+        padding-bottom: 12px;
+        margin-bottom: -12px;
     }
 `;
 const DropDownText = styled(Link)`
     padding: 8px;
-    margin: 0 10px 0 10px;
+    //margin: 0 10px 0 10px;
     font-weight: normal;
     color: black;
     text-decoration: none;
@@ -81,19 +83,18 @@ const IconWrapper = styled.div`
     margin-left: 2px;
 `;
 
-const HeaderDropDown = ({scrollMenu}) => {
+const HeaderDropDown = ({page, scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
     //const dropDownData = useSelector(state => state.setDataReducer.menu);
-
     return (
-        <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'}>
+        <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
             <HeaderMiddleArea>
                 <MenuBarArea>
                     <MenuBar>
                         { dropDownData.data.map( ({list, path, title},index) => (
                             ( list.length !== 0 ? (
                                 <LinkWrapper key={`menu-bar-text-${index}`}>
-                                    <MenuBarText to={path}>
+                                    <MenuBarText to={path} page={page}>
                                         {title}
                                         <IconWrapper><IoIosArrowDown /></IconWrapper>
                                     </MenuBarText>
@@ -106,7 +107,7 @@ const HeaderDropDown = ({scrollMenu}) => {
                             )
                             : 
                             <LinkWrapper key={`menu-bar-text-${index}`}>
-                                <MenuBarText to={path}>{title}</MenuBarText>
+                                <MenuBarText to={path} page={page}>{title}</MenuBarText>
                             </LinkWrapper>
                         )))}
                     </MenuBar>

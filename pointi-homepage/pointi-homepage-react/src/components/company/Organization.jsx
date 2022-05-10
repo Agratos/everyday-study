@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 30vh;
+    margin: 0 auto;
 `;
 const Title = styled.div`
     font-size: 40px;
