@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import KakaoShare from 'containers/kakao/KaKaoShare';
 
@@ -8,6 +9,7 @@ import phone1 from 'assets/imgs/header/phone1.png';
 import phone2 from 'assets/imgs/header/phone2.png';
 import kakao from 'assets/imgs/header/kakao.png';
 import facebook from 'assets/imgs/header/facebook.png'
+import logo from 'assets/imgs/custom/logo.png';
 
 const Wrapper = styled.div`
     background-color: white;
@@ -20,8 +22,16 @@ const HeaderTopArea = styled.div`
 const HeaderTopLeftArea = styled.div`
     width: 41vw;
 `;
-const HeaderTopLeftTitle = styled.p`
-    margin:8px;
+const LeftLogoArea = styled.div`
+    padding: 0 16px 0 16px;
+    width: 25%;
+`;
+const LeftLogo = styled.img`
+    width: 113px;
+    height: 40px;
+    &:hover{
+        cursor: pointer;
+    }
 `;
 const HeaderTopRightArea = styled.div`
     display: flex;
@@ -56,6 +66,7 @@ const Img = styled.img`
     height: ${props => props.size || '24px'};
     margin-right: 4px;
     padding-top: ${props => props.padding};
+    margin: auto 4px;
 `;
 const ImgText = styled.a`
     padding: ${props => props.padding || '2px'};
@@ -68,7 +79,9 @@ const HeaderTop = () => {
         <Wrapper>
             <HeaderTopArea>
                 <HeaderTopLeftArea>
-                    <HeaderTopLeftTitle>글로벌IT기업,포인트아이</HeaderTopLeftTitle>
+                <LeftLogoArea>
+                    <Link to='/' ><LeftLogo src={logo} /></Link>
+                </LeftLogoArea>
                 </HeaderTopLeftArea>
                 <HeaderTopRightArea>
                     <TopRightAreaLeft>

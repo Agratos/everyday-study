@@ -5,7 +5,7 @@ import sendApi from 'api/sendApi';
 
 import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
-import IntroducePage from './page/IntroducePage';
+import CompanyPage from './page/CompanyPage';
 import SolutionPage from './page/SolutionPage';
 import Career from 'page/CareerPage';
 import Technology from 'page/TechnologyPage';
@@ -40,8 +40,8 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/introduce/:id" element={<IntroducePage />} />
-        <Route path="/introduce/" element={<IntroducePage />} />
+        <Route path="/company/:id" element={<CompanyPage />} />
+        <Route path="/company/" element={<CompanyPage />} />
         <Route path="/technology/:id" element={<Technology />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/solution/:id" element={<SolutionPage />} />

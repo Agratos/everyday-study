@@ -15,11 +15,11 @@ const Wrapper = styled.div`
     align-items: center;
 `;
 
-const Introduce = () => {
+const Company = () => {
     const introduceData = useSelector(state => state.setDataReducer.introduce);
 
     return (
-        <Wrapper id={`introduce`}>
+        <Wrapper id={`company`}>
             <Greeting data={introduceData.ceo} />
             <History data={introduceData.history} kategorie={introduceData.kategorie}/>
             <Organization data={introduceData.organization} />
@@ -30,4 +30,4 @@ const Introduce = () => {
     )
 }
 
-export default Introduce;
+export default Company;

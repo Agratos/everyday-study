@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
-import Introduce from 'components/introduce/Introduce';
+import Company from 'components/company/Company';
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
-
-import sendApi from 'api/sendApi';
 
 const Wrapper = styled.div``;
 
-const IntroducePage = () => {
+const CompanyPage = () => {
     ScrollToMoveId();
     
     return (
         <Wrapper id='introduce-page-wrapper'>
             <Header title='Introduce' />
-            <Introduce />
+            <Company />
             <Footer />
         </Wrapper>
     );
 };
 
-export default IntroducePage;
+export default CompanyPage;

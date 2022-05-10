@@ -2,54 +2,49 @@
     "data":[
         {
             "id":0,
-            "path":"/", 
-            "title":"Home",
-            "list": []
-        },{
-            "id":1,
-            "path":"/introduce", 
-            "title":"Introduce",
+            "path":"/company", 
+            "title":"Company",
             "list": [
                 {
-                    "path" :"/introduce/greeting",
+                    "path" :"/company/greeting",
                     "text" :"CEO 인사말"
                 },
                 {
-                    "path" :"/introduce/history",
+                    "path" :"/company/history",
                     "text" :"회사 연역"
                 },
                 {
-                    "path" :"/introduce/organization",
+                    "path" :"/company/organization",
                     "text" :"조직 구성"
                 },
                 {
-                    "path" :"/introduce/patent",
+                    "path" :"/company/patent",
                     "text" :"특허 현황"
                 },
                 {
-                    "path" :"/introduce/relative",
+                    "path" :"/company/relative",
                     "text" :"관계사"
                 },
                 {
-                    "path" :"/introduce/location",
+                    "path" :"/company/location",
                     "text" :"오시는 길"
                 }
             ]
         },{
-            "id":2,
+            "id":1,
             "path":"/technology", 
             "title":"Technology",
             "list": []
         }
         ,{
-            "id":3,
+            "id":2,
             "path":"/solution", 
             "title":"Solution",
             "list": []
         },{
-            "id":4,
+            "id":3,
             "path":"/career", 
-            "title":"Careers",
+            "title":"Recruiting",
             "list": [
                 {
                     "path" :"/career/talent",

@@ -2,10 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     body{
-        padding: 0;
+        padding: 0 10vw 0 10vw;
         margin: 0;
         font-family: 'Noto Sans KR', sans-serif;
-        font-size: smaller;
+        font-size: 16px;
     };
     button{
         display: flex;
@@ -13,11 +13,6 @@ const GlobalStyle = createGlobalStyle`
         outline: none;
         border-radius: 3px;
     };
-    input{
-        display: flex;
-        outline: none;
-        padding-left: 10px;
-    }
 `;
 
 export default GlobalStyle;

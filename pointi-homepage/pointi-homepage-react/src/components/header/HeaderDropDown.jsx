@@ -3,54 +3,38 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
+import dropDownData from 'assets/dummy/dorpDownMenu.json';
 import { IoIosArrowDown } from "react-icons/io";
 import ScrollEvent from 'containers/scroll/ScrollEvent';
-import logo from 'assets/imgs/custom/logo.white.png';
 
 const Wrapper = styled.div`
-    padding: 16px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     display: ${props => props.scrollMenu && 'none'};
+    padding: 8px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
             display: block;
-            background-color: #0f0e0e;
             position: fixed;
             top: 0;
-            width: 100vw;
             z-index: 999;
+            background-color: #0f0e0e;
         ` 
     }
 `;
 const HeaderMiddleArea = styled.div`
     display: flex;
-    margin: 0 64px 0 64px;
+    justify-content: center;
 `;
-const RightLogoArea = styled.div`
-    padding: 0 16px 0 16px;
-    width: 25%;
-`;
-const RithtLogo = styled.img`
-    width: 113px;
-    height: 40px;
-    &:hover{
-        cursor: pointer;
-    }
-`;
-const MenuBarArea = styled.div`
-    width: 50%; 
-`;
+const MenuBarArea = styled.div``;
 const MenuBar = styled.div`
     display: flex;
-    justify-content: center;
 `;
 const DropDownWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background-color: white;
-    //min-width: 10vw;
     text-align: left;
     padding: 0 24px 0 24px;
     position: absolute;
@@ -64,7 +48,7 @@ const MenuBarText = styled(Link)`
     color: white;
     font-weight: bolder;
     font-size: 16px;
-    margin: 8px 12px 8px 8px;
+    margin: 8px 32px;
     text-decoration: none;
     &:hover {
         cursor: pointer;
@@ -99,15 +83,12 @@ const IconWrapper = styled.div`
 
 const HeaderDropDown = ({scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
-    const dropDownData = useSelector(state => state.setDataReducer.menu);
+    //const dropDownData = useSelector(state => state.setDataReducer.menu);
     
 
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'}>
             <HeaderMiddleArea>
-                <RightLogoArea>
-                    <Link to='/' ><RithtLogo src={logo} /></Link>
-                </RightLogoArea>
                 <MenuBarArea>
                     <MenuBar>
                         { dropDownData.data.map( ({list, path, title},index) => (
