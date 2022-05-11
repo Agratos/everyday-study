@@ -78,7 +78,7 @@ const Header = ({ page }) => {
                             <SliderAreaTextWrapper key={`slider-area-${index}`}>
                                 <SliderAreaText className='text-1'>{text1}</SliderAreaText>
                                 <SliderAreaText className='text-2'>{text2}</SliderAreaText>
-                                <SliderAreaTextButton to='/solution'>Our Solutions</SliderAreaTextButton>
+                                <SliderAreaTextButton to='/solution/ai-5g-bigdata/wild-animal-detection'>Our Solutions</SliderAreaTextButton>
                             </SliderAreaTextWrapper>
                         ))   
                     ))}
