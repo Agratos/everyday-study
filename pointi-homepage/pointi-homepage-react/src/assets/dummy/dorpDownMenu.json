@@ -40,7 +40,16 @@
             "id":2,
             "path":"/solution", 
             "title":"Solution",
-            "list": []
+            "list": [
+                {
+                    "path" :"/solution/ai-5g-bigdata",
+                    "text" :"Ai ⦁ 5G ⦁ BigData"
+                },
+                {
+                    "path" :"/solution/iot",
+                    "text" :"IoT"
+                }
+            ]
         },{
             "id":3,
             "path":"/career", 

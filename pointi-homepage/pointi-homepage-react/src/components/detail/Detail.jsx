@@ -45,20 +45,18 @@ const Solution = styled(TextFont)`
 const FunctionWrapper = styled(TextFont)`
     //display: flex;
 `;
-const FunctionTitleWrapper = styled.div`
-    display: flex;
-`;
+const FunctionTitleWrapper = styled(TitleWrapper)``;
 const FunctionIconWrapper = styled.div`
-    margin: 0 16px 0 24px;
+    margin: 0 8px 0 24px;
 `;
 const FunctionTitle = styled(TextFont)``;
 const FunctionEx = styled.div`
     margin-left: 40px;
 `;
-const KeywordWrapper = styled.div`
-    display: flex;
+const KeywordWrapper = styled(TitleWrapper)`
     flex-wrap: wrap;
 `;
+const AdaptionWrapper = styled(TitleWrapper)``;
 const Keyword = styled(TextTitle)`
     margin: 0;
     margin-right: 24px;
@@ -93,7 +91,7 @@ const Detail = ({data, type}) => {
                     {data.function.map(({title, explan}, index) => (
                         <FunctionWrapper key={`function${index}`}>
                             <FunctionTitleWrapper>
-                                <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
+                                <FunctionIconWrapper><BsCheckLg size={14}/></FunctionIconWrapper>
                                 <FunctionTitle>{title}</FunctionTitle>
                             </FunctionTitleWrapper>
                             {explan && explan.map((ex, index) => (
@@ -121,10 +119,10 @@ const Detail = ({data, type}) => {
                                 <TextTitle>적용분야</TextTitle>
                             </TitleWrapper>
                             {data.adaptation.map((adapt, index) => (
-                                <FunctionWrapper key={`adaptation ${index}`}>
-                                    <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
+                                <AdaptionWrapper key={`adaptation ${index}`}>
+                                    <FunctionIconWrapper><BsCheckLg size={14} /></FunctionIconWrapper>
                                     <FunctionTitle>{adapt}</FunctionTitle>
-                                </FunctionWrapper>
+                                </AdaptionWrapper>
                             ))}
                         </div>
                     }
