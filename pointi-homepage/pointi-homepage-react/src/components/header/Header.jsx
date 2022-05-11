@@ -12,7 +12,9 @@ const Wrapper = styled.div`
     background-color: none;
     ${props => props.page === 'main' &&
         css`
-            max-height: 440px;
+            min-height: 400px;
+            height: 50vh;
+            max-height: 600px;
             background: url(${props => props.logo});
             background-repeat: no-repeat;
             background-size: cover;
@@ -26,15 +28,9 @@ const Wrapper = styled.div`
     }
 `;
 const SliderArea = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 5vh;
+    padding: 8vh;
 `;
-const SliderAreaTextWrapper = styled.div`
-    margin-left: 5vw;
-    margin-bottom: ${props => props.maringBottom};
-`;
+const SliderAreaTextWrapper = styled.div``;
 const SliderAreaText = styled.div`
     color: white;
     font-size: ${props => props.size || '2rem'};
@@ -79,7 +75,7 @@ const Header = ({ page }) => {
             <SliderArea> 
                     {headerData.data.map(({id, text1, text2},index) => (
                         ( id === dataIndex && (
-                            <SliderAreaTextWrapper key={`slider-area-${index}`} maringBottom='20vh'>
+                            <SliderAreaTextWrapper key={`slider-area-${index}`}>
                                 <SliderAreaText className='text-1'>{text1}</SliderAreaText>
                                 <SliderAreaText className='text-2'>{text2}</SliderAreaText>
                                 <SliderAreaTextButton to='/solution'>Our Solutions</SliderAreaTextButton>

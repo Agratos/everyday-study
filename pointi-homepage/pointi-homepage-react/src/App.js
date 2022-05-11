@@ -17,7 +17,6 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     sendApi.getAll().then(response => {
-      console.log(`response: `,response)
       dispatch({
         type: 'SET_DATA',
         menu: response[0],
@@ -41,7 +40,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/company/:id" element={<CompanyPage />} />
-        <Route path="/company/" element={<CompanyPage />} />
         <Route path="/technology/:id" element={<Technology />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/solution/:id" element={<SolutionPage />} />

@@ -106,8 +106,8 @@ const SolutionWrapper = styled(Link)`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 30%;
-    height: 30vh;
+    width: 20vw;
+    height: 25vh;
     padding: 8px;
     background: linear-gradient(-135deg, transparent 32px, #F0F9FD 0);
     &:hover {

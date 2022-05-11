@@ -3,19 +3,23 @@ import styled from 'styled-components';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 
 const Wrapper = styled.div`
-    border-top: 1px solid #E8E8E8;
+    //border-top: 1px solid #E8E8E8;
 `;
 const Title = styled.div`
-    font-size: 40px;
     text-align: center;
     margin: 48px 0;
+    font-size: 40px;
 `;
 const DetailWrapper = styled.div`
     display: flex;
     line-height: 32px;
 `;
-const ImgWrapper = styled.div``;
-const Img = styled.img``;
+const ImgWrapper = styled.div`
+    width: 50%;
+`;
+const Img = styled.img`
+    width: 100%;
+`;
 const TextWrapper = styled.div`
     padding: 16px;
 `;
@@ -29,23 +33,28 @@ const IconWrapper = styled.div`
     margin-right: 8px;
 `;
 const TextFont = styled.div`
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 `;
 const TextTitle = styled(TextFont)`
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 1vh 0;
 `;
 const Solution = styled(TextFont)`
     margin: 0;
 `;
 const FunctionWrapper = styled(TextFont)`
+    //display: flex;
+`;
+const FunctionTitleWrapper = styled.div`
     display: flex;
 `;
 const FunctionIconWrapper = styled.div`
-    margin: 0 16px 0 32px;
+    margin: 0 16px 0 24px;
 `;
 const FunctionTitle = styled(TextFont)``;
-const FunctionEx = styled(TextFont)``;
+const FunctionEx = styled.div`
+    margin-left: 40px;
+`;
 const KeywordWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -54,9 +63,7 @@ const Keyword = styled(TextTitle)`
     margin: 0;
     margin-right: 24px;
 `;
-const LinkWrapper = styled.div`
-    margin: 16px;
-`;
+const LinkWrapper = styled.div``;
 const LinkButton = styled.div`
     &:hover {
         cursor: pointer;
@@ -85,8 +92,10 @@ const Detail = ({data, type}) => {
                     </TitleWrapper>
                     {data.function.map(({title, explan}, index) => (
                         <FunctionWrapper key={`function${index}`}>
-                            <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
-                            <FunctionTitle>{title}</FunctionTitle>
+                            <FunctionTitleWrapper>
+                                <FunctionIconWrapper><BsCheckLg /></FunctionIconWrapper>
+                                <FunctionTitle>{title}</FunctionTitle>
+                            </FunctionTitleWrapper>
                             {explan && explan.map((ex, index) => (
                                 <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
                             ))}
@@ -119,18 +128,18 @@ const Detail = ({data, type}) => {
                             ))}
                         </div>
                     }
+                    { data.link !== undefined &&
+                        data.link.map((link,index) => (
+                            <LinkWrapper key={`link ${index}`}>
+                                <TitleWrapper>
+                                    <IconWrapper><BsFillStopFill /></IconWrapper>
+                                    <TextTitle>관련링크</TextTitle>
+                                </TitleWrapper>
+                                <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
+                            </LinkWrapper>
+                        ))}
                 </TextWrapper>
             </DetailWrapper>
-            { data.link !== undefined &&
-                data.link.map((link,index) => (
-                    <LinkWrapper key={`link ${index}`}>
-                        <TitleWrapper>
-                            <IconWrapper><BsFillStopFill /></IconWrapper>
-                            <TextTitle>관련링크</TextTitle>
-                        </TitleWrapper>
-                        <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
-                    </LinkWrapper>
-                ))}
         </Wrapper>
     )
 }

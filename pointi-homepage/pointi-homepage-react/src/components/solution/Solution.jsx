@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 32px;
+    margin: 16px auto;
 `;
 const SolutionListWrapper = styled.div`
     padding: 0 4vw;

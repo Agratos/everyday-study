@@ -15,11 +15,6 @@ import Location from './Location';
 const Wrapper = styled.div`
     margin: 16px auto;
 `;
-const LocationText = styled.div``;
-const MenuKategorieWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-`;
 const RenderWapper = styled.div`
     display: flex;
 `;
@@ -52,10 +47,8 @@ const Company = ({id}) => {
 
     return (
         <Wrapper id={`company`}>
-            <LocationText>{`Home > Company > ${isClick}`}</LocationText>
-            <MenuKategorieWrapper>
-                <MenuKategorie kategorie={companyData.kategorie} setIsClick={setIsClick} isClick={isClick} />
-            </MenuKategorieWrapper>
+            {/* <LocationText>{`Home > Company > ${isClick}`}</LocationText> */}
+            <MenuKategorie kategorie={companyData.kategorie} justify={'flex-end'} setIsClick={setIsClick} isClick={isClick} />
             <RenderWapper>
                 {renderSwicht()}
             </RenderWapper>

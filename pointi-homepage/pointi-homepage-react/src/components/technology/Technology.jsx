@@ -10,7 +10,11 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 32px ;
+    margin: 16px auto;
+`;
+const MenuKategorieWrapper = styled.div`
+    display: flex;
+    justify-content: center;
 `;
 const TechnologyListWrapper = styled.div`
     padding: 0 4vw;

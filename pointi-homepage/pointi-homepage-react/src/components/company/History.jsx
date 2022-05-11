@@ -12,6 +12,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
 `;
 const Title = styled.div`
+    margin-bottom: -24px;
     font-size: 40px;
     font-weight: bolder;
     text-align: center;
@@ -55,7 +56,7 @@ const History = ({data, kategorie}) => {
         <Wrapper id={`history`}>
             <Title>회사 연혁</Title>
             <MenuKategorieWrapper>
-                <MenuKategorie isClick={isClick} setIsClick={setIsClick} kategorie={kategorie} width={'80vw'} isWrap={'nowrap'}/>
+                <MenuKategorie isClick={isClick} setIsClick={setIsClick} kategorie={kategorie} subtitle={true} isWrap={'nowrap'}/>
             </MenuKategorieWrapper>
             <ListWrapper>
                 {

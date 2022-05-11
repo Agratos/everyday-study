@@ -2,7 +2,7 @@
     "data":[
         {
             "id":0,
-            "path":"/company", 
+            "path":"/company/greeting", 
             "title":"Company",
             "list": [
                 {
