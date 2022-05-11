@@ -1,0 +1,199 @@
+{
+    "ai-5g-bigdata" : {
+        "kategorie" : [
+            {
+                "title": "야생동물 감지 시스템",
+                "id":"wild-animal-detection"
+            },
+            {
+                "title": "이미지분류서비스",
+                "id":"image-classfication"
+            }, {
+                "title": "MEC Route",
+                "id":"test1"
+            }, {
+                "title": "빅데이터 UI/UX",
+                "id":"test2"
+            }, {
+                "title": "통합관제 (GUI)",
+                "id":"test5"
+            }
+        ],
+        "wild-animal-detection" :{
+            "title" : "영상분석 통합플랫폼 - 야생동물 감지 시스템",
+            "image" : "wildAnimalDetection.png",
+            "solution" : [
+                "인공지능을 활용하여 CCTV 카메라 영상에서 실시간으로 사람 및 야생동물(고라니, 맷돼지, 오소리, 너구리 등)을 감지하여 통지하는 솔루션",
+                "실시간 영상 중계, 녹화를 지원하며, 5G 네트워크를 활용하여 초저지연으로 신속한 감지 및 통지를 지원"
+            ],
+            "function" : [
+                {
+                    "title": "‘MEC Router’ 시스템 도입으로 Private 5G망을 가장 간단하고, 적은 비용으로 구축(5G ACIA의 3, 4안 결합한 방안)",
+                    "explan": []
+                },
+                {
+                    "title": "사설기업의 Private 5G 구축의 어려움 해결 -  Private 5G 필수 시스템(UPF, 5G-Control Plane, UDM 등)은 기능의 복잡성으로 인한 높은 제품단가, 비 전문기관의 기술/운영의 어려움 존재. ",
+                    "explan": []
+                },
+                {
+                    "title": "FPGA 기반 고속 패킷 처리 적용",
+                    "explan": [
+                        "5G 초저지연/초대역의 필수 불가결한 FPGA기반 기술 적용",
+                        "고속 GTP En/De-cap, L3/L4/L7 Routing 처리"
+                    ]
+                },
+                {
+                    "title": "Restful API를 이용한 편리한 Traffic Rule설정 (Mp2)",
+                    "explan": []
+                },
+                {
+                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "MEC",
+                "MEC Router",
+                "MEC DP",
+                "MEC DataPlane",
+                "5G"
+            ],
+            "link" : [
+                "http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD7070&prod_id=NA00000585&uCode=u1_6_1"
+            ]
+        },
+        "image-classfication" :{
+            "title" : "영상분석 통합플랫폼 - 이미지 분류 서비스",
+            "image" : "imageClassfication.png",
+            "solution" : [
+                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+            ],
+            "function" : [
+                {
+                    "title": "사진 및 동영상 촬영, 업로드 기능",
+                    "explan": []
+                },
+                {
+                    "title": "이미지 분석/식별/분류/전송 기능",
+                    "explan": []
+                },
+                {
+                    "title": "통계 데이터 및 운영보고서 제출 기능",
+                    "explan": []
+                },
+                {
+                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
+                    "explan": []
+                },
+                {
+                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "AI",
+                "인공지능",
+                "객체분류",
+                "이미지분류",
+                "5G"
+            ],
+            "link" : []
+        }
+    },
+    "ict" : {
+        "kategorie" : [
+            {
+                "title": "MGCF",
+                "id":"mgcf"
+            }, {
+                "title": "IBC",
+                "id":"ibc"
+            }, {
+                "title": "컬러링",
+                "id":"test6"
+            }, {
+                "title": "부가서비스",
+                "id":"test7"
+            }, {
+                "title": "사서함",
+                "id":"test8"
+            },{
+                "title": "영상정보센터",
+                "id":"test9"
+            }
+        ],
+        "mgcf" :{
+            "title" : "MGCF 테스트 중입니다.",
+            "image" : "imageClassfication.png",
+            "solution" : [
+                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+            ],
+            "function" : [
+                {
+                    "title": "사진 및 동영상 촬영, 업로드 기능",
+                    "explan": []
+                },
+                {
+                    "title": "이미지 분석/식별/분류/전송 기능",
+                    "explan": []
+                },
+                {
+                    "title": "통계 데이터 및 운영보고서 제출 기능",
+                    "explan": []
+                },
+                {
+                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
+                    "explan": []
+                },
+                {
+                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "AI",
+                "인공지능",
+                "객체분류",
+                "이미지분류",
+                "5G"
+            ],
+            "link" : []
+        },"ibc" :{
+            "title" : "IBC 테스트 중입니다.",
+            "image" : "imageClassfication.png",
+            "solution" : [
+                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+            ],
+            "function" : [
+                {
+                    "title": "사진 및 동영상 촬영, 업로드 기능",
+                    "explan": []
+                },
+                {
+                    "title": "이미지 분석/식별/분류/전송 기능",
+                    "explan": []
+                },
+                {
+                    "title": "통계 데이터 및 운영보고서 제출 기능",
+                    "explan": []
+                },
+                {
+                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
+                    "explan": []
+                },
+                {
+                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "AI",
+                "인공지능",
+                "객체분류",
+                "이미지분류",
+                "5G"
+            ],
+            "link" : []
+        }
+    }
+}

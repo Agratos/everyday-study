@@ -1,21 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
-import Career from 'components/career/Career';
-import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
+import Recruiting from 'components/recruiting/Recruiting';
 
 const Wrapper = styled.div``;
 
-const CareerPage = () => {
-    ScrollToMoveId();
+const RecruitingPage = () => {
     return (
         <Wrapper>
-            <Header title='Careers' />
-            <Career />
+            <Header />
+            <Recruiting />
             <Footer />
         </Wrapper>
     )
 }
 
-export default CareerPage;
+export default RecruitingPage;

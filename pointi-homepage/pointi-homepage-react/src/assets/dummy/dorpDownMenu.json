@@ -38,29 +38,29 @@
         }
         ,{
             "id":2,
-            "path":"/solution", 
+            "path":"/solution/ai-5g-bigdata/wild-animal-detection", 
             "title":"Solution",
             "list": [
                 {
-                    "path" :"/solution/ai-5g-bigdata",
+                    "path" :"/solution/ai-5g-bigdata/wild-animal-detection",
                     "text" :"Ai ⦁ 5G ⦁ BigData"
                 },
                 {
-                    "path" :"/solution/iot",
-                    "text" :"IoT"
+                    "path" :"/solution/ict/mgcf",
+                    "text" :"ICT"
                 }
             ]
         },{
             "id":3,
-            "path":"/career", 
+            "path":"/recruiting/talent", 
             "title":"Recruiting",
             "list": [
                 {
-                    "path" :"/career/talent",
+                    "path" :"/recruiting/talent",
                     "text" :"인재관리철학&amp;인재상"
                 },
                 {
-                    "path" :"/career/employment",
+                    "path" :"/recruiting/employment",
                     "text" :"입사지원&amp;채용공고"
                 }
             ]

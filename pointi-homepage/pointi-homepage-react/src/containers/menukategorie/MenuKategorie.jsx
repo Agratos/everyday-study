@@ -35,16 +35,15 @@ const Kategorie = styled.div`
     }
 `;
 
-const MenuKategorie = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap}) => {
-    const [ clickText , setClickText ] = useState(kategorie[0].title);
+const MenuKategorie = ({ kategorie, justify, subtitle, setIsClick, isClick, setSubjectKategorie, setSubtitleKategorie, isWrap}) => {
     const onClick = (e) => {
         setIsClick(e.target.id);
-        setClickText(document.getElementById(e.target.id).innerText);
+        subtitle ? setSubtitleKategorie(document.getElementById(e.target.id).innerText)
+        : setSubjectKategorie(document.getElementById(e.target.id).innerText);
     }
     
     return(
         <Wrapper>
-            {`Home > Company > ${clickText}`}
             <KategorieWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
                 { kategorie.map(({title,id}, index) => (
                     <Kategorie 

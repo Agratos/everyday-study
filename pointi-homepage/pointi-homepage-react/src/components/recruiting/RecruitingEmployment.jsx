@@ -8,7 +8,7 @@ const Title = styled.div`
     font-size: 40px;
     font-weight: bolder;
     text-align: center;
-    margin: 32px;
+    margin-bottom: 32px;
 `;
 const EmploymentWrapper = styled.div`
     display: flex;
@@ -29,8 +29,12 @@ const EmploymentText = styled.div`
     font-size: 16px;
     margin-bottom: 16px;
 `;
+const EmploymentTextMail = styled.a`
+    text-decoration-line: none;
+    color: black;
+`;
 
-const CareerEmployment = ({list}) => {
+const RecruitingEmployment = ({list}) => {
     return (
         <Wrapper id="employment" key='employment'>
             <Title>{list.title}</Title>
@@ -40,11 +44,11 @@ const CareerEmployment = ({list}) => {
                     <EmploymentTitle>{list.process[0]}</EmploymentTitle>
                     <EmploymentText>{list.process[1]}</EmploymentText>
                     <EmploymentTitle>{list.inquiry[0]}</EmploymentTitle>
-                    <EmploymentText>{list.inquiry[1]}</EmploymentText>
+                    <EmploymentTextMail href={`mailto:${list.inquiry[1]}`}>{list.inquiry[1]}</EmploymentTextMail>
                 </TextWrapper>
             </EmploymentWrapper>
         </Wrapper>
     )
 }
 
-export default CareerEmployment;
+export default RecruitingEmployment;

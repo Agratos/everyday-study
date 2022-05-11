@@ -7,7 +7,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
 import CompanyPage from './page/CompanyPage';
 import SolutionPage from './page/SolutionPage';
-import Career from 'page/CareerPage';
+import RecruitingPage from 'page/RecruitingPage';
 import Technology from 'page/TechnologyPage';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -43,9 +43,9 @@ const App = () => {
         <Route path="/technology/:id" element={<Technology />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/solution/:id" element={<SolutionPage />} />
-        <Route path="/solution" element={<SolutionPage />} />
-        <Route path="/career/:id" element={<Career />} />
-        <Route path="/career" element={<Career />} />
+        <Route path="/solution/:id/:click" element={<SolutionPage />} />
+        <Route path="/recruiting/:id" element={<RecruitingPage />} />
+        <Route path="/recruiting" element={<RecruitingPage />} />
       </Routes>
     </BrowserRouter>
 }

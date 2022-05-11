@@ -5,7 +5,7 @@ import Pagination from "containers/pagenation/Pagination";
 
 const Wrapper = styled.div`
     width: 80%;
-    margin: 0 auto;
+    margin: 32px auto;
 `;
 const Title = styled.div`
     font-size: 32px;
@@ -43,11 +43,10 @@ const ImgWrapper = styled.div`
     display: flex;
     justify-content: center;
 `;
-const Img = styled.img`
-`;
+const Img = styled.img``;
 
 
-const CareerEmploymentBoard = ( {list} ) => {
+const RecruitingEmploymentBoard = ( {list} ) => {
     const [ limit ] = useState(5);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
@@ -97,4 +96,4 @@ const CareerEmploymentBoard = ( {list} ) => {
 }
 
 
-export default CareerEmploymentBoard;
+export default RecruitingEmploymentBoard;

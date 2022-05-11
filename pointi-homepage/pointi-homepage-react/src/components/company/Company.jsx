@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import companyData from 'assets/dummy/company.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
@@ -19,9 +19,12 @@ const RenderWapper = styled.div`
     display: flex;
 `;
 
-const Company = ({id}) => {
+const Company = () => {
+    let { id } = useParams();
     const introduceData = useSelector(state => state.setDataReducer.introduce);
     const [isClick, setIsClick] = useState('greeting');
+    const [subjectKategorie , setSubjectKategorie] = useState(companyData.kategorie[0].title);
+    const [subtitleKategorie, setSubtitleKategorie] = useState('All')
 
     useEffect(() => {
         id !== undefined && setIsClick(id)
@@ -31,7 +34,11 @@ const Company = ({id}) => {
         window.history.pushState('','Company IsClick To Move',`/company/${isClick}`);
         switch(isClick) {
             case 'history' :
-                return <History data={companyData.history.data} kategorie={companyData.history.kategorie}/>;
+                return <History 
+                            data={companyData.history.data} 
+                            kategorie={companyData.history.kategorie}
+                            setSubtitleKategorie={setSubtitleKategorie}
+                        />;
             case 'organization' :
                 return <Organization data={companyData.organization} />;
             case 'patent' :
@@ -47,8 +54,14 @@ const Company = ({id}) => {
 
     return (
         <Wrapper id={`company`}>
-            {/* <LocationText>{`Home > Company > ${isClick}`}</LocationText> */}
-            <MenuKategorie kategorie={companyData.kategorie} justify={'flex-end'} setIsClick={setIsClick} isClick={isClick} />
+            {`Home > Company > ${subjectKategorie} ${isClick === 'history' ?  `> ${subtitleKategorie}`: ''}`}
+            <MenuKategorie 
+                kategorie={companyData.kategorie} 
+                justify={'flex-end'} 
+                setIsClick={setIsClick} 
+                isClick={isClick} 
+                setSubjectKategorie={setSubjectKategorie}
+            />
             <RenderWapper>
                 {renderSwicht()}
             </RenderWapper>

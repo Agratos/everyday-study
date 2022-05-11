@@ -11,7 +11,7 @@ const Wrapper = styled.div``;
 
 const TechnologyPage = () => {
     let { id } = useParams();
-    ScrollToMoveId();
+    //ScrollToMoveId();
     return (
         <Wrapper>
             <Header title='Technology' />

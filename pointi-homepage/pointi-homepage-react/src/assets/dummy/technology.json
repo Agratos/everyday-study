@@ -2,11 +2,11 @@
     "kategorie" : [
         {
             "title": "Multi-Media Process",
-            "id":"multiMediaProcess"
+            "id":"multi-media-process"
         },
         {
             "title": "Mass capacity IP Platform",
-            "id":"massCapacityIpPlatform"
+            "id":"mass-capacity-ip-platform"
         }, {
             "title": "Media Analytics Based on Deep Learning",
             "id":"test1"
@@ -18,7 +18,7 @@
             "id":"test3"
         }
     ],
-    "multiMediaProcess" :{
+    "multi-media-process" :{
         "title": "Multi-Media Process",
         "image" : "multiMediaProcess.png",
         "technology" : [
@@ -61,7 +61,7 @@
             "텔레프레즌스, 원격교육/의료, 멀티스크린 방송 등"
         ]
     },
-    "massCapacityIpPlatform" :{
+    "mass-capacity-ip-platform" :{
         "title": "Mass capacity IP Platform",
         "image" : "massCapacityIpPlatform.png",
         "technology" : [

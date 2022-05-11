@@ -44,19 +44,26 @@ const HistoryList = styled.div`
     font-size: 0.9rem;
 `;
 
-const History = ({data, kategorie}) => {
+const History = ({data, kategorie, setSubtitleKategorie}) => {
     const [isClick, setIsClick] = useState('All');  
     const [selected, setSelected] = useState(data);
 
     useEffect(() => {
         setSelected(SeparationOfSelect(data,isClick)); 
     },[isClick])
-
+    
     return (
         <Wrapper id={`history`}>
             <Title>회사 연혁</Title>
             <MenuKategorieWrapper>
-                <MenuKategorie isClick={isClick} setIsClick={setIsClick} kategorie={kategorie} subtitle={true} isWrap={'nowrap'}/>
+                <MenuKategorie 
+                    isClick={isClick} 
+                    setIsClick={setIsClick} 
+                    kategorie={kategorie} 
+                    setSubtitleKategorie={setSubtitleKategorie}
+                    subtitle={true} 
+                    isWrap={'nowrap'}
+                    />
             </MenuKategorieWrapper>
             <ListWrapper>
                 {
