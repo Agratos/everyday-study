@@ -3,13 +3,13 @@
         {
             "title" : "Ai ⦁ 5G ⦁ 빅데이터",
             "image" : "https://www.techm.kr/news/photo/202004/70500_60671_050.jpg",
-            "path": "",
+            "path": "/solution/ai-5g-bigdata/wild-animal-detection",
             "text": "Ai ⦁ 5G ⦁ 빅데이터와 함께하세요"
         },{
-            "title" : "IoT",
-            "image" : "https://www.boannews.com/media/upFiles2/2021/09/843306412_4553.jpg",
-            "path": "",
-            "text": "IoT의 기술로 편한 삶을 만드세요"
+            "title" : "ICT",
+            "image" : "https://www.mod1.co/wp-content/uploads/2019/04/shutterstock_1057334177-1200x800.jpg",
+            "path": "/solution/ict/mgcf",
+            "text": "ICT의 기술로 편한 삶을 만드세요"
         }
     ]
 }

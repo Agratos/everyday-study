@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
+
 import sendApi from 'api/sendApi';
 
 import GlobalStyle from 'styles/GlobalStyle';
@@ -10,11 +13,14 @@ import SolutionPage from './page/SolutionPage';
 import RecruitingPage from 'page/RecruitingPage';
 import Technology from 'page/TechnologyPage';
 
-import { useSelector, useDispatch } from 'react-redux';
+
 
 const App = () => {
   // useHook로 변경 예정
   const dispatch = useDispatch();
+  // const isPc = useMediaQuery({ query: '(min-width: 768px)' })
+  // const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+
   useEffect(() => {
     sendApi.getAll().then(response => {
       dispatch({
@@ -30,6 +36,16 @@ const App = () => {
       })
     })
   },[])
+
+  // useEffect(() => {
+  //   dispatch({
+  //     type: 'SET_DEVICE',
+  //     isPc: isPc,
+  //     isMobile: isMobile,
+  //   })
+  // }, [isPc])
+
+  // console.log(useSelector(state=>state.setDeviceReducer.isPc))
 
   return useSelector(state=>state.setDataReducer.isLoading) ? <div>Loading...</div> :
   <BrowserRouter>
