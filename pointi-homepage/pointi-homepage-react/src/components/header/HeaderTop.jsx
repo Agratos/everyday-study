@@ -79,9 +79,9 @@ const HeaderTop = () => {
         <Wrapper>
             <HeaderTopArea>
                 <HeaderTopLeftArea>
-                <LeftLogoArea>
-                    <Link to='/' ><LeftLogo src={logo} /></Link>
-                </LeftLogoArea>
+                    <LeftLogoArea>
+                        <Link to='/' ><LeftLogo src={logo} /></Link>
+                    </LeftLogoArea>
                 </HeaderTopLeftArea>
                 <HeaderTopRightArea>
                     <TopRightAreaLeft>

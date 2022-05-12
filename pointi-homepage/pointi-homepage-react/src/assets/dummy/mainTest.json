@@ -1,15 +1,20 @@
 {
     "data": [
         {
-            "title" : "Ai ⦁ 5G ⦁ 빅데이터",
-            "image" : "https://www.techm.kr/news/photo/202004/70500_60671_050.jpg",
-            "path": "/solution/ai-5g-bigdata/wild-animal-detection",
-            "text": "Ai ⦁ 5G ⦁ 빅데이터와 함께하세요"
+            "title" : "Technology",
+            "image" : "https://rtatransgroup.com.ng/wp-content/uploads/2020/09/Modren-Tech-1056x594.jpg",
+            "path": "",
+            "text": ""
         },{
-            "title" : "ICT",
-            "image" : "https://www.mod1.co/wp-content/uploads/2019/04/shutterstock_1057334177-1200x800.jpg",
+            "title" : "AIㆍ빅데이터",
+            "image" : "http://edu.chosun.com/site/data/img_dir/2020/08/18/2020081802298_0.jpg",
+            "path": "/solution/ai-5g-bigdata/wild-animal-detection",
+            "text": ""
+        },{
+            "title" : "5GㆍICT",
+            "image" : "https://www.techm.kr/news/photo/202004/70500_60671_050.jpg",
             "path": "/solution/ict/mgcf",
-            "text": "ICT의 기술로 편한 삶을 만드세요"
+            "text": ""
         }
     ]
 }

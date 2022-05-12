@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     text-align: center;
-    margin: 48px 0;
+    margin-bottom: 32px ;
     font-size: 40px;
 `;
 const DetailWrapper = styled.div`

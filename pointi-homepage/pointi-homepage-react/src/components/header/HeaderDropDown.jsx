@@ -6,14 +6,12 @@ import { useSelector } from 'react-redux';
 import dropDownData from 'assets/dummy/dorpDownMenu.json';
 import { IoIosArrowDown } from "react-icons/io";
 import ScrollEvent from 'containers/scroll/ScrollEvent';
-
+import logoWhite from 'assets/imgs/custom/logo.white.png';
+import logoBlack from 'assets/imgs/custom/logo.png';
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
     padding: 8px;
-
     border: 1px solid #ccbebe;
-
-    //border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
@@ -82,6 +80,17 @@ const IconWrapper = styled.div`
     padding-top: 4px;
     margin-left: 2px;
 `;
+const LeftLogoArea = styled.div`
+    padding: 0 16px 0 16px;
+    width: 25%;
+`;
+const LeftLogo = styled.img`
+    width: 113px;
+    height: 40px;
+    &:hover{
+        cursor: pointer;
+    }
+`;
 
 const HeaderDropDown = ({page, scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
@@ -89,6 +98,9 @@ const HeaderDropDown = ({page, scrollMenu}) => {
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
             <HeaderMiddleArea>
+                <LeftLogoArea>
+                    <Link to='/' ><LeftLogo src={page==='main'?logoWhite:logoBlack} /></Link>
+                </LeftLogoArea>
                 <MenuBarArea>
                     <MenuBar>
                         { dropDownData.data.map( ({list, path, title},index) => (

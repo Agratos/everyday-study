@@ -69,7 +69,7 @@ const Header = ({ page }) => {
     return (
         page === 'main' ? (
         <Wrapper logo={imgData[dataIndex%2]}  id="top" page={page}>
-            <HeaderTop />
+            {/* <HeaderTop /> */}
             <HeaderDropDown test={`test`} page={page} />
             {/* <HeaderDropDown scrollMenu={true} /> */}
             <SliderArea> 
@@ -86,7 +86,7 @@ const Header = ({ page }) => {
         </Wrapper>
     ) : (
         <Wrapper>
-            <HeaderTop />
+            {/* <HeaderTop /> */}
             <HeaderDropDown page={page}/>
         </Wrapper>
     ))
