@@ -21,6 +21,7 @@ const MenuKategorieWrapper = styled.div`
     justify-content: center;
 `;
 const TechnologyListWrapper = styled.div`
+    width: 80%;
     padding: 0 4vw;
 `;
 

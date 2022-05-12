@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 
 const Wrapper = styled.div`
-    //border-top: 1px solid #E8E8E8;
+    border: 1px solid black; //#E8E8E8;
+    width: 100%;
+    padding: 8px;
+    //background-color: #caebf951;
 `;
 const Title = styled.div`
     text-align: center;
@@ -11,11 +14,11 @@ const Title = styled.div`
     font-size: 40px;
 `;
 const DetailWrapper = styled.div`
-    display: flex;
+    //display: flex;
     line-height: 32px;
 `;
 const ImgWrapper = styled.div`
-    width: 50%;
+    width: %;
 `;
 const Img = styled.img`
     width: 100%;

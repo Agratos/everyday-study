@@ -9,18 +9,18 @@
             "id":"mass-capacity-ip-platform"
         }, {
             "title": "Media Analytics Based on Deep Learning",
-            "id":"test1"
+            "id":"media-analytics-based-on-deep-learning"
         }, {
             "title": "Operation/Management Service",
-            "id":"test2"
+            "id":"operation-management-service"
         }, {
             "title": "Mobile Core Network",
-            "id":"test3"
+            "id":"mobile-core-network"
         }
     ],
     "multi-media-process" :{
         "title": "Multi-Media Process",
-        "image" : "multiMediaProcess.png",
+        "image" : "Technology_multiMediaProcess.png",
         "technology" : [
             "대용량(4K/8K) 영상처리 및 Transcoding, Streaming"
         ],
@@ -63,7 +63,7 @@
     },
     "mass-capacity-ip-platform" :{
         "title": "Mass capacity IP Platform",
-        "image" : "massCapacityIpPlatform.png",
+        "image" : "Technology_massCapacityIpPlatform.png",
         "technology" : [
             "대용량 IP 플랫폼"
         ],
@@ -108,6 +108,121 @@
         ],
         "adaptation" : [
             "ARS, 음성/영상 RBT(통화연결음), 사서함 등"
+        ]
+    },
+    "media-analytics-based-on-deep-learning" :{
+        "title": "Media Analytics Based on Deep Learning",
+        "image" : "Technology_mediaAnalyticsBasedonDeepLearning.png",
+        "technology" : [
+            "Deep Learning기반 Media(Audio/Video) Analytics"
+        ],
+        "function" : [
+            {
+                "title": "딥러닝 기반 영상분석",
+                "explan": [
+                    "객체 검출, 인식, 추적"
+                ]
+            },
+            {
+                "title": "딥러닝 기반 음성인식",
+                "explan": [
+                    "탐색엔진, 음향/언어 모델"
+                ]
+            },
+            {
+                "title": "AL/ML 기술과 당사가 보유한 통신분야의 역량/경험과융합하여 진보된 서비스 제공 및 사업자에게 다양한 BM확보",
+                "explan": []
+            },
+            {
+                "title": "ARS 그 이후의 Service Model인 챗봇 솔루션 보유",
+                "explan": []
+            }
+        ],
+        "adaptation" : [
+            "영상인식, TTS, 음성인식"
+        ]
+    },
+    "operation-management-service" :{
+        "title": "Operation/Management Service",
+        "image" : "Technology_operationManagementService.png",
+        "technology" : [
+            "다양한 IT Service 경험을 기반으로 한 UI/UX 제공"
+        ],
+        "function" : [
+            {
+                "title": "국내 최대 이동통신사 주요 서비스 개발/공급/운영 경험 기반의 IT Service 기획 역량 보유",
+                "explan": []
+            },
+            {
+                "title": "사용자 친화적, 유연한 UI/UX 제공",
+                "explan": [
+                    "각종 관리용 운용관리 PKG/서버 보유"
+                ]
+            },
+            {
+                "title": "다양한 User의 Service Platform 적용 가능",
+                "explan": [
+                    "PC Client/Web, Mobile App/Web 경험 보유",
+                    "Private/Public Cloud 시스템 적용 경험 보유"
+                ]
+            },
+            {
+                "title": "다년간 노하우가 담긴 통합 관제 시스템 제공",
+                "explan": [
+                    "실시간 장애, 통계, 상태, 설정, 분석, 긴급복구 등",
+                    "표준화 프로토콜 연동",
+                    "ICMP, SNMP, SSH, Syslog, HTTP, JSON"
+                ]
+            }
+        ],
+        "adaptation" : [
+            "Server/Cloud/NFV 기반의 운용관리 Server/Client",
+            "Mobile App/Web"
+        ]
+    },
+    "mobile-core-network" :{
+        "title": "Mobile Core Network",
+        "image" : "Technology_mobileCoreNetwork.png",
+        "technology" : [
+            "CDMA, WCDMA, 4G LTE, 5G Mobile Core Network System 및 Service",
+            "“이동통신 발전”과 함께 다양한 기술, 서비스 제공"
+        ],
+        "function" : [
+            {
+                "title": "다양한 Protocol 지원",
+                "explan": [
+                    "Signal: SIP, ISUP, SIGTRAN, DIAMETER, SS7 등",
+                    "Media: RTP/RTCP, MEGACO(H.248), H.324 등"
+                ]
+            },
+            {
+                "title": "고속/대용량 패킷 처리",
+                "explan": [
+                    "Intel DPDK를 이용한 대용량 미디어 패킷처리",
+                    "FPGA기반 초저지연 패킷처리"
+                ]
+            },
+            {
+                "title": "COTS환경의 NFV(가상화) 기반 처리 지원",
+                "explan": []
+            },
+            {
+                "title": "다양한 연동 Interface 지원",
+                "explan": [
+                    "IP, ATM, E1 기반 Interface",
+                    "IP ↔ ATM, IP ↔ E1 Base Protocol 변환"
+                ]
+            },
+            {
+                "title": "Media Transcoding, Streaming",
+                "explan": [
+                    "실시간 Audio/Video Codec변환 및 송출"
+                ]
+            }
+        ],
+        "adaptation" : [
+            "IMS Core : MGCF, IMS-MGW, IBCF, MRF  등",
+            "감청/녹취, 패킷 분석, Protocol 변환 시스템"
         ]
     }
 }

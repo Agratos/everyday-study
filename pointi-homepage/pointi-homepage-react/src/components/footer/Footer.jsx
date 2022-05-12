@@ -77,6 +77,7 @@ import phone2 from 'assets/imgs/footer/phone2.png';
 const Wrapper = styled.div`
     display: flex;
     justify-content: center;
+    padding-top: 24px;
     padding-bottom: 16px;
 `;
 const Logo = styled.img`
