@@ -8,7 +8,8 @@ import solutionTestData from 'assets/dummy/solutionTest.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import Detail from 'components/detail/Detail';
 
-
+import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
+import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 
 const Wrapper = styled.div`
     display: flex;
@@ -21,6 +22,15 @@ const Location = styled.div`
 `;
 const SolutionListWrapper = styled.div`
     padding: 0 4vw;
+    margin-top: 32px;
+`;
+const MenuKategorieLeftWrapper = styled.div`
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin-left: 32px;
 `;
 
 const Solution = ({}) => {
@@ -43,7 +53,10 @@ const Solution = ({}) => {
             <Location>
                 {`Home > Solution > ${id} > ${checkUndefined().title}`}
             </Location>
-            <MenuKategorie kategorie={solutionTestData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/>
+            {/* <MenuKategorie kategorie={solutionTestData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/> */}
+            <MenuKategorieLeftWrapper>
+                <MenuKategorieLeft kategorie={solutionTestData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/>
+            </MenuKategorieLeftWrapper>
             <SolutionListWrapper >
                 <Detail 
                     data={checkUndefined()} 

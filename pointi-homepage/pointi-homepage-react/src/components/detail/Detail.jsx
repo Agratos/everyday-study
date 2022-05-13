@@ -6,7 +6,6 @@ const Wrapper = styled.div`
     border: 1px solid black; //#E8E8E8;
     width: 100%;
     padding: 8px;
-    //background-color: #caebf951;
 `;
 const Title = styled.div`
     text-align: center;
@@ -17,9 +16,7 @@ const DetailWrapper = styled.div`
     //display: flex;
     line-height: 32px;
 `;
-const ImgWrapper = styled.div`
-    width: %;
-`;
+const ImgWrapper = styled.div``;
 const Img = styled.img`
     width: 100%;
 `;

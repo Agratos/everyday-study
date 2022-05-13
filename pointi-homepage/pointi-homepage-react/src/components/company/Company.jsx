@@ -12,6 +12,8 @@ import Relative from './Relative';
 import History from './History';
 import Location from './Location';
 
+import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
+
 const Wrapper = styled.div`
     margin: 16px auto;
 `;
@@ -55,7 +57,14 @@ const Company = () => {
     return (
         <Wrapper id={`company`}>
             {`Home > Company > ${subjectKategorie} ${isClick === 'history' ?  `> ${subtitleKategorie}`: ''}`}
-            <MenuKategorie 
+            {/* <MenuKategorie 
+                kategorie={companyData.kategorie} 
+                justify={'flex-end'} 
+                setIsClick={setIsClick} 
+                isClick={isClick} 
+                setSubjectKategorie={setSubjectKategorie}
+            /> */}
+            <MenuKategorieTable 
                 kategorie={companyData.kategorie} 
                 justify={'flex-end'} 
                 setIsClick={setIsClick} 

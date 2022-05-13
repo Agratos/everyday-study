@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import technologyData from 'assets/dummy/technology.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
+import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import Detail from 'components/detail/Detail';
 
 
@@ -15,10 +16,15 @@ const Wrapper = styled.div`
 `;
 const Location = styled.div`
     width: 100%;
+    margin-bottom: 32px;
 `;
-const MenuKategorieWrapper = styled.div`
+const MenuKategorieLeftWrapper = styled.div`
     display: flex;
-    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin-left: 32px;
 `;
 const TechnologyListWrapper = styled.div`
     width: 80%;
@@ -35,16 +41,25 @@ const Technology = ({id}) => {
     useEffect(() => {
         window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);
     })
-    
+
+
     return (
         <Wrapper>
             <Location>{`Home > Technology > ${subjectKategorie}`}</Location>
-            <MenuKategorie 
+            <MenuKategorieLeftWrapper id={'test'} >
+                <MenuKategorieLeft 
+                    kategorie={technologyData.kategorie} 
+                    setIsClick={setIsClick} 
+                    isClick={isClick} 
+                    setSubjectKategorie={setSubjectKategorie}
+                    />
+            </MenuKategorieLeftWrapper>
+            {/* <MenuKategorie 
                 kategorie={technologyData.kategorie} 
                 setIsClick={setIsClick} 
                 isClick={isClick} 
                 setSubjectKategorie={setSubjectKategorie}
-                />
+                /> */}
             <TechnologyListWrapper >
                 <Detail data={technologyData[isClick]} type='technology' />
             </TechnologyListWrapper>
