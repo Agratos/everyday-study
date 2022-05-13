@@ -73,17 +73,34 @@ const Detail = ({data, type}) => {
         <Wrapper>
             <Title>{data.title}</Title>
             <DetailWrapper>
+                { type === 'solution' && (
+                    <TextWrapper>
+                        <TitleWrapper>
+                            <IconWrapper><BsFillStopFill /></IconWrapper>
+                            <TextTitle>솔루션</TextTitle>
+                        </TitleWrapper>
+                        {data[type].map((solution, index) => (
+                            <Solution key={`${type}${index}`}>{solution}</Solution>
+                        ))}
+                    </TextWrapper>
+                )}
+
                 <ImgWrapper>
                     <Img src={require(`assets/imgs/${type}/${data.image}`)} />
                 </ImgWrapper>
+
                 <TextWrapper>
-                    <TitleWrapper>
-                        <IconWrapper><BsFillStopFill /></IconWrapper>
-                        { type === 'solution' ? <TextTitle>솔루션</TextTitle> : <TextTitle>기능</TextTitle>}
-                    </TitleWrapper>
-                    {data[type].map((solution, index) => (
-                        <Solution key={`${type}${index}`}>{solution}</Solution>
-                    ))}
+                    { type === 'technology' && (
+                        <div>
+                            <TitleWrapper>
+                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                                <TextTitle>기능</TextTitle>
+                            </TitleWrapper>
+                            {data[type].map((solution, index) => (
+                                <Solution key={`${type}${index}`}>{solution}</Solution>
+                            ))}
+                        </div>
+                    )}
                     <TitleWrapper>
                         <IconWrapper><BsFillStopFill /></IconWrapper>
                         <TextTitle>주요 기능</TextTitle>
@@ -95,7 +112,7 @@ const Detail = ({data, type}) => {
                                 <FunctionTitle>{title}</FunctionTitle>
                             </FunctionTitleWrapper>
                             {explan && explan.map((ex, index) => (
-                                <FunctionEx key={`explan${index}`}>- {ex}</FunctionEx>
+                                <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
                             ))}
                         </FunctionWrapper>
                     ))}
@@ -126,19 +143,19 @@ const Detail = ({data, type}) => {
                             ))}
                         </div>
                     }
-                    { data.link !== undefined &&
-                        (
-                            <div>
-                                <TitleWrapper>
-                                        <IconWrapper><BsFillStopFill /></IconWrapper>
-                                        <TextTitle>관련링크</TextTitle>
-                                </TitleWrapper>
-                                {data.link.map((link,index) => (
+                    { data.link !== undefined && (
+                        <div>
+                            <TitleWrapper>
+                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                                <TextTitle>관련링크</TextTitle>
+                            </TitleWrapper>
+                            {data.link.map((link,index) => (
                                 <LinkWrapper key={`link ${index}`}>
+                                    
                                     <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
-                                </LinkWrapper>))}
-                            </div>
-                        )}
+                                </LinkWrapper>
+                            ))}
+                        </div>)}
                 </TextWrapper>
             </DetailWrapper>
         </Wrapper>
