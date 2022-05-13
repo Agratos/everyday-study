@@ -95,7 +95,7 @@ const Detail = ({data, type}) => {
                                 <FunctionTitle>{title}</FunctionTitle>
                             </FunctionTitleWrapper>
                             {explan && explan.map((ex, index) => (
-                                <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
+                                <FunctionEx key={`explan${index}`}>- {ex}</FunctionEx>
                             ))}
                         </FunctionWrapper>
                     ))}
@@ -127,15 +127,18 @@ const Detail = ({data, type}) => {
                         </div>
                     }
                     { data.link !== undefined &&
-                        data.link.map((link,index) => (
-                            <LinkWrapper key={`link ${index}`}>
+                        (
+                            <div>
                                 <TitleWrapper>
-                                    <IconWrapper><BsFillStopFill /></IconWrapper>
-                                    <TextTitle>관련링크</TextTitle>
+                                        <IconWrapper><BsFillStopFill /></IconWrapper>
+                                        <TextTitle>관련링크</TextTitle>
                                 </TitleWrapper>
-                                <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
-                            </LinkWrapper>
-                        ))}
+                                {data.link.map((link,index) => (
+                                <LinkWrapper key={`link ${index}`}>
+                                    <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
+                                </LinkWrapper>))}
+                            </div>
+                        )}
                 </TextWrapper>
             </DetailWrapper>
         </Wrapper>

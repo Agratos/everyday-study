@@ -12,7 +12,7 @@
                 "title": "빅데이터 UI/UX",
                 "id":"bigdata-ui-ux"
             }, {
-                "title": "통합관제 (GUI)",
+                "title": "통합관제 시스템(UI, UX)",
                 "id":"integrated-control-gui"
             }
         ],
@@ -112,73 +112,101 @@
             "title" : "빅데이터 UI/UX",
             "image" : "Solution_AI_BigData_bigdataUiUx.png",
             "solution" : [
-                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+                "다양하고 데이터베이스 및 대용량의 데이터 소스를 (MSSQL, MySQL, MongoDB, 로그 등)를 빠른 시간에 수집하고, 가공하여 유효한 정보를 Local DB에 저장하고, 이를 분석하는  솔루션"     
             ],
             "function" : [
                 {
-                    "title": "사진 및 동영상 촬영, 업로드 기능",
+                    "title": "Apache Spark를 도입하여 빅데이터 처리",
                     "explan": []
                 },
                 {
-                    "title": "이미지 분석/식별/분류/전송 기능",
+                    "title": "React, node.js 도입하여 Web UI/UX 구현",
                     "explan": []
                 },
                 {
-                    "title": "통계 데이터 및 운영보고서 제출 기능",
+                    "title": "NoSQL 도입하여 대용량 데이터 저장 및 처리",
                     "explan": []
                 },
                 {
-                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
+                    "title": "빅데이터 처리 및 표준인터페이스 기반 시스템",
                     "explan": []
                 },
                 {
-                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "title": "MB/GB급 비정형/정형 데이터 수집 및 분석",
                     "explan": []
                 }
             ],
             "keyword" : [
-                "AI",
-                "인공지능",
-                "객체분류",
-                "이미지분류",
-                "5G"
+                "React",
+                "node.js",
+                "EMS",
+                "UI/UX",
+                "Spark",
+                "mongoDB"
             ],
             "link" : []
         },
         "integrated-control-gui" :{
-            "title" : "통합관제 (GUI)",
+            "title" : "통합관제 시스템(UI, UX)",
             "image" : "Solution_AI_BigData_integratedControlGui.png",
             "solution" : [
-                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+                "다년간에 걸쳐 쌓인 노하우가 담긴 통합관제 서비스 제공",
+                "사용자 중심 GUI 및 MMI(Man Machine Interface) 제공"
             ],
             "function" : [
                 {
-                    "title": "사진 및 동영상 촬영, 업로드 기능",
-                    "explan": []
+                    "title": "감시 및 경고",
+                    "explan": [
+                        "H/W Resource, Network 감시",
+                        "통계, 주요 프로세스, 이중화 상태 감시",
+                        "실시간 가청/가시 알람 발생 및 SMS NOTI",
+                        "가상화 환경에서의 Network감시"
+                    ]
                 },
                 {
-                    "title": "이미지 분석/식별/분류/전송 기능",
-                    "explan": []
+                    "title": "관리 및 제어",
+                    "explan": [
+                        "프로세스, 이중화  관리",
+                        "경고 발생(MIN/MAJ/CRI) 임계치 설정",
+                        "경고 메시지별 자동인지  및 해제",
+                        "사용자/관리자 계정관리"
+                    ]
                 },
                 {
-                    "title": "통계 데이터 및 운영보고서 제출 기능",
-                    "explan": []
+                    "title": "통계",
+                    "explan": [
+                        "H/W Resource, Network 통계",
+                        "서비스 별 통계",
+                        "단위: 1분, 5분, 1시간, 1일, 1주, 1일, 1년"
+                    ]
                 },
                 {
-                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
-                    "explan": []
+                    "title": "추적 및 분석",
+                    "explan": [
+                        "통화, 로그 Trace 분석 기능",
+                        "TCP DUMP기능"
+                    ]
                 },
                 {
-                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
-                    "explan": []
+                    "title": "백업 및 복원",
+                    "explan": [
+                        "통계, DB, PKG 백업 및 복원"
+                    ]
+                },
+                {
+                    "title": "표준화된 프로토콜 적용 및 시스템 가상화(VNF) 적용",
+                    "explan": [
+                        "ICMP, SNMP, Telnet, SSH, syslog, Trap, HTTP, JSON"
+                    ]
                 }
             ],
             "keyword" : [
-                "AI",
-                "인공지능",
-                "객체분류",
-                "이미지분류",
-                "5G"
+                "EMS",
+                "OMA",
+                "OAM",
+                "GUI",
+                "MMI",
+                "MMC"
             ],
             "link" : []
         }
@@ -188,8 +216,7 @@
             {
                 "title": "MEC Router",
                 "id":"mec-router"
-            }, 
-            {
+            }, {
                 "title": "MGCF",
                 "id":"mgcf"
             }, {
@@ -197,90 +224,430 @@
                 "id":"ibc"
             }, {
                 "title": "컬러링",
-                "id":"test6"
+                "id":"coloring"
             }, {
                 "title": "부가서비스",
-                "id":"test7"
+                "id":"extra-service"
             }, {
                 "title": "사서함",
-                "id":"test8"
+                "id":"unified-mailbox"
             },{
                 "title": "영상정보센터",
-                "id":"test9"
+                "id":"video-information-center"
+            },{
+                "title": "T그룹통화",
+                "id":"t-group-call"
             }
         ],
+        "mec-router" :{
+            "title" : "MEC Router",
+            "image" : "Solution_ICT_mecRouter.png",
+            "solution" : [
+                "5G 패킷을 Rule에 의해 초저지연으로 Local(Private) 또는 Public Network로 Routing해주는 시스템",
+                "MEC : Mobile/Multi-access Edge Computing",
+                "MEC Router, MEC DP(Data Plane)",
+                "FPGA(Field Programming Gate Array) 기반 패킷 처리"
+            ],
+            "function" : [
+                {
+                    "title": "‘MEC Router’ 시스템 도입으로 Private 5G망을 가장 간단하고, 적은 비용으로 구축(5G ACIA의 3, 4안 결합한 방안)",
+                    "explan": []
+                },
+                {
+                    "title": "사설기업의 Private 5G 구축의 어려움 해결 -  Private 5G 필수 시스템(UPF, 5G-Control Plane, UDM 등)은 기능의 복잡성으로 인한 높은 제품단가, 비 전문기관의 기술/운영의 어려움 존재",
+                    "explan": []
+                },
+                {
+                    "title": "FPGA 기반 고속 패킷 처리 적용",
+                    "explan": [
+                        "5G 초저지연/초대역의 필수 불가결한 FPGA기반 기술 적용",
+                        "고속 GTP En/De-cap, L3/L4/L7 Routing 처리"
+                    ]
+                },
+                {
+                    "title": "Restful API를 이용한 편리한 Traffic Rule설정 (Mp2)",
+                    "explan": []
+                },
+                {
+                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "explan": []
+                },
+                {
+                    "title": "국제표준 규격 준수",
+                    "explan": [
+                        "5G Network: 3GPP,  IETF , MEC : ETSI GS"
+                    ]
+                }
+            ],
+            "keyword" : [
+                "MEC",
+                "MEC Router",
+                "MEC DP",
+                "MEC DataPlane",
+                "5G",
+                "Private",
+                "FPGA",
+                "Packet"
+            ],
+            "link" : []
+        },
         "mgcf" :{
-            "title" : "MGCF 테스트 중입니다.",
-            "image" : "Solution_AI_BigData_integratedControlGui.png",
+            "title" : "MGCF(Media Gateway Control Function)",
+            "image" : "Solution_ICT_mgcf.png",
             "solution" : [
-                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+                "IP기반 Network(IMS, EVDO PS)와 Circuit Network간의 연동Gateway로 Signal 및 Media변환을 수행하여 음성/영상 통화를 가능하게 하는 시스템",
+                "Signal처리부인 IMGC와 Media처리부인 IMGW로 구성",
+                "MGCF: Media Gateway Control Function",
+                "IMG: Interworking Media Gateway"    
             ],
             "function" : [
                 {
-                    "title": "사진 및 동영상 촬영, 업로드 기능",
+                    "title": "Circuit(3G) 기반 Signal/Media 처리",
+                    "explan": [
+                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, PCMA, H324, H.245, H.223)",
+                        "ATM기반 Signaling/Media Processing (BICC, ALCAP, AAL5/AAL5 Fragmentation/Reassemble)",
+                        "STM-1(63E1) Media Processing"
+                    ]
+                },
+                {
+                    "title": "IP 기반(IMS) 기반 Signal/Media 처리",
+                    "explan": [
+                        "P 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                    ]
+                },
+                {
+                    "title": "Trans-Coding 지원",
+                    "explan": [
+                        "Audio: PCMA, AMR, AMR-WB, EVS 등",
+                        "Video: H.263, H.264, H.265(HEVC) 등"
+                    ]
+                },
+                {
+                    "title": "Jitter Buffer 및 안내멘트 송출 지원",
                     "explan": []
                 },
                 {
-                    "title": "이미지 분석/식별/분류/전송 기능",
-                    "explan": []
-                },
-                {
-                    "title": "통계 데이터 및 운영보고서 제출 기능",
-                    "explan": []
-                },
-                {
-                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
-                    "explan": []
-                },
-                {
-                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "title": "시스템 감시/통계 자료 제공",
                     "explan": []
                 }
             ],
             "keyword" : [
-                "AI",
-                "인공지능",
-                "객체분류",
-                "이미지분류",
-                "5G"
+                "MGCF",
+                "IMG",
+                "IMGW",
+                "MGW",
+                "IMS-MGW"
             ],
             "link" : []
-        },"ibc" :{
-            "title" : "IBC 테스트 중입니다.",
-            "image" : "Solution_AI_BigData_integratedControlGui.png",
+        },
+        "ibc" :{
+            "title" : "IBC",
+            "image" : "Solution_ICT_ibc.png",
             "solution" : [
-                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+                "타사업자의 IMS Network 연동하는 Gateway로 타사업자와의 음성/영상통화 및 RCS서비스를 제공하는 시스템",
+                "Signal처리부인 IBCF와 Media처리부인 TrGW로 구성",
+                "IBC: Interconnection Border Control",
+                "IBCF: Interconnection Border Control Function",
+                "TrGW: Transit Gateway"
             ],
             "function" : [
                 {
-                    "title": "사진 및 동영상 촬영, 업로드 기능",
+                    "title": "IP 기반(IMS) 기반 Signal/Media 처리",
+                    "explan": [
+                        "IP 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)",
+                        "과금 연동을 위한 DIAMETER처리"
+                    ]
+                },
+                {
+                    "title": "대용량 Media 처리 (Intel DPDK적용)",
                     "explan": []
                 },
                 {
-                    "title": "이미지 분석/식별/분류/전송 기능",
+                    "title": "Trans-Coding 지원",
+                    "explan": [
+                        "Audio: PCMA, AMR, AMR-WB"
+                    ]
+                },
+                {
+                    "title": "Call Routing, IMS-ALG, THIG",
                     "explan": []
                 },
                 {
-                    "title": "통계 데이터 및 운영보고서 제출 기능",
+                    "title": "SIP/SDP Screening/Manipulation",
                     "explan": []
                 },
                 {
-                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
+                    "title": "시스템 가상화(VNF) 적용",
                     "explan": []
                 },
                 {
-                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
+                    "title": "시스템 감시/통계 자료 제공",
                     "explan": []
                 }
             ],
             "keyword" : [
-                "AI",
-                "인공지능",
-                "객체분류",
-                "이미지분류",
-                "5G"
+                "IBC",
+                "IBCF",
+                "TrGW",
+                "DPDK"
             ],
             "link" : []
+        },
+        "coloring" :{
+            "title" : "컬러링, V-컬러링",
+            "image" : "Solution_ICT_coloring.png",
+            "solution" : [
+                "기존의 RBT(Ring Back Tone) 대신 사용자가 선택한 음원으로RBT를 발신자에게 송출하는 서비스",
+                "음성, 영상 컬러링 제공",
+                "컬러링: Color Ring",
+                "V-컬러링: Video- Color Ring",
+                "CRBT: Color Ring Back Tone"
+            ],
+            "function" : [
+                {
+                    "title": "3G기반(Circuit), 4G/5G기반(IMS) 서비스",
+                    "explan": [
+                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, E1)",
+                        "IP 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                    ]
+                },
+                {
+                    "title": "음원(영상/음성) 송출 및 관리(조회,전송)",
+                    "explan": []
+                },
+                {
+                    "title": "백만단위 가입자/사서함 관리",
+                    "explan": []
+                },
+                {
+                    "title": "파일 Trans-Coding 지원",
+                    "explan": [
+                        "Audio: PCMA, AMR, AMR-WB, EVS"
+                    ]
+                },
+                {
+                    "title": "시스템 감시/통계 자료 제공",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "컬러링",
+                "V-컬러링",
+                "CRBT",
+                "링투유",
+                "필링"
+            ],
+            "link" : [
+                "http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD7070&prod_id=NA00000585&uCode=u1_6_1"
+            ]
+        },
+        "extra-service" :{
+            "title" : "부가서비스(ARS, T-메모링, 비즈링)",
+            "image" : "Solution_ICT_exttraService.png",
+            "solution" : [
+                "통화용 다양한 부가서비스를 제공하는 시스템",
+                "T-ARS: 전화를 받지 못할 경우 나만의 ARS로 자동응답",
+                "M-ARS: Multi-ARS로 Voice Push를 통한 메시지콜, 퀵보이스, 콜렉트콜 등의 서비스 제공 및 전화에서 RFC(Remote Feature Control)를 통한 부가서비스 가입신청 서비스 제공",
+                "T-메모링: 전화를 걸 때 사용자가 설정한 음성메모를 확인할 수있는 서비스",
+                "비즈링   : Biz-Ring. 통화연결음 대신 기업의 브랜드 홍보 등 을 설정하여 들려주는 서비스"
+            ],
+            "function" : [
+                {
+                    "title": "3G기반(Circuit), 4G/5G기반(IMS) 서비스",
+                    "explan": [
+                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, E1)",
+                        "IP 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                    ]
+                },
+                {
+                    "title": "Voice XML 기반 동적 시나리오",
+                    "explan": []
+                },
+                {
+                    "title": "음원 송출 및 관리(조회,전송)",
+                    "explan": []
+                },
+                {
+                    "title": "시스템 감시/통계 자료 제공",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "부가서비스",
+                "ARS",
+                "T-ARS",
+                "T-메모링",
+                "비즈링"
+            ],
+            "link" : [
+                "http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD7070&prod_id=NA00005172&uCode=u1_2",
+                "http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD7070&prod_id=NA00004195&uCode=u1_2"
+            ]
+        },
+        "unified-mailbox" :{
+            "title" : "통합 사서함(음성, 영상 사서함)",
+            "image" : "Solution_ICT_unifiedMailbox.png",
+            "solution" : [
+                "상대방이 전화를 받을 수 없을 때, 음성 또는 영상메시지를 남겨 나중에 이를 확인할 수 있는 서비스",
+                "VMS: Voice Mailing Service",
+                "iVMS: integration Voice( & Video) Mailing Service"
+            ],
+            "function" : [
+                {
+                    "title": "음성/영상 개별 및 통합 사서함 서비스 제공",
+                    "explan": []
+                },
+                {
+                    "title": "3G기반(Circuit), 4G/5G기반(IMS) 사서함 서비스",
+                    "explan": [
+                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, E1, H324, H.245, H.223)",
+                        "P 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                    ]
+                },
+                {
+                    "title": "Voice XML 기반 동적 시나리오",
+                    "explan": []
+                },
+                {
+                    "title": "백만단위 가입자/사서함 관리",
+                    "explan": []
+                },
+                {
+                    "title": "시스템 감시/통계 자료 제공",
+                    "explan": []
+                },
+                {
+                    "title": "스마트폰 App 및 일반 폰 접속 가능",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "VMS",
+                "소리샘",
+                "영상사서함",
+                "음성사서함",
+                "통합사서함"
+            ],
+            "link" : [
+                "http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD7070&prod_id=NA00000262&uCode=u1_2"
+            ]
+        },
+        "video-information-center" :{
+            "title" : "영상정보센터",
+            "image" : "Solution_ICT_cideoInformationCenterr.png",
+            "solution" : [
+                "Mobile Network 환경에서 멀티미디어 서비스 제공을 위한 시스템으로 영상사서함, 영상편지, 영상수화, 영상회의, 영상전화 개통시험 등의 서비스 제공",
+                "VIC: Video Information Center"     
+            ],
+            "function" : [
+                {
+                    "title": "음성/영상 개별 및 통합 사서함 서비스 제공",
+                    "explan": []
+                },
+                {
+                    "title": "3G기반(Circuit), 4G/5G기반(IMS) 사서함 서비스",
+                    "explan": [
+                        "E1 기반 Signaling/Media Processing",
+                        "(ISUP, SS7, SIGTRAN, E1, H324, H.245, H.223)",
+                        "IP 기반 Signaling/Media Processing",
+                        "(SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리",
+                        "(RFC2833, In-Band, SIP INFO)"
+                    ]
+                },
+                {
+                    "title": "Voice XML 기반 동적 시나리오",
+                    "explan": []
+                },
+                {
+                    "title": "백만단위 가입자/사서함 관리",
+                    "explan": []
+                },
+                {
+                    "title": "시스템 감시/통계 자료 제공",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "VIC",
+                "영상정보센터",
+                "영상사서함",
+                "영상편지",
+                "영상수화"
+            ],
+            "link" : [
+                "http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD7070&prod_id=NA00000342&uCode=u1_2"
+            ]
+        },
+        "t-group-call" :{
+            "title" : "T그룹통화",
+            "image" : "Solution_ICT_tGroupCall.png",
+            "solution" : [
+                "T그룹통화 앱을 통해 최대 참여자 100명까지 음성 그룹통화 서비스를 제공하는 시스템"     
+            ],
+            "function" : [
+                {
+                    "title": "전화 걸기 방식의 그룹통화",
+                    "explan": []
+                },
+                {
+                    "title": "문자 초대 방식의 그룹통화",
+                    "explan": []
+                },
+                {
+                    "title": "예약 방식의 그룹통화",
+                    "explan": []
+                },
+                {
+                    "title": "방장에게 다양한 대화방 기능을 제공",
+                    "explan": [
+                        "개별/전체 음소거, 강제 퇴장, 배경 음악, 초대 등"
+                    ]
+                },
+                {
+                    "title": "최대 100명까지 음성 그룹통화 제공",
+                    "explan": []
+                },
+                {
+                    "title": "SNS, 문자를 통한 오픈 청취 기능 제공",
+                    "explan": [
+                        "제한없이 누구나 대화방 청취 가능한 기능"
+                    ]
+                },
+                {
+                    "title": "SIP 프로토콜을 통한 IMS 연동 기능",
+                    "explan": []
+                },
+                {
+                    "title": "RTP(AMR-WB, AMR)를 통한 Software기반 코덱 변환 및 음성 Mixing 기능",
+                    "explan": []
+                },
+                {
+                    "title": "RTSP를 통해 오픈 청취를 위한 실시간 음성 스트리밍 기능",
+                    "explan": []
+                },
+                {
+                    "title": "Google FCM 연동을 통한 Android OS PUSH 기능",
+                    "explan": []
+                }
+            ],
+            "keyword" : [
+                "그룹통화",
+                "음성회의",
+                "T그룹통화",
+                "컨퍼런스",
+                "음성컨퍼런스",
+                "믹싱",
+                "코덱변환"
+            ],
+            "link" : [
+                "http://www.tworld.co.kr/normal.do?serviceId=S_MSA_0017&viewId=V_PHOW7001&prodId=TW50000038"
+            ]
         }
     }
 }
