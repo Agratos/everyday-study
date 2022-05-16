@@ -61,7 +61,6 @@ const App = () => {
         <Route path="/solution/:id" element={<SolutionPage />} />
         <Route path="/solution/:id/:click" element={<SolutionPage />} />
         <Route path="/recruiting/:id" element={<RecruitingPage />} />
-        <Route path="/recruiting" element={<RecruitingPage />} />
       </Routes>
     </BrowserRouter>
 }

@@ -13,6 +13,7 @@ import History from './History';
 import Location from './Location';
 
 import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
+import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 
 const Wrapper = styled.div`
     margin: 16px auto;
@@ -20,10 +21,18 @@ const Wrapper = styled.div`
 const RenderWapper = styled.div`
     display: flex;
 `;
+const MenuKategorieLeftWrapper = styled.div`
+display: flex;
+position: fixed;
+left: 0;
+top: 0;
+height: 100%;
+margin-left: 32px;
+`;
 
 const Company = () => {
     let { id } = useParams();
-    const introduceData = useSelector(state => state.setDataReducer.introduce);
+    //const companyData = useSelector(state => state.setDataReducer.introduce);
     const [isClick, setIsClick] = useState('greeting');
     const [subjectKategorie , setSubjectKategorie] = useState(companyData.kategorie[0].title);
     const [subtitleKategorie, setSubtitleKategorie] = useState('All')
@@ -71,6 +80,15 @@ const Company = () => {
                 isClick={isClick} 
                 setSubjectKategorie={setSubjectKategorie}
             />
+            <MenuKategorieLeftWrapper>
+                {/* <MenuKategorieLeft 
+                    kategorie={companyData.kategorie} 
+                    justify={'flex-end'} 
+                    setIsClick={setIsClick} 
+                    isClick={isClick} 
+                    setSubjectKategorie={setSubjectKategorie}
+                /> */}
+            </MenuKategorieLeftWrapper>
             <RenderWapper>
                 {renderSwicht()}
             </RenderWapper>

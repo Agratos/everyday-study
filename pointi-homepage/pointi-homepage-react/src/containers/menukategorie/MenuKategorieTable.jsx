@@ -21,12 +21,16 @@ const KategorieWrapper = styled.table`
         `
     }
 `;
+const Tbody = styled.tbody`
+    border: 1px solid black;
+`;
+const Tr = styled.tr``;
 const Kategorie = styled.td` 
     //margin: 8px 0;
     padding: 12px 24px;
     //border-radius: 24px;
     font-size: 1.2rem;
-    border: 1px solid black;
+    //border: 1px solid black;
     //border-bottom: none;
     &{
         ${ props => props.id === props.isClick && `
@@ -37,7 +41,7 @@ const Kategorie = styled.td`
     }
 `;
 
-const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, setSubjectKategorie, setSubtitleKategorie, isWrap}) => {
+const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap}) => {
     const onClick = (e) => {
         setIsClick(e.target.id);
     }
@@ -46,15 +50,19 @@ const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
         <Wrapper>
             <KategorieWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
                 { kategorie.map(({title,id}, index) => (
-                    <Kategorie 
-                        key={`menuKategroieLeftTable${title}`} 
-                        id={id}  
-                        onClick={(e) => onClick(e)}
-                        isClick={isClick}
-                    >
-                        {title}
-                    </Kategorie>
+                    <Tbody key={`menuKategroieLeftTable${index}`} >
+                        <Tr>
+                            <Kategorie 
+                                id={id}  
+                                onClick={(e) => onClick(e)}
+                                isClick={isClick}
+                            >
+                                {title}
+                            </Kategorie>
+                        </Tr>
+                    </Tbody>
                 ))}
+
             </KategorieWrapper>
         </Wrapper>
     )

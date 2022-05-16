@@ -52,15 +52,15 @@
             ]
         },{
             "id":3,
-            "path":"/recruiting/talent", 
+            "path":"/recruiting/philosophy-talent", 
             "title":"Recruiting",
             "list": [
                 {
-                    "path" :"/recruiting/talent",
+                    "path" :"/recruiting/philosophy-talent",
                     "text" :"인재관리철학 & 인재상"
                 },
                 {
-                    "path" :"/recruiting/employment",
+                    "path" :"/recruiting/employment-announcement",
                     "text" :"입사지원 & 채용공고"
                 }
             ]

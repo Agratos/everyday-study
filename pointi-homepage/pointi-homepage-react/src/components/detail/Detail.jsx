@@ -70,6 +70,7 @@ const LinkWrapper = styled.div``;
 const LinkButton = styled.div`
     &:hover {
         cursor: pointer;
+        color: #5b2fd4;
     }
 `;
 

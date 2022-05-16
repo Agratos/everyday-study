@@ -4,6 +4,7 @@ import Pagination from 'containers/pagenation/Pagination';
 
 const Wrapper = styled.div`
     margin: 0 auto;
+    width: 100%;
 `;
 const Title = styled.div`
     font-size: 40px;
@@ -11,13 +12,15 @@ const Title = styled.div`
     margin-bottom: 24px;
     text-align: center;
 `;
-const ListWrapper = styled.div`
+const ListWrapper = styled.table`
+    width: 100%;
+    border-top: 1px solid black;
+    border-collapse: collapse;
     font-weight: ${props => props.weight};
 `;
-const TextWrapper = styled.div`
-    display: flex;
-    border-bottom: 1px solid #E8E8E8;
-    padding: 12px;
+const Tbody = styled.tbody``;
+const TextWrapper = styled.tr`
+    border: 1px solid black;
     &:hover {
         background-color: #cac5c5;
     }
@@ -26,20 +29,24 @@ const TextWrapper = styled.div`
     }
     pointer-events: ${props => props.none && `none`};
 `;
-const DateWrapper = styled.div`
-    width: 10%;
+const DateWrapper = styled.td`
+    border: 1px solid black;
+    width: 15%;
     font-size: 1.1rem;
-    border-right: 1px solid black;
+    padding: 8px;
 `;
-const NumberWrapper =styled.div`
-    width: 13%;
-    font-size: 1.1rem;
-    margin-left: 2vw;
-`;
-const ListTitleWrapper = styled.div`
-    width: 75%;
+const NumberWrapper =styled.td`
+    border: 1px solid black;
+    width: 15%;
     font-size: 1.1rem;
     margin-left: 32px;
+    padding: 8px;
+`;
+const ListTitleWrapper = styled.td`
+    width: 60%;
+    font-size: 1.1rem;
+    margin-left: 32px;
+    padding: 8px;
 `;
 
 const PatentBoard = ({data}) => {
@@ -51,21 +58,21 @@ const PatentBoard = ({data}) => {
         <Wrapper id='patent'>
             <Title>{data.title}</Title>
             <ListWrapper>
-                <TextWrapper none={true} position={'top'} weight={`bolder`}>
-                    <DateWrapper>등록일자</DateWrapper>
-                    <NumberWrapper>특허번호</NumberWrapper>
-                    <ListTitleWrapper>특허명</ListTitleWrapper>
-                </TextWrapper>
-            </ListWrapper>
-            {data.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
-                <ListWrapper key={`list${index}`} >
-                    <TextWrapper>
-                        <DateWrapper>{date}</DateWrapper>
-                        <NumberWrapper>{number}</NumberWrapper>
-                        <ListTitleWrapper>{name}</ListTitleWrapper>
+                <Tbody>
+                    <TextWrapper none={true} position={'top'} weight={`bolder`}>
+                            <DateWrapper>등록일자</DateWrapper>
+                            <NumberWrapper>특허번호</NumberWrapper>
+                            <ListTitleWrapper>특허명</ListTitleWrapper>
                     </TextWrapper>
-                </ListWrapper>
-            ))}
+                    {data.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
+                        <TextWrapper key={`patent-board${index}`}>
+                            <DateWrapper>{date}</DateWrapper>
+                            <NumberWrapper>{number}</NumberWrapper>
+                            <ListTitleWrapper>{name}</ListTitleWrapper>
+                        </TextWrapper>
+                    ))}
+                </Tbody>
+            </ListWrapper>
             <Pagination
                 total={data.list.length}
                 limit={limit}

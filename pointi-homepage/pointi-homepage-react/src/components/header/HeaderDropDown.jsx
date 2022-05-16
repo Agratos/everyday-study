@@ -46,15 +46,15 @@ const DropDownWrapper = styled.div`
 const MenuBarText = styled(Link)`
     display: flex;
     margin: 8px 32px;
-    color: ${props => props.page === 'main' && 'white' || 'black'};
+    color: ${props => props.page === 'main' ? 'white' : 'black'};
     font-weight: bolder;
     font-size: 1.1rem;
     text-decoration: none;
     &:hover {
         cursor: pointer;
         border-bottom: 4px solid #5db2ff;
-        padding-bottom: 12px;
-        margin-bottom: -12px;
+        padding-bottom: 17px;
+        margin-bottom: -17px;
     }
 `;
 const DropDownText = styled(Link)`
@@ -68,6 +68,8 @@ const DropDownText = styled(Link)`
     }
 `;
 const LinkWrapper = styled.div`
+    position: relative;
+    z-index: 3;
     &:hover ${DropDownWrapper}{
             opacity: 1;
             pointer-events: auto;
@@ -95,6 +97,7 @@ const LeftLogo = styled.img`
 const HeaderDropDown = ({page, scrollMenu}) => {
     const isScrollDowun = ScrollEvent();
     //const dropDownData = useSelector(state => state.setDataReducer.menu);
+
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
             <HeaderMiddleArea>

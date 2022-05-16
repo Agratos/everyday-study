@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 //import technologyData from 'assets/dummy/technology.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
+import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import Detail from 'components/detail/Detail';
 
@@ -28,6 +29,7 @@ const MenuKategorieLeftWrapper = styled.div`
     margin-left: 32px;
 `;
 const TechnologyListWrapper = styled.div`
+    display: flex;
     width: 80%;
     padding: 0 4vw;
 `;
@@ -46,6 +48,11 @@ const Technology = () => {
     return (
         <Wrapper>
             <Location>{`Home > Technology > ${technologyData[isClick].title}`}</Location>
+            {/* <MenuKategorieTable 
+                kategorie={technologyData.kategorie} 
+                setIsClick={setIsClick} 
+                isClick={isClick} 
+                /> */}
             <MenuKategorieLeftWrapper id={'test'} >
                 <MenuKategorieLeft 
                     kategorie={technologyData.kategorie} 
@@ -53,13 +60,12 @@ const Technology = () => {
                     isClick={isClick} 
                     />
             </MenuKategorieLeftWrapper>
-            {/* <MenuKategorie 
-                kategorie={technologyData.kategorie} 
-                setIsClick={setIsClick} 
-                isClick={isClick} 
-                setSubjectKategorie={setSubjectKategorie}
-                /> */}
             <TechnologyListWrapper >
+                {/* <MenuKategorieLeft 
+                    kategorie={technologyData.kategorie} 
+                    setIsClick={setIsClick} 
+                    isClick={isClick} 
+                    /> */}
                 <Detail data={technologyData[isClick]} type='technology' />
             </TechnologyListWrapper>
         </Wrapper>

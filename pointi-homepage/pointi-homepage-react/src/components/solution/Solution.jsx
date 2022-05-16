@@ -20,6 +20,7 @@ const Location = styled.div`
     width: 100%;
 `;
 const SolutionListWrapper = styled.div`
+    display: flex;
     padding: 0 4vw;
     margin-top: 32px;
 `;
@@ -43,7 +44,7 @@ const Solution = () => {
     useEffect(() => {
         window.history.pushState('','solution click시 url 변경',`/solution/${id}/${isClick}`);
     })
-    
+
     const checkUndefined = () => {
         return (solutrionData[id][isClick] !== undefined ? solutrionData[id][isClick] : solutrionData[id][click])
     }
@@ -53,11 +54,12 @@ const Solution = () => {
             <Location>
                 {`Home > Solution > ${id} > ${checkUndefined().title}`}
             </Location>
-            {/* <MenuKategorie kategorie={solutionTestData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/> */}
+            {/* <MenuKategorie kategorie={solutrionData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/> */}
             <MenuKategorieLeftWrapper>
                 <MenuKategorieLeft kategorie={solutrionData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/>
             </MenuKategorieLeftWrapper>
             <SolutionListWrapper >
+                {/* <MenuKategorieLeft kategorie={solutrionData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/> */}
                 <Detail 
                     data={checkUndefined()} 
                     type='solution' 

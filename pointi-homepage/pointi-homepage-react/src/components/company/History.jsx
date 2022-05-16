@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { BsRecordCircleFill } from 'react-icons/bs';
 
+import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
+import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import SeparationOfSelect from 'containers/select/SeparationOfSelect';
 
@@ -10,15 +12,22 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    width: 80%;
 `;
 const Title = styled.div`
-    margin-bottom: -24px;
+    margin-bottom: 24px;
     font-size: 40px;
     font-weight: bolder;
     text-align: center;
 `;
 const MenuKategorieWrapper = styled.div`
-    margin: 0 auto;
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin-left: 24px;
+    width: 11%;
 `;
 const ListWrapper = styled.div`
     display: flex;
@@ -56,7 +65,7 @@ const History = ({data, kategorie, setSubtitleKategorie}) => {
         <Wrapper id={`history`}>
             <Title>회사 연혁</Title>
             <MenuKategorieWrapper>
-                <MenuKategorie 
+                <MenuKategorieLeft 
                     isClick={isClick} 
                     setIsClick={setIsClick} 
                     kategorie={kategorie} 
