@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import technologyData from 'assets/dummy/technology.json';
+//import technologyData from 'assets/dummy/technology.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import Detail from 'components/detail/Detail';
@@ -33,7 +33,7 @@ const TechnologyListWrapper = styled.div`
 `;
 
 const Technology = () => {
-    //const technologyData = useSelector(state => state.setDataReducer.technology);
+    const technologyData = useSelector(state => state.setDataReducer.technology);
     let { id } = useParams();
     const [isClick, setIsClick] = useState('multi-media-process');
     useEffect(() => {

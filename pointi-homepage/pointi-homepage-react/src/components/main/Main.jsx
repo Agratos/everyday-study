@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
-import mainData from 'assets/dummy/mainTest.json'
+//import mainData from 'assets/dummy/mainTest.json'
 
 import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
 import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/io";
@@ -134,7 +134,7 @@ const Image = styled.img`
 `;
 
 const Main = () => {
-    //const mainData = useSelector(state=>state.setDataReducer.main);
+    const mainData = useSelector(state=>state.setDataReducer.main);
     return (
         <Wrapper>
             {mainData.data.map(({path,title,image,text}, index) => (
