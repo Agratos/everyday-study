@@ -43,26 +43,22 @@ const Kategorie = styled.div`
 const MenuKategorieLeft = ({ kategorie, justify, subtitle, setIsClick, isClick, setSubjectKategorie, setSubtitleKategorie, isWrap}) => {
     const onClick = (e) => {
         setIsClick(e.target.id);
-        subtitle ? setSubtitleKategorie(document.getElementById(e.target.id).innerText)
-        : setSubjectKategorie(document.getElementById(e.target.id).innerText);
     }
     
     return(
         <Wrapper>
             <KategorieWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
                 { kategorie.map(({title,id}, index) => (
-                    <>
+                    <div key={`menuKategroieLeft${title}`}>
                         <Kategorie 
-                            key={`menuKategroie${title}`} 
                             id={id}  
                             onClick={(e) => onClick(e)}
                             isClick={isClick}
                         >
                             {title}
-                            
                         </Kategorie>
                         {kategorie.length - 1 !== index && <hr/>}
-                    </>
+                    </div>
                 ))}
             </KategorieWrapper>
         </Wrapper>

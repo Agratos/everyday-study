@@ -68,8 +68,7 @@
                 "동물퇴치",
                 "객체검출",
                 "객체추적"
-            ],
-            "link" : []
+            ]
         },
         "image-classfication" :{
             "title" : "영상분석 통합플랫폼 - 이미지 분류 서비스",
@@ -105,8 +104,7 @@
                 "객체분류",
                 "이미지분류",
                 "5G"
-            ],
-            "link" : []
+            ]
         },
         "bigdata-ui-ux" :{
             "title" : "빅데이터 UI/UX",
@@ -143,8 +141,7 @@
                 "UI/UX",
                 "Spark",
                 "mongoDB"
-            ],
-            "link" : []
+            ]
         },
         "integrated-control-gui" :{
             "title" : "통합관제 시스템(UI, UX)",
@@ -207,8 +204,7 @@
                 "GUI",
                 "MMI",
                 "MMC"
-            ],
-            "link" : []
+            ]
         }
     },
     "ict" : {
@@ -288,8 +284,7 @@
                 "Private",
                 "FPGA",
                 "Packet"
-            ],
-            "link" : []
+            ]
         },
         "mgcf" :{
             "title" : "MGCF(Media Gateway Control Function)",
@@ -338,8 +333,7 @@
                 "IMGW",
                 "MGW",
                 "IMS-MGW"
-            ],
-            "link" : []
+            ]
         },
         "ibc" :{
             "title" : "IBC",
@@ -392,8 +386,7 @@
                 "IBCF",
                 "TrGW",
                 "DPDK"
-            ],
-            "link" : []
+            ]
         },
         "coloring" :{
             "title" : "컬러링, V-컬러링",

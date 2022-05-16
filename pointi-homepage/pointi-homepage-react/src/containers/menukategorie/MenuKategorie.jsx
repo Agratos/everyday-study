@@ -38,8 +38,6 @@ const Kategorie = styled.div`
 const MenuKategorie = ({ kategorie, justify, subtitle, setIsClick, isClick, setSubjectKategorie, setSubtitleKategorie, isWrap}) => {
     const onClick = (e) => {
         setIsClick(e.target.id);
-        subtitle ? setSubtitleKategorie(document.getElementById(e.target.id).innerText)
-        : setSubjectKategorie(document.getElementById(e.target.id).innerText);
     }
     
     return(

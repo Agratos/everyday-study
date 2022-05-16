@@ -69,6 +69,7 @@ const LinkButton = styled.div`
 `;
 
 const Detail = ({data, type}) => {
+
     return (
         <Wrapper>
             <Title>{data.title}</Title>
@@ -80,7 +81,7 @@ const Detail = ({data, type}) => {
                             <TextTitle>솔루션</TextTitle>
                         </TitleWrapper>
                         {data[type].map((solution, index) => (
-                            <Solution key={`${type}${index}`}>{solution}</Solution>
+                            <Solution key={`solution${index}`}>{solution}</Solution>
                         ))}
                     </TextWrapper>
                 )}
@@ -97,7 +98,7 @@ const Detail = ({data, type}) => {
                                 <TextTitle>기능</TextTitle>
                             </TitleWrapper>
                             {data[type].map((solution, index) => (
-                                <Solution key={`${type}${index}`}>{solution}</Solution>
+                                <Solution key={`technology${index}`}>{solution}</Solution>
                             ))}
                         </div>
                     )}
@@ -124,7 +125,7 @@ const Detail = ({data, type}) => {
                             </TitleWrapper>
                             <KeywordWrapper> 
                                 {data.keyword.map((keyword, index) => (
-                                    <Keyword key={`datakeyword ${index}`}>#{keyword}</Keyword>
+                                    <Keyword key={`datakeyword${index}`}>#{keyword}</Keyword>
                                 ))}
                             </KeywordWrapper>
                         </div>
@@ -151,11 +152,11 @@ const Detail = ({data, type}) => {
                             </TitleWrapper>
                             {data.link.map((link,index) => (
                                 <LinkWrapper key={`link ${index}`}>
-                                    
                                     <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
                                 </LinkWrapper>
                             ))}
-                        </div>)}
+                        </div>
+                    )}
                 </TextWrapper>
             </DetailWrapper>
         </Wrapper>

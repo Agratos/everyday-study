@@ -33,7 +33,7 @@ const MenuKategorieLeftWrapper = styled.div`
     margin-left: 32px;
 `;
 
-const Solution = ({}) => {
+const Solution = () => {
     //const solutrionData = useSelector(state => state.setDataReducer.solution);
     let { id } = useParams();
     let { click } = useParams();
@@ -42,11 +42,13 @@ const Solution = ({}) => {
     useEffect(() => {
         setIsClick(click)
     },[id])
-
+    useEffect(() => {
+        window.history.pushState('','solution click시 url 변경',`/solution/${isClick}`);
+    },[isClick])
+    
     const checkUndefined = () => {
         return (solutionTestData[id][isClick] !== undefined ? solutionTestData[id][isClick] : solutionTestData[id][click])
     }
-
 
     return (
         <Wrapper>

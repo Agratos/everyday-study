@@ -11,7 +11,7 @@ const Wrapper = styled.div``;
 const SolutionPage = () => {
     return (
         <Wrapper>
-            <Header title='PointI Solution' />
+            <Header />
             <Solution />
             <Footer />
         </Wrapper>

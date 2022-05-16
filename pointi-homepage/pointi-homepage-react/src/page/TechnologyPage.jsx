@@ -9,12 +9,10 @@ import Technology from 'components/technology/Technology';
 const Wrapper = styled.div``;
 
 const TechnologyPage = () => {
-    let { id } = useParams();
-
     return (
         <Wrapper>
-            <Header title='Technology' />
-            <Technology id={id}/>
+            <Header />
+            <Technology />
             <Footer />
         </Wrapper>
     )

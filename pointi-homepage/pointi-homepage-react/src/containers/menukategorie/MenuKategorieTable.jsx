@@ -40,8 +40,6 @@ const Kategorie = styled.td`
 const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, setSubjectKategorie, setSubtitleKategorie, isWrap}) => {
     const onClick = (e) => {
         setIsClick(e.target.id);
-        subtitle ? setSubtitleKategorie(document.getElementById(e.target.id).innerText)
-        : setSubjectKategorie(document.getElementById(e.target.id).innerText);
     }
 
     return(
@@ -49,7 +47,7 @@ const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
             <KategorieWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
                 { kategorie.map(({title,id}, index) => (
                     <Kategorie 
-                        key={`menuKategroie${title}`} 
+                        key={`menuKategroieLeftTable${title}`} 
                         id={id}  
                         onClick={(e) => onClick(e)}
                         isClick={isClick}

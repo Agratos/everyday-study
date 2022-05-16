@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import technologyData from 'assets/dummy/technology.json';
@@ -31,10 +32,10 @@ const TechnologyListWrapper = styled.div`
     padding: 0 4vw;
 `;
 
-const Technology = ({id}) => {
+const Technology = () => {
     //const technologyData = useSelector(state => state.setDataReducer.technology);
+    let { id } = useParams();
     const [isClick, setIsClick] = useState('multi-media-process');
-    const [subjectKategorie , setSubjectKategorie] = useState(technologyData.kategorie[0].title);
     useEffect(() => {
         id !== undefined && setIsClick(id)
     },[id])
@@ -42,16 +43,14 @@ const Technology = ({id}) => {
         window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);
     })
 
-
     return (
         <Wrapper>
-            <Location>{`Home > Technology > ${subjectKategorie}`}</Location>
+            <Location>{`Home > Technology > ${technologyData[isClick].title}`}</Location>
             <MenuKategorieLeftWrapper id={'test'} >
                 <MenuKategorieLeft 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick} 
-                    setSubjectKategorie={setSubjectKategorie}
                     />
             </MenuKategorieLeftWrapper>
             {/* <MenuKategorie 
