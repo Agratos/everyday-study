@@ -41,7 +41,7 @@ const Technology = () => {
     },[id])
     useEffect(() => {
         window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);
-    })
+    },[isClick])
 
     return (
         <Wrapper>

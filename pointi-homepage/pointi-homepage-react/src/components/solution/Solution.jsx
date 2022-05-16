@@ -41,8 +41,8 @@ const Solution = () => {
         setIsClick(click)
     },[id])
     useEffect(() => {
-        window.history.pushState('','solution click시 url 변경',`/solution/${isClick}`);
-    },[isClick])
+        window.history.pushState('','solution click시 url 변경',`/solution/${id}/${isClick}`);
+    })
     
     const checkUndefined = () => {
         return (solutrionData[id][isClick] !== undefined ? solutrionData[id][isClick] : solutrionData[id][click])

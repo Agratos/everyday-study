@@ -1,4 +1,15 @@
-// 모듈 초기화
+// 액션 타입
+export const SET_DATA = 'data/SET_DATA';
+
+// 액션
+export const setData = (data) => {
+    return {
+        type: SET_DATA,
+        data
+    }
+}
+
+// 리듀서 초기화
 const initialState = {
     menu: null,
     header: null,
@@ -11,7 +22,6 @@ const initialState = {
     isLoading: true,
 };
 
-// 리듀서
 export default function setDataReducer ( state = initialState, action ) {
     switch (action.type) {
         case 'SET_DATA':
