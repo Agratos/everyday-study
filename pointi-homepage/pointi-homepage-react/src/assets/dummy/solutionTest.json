@@ -299,16 +299,21 @@
                 {
                     "title": "Circuit(3G) 기반 Signal/Media 처리",
                     "explan": [
-                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, PCMA, H324, H.245, H.223)",
-                        "ATM기반 Signaling/Media Processing (BICC, ALCAP, AAL5/AAL5 Fragmentation/Reassemble)",
+                        "E1 기반 Signaling/Media Processing",
+                        "(ISUP, SS7, SIGTRAN, PCMA, H324, H.245, H.223)", 
+                        "ATM기반 Signaling/Media Processing",
+                        "(BICC, ALCAP, AAL5/AAL5 Fragmentation/Reassemble)",
                         "STM-1(63E1) Media Processing"
                     ]
                 },
                 {
                     "title": "IP 기반(IMS) 기반 Signal/Media 처리",
                     "explan": [
-                        "P 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
-                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                        "P 기반 Signaling/Media Processing",
+                        "(SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리",
+                        "(RFC2833, In-Band, SIP INFO)"
+                        
                     ]
                 },
                 {
@@ -349,8 +354,10 @@
                 {
                     "title": "IP 기반(IMS) 기반 Signal/Media 처리",
                     "explan": [
-                        "IP 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
-                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)",
+                        "IP 기반 Signaling/Media Processing",
+                        "(SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리",
+                        "(RFC2833, In-Band, SIP INFO)",
                         "과금 연동을 위한 DIAMETER처리"
                     ]
                 },
@@ -402,9 +409,12 @@
                 {
                     "title": "3G기반(Circuit), 4G/5G기반(IMS) 서비스",
                     "explan": [
-                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, E1)",
-                        "IP 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
-                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                        "E1 기반 Signaling/Media Processing",
+                        "(ISUP, SS7, SIGTRAN, E1)",
+                        "IP 기반 Signaling/Media Processing",
+                        "(SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리",
+                        "(RFC2833, In-Band, SIP INFO)"
                     ]
                 },
                 {
@@ -451,9 +461,12 @@
                 {
                     "title": "3G기반(Circuit), 4G/5G기반(IMS) 서비스",
                     "explan": [
-                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, E1)",
-                        "IP 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
-                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                        "E1 기반 Signaling/Media Processing",
+                        "(ISUP, SS7, SIGTRAN, E1)",
+                        "IP 기반 Signaling/Media Processing",
+                        "(SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리",
+                        "(RFC2833, In-Band, SIP INFO)"
                     ]
                 },
                 {
@@ -497,9 +510,12 @@
                 {
                     "title": "3G기반(Circuit), 4G/5G기반(IMS) 사서함 서비스",
                     "explan": [
-                        "E1 기반 Signaling/Media Processing (ISUP, SS7, SIGTRAN, E1, H324, H.245, H.223)",
-                        "P 기반 Signaling/Media Processing (SIP, SDP, RTP/RTCP)",
-                        "다양한 방식의 DTMF처리 (RFC2833, In-Band, SIP INFO)"
+                        "E1 기반 Signaling/Media Processing",
+                        "(ISUP, SS7, SIGTRAN, E1, H324, H.245, H.223)",
+                        "P 기반 Signaling/Media Processing",
+                        "(SIP, SDP, RTP/RTCP)",
+                        "다양한 방식의 DTMF처리",
+                        "(RFC2833, In-Band, SIP INFO)"
                     ]
                 },
                 {

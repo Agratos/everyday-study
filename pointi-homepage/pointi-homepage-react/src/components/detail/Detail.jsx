@@ -53,6 +53,11 @@ const FunctionTitle = styled(TextFont)``;
 const FunctionEx = styled.div`
     margin-left: 40px;
 `;
+const FunctionExSub = styled.div`
+    margin-top: -8px;
+    margin-left: 48px;
+    font-size: 1rem;
+`;
 const KeywordWrapper = styled(TitleWrapper)`
     flex-wrap: wrap;
 `;
@@ -69,6 +74,9 @@ const LinkButton = styled.div`
 `;
 
 const Detail = ({data, type}) => {
+    const checkSubText = (str) => {
+        return (str[0] === '(' && str[str.length-1] === ')')
+    }
 
     return (
         <Wrapper>
@@ -112,8 +120,9 @@ const Detail = ({data, type}) => {
                                 <FunctionIconWrapper><BsCheckLg size={14}/></FunctionIconWrapper>
                                 <FunctionTitle>{title}</FunctionTitle>
                             </FunctionTitleWrapper>
-                            {explan && explan.map((ex, index) => (
-                                <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
+                            {explan.map((ex, index) => (
+                                checkSubText(ex) ? <FunctionExSub key={`explan${index}`}>{ex}</FunctionExSub>
+                                : <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
                             ))}
                         </FunctionWrapper>
                     ))}
