@@ -1,7 +1,6 @@
 // 모듈 초기화
 const initialState = {
-    isPc: null,
-    isMobile: null,
+    device: null
 };
 
 // 리듀서
@@ -9,8 +8,7 @@ export default function setDeviceReducer ( state = initialState, action ) {
     switch (action.type) {
         case 'SET_DEVICE':
             return {
-                isPc: action.isPc,
-                isMobile: action.isMobile
+                device: action.device
             };
         default:
             return state

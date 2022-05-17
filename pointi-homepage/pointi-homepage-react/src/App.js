@@ -18,9 +18,11 @@ import Technology from 'page/TechnologyPage';
 const App = () => {
   // useHook로 변경 예정
   const dispatch = useDispatch();
-  // const isPc = useMediaQuery({ query: '(min-width: 768px)' })
-  // const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
-
+  const isPc = useMediaQuery({ query: '(min-width: 1200px)' })
+  const isTablet = useMediaQuery({ query: '(min-width:800px) and (max-width: 1199.99px)'})
+  const isMobile = useMediaQuery({ query: '(max-width: 799.99px)' })
+  const device = (isPc && 'PC') || (isTablet && 'Tablet') || (isMobile && 'Mobile');
+  
   useEffect(() => {
     sendApi.getAll().then(response => {
       dispatch({
@@ -37,16 +39,15 @@ const App = () => {
     })
   },[])
 
-  // useEffect(() => {
-  //   dispatch({
-  //     type: 'SET_DEVICE',
-  //     isPc: isPc,
-  //     isMobile: isMobile,
-  //   })
-  // }, [isPc])
+  useEffect(() => {
+    dispatch({
+      type: 'SET_DEVICE',
+      device: device,
+    })
+  }, [device])
 
-  // console.log(useSelector(state=>state.setDeviceReducer.isPc))
-
+  //console.log(`divice is : `,useSelector(state=>state.setDeviceReducer.device));
+  
   return useSelector(state=>state.setDataReducer.isLoading) ? <div>Loading...</div> :
   <BrowserRouter>
       <GlobalStyle />

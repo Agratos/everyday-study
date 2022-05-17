@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 
 //import mainData from 'assets/dummy/mainTest.json'
@@ -101,6 +101,12 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-around;
     margin: 32px 0;
+    ${props=> props.device === 'Mobile' && 
+        css`
+            flex-direction: column;
+            width: 100%;
+        `
+    }
 `;
 const SolutionWrapper = styled(Link)`
     display: flex;
@@ -120,13 +126,18 @@ const SolutionWrapper = styled(Link)`
     margin-bottom: 32px;
     font-size: 1.1rem;
     text-decoration: none;
+    ${props=> props.device === 'Mobile' && 
+        css`
+            margin: 8px auto;
+            width: 90vw;
+            height: 320px;
+        `
+    }
 `;
 const Title = styled.div`
     margin: 0 24px;
+    font-size: 1.1rem;
 `;
-const Text = styled.div`
-    margin: 0 auto;
-`
 const Image = styled.img`
     margin: 4px auto;
     width: 90%;
@@ -135,13 +146,14 @@ const Image = styled.img`
 
 const Main = () => {
     const mainData = useSelector(state=>state.setDataReducer.main);
+    const device = useSelector(state=>state.setDeviceReducer.device);
+
     return (
-        <Wrapper>
+        <Wrapper device={device}>
             {mainData.data.map(({path,title,image,text}, index) => (
-                <SolutionWrapper key={index} to={path}>
+                <SolutionWrapper key={index} to={path} device={device}>
                     <Title>{title}</Title>
                     <Image src={image} />
-                    <Text>{text}</Text>
                 </SolutionWrapper>
             ))}
         </Wrapper>

@@ -56,9 +56,10 @@ const SliderAreaTextButton = styled(Link)`
 `;
 
 const Header = ({ page }) => {
-    const [dataIndex, setDataIndex] = useState(0);
+    const [dataIndex, setDataIndex] = useState(0); // 이미지 화면 변경 카운터
     const imgData = [logo1,logo2];
     const headerData = useSelector(state => state.setDataReducer.header);
+    const device = useSelector(state => state.setDeviceReducer.device);
 
     useEffect(() => {
         setTimeout(() =>{
@@ -70,12 +71,18 @@ const Header = ({ page }) => {
         page === 'main' ? (
         <Wrapper logo={imgData[dataIndex%2]}  id="top" page={page}>
             {/* <HeaderTop /> */}
-            <HeaderDropDown test={`test`} page={page} />
+            <HeaderDropDown  page={page} device={device}/>
             {/* <HeaderDropDown scrollMenu={true} /> */}
             <SliderArea> 
                     {headerData.data.map(({id, text1, text2},index) => (
                         ( id === dataIndex && (
                             <SliderAreaTextWrapper key={`slider-area-${index}`}>
+                                {/* { device !== 'Mobile' && 
+                                <div>
+                                    <SliderAreaText className='text-1'>{text1}</SliderAreaText>
+                                    <SliderAreaText className='text-2'>{text2}</SliderAreaText>
+                                    <SliderAreaTextButton to='/solution/ai-5g-bigdata/wild-animal-detection'>Our Solutions</SliderAreaTextButton>
+                                </div>} */}
                                 <SliderAreaText className='text-1'>{text1}</SliderAreaText>
                                 <SliderAreaText className='text-2'>{text2}</SliderAreaText>
                                 <SliderAreaTextButton to='/solution/ai-5g-bigdata/wild-animal-detection'>Our Solutions</SliderAreaTextButton>
