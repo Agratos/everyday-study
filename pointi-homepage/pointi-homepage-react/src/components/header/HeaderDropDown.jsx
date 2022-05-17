@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { IoIosArrowDown, IoIosMenu } from "react-icons/io";
+import { IoIosArrowDown, IoIosMenu, IoIosAdd, IoIosRemove} from "react-icons/io";
 import dropDownData from 'assets/dummy/dorpDownMenu.json';
 import ScrollEvent from 'containers/scroll/ScrollEvent';
 import logoWhite from 'assets/imgs/custom/logo.white.png';
@@ -106,22 +106,56 @@ const UnderMenuBar = styled.div`
     left: 0;
     border-top: 1px solid #ccbebe;
     background-color: white;
-    padding: 0 16px;
     line-height: 32px;
 `;
-const UnderMenuTextWrapper = styled.div``
+const UnderMenuTextWrapper = styled.div`
+   font-size: 1.1rem;
+`;
+const CheckDrop = styled.div`
+    position: absolute;
+    right: 0;
+    margin-right: 24px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+`;
+const UnderMenuTextLink = styled(Link)`
+    color: black;
+    text-decoration: none;
+    padding-left: 24px;
+`;
+const UnderMenuTextLinkWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 32px;
+`
+const UnderMenuUnClickWrapper = styled.div`
+    display: flex;
+`;
+const UnderMenuClickWrapper = styled.div``;
+const UnderMenuTitle = styled.div`
+    width: 100%;
+    padding-left: 24px;
+    z-index: 2;
+`
 
 const HeaderDropDown = ({page, scrollMenu, device}) => {
     const isScrollDowun = ScrollEvent();
     //const dropDownData = useSelector(state => state.setDataReducer.menu);
     const [ isClick, setIsClick ] = useState(false);
+    const [ clickMenu, setClickMenu ] = useState(null);
 
-    const CheckClick = () => {
+    useEffect(() => {
+        (() => device !== 'Mobile')(
+            setIsClick(false),
+            setClickMenu(null)
+        )
+    },[device])
+    const CheckClickThreeDot = () => {
         setIsClick(!isClick);
     }
-    useEffect(() => {
-        device !== 'Mobile' && setIsClick(false);
-    },[device])
+    const CheckClickMenu = (e) => {
+        clickMenu !== e.target.id ? setClickMenu(e.target.id) : setClickMenu(null);
+    }
 
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
@@ -154,7 +188,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                 )))}
                             </MenuBar>) : 
                             ( <MenuBar>
-                                <IconWrapper device={device}><IoIosMenu size={40} color={'white'} onClick={CheckClick}/></IconWrapper>
+                                <IconWrapper device={device}><IoIosMenu size={40} color={'white'} onClick={CheckClickThreeDot}/></IconWrapper>
                             </MenuBar>)
                         }
                     </MenuBarArea>
@@ -163,10 +197,35 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                     (<UnderMenuBar>
                         { dropDownData.data.map( ({list, path, title},index) => (
                             ( list.length !== 0 ? (
-                                <UnderMenuTextWrapper>{title}</UnderMenuTextWrapper>
+                                <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
+                                    {clickMenu !== title ? (
+                                        <UnderMenuUnClickWrapper >
+                                            <UnderMenuTitle id={title} onClick={CheckClickMenu}>{title}</UnderMenuTitle>
+                                            <CheckDrop>
+                                                <IoIosAdd />
+                                            </CheckDrop>
+                                        </UnderMenuUnClickWrapper>
+                                    ) : (
+                                        <UnderMenuClickWrapper >
+                                            <UnderMenuUnClickWrapper>
+                                                <UnderMenuTitle id={title} onClick={CheckClickMenu}>{title}</UnderMenuTitle>
+                                                <CheckDrop>
+                                                    <IoIosRemove />
+                                                </CheckDrop>
+                                            </UnderMenuUnClickWrapper>
+                                            <UnderMenuTextLinkWrapper>
+                                                {list.map( ({path, text},index) => (
+                                                        <UnderMenuTextLink to={path} key={`drop-down-text-${index}`}>{text}</UnderMenuTextLink>
+                                                    ))}
+                                            </UnderMenuTextLinkWrapper>
+                                        </UnderMenuClickWrapper>
+                                    )}
+                                </UnderMenuTextWrapper>
                             )
                             : ( 
-                                <div>{'클릭시 바로 이동 ' + title}</div>
+                                <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
+                                    <UnderMenuTextLink to={path}>{title}</UnderMenuTextLink>
+                                </UnderMenuTextWrapper>   
                         ))))}
                     </UnderMenuBar>)}
             </HeaderMiddleArea>

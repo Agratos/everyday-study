@@ -45,8 +45,6 @@ const App = () => {
       device: device,
     })
   }, [device])
-
-  //console.log(`divice is : `,useSelector(state=>state.setDeviceReducer.device));
   
   return useSelector(state=>state.setDataReducer.isLoading) ? <div>Loading...</div> :
   <BrowserRouter>
