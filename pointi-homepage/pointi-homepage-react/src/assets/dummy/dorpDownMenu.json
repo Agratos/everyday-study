@@ -57,11 +57,11 @@
             "list": [
                 {
                     "path" :"/recruiting/philosophy-talent",
-                    "text" :"인재관리철학 & 인재상"
+                    "text" :"인재관리철학"
                 },
                 {
                     "path" :"/recruiting/employment-announcement",
-                    "text" :"입사지원 & 채용공고"
+                    "text" :"입사지원"
                 }
             ]
         }

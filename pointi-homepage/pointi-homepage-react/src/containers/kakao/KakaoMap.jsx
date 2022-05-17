@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -47,7 +46,6 @@ const KakaoMap = () => {
                 ref={container}
                 onClick={findPointI}
             />
-            {/* <a href={'https://map.kakao.com/link/to/포인트아이,37.521031834622924,127.03607157207173'} target='_blank'>test</a> */}
         </Wrapper>
     )
 }
