@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import recruitingData from 'assets/dummy/recruiting.json';
+//import recruitingData from 'assets/dummy/recruiting.json';
 import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 import RecruitingContentList from './RecruitingContentList';
 import RecruitingEmployment from './RecruitingEmployment';
@@ -34,7 +34,7 @@ const ContentImge = styled.img`
 
 const Recruiting = () => {
     let { id } = useParams();
-    //const careerData = useSelector(state => state.setDataReducer.career);
+    const recruitingData = useSelector(state => state.setDataReducer.career);
     const [isClick, setIsClick] = useState('philosophy-talent');
 
     useEffect(() => {
@@ -67,7 +67,6 @@ const Recruiting = () => {
                     );
         }
     }
-
 
     return(
         <Wrapper id='talent'> 

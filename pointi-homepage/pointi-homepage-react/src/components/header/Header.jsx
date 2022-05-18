@@ -94,7 +94,7 @@ const Header = ({ page }) => {
     ) : (
         <Wrapper>
             {/* <HeaderTop /> */}
-            <HeaderDropDown page={page}/>
+            <HeaderDropDown page={page} device={device} />
         </Wrapper>
     ))
 }

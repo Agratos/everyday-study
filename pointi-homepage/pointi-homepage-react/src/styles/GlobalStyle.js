@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const device = {
     pc: 'min-width: 1200px',
-    tablet: 'max-width: 1199px',
-    mobile: 'max-width: 799px'
+    tablet: 'max-width: 1200px',
+    mobile: 'max-width: 800px'
 }
 
 const GlobalStyle = createGlobalStyle`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import solutrionData from 'assets/dummy/solutionTest.json';
+//import solutrionData from 'assets/dummy/solutionTest.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import Detail from 'components/detail/Detail';
 
@@ -34,7 +34,7 @@ const MenuKategorieLeftWrapper = styled.div`
 `;
 
 const Solution = () => {
-    //const solutrionData = useSelector(state => state.setDataReducer.solution);
+    const solutrionData = useSelector(state => state.setDataReducer.solution);
     let { id } = useParams();
     let { click } = useParams();
     const [isClick, setIsClick] = useState(click);

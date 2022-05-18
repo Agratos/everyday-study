@@ -13,16 +13,15 @@ import SolutionPage from './page/SolutionPage';
 import RecruitingPage from 'page/RecruitingPage';
 import Technology from 'page/TechnologyPage';
 
-
-
 const App = () => {
   // useHook로 변경 예정
   const dispatch = useDispatch();
   const isPc = useMediaQuery({ query: '(min-width: 1200px)' })
-  const isTablet = useMediaQuery({ query: '(min-width:800px) and (max-width: 1199.99px)'})
-  const isMobile = useMediaQuery({ query: '(max-width: 799.99px)' })
-  const device = (isPc && 'PC') || (isTablet && 'Tablet') || (isMobile && 'Mobile');
-  
+  const isTablet = useMediaQuery({ query: '(min-width:800px) and (max-width: 1200px)'})
+  const isMobile = useMediaQuery({ query: '(max-width: 800px)' })
+  const device = (isPc && 'PC') || (isTablet && 'Tablet') || (isMobile && 'Mobile') || 'PC';
+
+
   useEffect(() => {
     sendApi.getAll().then(response => {
       dispatch({
@@ -38,7 +37,6 @@ const App = () => {
       })
     })
   },[])
-
   useEffect(() => {
     dispatch({
       type: 'SET_DEVICE',

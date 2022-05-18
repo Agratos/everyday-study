@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import companyData from 'assets/dummy/company.json';
+//import companyData from 'assets/dummy/company.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import Greeting from './Greeting';
 import Organization from './Organization';
@@ -22,17 +22,17 @@ const RenderWapper = styled.div`
     display: flex;
 `;
 const MenuKategorieLeftWrapper = styled.div`
-display: flex;
-position: fixed;
-left: 0;
-top: 0;
-height: 100%;
-margin-left: 32px;
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin-left: 32px;
 `;
 
 const Company = () => {
     let { id } = useParams();
-    //const companyData = useSelector(state => state.setDataReducer.introduce);
+    const companyData = useSelector(state => state.setDataReducer.introduce);
     const [isClick, setIsClick] = useState('greeting');
     const [subjectKategorie , setSubjectKategorie] = useState(companyData.kategorie[0].title);
     const [subtitleKategorie, setSubtitleKategorie] = useState('All')

@@ -86,6 +86,7 @@ const IconWrapper = styled.div`
             margin: 0 16px;
         `
     }
+    color: ${props=>props.page === 'main' ? 'white' : 'black'}
 `;
 const LeftLogoArea = styled.div`
     padding: 0 16px 0 16px;
@@ -197,7 +198,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                 )))}
                             </MenuBar>) : 
                             ( <MenuBar>
-                                <IconWrapper device={device}><IoIosMenu size={40} color={'white'} onClick={CheckClickThreeDot}/></IconWrapper>
+                                <IconWrapper device={device} page={page}><IoIosMenu size={40}  onClick={CheckClickThreeDot}/></IconWrapper>
                             </MenuBar>)
                         }
                     </MenuBarArea>
