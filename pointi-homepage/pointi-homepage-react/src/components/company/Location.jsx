@@ -3,33 +3,28 @@ import styled from 'styled-components';
 
 import KakaoMap from 'containers/kakao/KakaoMap';
 
+const Flex = styled.div`
+    ${({theme}) => theme.divCommon.flex}
+`
 const Wrapper = styled.div`
+    ${({theme}) => theme.zIndex.one}
     margin: 0 auto;
-    position: relative;
-    z-index: 1;
 `;
 const Title = styled.div`
-    font-size: 40px;
-    font-weight: bolder;
+    ${({theme}) => theme.fontCommon.title}
     margin-bottom: 32px;
-    text-align: center;
 `;
-const LocationWrapperOut =styled.div`
-    display: flex;
+const LocationWrapperOut =styled(Flex)`
     margin-top: 5vh;
 `;
 const LocationWrapperIn =styled.div``;
-const TextWrapperOut = styled.div`
-    display: flex;
+const TextWrapperOut = styled(Flex)`
     margin:32px;
 `;
 const TextWrapperIn = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    ${({theme}) => theme.divCommon.flexColumnAround}
 `;
 const Text = styled.div`
-    font-size: 16px;
     color: #8A8A8A;
     margin-left: 16px;
 `;

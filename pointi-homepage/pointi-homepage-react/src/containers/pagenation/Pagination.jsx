@@ -5,8 +5,7 @@ const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 4px;
-  border-top: 1px solid black;
-  padding-top: 32px;
+  padding-top: 24px;
   //margin-top: -4px;
 `;
 

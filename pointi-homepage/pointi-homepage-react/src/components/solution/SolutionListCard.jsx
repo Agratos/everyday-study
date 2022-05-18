@@ -2,16 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-wrap: Wrap;
+    ${({theme}) => theme.divCommon.flexWrap}
     max-width: 1200px;
     margin: 5vh 5vw;
 `;
 const CardWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    ${({theme}) => theme.divCommon.flexColumnAroundCenter}
     width: 344px;
     height: 328px;
     margin-bottom: 4vh;
@@ -23,14 +19,9 @@ const CardWrapper = styled.div`
 const CardTitle = styled.div`
     font-size: 24px;
 `;
-const CardIntroduce = styled.div`
-    font-size: 16px;
-`;
+const CardIntroduce = styled.div``;
 const CardImgeWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter}
     width: 96px;
     height: 96px;
     border-radius: 50%;

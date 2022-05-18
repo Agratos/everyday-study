@@ -4,17 +4,16 @@ import styled from 'styled-components';
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
 const Wrapper = styled.div`
-    width: 60%;
+    width: 80%;
     text-align: center;
     margin: 0 auto;
 `;
 const Title = styled.div`
-    font-size: 40px;
-    font-weight: bolder;
+    ${({theme}) => theme.fontCommon.title}
     margin-bottom: 32px;
 `;
 const DataWrapper = styled.div`
-    display: flex;
+    ${({theme}) => theme.divCommon.flex}
     margin-top: 5vh;
 `;
 const Img = styled.img`
@@ -27,7 +26,6 @@ const TextWrapper = styled.div`
 const Text = styled.div`
     text-align: left;
     color: #636161;
-    font-size: 16px;
     line-height: 24px;
     margin-bottom: 16px;
     font-weight: ${props => props.weight};

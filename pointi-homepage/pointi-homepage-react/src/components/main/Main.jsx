@@ -98,31 +98,22 @@ import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/i
 // `;
 
 const Wrapper = styled.div`
-    display: flex;
-    justify-content: space-around;
-    margin: 32px 0;
+    ${({ theme }) => theme.divCommon.flexSpaceAround}
     ${props=> props.device === 'Mobile' && 
         css`
-            flex-direction: column;
+            ${({ theme }) => theme.divCommon.flexColumn}
             width: 100%;
         `
     }
+    margin: 32px 0;
 `;
 const SolutionWrapper = styled(Link)`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    ${({ theme }) => theme.divCommon.flexSpaceAround}
+    ${({ theme }) => theme.divCommon.flexColumn}
     width: 320px;
     height: 240px;
     padding: 8px;
     background: linear-gradient(-135deg, transparent 32px, #F0F9FD 0);
-    &:hover {
-        color: white !important;
-        background: linear-gradient(-135deg, transparent 32px, #1B9CE3 0);
-    }
-    /* &:hover  {
-        color: white;
-    } */
     margin-bottom: 32px;
     font-size: 1.1rem;
     text-decoration: none;
@@ -132,6 +123,10 @@ const SolutionWrapper = styled(Link)`
             width: 90vw;
             height: 320px;
         `
+    }
+    &:hover {
+        color: white !important;
+        background: linear-gradient(-135deg, transparent 32px, #1B9CE3 0);
     }
 `;
 const Title = styled.div`

@@ -15,17 +15,18 @@ import Location from './Location';
 import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 
+
 const Wrapper = styled.div`
     margin: 16px auto;
 `;
-const RenderWapper = styled.div`
-    display: flex;
-`;
+const RenderWapper = styled.div``;
 const MenuKategorieLeftWrapper = styled.div`
-    display: flex;
-    position: fixed;
-    left: 0;
-    top: 0;
+    ${({theme}) => theme.divCommon.fixedLeftTop}
+    // fixedLeftTop
+    // position: fixed;
+    // left: 0;
+    // top: 0;
+    //
     height: 100%;
     margin-left: 32px;
 `;
@@ -36,6 +37,7 @@ const Company = () => {
     const [isClick, setIsClick] = useState('greeting');
     const [subjectKategorie , setSubjectKategorie] = useState(companyData.kategorie[0].title);
     const [subtitleKategorie, setSubtitleKategorie] = useState('All')
+    const device = useSelector(state => state.setDeviceReducer.device);
 
     useEffect(() => {
         id !== undefined && setIsClick(id)
@@ -66,29 +68,31 @@ const Company = () => {
     return (
         <Wrapper id={`company`}>
             {`Home > Company > ${subjectKategorie} ${isClick === 'history' ?  `> ${subtitleKategorie}`: ''}`}
-            {/* <MenuKategorie 
-                kategorie={companyData.kategorie} 
-                justify={'flex-end'} 
-                setIsClick={setIsClick} 
-                isClick={isClick} 
-                setSubjectKategorie={setSubjectKategorie}
-            /> */}
-            <MenuKategorieTable 
-                kategorie={companyData.kategorie} 
-                justify={'flex-end'} 
-                setIsClick={setIsClick} 
-                isClick={isClick} 
-                setSubjectKategorie={setSubjectKategorie}
-            />
-            <MenuKategorieLeftWrapper>
-                {/* <MenuKategorieLeft 
+            { device !== 'Mobile' && (
+                // <MenuKategorie 
+                // kategorie={companyData.kategorie} 
+                // justify={'flex-end'} 
+                // setIsClick={setIsClick} 
+                // isClick={isClick} 
+                // setSubjectKategorie={setSubjectKategorie}
+                // />
+                <MenuKategorieTable 
                     kategorie={companyData.kategorie} 
                     justify={'flex-end'} 
                     setIsClick={setIsClick} 
                     isClick={isClick} 
                     setSubjectKategorie={setSubjectKategorie}
-                /> */}
-            </MenuKategorieLeftWrapper>
+                />
+                // <MenuKategorieLeftWrapper>
+                //     <MenuKategorieLeft 
+                //         kategorie={companyData.kategorie} 
+                //         justify={'flex-end'} 
+                //         setIsClick={setIsClick} 
+                //         isClick={isClick} 
+                //         setSubjectKategorie={setSubjectKategorie}
+                //     />
+                // </MenuKategorieLeftWrapper>
+            )}
             <RenderWapper>
                 {renderSwicht()}
             </RenderWapper>

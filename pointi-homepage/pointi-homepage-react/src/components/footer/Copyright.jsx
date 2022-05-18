@@ -6,9 +6,7 @@ const Wrapper = styled.div`
     color: #919191;
 `;
 const CopyrightText = styled.div`
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
+    ${({theme}) => theme.divCommon.flexCenter}
     margin: 32px 0;
 `;
 const Colorlib = styled.div`

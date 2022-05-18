@@ -5,16 +5,13 @@ const Wrapper = styled.div`
     margin: 0 auto;
 `;
 const Title = styled.div`
-    font-size: 40px;
-    font-weight: bolder;
+    ${({theme}) => theme.fontCommon.title}
     margin-bottom: 32px;
-    text-align: center;
 `;
 const DataWrapperOut = styled.div`
+    ${({theme}) => theme.divCommon.flexWrap}
     margin-top: 10vh;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
 `; 
 const DataWrapperIn = styled.div`
     border: 1px solid black;

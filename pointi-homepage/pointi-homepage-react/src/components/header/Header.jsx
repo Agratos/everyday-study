@@ -9,6 +9,7 @@ import logo2 from 'assets/imgs/banner/banner_2.png'
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
+    ${({theme}) => theme.zIndex.three}
     background-color: none;
     ${props => props.page === 'main' &&
         css`
@@ -34,20 +35,15 @@ const SliderAreaTextWrapper = styled.div``;
 const SliderAreaText = styled.div`
     color: white;
     font-size: ${props => props.size || '2rem'};
-    //transition: all 5000ms linear 0s;
-    animation: fade in 3s;
 `;
 const SliderAreaTextButton = styled(Link)`
+    ${({theme}) => theme.divCommon.flexCenterCenter}
     background: linear-gradient(45deg,#0181f5,#05aae6);
     color: white;
-    font-size: 16px;
     border: none;
     width: 152px;
     height: 64px;
     border-radius: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 3vh;
     text-decoration-line: none;
     &:hover {

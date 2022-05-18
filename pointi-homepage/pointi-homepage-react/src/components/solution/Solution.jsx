@@ -11,24 +11,18 @@ import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 16px auto;
 `;
 const Location = styled.div`
     width: 100%;
 `;
 const SolutionListWrapper = styled.div`
-    display: flex;
     padding: 0 4vw;
     margin-top: 32px;
 `;
 const MenuKategorieLeftWrapper = styled.div`
-    display: flex;
-    position: fixed;
-    left: 0;
-    top: 0;
+    ${({theme}) => theme.divCommon.flex}
+    ${({theme}) => theme.divCommon.fixedLeftTop}
     height: 100%;
     margin-left: 32px;
 `;

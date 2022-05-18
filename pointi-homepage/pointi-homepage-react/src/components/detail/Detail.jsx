@@ -2,18 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 
+const Flex = styled.div`
+    ${({theme}) => theme.divCommon.flex}
+`
+
 const Wrapper = styled.div`
     border: 1px solid black; //#E8E8E8;
     width: 100%;
     padding: 8px;
 `;
 const Title = styled.div`
-    text-align: center;
+    ${({theme}) => theme.fontCommon.title}
     margin-bottom: 32px ;
-    font-size: 40px;
 `;
 const DetailWrapper = styled.div`
-    //display: flex;
     line-height: 32px;
 `;
 const ImgWrapper = styled.div``;
@@ -23,13 +25,9 @@ const Img = styled.img`
 const TextWrapper = styled.div`
     padding: 16px;
 `;
-const TitleWrapper = styled.div`
-    display: flex;
-`;
+const TitleWrapper = styled(Flex)``;
 const IconWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    ${({theme}) => theme.divCommon.flexColumnAround}
     margin-right: 8px;
 `;
 const TextFont = styled.div`
@@ -39,13 +37,9 @@ const TextTitle = styled(TextFont)`
     font-size: 1.4rem;
     margin: 1vh 0;
 `;
-const Solution = styled(TextFont)`
-    margin: 0;
-`;
-const FunctionWrapper = styled(TextFont)`
-    //display: flex;
-`;
-const FunctionTitleWrapper = styled(TitleWrapper)``;
+const Solution = styled(TextFont)``;
+const FunctionWrapper = styled(TextFont)``;
+const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
     margin: 0 8px 0 24px;
 `;
@@ -56,13 +50,13 @@ const FunctionEx = styled.div`
 const FunctionExSub = styled.div`
     margin-top: -8px;
     margin-left: 48px;
-    font-size: 1rem;
 `;
-const KeywordWrapper = styled(TitleWrapper)`
-    flex-wrap: wrap;
+const KeywordWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexWrap}
 `;
-const AdaptionWrapper = styled(TitleWrapper)``;
-const Keyword = styled(TextTitle)`
+const AdaptionWrapper = styled(Flex)``;
+const Keyword = styled.div`
+    font-size: 1.2rem;
     margin: 0;
     margin-right: 24px;
 `;

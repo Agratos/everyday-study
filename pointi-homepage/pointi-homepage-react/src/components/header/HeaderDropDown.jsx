@@ -1,13 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { IoIosArrowDown, IoIosMenu, IoIosAdd, IoIosRemove} from "react-icons/io";
-import dropDownData from 'assets/dummy/dorpDownMenu.json';
+//import dropDownData from 'assets/dummy/dorpDownMenu.json';
 import ScrollEvent from 'containers/scroll/ScrollEvent';
 import logoWhite from 'assets/imgs/custom/logo.white.png';
 import logoBlack from 'assets/imgs/custom/logo.png';
+
+const Flex = styled.div`
+    ${({theme}) => theme.divCommon.flex}
+`
 
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
@@ -24,16 +28,11 @@ const Wrapper = styled.div`
     }
 `;
 const HeaderMiddleArea = styled.div``;
-const TopDropDownWrapper = styled.div`
-    display: flex;
-`;
+const TopDropDownWrapper = styled(Flex)``;
 const MenuBarArea = styled.div``;
-const MenuBar = styled.div`
-    display: flex;
-`;
+const MenuBar = styled(Flex)``;
 const DropDownWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    ${({theme}) => theme.divCommon.flexColumn}
     background-color: #cdcbcb;
     text-align: left;
     position: absolute;
@@ -43,7 +42,7 @@ const DropDownWrapper = styled.div`
     padding: 8px ;
 `;
 const MenuBarText = styled(Link)`
-    display: flex;
+    ${({theme}) => theme.divCommon.flex}
     margin: 8px 32px;
     color: ${props => props.page === 'main' ? 'white' : 'black'};
     font-weight: bolder;
@@ -66,17 +65,14 @@ const DropDownText = styled(Link)`
     }
 `;
 const LinkWrapper = styled.div`
-    position: relative;
-    z-index: 3;
+    ${({theme}) => theme.zIndex.three}
     &:hover ${DropDownWrapper}{
             opacity: 1;
             pointer-events: auto;
         }
 `;
 const IconWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    ${({theme}) => theme.divCommon.flexColumnAround}
     padding-top: 4px;
     margin-left: 2px;
     ${props => props.device === 'Mobile' && 
@@ -86,8 +82,10 @@ const IconWrapper = styled.div`
             margin: 0 16px;
         `
     }
-    color: ${props=>props.page === 'main' ? 'white' : 'black'}
 `;
+const MenuIconWrapper = styled(IconWrapper)`
+    color: ${props=>props.page === 'main' ? 'white' : 'black'};
+`
 const LeftLogoArea = styled.div`
     padding: 0 16px 0 16px;
     width: 25%;
@@ -100,6 +98,7 @@ const LeftLogo = styled.img`
     }
 `;
 const UnderMenuBar = styled.div`
+    ${({ theme }) => theme.animations.fadeInOut}
     position: absolute;
     flex-direction: column;
     width: 100%;
@@ -109,7 +108,6 @@ const UnderMenuBar = styled.div`
     background-color: white;
     line-height: 32px;
     height: ${props => props.clickMenu === null ? '129px' : (props.clickMenu === 'Company' ? '322px' : '193px')};
-    ${({ theme }) => theme.animations.fadeInOut}
 `;
 const UnderMenuTextWrapper = styled.div`
    font-size: 1.1rem;
@@ -129,28 +127,25 @@ const UnderMenuTextLink = styled(Link)`
     
 `;
 const UnderMenuTextLinkWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.divCommon.flexColumn}
+    ${({ theme }) => theme.animations.fadeInOut}
     padding-left: 32px;
     position: relative;
     height: ${props => props.clickMenu === 'Company' ? '192px' : '64px'};
-    ${({ theme }) => theme.animations.fadeInOut}
 `
-const UnderMenuUnClickWrapper = styled.div`
-    display: flex;
-`;
+const UnderMenuUnClickWrapper = styled(Flex)``;
 const UnderMenuClickWrapper = styled.div``;
 const UnderMenuTitle = styled.div`
+    ${({ theme }) => theme.animations.fadeInOut}
+    ${({ theme }) => theme.zIndex.two}
     width: 100%;
     padding-left: 24px;
-    z-index: 2;
     height: 32px;
-    ${({ theme }) => theme.animations.fadeInOut}
 `
 
 const HeaderDropDown = ({page, scrollMenu, device}) => {
     const isScrollDowun = ScrollEvent();
-    //const dropDownData = useSelector(state => state.setDataReducer.menu);
+    const dropDownData = useSelector(state => state.setDataReducer.menu);
     const [ isClick, setIsClick ] = useState(false);
     const [ clickMenu, setClickMenu ] = useState(null);
 
@@ -198,7 +193,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                 )))}
                             </MenuBar>) : 
                             ( <MenuBar>
-                                <IconWrapper device={device} page={page}><IoIosMenu size={40}  onClick={CheckClickThreeDot}/></IconWrapper>
+                                <MenuIconWrapper device={device} page={page}><IoIosMenu size={40}  onClick={CheckClickThreeDot}/></MenuIconWrapper>
                             </MenuBar>)
                         }
                     </MenuBarArea>

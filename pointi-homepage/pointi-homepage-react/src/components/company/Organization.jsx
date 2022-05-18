@@ -2,17 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    ${({theme}) => theme.divCommon.flexColumnAround}
     margin: 0 auto;
     width: 100%;
 `;
 const Title = styled.div`
-    font-size: 40px;
-    font-weight: bolder;
+    ${({theme}) => theme.fontCommon.title}
     margin-bottom: 32px;
-    text-align: center;
 `;
 const Img = styled.img``;
 

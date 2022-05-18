@@ -45,7 +45,7 @@ const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
     const onClick = (e) => {
         setIsClick(e.target.id);
     }
-
+    
     return(
         <Wrapper>
             <KategorieWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>

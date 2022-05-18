@@ -34,12 +34,10 @@ const GlobalStyle = createGlobalStyle`
             height: 100vh;
         };
     }
-    button{
-        display: flex;
-        cursor: pointer;
-        outline: none;
-        border-radius: 3px;
-    };
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
 `;
 
 export default GlobalStyle;

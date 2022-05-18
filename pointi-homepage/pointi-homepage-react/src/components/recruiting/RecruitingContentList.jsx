@@ -6,36 +6,28 @@ const Wrapper = styled.div`
     padding-left: ${props => props.margin};
 `;
 const Title = styled.div`
-    //border: 1px solid black;
-    font-size: 24px;
-    font-weight: bolder;
+    ${({theme}) => theme.fontCommon.subtitle}
     margin-bottom: 20px;
 `;
 const Introduce = styled.div`
-    //border: 1px solid black;
     color : #4D4D4D;
     margin-bottom: 16px;
     line-height: 1.5rem;
     font-size: 0.9rem;
 `;
 const ListWrapper = styled.div`
-    //border: 1px solid black;
-    display: flex;
+    ${({theme}) => theme.divCommon.flex}
     padding-left: 24px;
+    margin-bottom: 8px;
 `;
 const ListNumber = styled.div`
-    //border: 1px solid black;
+    ${({theme}) => theme.divCommon.flexCenterCenter}
     color : #e62d2d;
-    justify-content: center;
-    align-items: center;
-    margin: auto 4px auto 0;
     font-weight: bolder;
 `;
 const ListText = styled.div`
-    //border: 1px solid black;
     color : #8288BB;
     line-height: 1.5rem;
-    margin: 4px 0;
     font-size: 0.9rem;
 `;
 

@@ -75,8 +75,7 @@ import phone2 from 'assets/imgs/footer/phone2.png';
 // `;
 
 const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
+    ${({theme}) => theme.divCommon.flexCenter}
     padding-top: 24px;
     padding-bottom: 16px;
 `;

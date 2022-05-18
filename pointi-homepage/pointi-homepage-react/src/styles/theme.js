@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
-const pixelToRem = (size) => `${size / 16}rem`;
+//const pixelToRem = (size) => (size / 16);
 
-const fontSizes = {
-    title: pixelToRem(40),
-    subtitle: pixelToRem(32),
-    nomal: pixelToRem(16)
+const fontCommon = {
+    title: `
+        font-size: 40px;
+        font-weight: bolder;
+        text-align: center;
+    `,
+    subtitle: `
+        font-size: 24px;
+        font-weight: bolder;
+    `,
 }
 
 const animations = {
@@ -24,9 +30,93 @@ const animations = {
     `
 }
 
+const divCommon = {
+    fixedLeftTop:`
+        position: fixed;
+        left: 0;
+        top: 0;
+    `,
+    flex:`
+        display: flex;
+    `,
+    flexAround:`
+        display: flex;
+        justify-content: space-around;
+    `,
+    flexCenter:`
+        display: flex;
+        justify-content: center;
+    `,
+    flexCenterCenter:`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    `,
+    flexWrap:`
+        display: flex;
+        flex-wrap: wrap;
+    `,
+    flexWrapAround:`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    `,
+    flexColumn:`
+        display: flex;
+        flex-direction: column;
+    `,
+    flexColumnAround:`
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    `,
+    flexColumnCenter:`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    `,
+    flexColumnCenterCenter:`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    `,
+    flexColumnAroundCenter:`
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    `,
+    flexSpaceAround:`
+        display: flex;
+        justify-content: space-around;
+    `,
+}
+
+const zIndex = {
+    one:`
+        position: relative;
+        z-index: 1;
+    `,
+    two:`
+        position: relative;
+        z-index: 2;
+    `,
+    three:`
+        position: relative;
+        z-index: 3;
+    `,
+    zero:`
+        position: relative;
+        z-index: -1;
+    `,
+}
+
 const theme = {
-    fontSizes,
-    animations
+    fontCommon,
+    animations,
+    divCommon,
+    zIndex
 };
 
 export default theme;

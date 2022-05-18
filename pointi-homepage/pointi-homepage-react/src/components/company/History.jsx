@@ -8,31 +8,22 @@ import MenuKategorie from 'containers/menukategorie/MenuKategorie';
 import SeparationOfSelect from 'containers/select/SeparationOfSelect';
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 0 auto;
-    width: 80%;
 `;
 const Title = styled.div`
+    ${({theme}) => theme.fontCommon.title}
     margin-bottom: 24px;
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: center;
 `;
 const MenuKategorieWrapper = styled.div`
-    display: flex;
-    position: fixed;
-    left: 0;
-    top: 0;
+    ${({theme}) => theme.divCommon.flex}
+    ${({theme}) => theme.divCommon.fixedLeftTop}
     height: 100%;
     margin-left: 24px;
     width: 11%;
 `;
 const ListWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    ${({theme}) => theme.divCommon.flexWrapAround}
     margin-top: -5vh;
 `;
 const HistoryWrapper = styled.div`
@@ -44,12 +35,11 @@ const IconWRapper = styled.div`
     margin-right: 8px;
 `;
 const HistroyYear = styled.div`
-    font-size: 32px;
+    font-size: 2rem;
 `;
-const HistroyListWrapper = styled.div`
-`;
+const HistroyListWrapper = styled.div``;
 const HistoryList = styled.div`
-    display: flex;
+    ${({theme}) => theme.divCommon.flex}
     font-size: 0.9rem;
 `;
 

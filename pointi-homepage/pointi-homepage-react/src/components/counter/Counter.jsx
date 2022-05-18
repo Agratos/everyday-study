@@ -6,8 +6,7 @@ import dummyCounter from 'assets/dummy/counter.json';
 import * as CounterImg from 'assets/imgs/svg_icon';
 
 const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
+    ${({theme}) => theme.divCommon.flexCenter}
     background: url(${CounterBanner});
     background-blend-mode:multiply;
     background-color: #567192e8;
@@ -18,23 +17,19 @@ const Wrapper = styled.div`
     margin: 0;
 `;
 const DataWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    ${({theme}) => theme.divCommon.flexColumnCenter}
     width: 255px;
     padding: 0 16px;
 `;
 const DataNumber = styled.div`
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: lighter;
     text-align: center;
     margin: 16px;
     width: 248px;
     padding: 0 auto;
 `;
-const DataText = styled.div`
-    font-size: 16px;
-`;
+const DataText = styled.div``;
 const DataImg = styled.img``;
 const DattaTail = styled.div`
     display: inline-block;

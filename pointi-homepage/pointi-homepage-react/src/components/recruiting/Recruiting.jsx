@@ -10,20 +10,16 @@ import RecruitingEmployment from './RecruitingEmployment';
 import RecruitingEmploymentBoard from './RecruitingEmploymentBoard';
 
 const Wrapper = styled.div`
-    //margin: 32px 5vw;
     width: 100%;
 `;
 const Location = styled.div`
     margin: 16px auto;
 `;
 const MainTitle = styled.div`
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: center;
+    ${({theme}) => theme.fontCommon.title}
 `;
 const ContentWrapper = styled.div`
-    display: flex;
-    justify-content: space-around;
+    ${({theme}) => theme.divCommon.flexAround}
     padding: 32px 0;
     border-top: 1px dotted #eee;
 `;

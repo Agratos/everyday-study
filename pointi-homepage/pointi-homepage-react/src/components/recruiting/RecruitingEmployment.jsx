@@ -5,13 +5,11 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 const Title = styled.div`
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: center;
+    ${({theme}) => theme.fontCommon.title}
     margin-bottom: 32px;
 `;
 const EmploymentWrapper = styled.div`
-    display: flex;
+    ${({theme}) => theme.divCommon.flex}
     margin-left:10vw;
 `;
 const EmploymentImg = styled.img`
@@ -21,12 +19,10 @@ const TextWrapper = styled.div`
     margin-left: 2vw;
 `;
 const EmploymentTitle = styled.div`
-    font-size: 24px;
-    font-weight: bolder;
+    ${({theme}) => theme.fontCommon.subtitle}
     margin-bottom: 16px;
 `;
 const EmploymentText = styled.div`
-    font-size: 16px;
     margin-bottom: 16px;
 `;
 const EmploymentTextMail = styled.a`

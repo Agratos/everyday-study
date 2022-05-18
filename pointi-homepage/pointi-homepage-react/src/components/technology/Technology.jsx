@@ -9,27 +9,24 @@ import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import Detail from 'components/detail/Detail';
 
+const Flex = styled.div`
+    ${({theme}) => theme.divCommon.flex}
+`
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 16px auto;
 `;
 const Location = styled.div`
     width: 100%;
     margin-bottom: 32px;
 `;
-const MenuKategorieLeftWrapper = styled.div`
-    display: flex;
-    position: fixed;
-    left: 0;
-    top: 0;
+const MenuKategorieLeftWrapper = styled(Flex)`
+    ${({theme}) => theme.divCommon.fixedLeftTop}
     height: 100%;
     margin-left: 32px;
 `;
-const TechnologyListWrapper = styled.div`
-    display: flex;
+const TechnologyListWrapper = styled(Flex)`
     width: 80%;
     padding: 0 4vw;
 `;

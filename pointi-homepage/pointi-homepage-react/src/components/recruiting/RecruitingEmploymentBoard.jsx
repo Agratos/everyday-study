@@ -8,15 +8,14 @@ const Wrapper = styled.div`
     margin: 32px auto;
 `;
 const Title = styled.div`
-    font-size: 32px;
+    font-size: 2rem;
     margin-bottom: 24px;
 `;
 const ListWrapper = styled.div`
     font-weight: ${props => props.weight};
-    
 `;
 const TextWrapper = styled.div`
-    display: flex;
+    ${({theme}) => theme.divCommon.flex}
     border-bottom: 1px solid #E8E8E8;
     padding: 12px;
     &:hover {
@@ -28,7 +27,7 @@ const TextWrapper = styled.div`
     pointer-events: ${props => props.none && `none`};
 `;
 const DateWrapper = styled.div`
-    width: 15%;
+    width: 20%;
     font-size: 1.1rem;
 `;
 const ListTitleWrapper = styled.div`
@@ -39,12 +38,8 @@ const ListTitleWrapper = styled.div`
         cursor: pointer;
     }
 `;
-const ImgWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-`;
+const ImgWrapper = styled.div``;
 const Img = styled.img``;
-
 
 const RecruitingEmploymentBoard = ( {list} ) => {
     const [ limit ] = useState(5);

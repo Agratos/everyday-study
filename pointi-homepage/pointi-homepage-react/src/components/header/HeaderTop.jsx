@@ -11,12 +11,15 @@ import kakao from 'assets/imgs/header/kakao.png';
 import facebook from 'assets/imgs/header/facebook.png'
 import logo from 'assets/imgs/custom/logo.png';
 
+const Flex = styled.div`
+    ${({theme}) => theme.divCommon.flex}
+`
+
 const Wrapper = styled.div`
     background-color: white;
     padding: 8px;
 `;
-const HeaderTopArea = styled.div`
-    display: flex;
+const HeaderTopArea = styled(Flex)`
     margin: 0 5vw 0 5vw;
 `;
 const HeaderTopLeftArea = styled.div`
@@ -33,8 +36,7 @@ const LeftLogo = styled.img`
         cursor: pointer;
     }
 `;
-const HeaderTopRightArea = styled.div`
-    display: flex;
+const HeaderTopRightArea = styled(Flex)`
     width: 57vw;
 `;
 const TopRightAreaLeft = styled.div`
@@ -43,8 +45,7 @@ const TopRightAreaLeft = styled.div`
     margin: 8px;
 `;
 const TopRightAreaLeftt = styled.div``;
-const TopRightAreaInner = styled.div`
-    display: flex;
+const TopRightAreaInner = styled(Flex)`
     text-align: left;
     float: right;
     margin-right: 3vw;
