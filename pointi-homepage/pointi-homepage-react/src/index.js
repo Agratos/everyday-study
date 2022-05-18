@@ -9,6 +9,8 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { createStore } from 'redux';
 import rootReducer from './modules';
+import { ThemeProvider } from 'styled-components';
+import theme from 'styles/theme';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootNode = document.getElementById('root');
@@ -19,7 +21,9 @@ ReactDOM.createRoot(rootNode).render(
   <HelmetProvider>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </PersistGate>
     </Provider>  
   </HelmetProvider>

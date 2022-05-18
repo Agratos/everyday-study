@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -107,6 +107,8 @@ const UnderMenuBar = styled.div`
     border-top: 1px solid #ccbebe;
     background-color: white;
     line-height: 32px;
+    height: ${props => props.clickMenu === null ? '129px' : (props.clickMenu === 'Company' ? '322px' : '193px')};
+    ${({ theme }) => theme.animations.fadeInOut}
 `;
 const UnderMenuTextWrapper = styled.div`
    font-size: 1.1rem;
@@ -122,11 +124,16 @@ const UnderMenuTextLink = styled(Link)`
     color: black;
     text-decoration: none;
     padding-left: 24px;
+    height: 32px;
+    
 `;
 const UnderMenuTextLinkWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding-left: 32px;
+    position: relative;
+    height: ${props => props.clickMenu === 'Company' ? '192px' : '64px'};
+    ${({ theme }) => theme.animations.fadeInOut}
 `
 const UnderMenuUnClickWrapper = styled.div`
     display: flex;
@@ -136,6 +143,8 @@ const UnderMenuTitle = styled.div`
     width: 100%;
     padding-left: 24px;
     z-index: 2;
+    height: 32px;
+    ${({ theme }) => theme.animations.fadeInOut}
 `
 
 const HeaderDropDown = ({page, scrollMenu, device}) => {
@@ -156,7 +165,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
     const CheckClickMenu = (e) => {
         clickMenu !== e.target.id ? setClickMenu(e.target.id) : setClickMenu(null);
     }
-
+    //<Animaiton theme={theme} />
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
             <HeaderMiddleArea>
@@ -194,7 +203,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                     </MenuBarArea>
                 </TopDropDownWrapper>
                 { isClick && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분 // 수정중
-                    (<UnderMenuBar>
+                    (<UnderMenuBar clickMenu={clickMenu}>
                         { dropDownData.data.map( ({list, path, title},index) => (
                             ( list.length !== 0 ? (
                                 <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
@@ -213,7 +222,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                                     <IoIosRemove />
                                                 </CheckDrop>
                                             </UnderMenuUnClickWrapper>
-                                            <UnderMenuTextLinkWrapper>
+                                            <UnderMenuTextLinkWrapper clickMenu={clickMenu}>
                                                 {list.map( ({path, text},index) => (
                                                         <UnderMenuTextLink to={path} key={`drop-down-text-${index}`}>{text}</UnderMenuTextLink>
                                                     ))}
@@ -234,27 +243,3 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
 };
 
 export default HeaderDropDown;
-
-
-// { isClick && 
-//     (<UnderMenuBar>
-//         { dropDownData.data.map( ({list, path, title},index) => (
-//             ( list.length !== 0 ? (
-//                 <LinkWrapper key={`menu-bar-text-${index}`}>
-//                     <MenuBarText to={path} page={page}>
-//                         {title}
-//                         <IconWrapper><IoIosArrowDown /></IconWrapper>
-//                     </MenuBarText>
-//                     <DropDownWrapper>
-//                         {list.map( ({path, text},index) => (
-//                             <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
-//                         ))}
-//                     </DropDownWrapper>
-//                 </LinkWrapper>
-//             )
-//             : 
-//             <LinkWrapper key={`menu-bar-text-${index}`}>
-//                 <MenuBarText to={path} page={page}>{title}</MenuBarText>
-//             </LinkWrapper>
-//         )))}
-//     </UnderMenuBar>)}
