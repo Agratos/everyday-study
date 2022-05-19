@@ -29,16 +29,17 @@ const MenuKategorieLeftWrapper = styled(Flex)`
 
 const Solution = () => {
     const solutrionData = useSelector(state => state.setDataReducer.solution);
-    let { id } = useParams();
-    let { click } = useParams();
+    const device = useSelector(state => state.setDeviceReducer.device);
+    const { id } = useParams();
+    const { click } = useParams();
     const [isClick, setIsClick] = useState(click);
+
     useEffect(() => {
         setIsClick(click)
     },[id])
     useEffect(() => {
         window.history.pushState('','solution click시 url 변경',`/solution/${id}/${isClick}`);
     })
-
     const checkUndefined = () => {
         return (solutrionData[id][isClick] !== undefined ? solutrionData[id][isClick] : solutrionData[id][click])
     }
@@ -53,19 +54,22 @@ const Solution = () => {
                 setIsClick={setIsClick} 
                 isClick={isClick}
             /> */}
-            <MenuKategorieLeftWrapper>
-                <MenuKategorieLeft 
+            { device === 'PC' ? 
+                <MenuKategorieLeftWrapper>
+                    <MenuKategorieLeft 
+                        kategorie={solutrionData[id].kategorie} 
+                        setIsClick={setIsClick} 
+                        isClick={isClick}
+                    />
+                </MenuKategorieLeftWrapper> :
+                <MenuKategorieTable 
                     kategorie={solutrionData[id].kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
+                    height={id === 'ict' ? '288px' : '160px'}
                 />
-            </MenuKategorieLeftWrapper>
+            }
             <SolutionListWrapper >
-                {/* <MenuKategorieLeft 
-                    kategorie={solutrionData[id].kategorie} 
-                    setIsClick={setIsClick} 
-                    isClick={isClick}
-                /> */}
                 <Detail 
                     data={checkUndefined()} 
                     type='solution' 

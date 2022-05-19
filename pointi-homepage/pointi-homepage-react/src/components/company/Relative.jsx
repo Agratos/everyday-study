@@ -11,6 +11,7 @@ const Title = styled.div`
 const DataWrapperOut = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
     ${({theme, device}) => device === 'Mobile' && theme.divCommon.flexColumnCenterCenter}
+    width: ${({device}) => device === 'Mobile' && '60%'};
     margin-top: 10vh;
     margin: auto;
 `; 

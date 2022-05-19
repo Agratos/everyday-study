@@ -18,6 +18,7 @@ const Location = styled.div`
 `;
 const MainTitle = styled.div`
     ${({theme}) => theme.fontCommon.title}
+    margin-top: 16px;
 `;
 const ContentWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexAround}
@@ -89,7 +90,8 @@ const Recruiting = () => {
                 kategorie={recruitingData.kategorie} 
                 justify={'flex-end'} 
                 setIsClick={setIsClick} 
-                isClick={isClick} 
+                isClick={isClick}
+                page={'recruiting'}
             />
             {renderSwitch()}
         </Wrapper>

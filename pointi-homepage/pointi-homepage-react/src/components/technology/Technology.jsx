@@ -56,7 +56,8 @@ const Technology = () => {
                 <MenuKategorieTable 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
-                    isClick={isClick} 
+                    isClick={isClick}
+                    device={device}
                 />
             }
             <TechnologyListWrapper >
