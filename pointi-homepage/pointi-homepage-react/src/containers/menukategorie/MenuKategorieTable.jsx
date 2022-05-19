@@ -18,9 +18,6 @@ const KategorieWrapper = styled.table`
     margin: 32px 0;
     border-bottom: 2px solid #3d74a7;
     line-height: 16px;
-    &:hover {
-        cursor: pointer;
-    }
     ${props => props.subtitle && 
         css`
             border-bottom: 1px solid black;
@@ -39,6 +36,9 @@ const Kategorie = styled.td`
             color: #5DB2FF;
             padding: 12px 24px;
         `}
+    }
+    &:hover {
+        cursor: pointer;
     }
 `;
 const UnderMenuBar = styled.div`
