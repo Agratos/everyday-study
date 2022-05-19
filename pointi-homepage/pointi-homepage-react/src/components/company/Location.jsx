@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 
 import KakaoMap from 'containers/kakao/KakaoMap';
@@ -21,7 +20,7 @@ const Title = styled.div`
 `;
 const LocationWrapperOut =styled(Flex)`
     ${({theme}) => theme.divCommon.flexCenter}
-    ${props => props.device === 'Mobile' && props.theme.divCommon.flexColumn}
+    ${({device, theme})=> device === 'Mobile' && theme.divCommon.flexColumn}
     margin-top: 5vh;
 `;
 const KakaoMapWrapper = styled.div`
@@ -46,9 +45,7 @@ const Text = styled.div`
 const Img = styled.img``;
 
 
-const Location = ({data}) => {
-    const device = useSelector(state => state.setDeviceReducer.device);
-
+const Location = ({data, device}) => {
     const CheckIcon = (index) => {
         switch(index){
             case 0:

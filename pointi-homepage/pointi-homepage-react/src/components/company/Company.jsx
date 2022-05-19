@@ -51,15 +51,15 @@ const Company = () => {
                             setSubtitleKategorie={setSubtitleKategorie}
                         />;
             case 'organization' :
-                return <Organization data={companyData.organization} />;
+                return <Organization data={companyData.organization} device={device} />;
             case 'patent' :
-                return <PatentBoard data={companyData.patent} />;
+                return <PatentBoard data={companyData.patent} device={device} />;
             case 'relative' :
-                return <Relative data={companyData.relative} />;
+                return <Relative data={companyData.relative} device={device} />;
             case 'location' :
-                return <Location data={companyData.location} />;
+                return <Location data={companyData.location} device={device} />;
             default :
-                return <Greeting data={companyData.ceo} />;
+                return <Greeting data={companyData.ceo} device={device} />;
         }
     }
 

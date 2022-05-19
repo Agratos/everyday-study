@@ -10,12 +10,13 @@ const Title = styled.div`
 `;
 const DataWrapperOut = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
+    ${({theme, device}) => device === 'Mobile' && theme.divCommon.flexColumnCenterCenter}
     margin-top: 10vh;
     margin: auto;
 `; 
 const DataWrapperIn = styled.div`
     border: 1px solid black;
-    width: 30%;
+    width: ${({device}) => device === 'Mobile' ? '80%' : '30%'};
     box-shadow: 4px 4px 4px #919191; 
     text-align: center;
     margin: 0 calc(9.4%/6);
@@ -35,13 +36,13 @@ const DataText = styled.div`
     font-size: 1.3rem;
 `;
 
-const Relative = ({data}) => {
+const Relative = ({data, device}) => {
     return (
         <Wrapper id={`relative`}>
             <Title>관계사</Title>
-                <DataWrapperOut>
+                <DataWrapperOut device={device}>
                     { data.slice(0,data.length).map(({image, title, text},index) => (
-                        <DataWrapperIn index={index} last={data.length} key={`relative${index}`}>
+                        <DataWrapperIn index={index} last={data.length} key={`relative${index}`} device={device}>
                             <DataImg src={require(`assets/imgs/introduce/${image}`)} />
                             <DataTitle>{title}</DataTitle>
                             <DataText>{text}</DataText>              
