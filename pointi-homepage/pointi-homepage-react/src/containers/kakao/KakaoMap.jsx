@@ -12,12 +12,13 @@ const Map = styled.div`
 `;
 
 const KakaoMap = () => {
+    const location = {latitude:37.521031834622924, longitude:127.03607157207173};
     let map;
     let marker;
 
     const options = {
         //지도를 생성할 때 필요한 기본 옵션
-        center: new window.kakao.maps.LatLng(37.521031834622924, 127.03607157207173), //지도의 중심좌표.
+        center: new window.kakao.maps.LatLng(location.latitude, location.longitude), //지도의 중심좌표.
         level: 2, //지도의 레벨(확대, 축소 정도)
         // marker: {
         //     position: new window.kakao.maps.LatLng(37.521031834622924, 127.03607157207173),
@@ -32,10 +33,10 @@ const KakaoMap = () => {
         map.setDraggable(false);
         map.setZoomable(false);
         marker = new window.kakao.maps.Marker({
-            position: map.getCenter()
+            position: new window.kakao.maps.LatLng(location.latitude, location.longitude)
         })
         marker.setMap(map)
-    }, []);
+    });
     
     const findPointI = () => {
         window.open('https://map.kakao.com/link/to/포인트아이,37.521031834622924,127.03607157207173','포인트아이 길찾기');

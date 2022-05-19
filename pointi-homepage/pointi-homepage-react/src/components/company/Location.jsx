@@ -28,7 +28,7 @@ const KakaoMapWrapper = styled.div`
     width: 35vw;
     height: 50vh;
     ${props => props.device === 'Mobile' && css`
-        width: 100vw;
+        width: 100%;
         margin-bottom: 32px;
     `}
 `;
@@ -43,9 +43,7 @@ const Text = styled.div`
     color: #8A8A8A;
     margin-left: 16px;
 `;
-const Img = styled.img`
-    
-`;
+const Img = styled.img``;
 
 
 const Location = ({data}) => {
