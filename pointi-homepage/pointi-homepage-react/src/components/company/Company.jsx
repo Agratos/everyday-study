@@ -49,6 +49,7 @@ const Company = () => {
                             data={companyData.history.data} 
                             kategorie={companyData.history.kategorie}
                             setSubtitleKategorie={setSubtitleKategorie}
+                            device={device}
                         />;
             case 'organization' :
                 return <Organization data={companyData.organization} device={device} />;

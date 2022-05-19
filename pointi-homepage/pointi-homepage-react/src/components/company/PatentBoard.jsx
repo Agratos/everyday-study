@@ -30,8 +30,15 @@ const NumberWrapper =styled(DateWrapper)`
 const ListTitleWrapper = styled(NumberWrapper)`
     width: 60%;
 `;
+const MobilePatentWrapper =styled(DateWrapper)`
+    border-left: none;
+`;
+const MobilePatentText = styled.div`
+    ${({type, theme}) => type === '특허명' && theme.divCommon.flex}
+    width: ${({width}) => width};
+`;
 
-const PatentBoard = ({data}) => {
+const PatentBoard = ({data, device}) => {
     const [ limit ] = useState(10);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
@@ -40,20 +47,47 @@ const PatentBoard = ({data}) => {
         <Wrapper id='patent'>
             <Title>{data.title}</Title>
             <ListWrapper>
-                <Tbody>
-                    <TextWrapper none={true} weight={`bolder`}>
-                            <DateWrapper>등록일자</DateWrapper>
-                            <NumberWrapper>특허번호</NumberWrapper>
-                            <ListTitleWrapper>특허명</ListTitleWrapper>
-                    </TextWrapper>
-                    {data.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
-                        <TextWrapper key={`patent-board${index}`}>
-                            <DateWrapper>{date}</DateWrapper>
-                            <NumberWrapper>{number}</NumberWrapper>
-                            <ListTitleWrapper>{name}</ListTitleWrapper>
+                { device !== 'Mobile' ? 
+                    (<Tbody>
+                        <TextWrapper none={true} weight={`bolder`}>
+                                <DateWrapper>등록일자</DateWrapper>
+                                <NumberWrapper>특허번호</NumberWrapper>
+                                <ListTitleWrapper>특허명</ListTitleWrapper>
                         </TextWrapper>
-                    ))}
-                </Tbody>
+                        {data.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
+                            <TextWrapper key={`patent-board${index}`}>
+                                <DateWrapper>{date}</DateWrapper>
+                                <NumberWrapper>{number}</NumberWrapper>
+                                <ListTitleWrapper>{name}</ListTitleWrapper>
+                            </TextWrapper>
+                        ))}
+                    </Tbody>) : (
+                    <Tbody>
+                        <TextWrapper none={true} weight={`bolder`}>
+                                <MobilePatentWrapper>특허</MobilePatentWrapper>
+                        </TextWrapper>
+                        {data.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
+                            <TextWrapper key={`patent-board${index}`}>
+                                <MobilePatentWrapper>
+                                    <MobilePatentText>
+                                        등록일자: {date}
+                                    </MobilePatentText>
+                                    <MobilePatentText>
+                                        특허번호: {number}
+                                    </MobilePatentText> 
+                                    <MobilePatentText type={'특허명'}>
+                                        <MobilePatentText width={'64px'}>
+                                            특허명: 
+                                        </MobilePatentText>
+                                        <MobilePatentText width={'80%'}>
+                                            {name}
+                                        </MobilePatentText>
+                                    </MobilePatentText>
+                                </MobilePatentWrapper>
+                            </TextWrapper>
+                        ))}
+                    </Tbody>
+                )}
             </ListWrapper>
             <Pagination
                 total={data.list.length}
