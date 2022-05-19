@@ -17,24 +17,21 @@ const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 16px auto;
 `;
-const Location = styled.div`
-    width: 100%;
-    margin-bottom: 32px;
+const Location = styled.div``;
+const TechnologyListWrapper = styled.div`
+    margin-top: 32px;
 `;
 const MenuKategorieLeftWrapper = styled(Flex)`
     ${({theme}) => theme.divCommon.fixedLeftTop}
     height: 100%;
-    margin-left: 32px;
 `;
-const TechnologyListWrapper = styled(Flex)`
-    width: 80%;
-    padding: 0 4vw;
-`;
+
 
 const Technology = () => {
     const technologyData = useSelector(state => state.setDataReducer.technology);
-    let { id } = useParams();
+    const device = useSelector(state => state.setDeviceReducer.device);
     const [isClick, setIsClick] = useState('multi-media-process');
+    let { id } = useParams();
     useEffect(() => {
         id !== undefined && setIsClick(id)
     },[id])
@@ -44,26 +41,34 @@ const Technology = () => {
 
     return (
         <Wrapper>
-            <Location>{`Home > Technology > ${technologyData[isClick].title}`}</Location>
-            {/* <MenuKategorieTable 
-                kategorie={technologyData.kategorie} 
-                setIsClick={setIsClick} 
-                isClick={isClick} 
-                /> */}
-            <MenuKategorieLeftWrapper id={'test'} >
-                <MenuKategorieLeft 
+            <Location>
+                {`Home > Technology > ${technologyData[isClick].title}`}
+            </Location>
+            
+            { device === 'PC' ? 
+                <MenuKategorieLeftWrapper >
+                    <MenuKategorieLeft 
+                        kategorie={technologyData.kategorie} 
+                        setIsClick={setIsClick} 
+                        isClick={isClick} 
+                    />
+                </MenuKategorieLeftWrapper> :   
+                <MenuKategorieTable 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick} 
-                    />
-            </MenuKategorieLeftWrapper>
+                />
+            }
             <TechnologyListWrapper >
                 {/* <MenuKategorieLeft 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick} 
-                    /> */}
-                <Detail data={technologyData[isClick]} type='technology' />
+                /> */}
+                <Detail 
+                    data={technologyData[isClick]} 
+                    type='technology' 
+                />
             </TechnologyListWrapper>
         </Wrapper>
     )

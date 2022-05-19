@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width: 50%;
+    width: 100%;
     padding-left: ${props => props.margin};
 `;
 const Title = styled.div`

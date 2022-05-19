@@ -5,23 +5,23 @@ import { useSelector } from 'react-redux';
 
 //import solutrionData from 'assets/dummy/solutionTest.json';
 import MenuKategorie from 'containers/menukategorie/MenuKategorie';
-import Detail from 'components/detail/Detail';
-
 import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
+import Detail from 'components/detail/Detail';
+
+const Flex = styled.div`
+    ${({theme}) => theme.divCommon.flex}
+`
 
 const Wrapper = styled.div`
     margin: 16px auto;
 `;
-const Location = styled.div`
-    width: 100%;
-`;
+const Location = styled.div``;
 const SolutionListWrapper = styled.div`
     padding: 0 4vw;
     margin-top: 32px;
 `;
-const MenuKategorieLeftWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flex}
+const MenuKategorieLeftWrapper = styled(Flex)`
     ${({theme}) => theme.divCommon.fixedLeftTop}
     height: 100%;
     margin-left: 32px;
@@ -48,12 +48,24 @@ const Solution = () => {
             <Location>
                 {`Home > Solution > ${id} > ${checkUndefined().title}`}
             </Location>
-            {/* <MenuKategorie kategorie={solutrionData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/> */}
+            {/* <MenuKategorie 
+                kategorie={solutrionData[id].kategorie} 
+                setIsClick={setIsClick} 
+                isClick={isClick}
+            /> */}
             <MenuKategorieLeftWrapper>
-                <MenuKategorieLeft kategorie={solutrionData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/>
+                <MenuKategorieLeft 
+                    kategorie={solutrionData[id].kategorie} 
+                    setIsClick={setIsClick} 
+                    isClick={isClick}
+                />
             </MenuKategorieLeftWrapper>
             <SolutionListWrapper >
-                {/* <MenuKategorieLeft kategorie={solutrionData[id].kategorie} setIsClick={setIsClick} isClick={isClick}/> */}
+                {/* <MenuKategorieLeft 
+                    kategorie={solutrionData[id].kategorie} 
+                    setIsClick={setIsClick} 
+                    isClick={isClick}
+                /> */}
                 <Detail 
                     data={checkUndefined()} 
                     type='solution' 

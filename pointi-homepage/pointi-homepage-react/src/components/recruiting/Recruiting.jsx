@@ -12,6 +12,7 @@ import RecruitingEmploymentBoard from './RecruitingEmploymentBoard';
 const Wrapper = styled.div`
     width: 100%;
 `;
+const RednderSwitchWrapper = styled.div``
 const Location = styled.div`
     margin: 16px auto;
 `;
@@ -20,46 +21,61 @@ const MainTitle = styled.div`
 `;
 const ContentWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexAround}
+    ${({device, theme}) => device === 'Mobile' && theme.divCommon.flexColumnCenter}
+    width: 90%;
+    margin: 0 auto;
     padding: 32px 0;
     border-top: 1px dotted #eee;
 `;
 const ContentImge = styled.img`
-    width: 40%;
-    margin: 0 16px;
+    width: ${({device}) => device === 'Mobile' ? '100%' : '50%'};
 `;
 
 const Recruiting = () => {
-    let { id } = useParams();
     const recruitingData = useSelector(state => state.setDataReducer.career);
+    const device = useSelector(state => state.setDeviceReducer.device);
     const [isClick, setIsClick] = useState('philosophy-talent');
+    let { id } = useParams();
 
     useEffect(() => {
         id !== undefined && setIsClick(id)
     },[id])
 
-    const renderSwicht = () => {
+    const renderSwitch = () => {
         window.history.pushState('','Recruiting IsClick To Move',`/recruiting/${isClick}`);
         switch(isClick) {
             case 'philosophy-talent' :
                 return (
-                    <div>
+                    <RednderSwitchWrapper>
                         <MainTitle>{recruitingData[isClick].title}</MainTitle>
-                        <ContentWrapper>
-                            <ContentImge src={require(`assets/imgs/carreer/${recruitingData[isClick].philosophy.image}`)} />
-                            <RecruitingContentList list={recruitingData[isClick].philosophy} />
+                        <ContentWrapper device={device}>
+                            <ContentImge 
+                                src={require(`assets/imgs/carreer/${recruitingData[isClick].philosophy.image}`)} 
+                                device={device}
+                            />
+                            <RecruitingContentList 
+                                list={recruitingData[isClick].philosophy}
+                                margin={device !== 'Mobile' && '24px'}
+                            />
                         </ContentWrapper>
-                        <ContentWrapper>
-                            <RecruitingContentList list={recruitingData[isClick].talent} margin={'60px'} />
-                            <ContentImge src={require(`assets/imgs/carreer/${recruitingData[isClick].talent.image}`)} />
-                        </ContentWrapper>
-                    </div>
+                        <ContentWrapper device={device}>
+                            <RecruitingContentList 
+                                list={recruitingData[isClick].talent} 
+                                //margin={device === 'PC' && '60px'}
+                            />
+                            <ContentImge 
+                                src={require(`assets/imgs/carreer/${recruitingData[isClick].talent.image}`)} 
+                                device={device}
+                            />
+                        </ContentWrapper> 
+                    </RednderSwitchWrapper>
                 )
                 default :
                     return (
-                        <div>
+                        <RednderSwitchWrapper>
                             <RecruitingEmployment list={recruitingData[isClick].employment} />
                             <RecruitingEmploymentBoard list={recruitingData[isClick].announcement} />
-                        </div>
+                        </RednderSwitchWrapper>
                     );
         }
     }
@@ -75,7 +91,7 @@ const Recruiting = () => {
                 setIsClick={setIsClick} 
                 isClick={isClick} 
             />
-            {renderSwicht()}
+            {renderSwitch()}
         </Wrapper>
     )
 }

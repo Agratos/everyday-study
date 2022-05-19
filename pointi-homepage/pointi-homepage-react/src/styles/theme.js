@@ -31,6 +31,9 @@ const animations = {
 }
 
 const divCommon = {
+    default:`
+        display: block;
+    `,
     fixedLeftTop:`
         position: fixed;
         left: 0;

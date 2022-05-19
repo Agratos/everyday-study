@@ -8,8 +8,7 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     border: 1px solid black; //#E8E8E8;
-    width: 100%;
-    padding: 8px;
+    width: 99%;
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
