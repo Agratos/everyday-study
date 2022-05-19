@@ -65,6 +65,7 @@ const LinkButton = styled.div`
         cursor: pointer;
         color: #5b2fd4;
     }
+    word-break: break-all;
 `;
 
 const Detail = ({data, type}) => {
