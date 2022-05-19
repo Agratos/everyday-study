@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import footerData from 'assets/dummy/footer.json';
+//import footerData from 'assets/dummy/footer.json';
 import Copyright from './Copyright';
 import logo from 'assets/imgs/footer/logo.png';
 import mail from 'assets/imgs/footer/mail.png';
@@ -92,10 +92,12 @@ const TextWrapper = styled.div`
     font-size: 0.9rem;
 `;
 const Footer = () => {
-    //const footerData = useSelector(state => state.setDataReducer.footer);
+    const footerData = useSelector(state => state.setDataReducer.footer);
+    const device = useSelector(state => state.setDeviceReducer.device);
 
     return (
-        <Wrapper>
+        device !== 'Mobile' &&
+        <Wrapper device={device}>
             <Logo src={logo} />
             <TextArea>
                 {footerData.data[0].list.map((list,index) => (

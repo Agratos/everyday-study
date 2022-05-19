@@ -161,7 +161,10 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
     const CheckClickMenu = (e) => {
         clickMenu !== e.target.id ? setClickMenu(e.target.id) : setClickMenu(null);
     }
-    //<Animaiton theme={theme} />
+    const MoveToLink = () => {
+        setIsClick(false);
+    }
+
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
             <HeaderMiddleArea>
@@ -198,7 +201,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                         }
                     </MenuBarArea>
                 </TopDropDownWrapper>
-                { isClick && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분 // 수정중
+                { isClick && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
                     (<UnderMenuBar clickMenu={clickMenu}>
                         { dropDownData.data.map( ({list, path, title},index) => (
                             ( list.length !== 0 ? (
@@ -220,7 +223,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                             </UnderMenuUnClickWrapper>
                                             <UnderMenuTextLinkWrapper clickMenu={clickMenu}>
                                                 {list.map( ({path, text},index) => (
-                                                        <UnderMenuTextLink to={path} key={`drop-down-text-${index}`}>{text}</UnderMenuTextLink>
+                                                        <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink}>{text}</UnderMenuTextLink>
                                                     ))}
                                             </UnderMenuTextLinkWrapper>
                                         </UnderMenuClickWrapper>

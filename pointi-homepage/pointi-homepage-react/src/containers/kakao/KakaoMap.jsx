@@ -2,10 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    z-index: 2;
+    width: inherit;
+    height: inherit;
 `;
 const Map = styled.div`
     z-index: 1;
+    width: inherit;
+    height: inherit;
 `;
 
 const KakaoMap = () => {
@@ -42,7 +45,6 @@ const KakaoMap = () => {
         <Wrapper>
             <Map
                 className="map"
-                style={{ width: "40vw", height: "70vh" }}
                 ref={container}
                 onClick={findPointI}
             />

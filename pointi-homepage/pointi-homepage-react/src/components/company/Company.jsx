@@ -20,13 +20,11 @@ const Wrapper = styled.div`
     margin: 16px auto;
 `;
 const RenderWapper = styled.div``;
+const PathWrapper = styled.div`
+    margin-bottom: 16px;
+`;
 const MenuKategorieLeftWrapper = styled.div`
     ${({theme}) => theme.divCommon.fixedLeftTop}
-    // fixedLeftTop
-    // position: fixed;
-    // left: 0;
-    // top: 0;
-    //
     height: 100%;
     margin-left: 32px;
 `;
@@ -67,7 +65,9 @@ const Company = () => {
 
     return (
         <Wrapper id={`company`}>
-            {`Home > Company > ${subjectKategorie} ${isClick === 'history' ?  `> ${subtitleKategorie}`: ''}`}
+            <PathWrapper>
+                {`Home > Company > ${subjectKategorie} ${isClick === 'history' ?  `> ${subtitleKategorie}`: ''}`}
+            </PathWrapper>
             { device !== 'Mobile' && (
                 // <MenuKategorie 
                 // kategorie={companyData.kategorie} 

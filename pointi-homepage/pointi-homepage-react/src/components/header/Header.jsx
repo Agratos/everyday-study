@@ -14,27 +14,30 @@ const Wrapper = styled.div`
     ${props => props.page === 'main' &&
         css`
             min-height: 400px;
-            height: 50vh;
-            max-height: 600px;
-            background: url(${props => props.logo});
-            background-repeat: no-repeat;
+            height: 49vh;
+            //max-height: 600px;
+            background: url(${props => props.logo}) no-repeat center;
             background-size: cover;
             background-blend-mode:multiply;
-            background-color: #7794b0d9;
-            position: relative;
-            opacity: 0.9;
+            background-color: #7794b085;
             transition: all 1000ms ease 0s;
-            z-index: 2;
         `
     }
+    height: ${props => props.device === 'Mobile' && '100vh'};
 `;
-const SliderArea = styled.div`
+const SliderArea = styled.div``;
+const SliderAreaTextWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenter}
     padding: 8vh;
+    ${props => props.device === 'Mobile' && css`
+        height: 60vh;
+        padding: 5vh 2vh;
+    `}
 `;
-const SliderAreaTextWrapper = styled.div``;
 const SliderAreaText = styled.div`
     color: white;
-    font-size: ${props => props.size || '2rem'};
+    font-size: ${props => props.size || '2rem'}; 
+    margin-bottom: 8px;
 `;
 const SliderAreaTextButton = styled(Link)`
     ${({theme}) => theme.divCommon.flexCenterCenter}
@@ -44,7 +47,7 @@ const SliderAreaTextButton = styled(Link)`
     width: 152px;
     height: 64px;
     border-radius: 32px;
-    margin-top: 3vh;
+    margin-top: 2vh;
     text-decoration-line: none;
     &:hover {
         background: linear-gradient(45deg,#05aae6,#0181f5);
@@ -65,14 +68,14 @@ const Header = ({ page }) => {
 
     return (
         page === 'main' ? (
-        <Wrapper logo={imgData[dataIndex%2]}  id="top" page={page}>
+        <Wrapper logo={imgData[dataIndex%2]}  id="top" page={page} device={device}>
             {/* <HeaderTop /> */}
             <HeaderDropDown  page={page} device={device}/>
             {/* <HeaderDropDown scrollMenu={true} /> */}
             <SliderArea> 
                     {headerData.data.map(({id, text1, text2},index) => (
                         ( id === dataIndex && (
-                            <SliderAreaTextWrapper key={`slider-area-${index}`}>
+                            <SliderAreaTextWrapper key={`slider-area-${index}`} device={device}>
                                 {/* { device !== 'Mobile' && 
                                 <div>
                                     <SliderAreaText className='text-1'>{text1}</SliderAreaText>
