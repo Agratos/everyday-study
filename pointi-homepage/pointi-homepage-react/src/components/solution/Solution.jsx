@@ -18,13 +18,19 @@ const Wrapper = styled.div`
 `;
 const Location = styled.div``;
 const SolutionListWrapper = styled.div`
-    padding: 0 4vw;
+    //padding: 0 4vw;
     margin-top: 32px;
 `;
-const MenuKategorieLeftWrapper = styled(Flex)`
+const MenuKategorieLeftWrapper = styled.div`
     ${({theme}) => theme.divCommon.fixedLeftTop}
+    /* top: 95px;
     height: 100%;
-    margin-left: 32px;
+    margin-left: 28px;
+    width: 16%; */
+    top: 95px;
+    //left: calc(5% - 0px);
+    height: 100%;
+    width: 15%;
 `;
 
 const Solution = () => {

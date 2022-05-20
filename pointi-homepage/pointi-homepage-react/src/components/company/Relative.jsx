@@ -10,18 +10,18 @@ const Title = styled.div`
 `;
 const DataWrapperOut = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
-    ${({theme, device}) => device === 'Mobile' && theme.divCommon.flexColumnCenterCenter}
-    width: ${({device}) => device === 'Mobile' && '60%'};
-    margin-top: 10vh;
-    margin: auto;
+    justify-content: center;
 `; 
 const DataWrapperIn = styled.div`
+    ${({theme, device}) => device === 'Mobile' && theme.divCommon.flexColumnCenterCenter}
+    ${({theme}) => theme.divCommon.flexWrap}
+    width: 900px;
+`; 
+const DataWrapper = styled.div`
     border: 1px solid black;
-    width: ${({device}) => device === 'Mobile' ? '80%' : '30%'};
+    width: ${({device}) => device === 'Mobile' ? '65%' : '264px'};
     box-shadow: 4px 4px 4px #919191; 
-    text-align: center;
-    margin: 0 calc(9.4%/6);
-    margin-bottom: 3vh;
+    margin: 16px;
 `;
 const DataImg = styled.img`
     width: 100%;
@@ -33,6 +33,7 @@ const DataTitle = styled.div`
 `;
 const DataText = styled.div`
     margin-top: 8px;
+    margin-left: 24px;
     margin-bottom: 24px;
     font-size: 1.3rem;
 `;
@@ -42,13 +43,15 @@ const Relative = ({data, device}) => {
         <Wrapper id={`relative`}>
             <Title>관계사</Title>
                 <DataWrapperOut device={device}>
-                    { data.slice(0,data.length).map(({image, title, text},index) => (
-                        <DataWrapperIn index={index} last={data.length} key={`relative${index}`} device={device}>
-                            <DataImg src={require(`assets/imgs/introduce/${image}`)} />
-                            <DataTitle>{title}</DataTitle>
-                            <DataText>{text}</DataText>              
-                        </DataWrapperIn>
-                    ))}
+                    <DataWrapperIn device={device}>
+                        { data.slice(0,data.length).map(({image, title, text},index) => (
+                            <DataWrapper index={index} last={data.length} key={`relative${index}`} device={device}>
+                                <DataImg src={require(`assets/imgs/introduce/${image}`)} />
+                                <DataTitle>{title}</DataTitle>
+                                <DataText>{text}</DataText>              
+                            </DataWrapper>
+                        ))}
+                    </DataWrapperIn>
                 </DataWrapperOut>
         </Wrapper>
     )

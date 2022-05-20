@@ -21,9 +21,12 @@ const Location = styled.div``;
 const TechnologyListWrapper = styled.div`
     margin-top: 32px;
 `;
-const MenuKategorieLeftWrapper = styled(Flex)`
+const MenuKategorieLeftWrapper = styled.div`
     ${({theme}) => theme.divCommon.fixedLeftTop}
+    top: 95px;
+    //left: calc(5% - 0px);
     height: 100%;
+    width: 15%;
 `;
 
 

@@ -21,9 +21,9 @@ const ListWrapper = styled.div`
     margin-bottom: 8px;
 `;
 const ListNumber = styled.div`
-    ${({theme}) => theme.divCommon.flexCenterCenter}
     color : #e62d2d;
     font-weight: bolder;
+    margin-right: 4px;
 `;
 const ListText = styled.div`
     color : #8288BB;

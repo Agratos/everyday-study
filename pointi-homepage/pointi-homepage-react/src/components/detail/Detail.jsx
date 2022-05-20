@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 
@@ -8,7 +9,8 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     border: 1px solid black; //#E8E8E8;
-    width: 99%;
+    width: ${props => props.device !== 'Mobile' && '800px'};
+    margin: 0 auto;
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
@@ -16,8 +18,11 @@ const Title = styled.div`
 `;
 const DetailWrapper = styled.div`
     line-height: 32px;
+    
 `;
-const ImgWrapper = styled.div``;
+const ImgWrapper = styled.div`
+    text-align: center;
+`;
 const Img = styled.img`
     width: 100%;
 `;
@@ -69,12 +74,13 @@ const LinkButton = styled.div`
 `;
 
 const Detail = ({data, type}) => {
+    const device = useSelector(state => state.setDeviceReducer.device);
     const checkSubText = (str) => {
         return (str[0] === '(' && str[str.length-1] === ')')
     }
 
     return (
-        <Wrapper>
+        <Wrapper device={device}>
             <Title>{data.title}</Title>
             <DetailWrapper>
                 { type === 'solution' && (

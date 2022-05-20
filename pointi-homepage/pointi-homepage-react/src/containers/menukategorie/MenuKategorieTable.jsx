@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { IoIosMenu } from "react-icons/io";
+
 
 const Wrapper = styled.div`
     width: 100%;
@@ -42,7 +44,6 @@ const Kategorie = styled.td`
     }
 `;
 const UnderMenuBar = styled.div`
-    ${({ theme }) => theme.animations.fadeInOut}
     position: absolute;
     width: 100%;
     top: 132px;
@@ -50,6 +51,8 @@ const UnderMenuBar = styled.div`
     background-color: #e2dddd;
     line-height: 32px;
     height: ${props => props.height};
+    opacity: ${props=>props.opacity};
+    
 `;
 const Test = styled.div`
     &{
@@ -61,14 +64,18 @@ const Test = styled.div`
 `
 
 
-const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap, device, height, page}) => {
+const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
     const [ isMenuClick, setIsMenuClick ] = useState(false);
+    const [ opacity, setOpacity] = useState(0);
+    const device = useSelector(state => state.setDeviceReducer.device);
     const onClick = (e) => {
         setIsClick(e.target.id);
-        setIsMenuClick(false);
+        //setIsMenuClick(false);
+        //setOpacity(0);
     }
-    const CheckClickThreeDot = () => {
+    const CheckClickTriangle = () => {
         setIsMenuClick(!isMenuClick);
+        setOpacity(isMenuClick ? 0 : 1);
     }
     return(
         <Wrapper>
@@ -89,13 +96,13 @@ const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
                     ))}
                 </KategorieWrapper>
                 :<MobileWrapper>
-                    { !isMenuClick ? <AiFillCaretDown size={32} onClick={CheckClickThreeDot}/> 
-                        :  <AiFillCaretUp size={32} onClick={CheckClickThreeDot}/>}
-                    {/* <IoIosMenu size={32} onClick={CheckClickThreeDot}/>  */}
+                    { !isMenuClick ? <AiFillCaretDown size={32} onClick={CheckClickTriangle}/> 
+                        :  <AiFillCaretUp size={32} onClick={CheckClickTriangle}/>}
+                    {/* <IoIosMenu size={32} onClick={CheckClickTriangle}/>  */}
                 </MobileWrapper>
             }
-            { isMenuClick && (
-                <UnderMenuBar height={height}>
+            { (device === 'Mobile' && page !== 'recruiting') && (
+                <UnderMenuBar height={height} opacity={opacity}>
                     { kategorie.map(({title,id}, index) => (
                                 <Test 
                                     id={id}  

@@ -16,20 +16,17 @@ const Title = styled.div`
     margin-bottom: 24px;
 `;
 const MenuKategorieWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flex}
     ${({theme}) => theme.divCommon.fixedLeftTop}
+    top: 137px;
     height: 100%;
-    margin-left: 24px;
-    width: 11%;
+    width: 15%;
 `;
 const ListWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexWrapAround}
-    margin-top: -5vh;
+    ${({theme}) => theme.divCommon.flexAround}
+    padding: 4px;
 `;
 const HistoryWrapper = styled.div`
-    margin-top: 5vh;
-    width: 30%;
-    position: relative;
+    margin-bottom: 32px;
     ${({device}) => device === 'Mobile' && css`
         width: 100%;
         padding: 0 16px;
@@ -45,7 +42,12 @@ const HistroyListWrapper = styled.div``;
 const HistoryList = styled.div`
     ${({theme}) => theme.divCommon.flex}
     font-size: 0.9rem;
+    height: fit-content;
 `;
+const Left = styled.div`
+    width: 45%;
+`;
+const Right = styled(Left)``;
 
 const History = ({data, kategorie, setSubtitleKategorie, device}) => {
     const [isClick, setIsClick] = useState('All');  
@@ -65,30 +67,57 @@ const History = ({data, kategorie, setSubtitleKategorie, device}) => {
                             kategorie={kategorie} 
                             setSubtitleKategorie={setSubtitleKategorie}
                             subtitle={true} 
-                            isWrap={'nowrap'}
-                            />
+                            isWrap={'nowrap'} />
                     </MenuKategorieWrapper>
                 }
-                <ListWrapper>
-                    {
-                        selected.map(({date, list}, index) => (
-                            <HistoryWrapper key={`history${index}`} device={device}>
-                                <HistroyYear>{date}년</HistroyYear>
-                                <HistroyListWrapper>
-                                    {list.map((list, index) => (
-                                        <HistoryList key={`historylist${index}`}>
-                                            <IconWRapper><BsRecordCircleFill color={'red'} size={'0.6rem'}/></IconWRapper>
-                                            {list}
-                                        </HistoryList>
-                                    ))}
-                                </HistroyListWrapper>
-                            </HistoryWrapper>
-                        ))
-                    }
-                </ListWrapper>
+            <ListWrapper>
+                <Left id='left'>
+                    {selected.map(({date, list}, index) => (
+                        index % 2 === 0 && 
+                        <HistoryWrapper key={`history${index}`} device={device}>
+                            <HistroyYear>{date}년</HistroyYear>
+                            <HistroyListWrapper>
+                                {list.map((list, index) => (
+                                    <HistoryList key={`historylist${index}`}>
+                                        <IconWRapper><BsRecordCircleFill color={'red'} size={'0.6rem'}/></IconWRapper>
+                                        {list}
+                                    </HistoryList>
+                                ))}
+                            </HistroyListWrapper>
+                        </HistoryWrapper>
+                    ))}
+                </Left>
+                <Right id='right'>
+                    {selected.map(({date, list}, index) => (
+                        index % 2 === 1 && 
+                        <HistoryWrapper key={`history${index}`} device={device}>
+                            <HistroyYear>{date}년</HistroyYear>
+                            <HistroyListWrapper>
+                                {list.map((list, index) => (
+                                    <HistoryList key={`historylist${index}`}>
+                                        <IconWRapper><BsRecordCircleFill color={'red'} size={'0.6rem'}/></IconWRapper>
+                                        {list}
+                                    </HistoryList>
+                                ))}
+                            </HistroyListWrapper>
+                        </HistoryWrapper>
+                    ))}
+                </Right>
+            </ListWrapper>
         </Wrapper>
     )
 }
 
 export default History;
 
+{/* <HistoryWrapper key={`history${index}`} device={device}>
+    <HistroyYear>{date}년</HistroyYear>
+    <HistroyListWrapper>
+        {list.map((list, index) => (
+            <HistoryList key={`historylist${index}`}>
+                <IconWRapper><BsRecordCircleFill color={'red'} size={'0.6rem'}/></IconWRapper>
+                {list}
+            </HistoryList>
+        ))}
+    </HistroyListWrapper>
+</HistoryWrapper> */}

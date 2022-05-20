@@ -71,11 +71,11 @@ const Company = () => {
             </PathWrapper>
             { device !== 'Mobile' && (
                 // <MenuKategorie 
-                // kategorie={companyData.kategorie} 
-                // justify={'flex-end'} 
-                // setIsClick={setIsClick} 
-                // isClick={isClick} 
-                // setSubjectKategorie={setSubjectKategorie}
+                //     kategorie={companyData.kategorie} 
+                //     justify={'flex-end'} 
+                //     setIsClick={setIsClick} 
+                //     isClick={isClick} 
+                //     setSubjectKategorie={setSubjectKategorie}
                 // />
                 <MenuKategorieTable 
                     kategorie={companyData.kategorie} 

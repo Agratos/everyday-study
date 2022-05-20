@@ -27,7 +27,33 @@ const animations = {
         }
         transition-duration: 0.5s;
         animation: fadeInDown 1s;
-    `
+    `,
+    fadeIn:`
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                height: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        transition-duration: 0.5s;
+        animation: fadeInDown 1s;
+    `,
+    fadeOut:`
+        @keyframes fadeInDown {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                height: 0;
+            }
+        }
+        transition-duration: 0.5s;
+        animation: fadeInDown 1s;
+    `,
 }
 
 const divCommon = {
@@ -67,6 +93,11 @@ const divCommon = {
     flexColumn:`
         display: flex;
         flex-direction: column;
+    `,
+    felxColumnWrap:`
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     `,
     flexColumnAround:`
         display: flex;

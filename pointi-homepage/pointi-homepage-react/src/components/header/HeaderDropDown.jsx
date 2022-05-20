@@ -15,7 +15,7 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
-    padding: 8px;
+    padding: 8px 8px 4px 8px;
     border-bottom: 1px solid #ccbebe;
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
@@ -33,43 +33,43 @@ const MenuBarArea = styled.div``;
 const MenuBar = styled(Flex)``;
 const DropDownWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumn}
-    background-color: #cdcbcb;
-    text-align: left;
+    background-color: rgb(239, 239, 239);
+    align-items: center;
     position: absolute;
     opacity: 0;
     transition: all 0.8s;
     pointer-events: none;
-    padding: 8px ;
+    margin-top: 8px;
 `;
 const MenuBarText = styled(Link)`
     ${({theme}) => theme.divCommon.flex}
-    margin: 8px 32px;
     color: ${props => props.page === 'main' ? 'white' : 'black'};
     font-weight: bolder;
     font-size: 1.1rem;
     text-decoration: none;
     &:hover {
         cursor: pointer;
-        border-bottom: 4px solid #5db2ff;
-        padding-bottom: 17px;
-        margin-bottom: -17px;
+        //border-bottom: 4px solid #5db2ff;
+        padding-bottom: 16px;
+        margin-bottom: -16px;
     }
 `;
 const DropDownText = styled(Link)`
-    padding: 8px;
-    font-weight: normal;
+    padding: 12px;
+    font-size: 0.9rem;
     color: black;
-    text-decoration: none;
+    width: 88px;
     &:hover {
-        background-color: #5db2ff;
+        background-color: rgb(193, 193, 193);
     }
 `;
 const LinkWrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
+    margin: 8px 32px;
     &:hover ${DropDownWrapper}{
-            opacity: 1;
-            pointer-events: auto;
-        }
+        opacity: 1;
+        pointer-events: auto;
+    }
 `;
 const IconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnAround}
@@ -123,8 +123,7 @@ const UnderMenuTextLink = styled(Link)`
     color: black;
     text-decoration: none;
     padding-left: 24px;
-    height: 32px;
-    
+    height: 32px; 
 `;
 const UnderMenuTextLinkWrapper = styled.div`
     ${({ theme }) => theme.divCommon.flexColumn}
