@@ -47,14 +47,15 @@ const UnderMenuBar = styled.div`
     position: absolute;
     width: 100%;
     top: 132px;
-    border-top: 1px solid #ccbebe;
     background-color: #e2dddd;
     line-height: 32px;
-    height: ${props => props.height};
-    opacity: ${props=>props.opacity};
-    
+    height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
 `;
-const Test = styled.div`
+const MenuText = styled.div`
+    transition-duration: 0.5s;
+    background-color: #e2dddd;
+    height: ${({isMenuClick}) => isMenuClick ? '32px' : '0px'};
+    opacity: ${({isMenuClick}) => isMenuClick ? '1' : '0'};
     &{
         ${ props => props.id === props.isClick && `
             color: #5DB2FF;
@@ -66,16 +67,13 @@ const Test = styled.div`
 
 const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
     const [ isMenuClick, setIsMenuClick ] = useState(false);
-    const [ opacity, setOpacity] = useState(0);
     const device = useSelector(state => state.setDeviceReducer.device);
     const onClick = (e) => {
         setIsClick(e.target.id);
-        //setIsMenuClick(false);
-        //setOpacity(0);
+        setIsMenuClick(false);
     }
     const CheckClickTriangle = () => {
         setIsMenuClick(!isMenuClick);
-        setOpacity(isMenuClick ? 0 : 1);
     }
     return(
         <Wrapper>
@@ -102,16 +100,17 @@ const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
                 </MobileWrapper>
             }
             { (device === 'Mobile' && page !== 'recruiting') && (
-                <UnderMenuBar height={height} opacity={opacity}>
+                <UnderMenuBar height={height} isMenuClick={isMenuClick}>
                     { kategorie.map(({title,id}, index) => (
-                                <Test 
+                                <MenuText 
                                     id={id}  
                                     onClick={(e) => onClick(e)}
                                     isClick={isClick}
                                     key={`UnderMenuBar${index}`}
+                                    isMenuClick={isMenuClick}
                                 >
                                     {title}
-                                </Test>
+                                </MenuText>
                     ))}
                 </UnderMenuBar>
             )}

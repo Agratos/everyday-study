@@ -98,16 +98,18 @@ const LeftLogo = styled.img`
     }
 `;
 const UnderMenuBar = styled.div`
-    ${({ theme }) => theme.animations.fadeInOut}
+    ${({theme}) => theme.zIndex.one}
     position: absolute;
     flex-direction: column;
     width: 100%;
-    top: 60px;
+    top: 57px;
     left: 0;
     border-top: 1px solid #ccbebe;
-    background-color: white;
+    background-color: #e2dddd;
     line-height: 32px;
-    height: ${props => props.clickMenu === null ? '129px' : (props.clickMenu === 'Company' ? '322px' : '193px')};
+    height: ${({isClick, clickMenu}) => !isClick ? '0px' : clickMenu === null ? '129px' : clickMenu === 'Company' ? '322px' : '193px'};
+    opacity: ${({isClick}) => isClick ? '1' : '0'};
+    transition-duration: 0.3s;
 `;
 const UnderMenuTextWrapper = styled.div`
    font-size: 1.1rem;
@@ -123,11 +125,12 @@ const UnderMenuTextLink = styled(Link)`
     color: black;
     text-decoration: none;
     padding-left: 24px;
-    height: 32px; 
+    height: 32px;
+    transition-duration: 0.5s;
 `;
 const UnderMenuTextLinkWrapper = styled.div`
     ${({ theme }) => theme.divCommon.flexColumn}
-    ${({ theme }) => theme.animations.fadeInOut}
+    transition-duration: 0.5s;
     padding-left: 32px;
     position: relative;
     height: ${props => props.clickMenu === 'Company' ? '192px' : '64px'};
@@ -135,18 +138,18 @@ const UnderMenuTextLinkWrapper = styled.div`
 const UnderMenuUnClickWrapper = styled(Flex)``;
 const UnderMenuClickWrapper = styled.div``;
 const UnderMenuTitle = styled.div`
-    ${({ theme }) => theme.animations.fadeInOut}
     ${({ theme }) => theme.zIndex.two}
+    transition-duration: 0.5s;
     width: 100%;
     padding-left: 24px;
-    height: 32px;
+    height: ${({isClick}) => isClick ? '32px' : '0px'};
 `
 
 const HeaderDropDown = ({page, scrollMenu, device}) => {
     const isScrollDowun = ScrollEvent();
     const dropDownData = useSelector(state => state.setDataReducer.menu);
-    const [ isClick, setIsClick ] = useState(false);
-    const [ clickMenu, setClickMenu ] = useState(null);
+    const [ isClick, setIsClick ] = useState(false); // 메뉴버튼을 눌렀는지 확인
+    const [ clickMenu, setClickMenu ] = useState(null); // 어떤 메뉴를 눌렀는지 확인
 
     useEffect(() => {
         (() => device !== 'Mobile')(
@@ -200,14 +203,14 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                         }
                     </MenuBarArea>
                 </TopDropDownWrapper>
-                { isClick && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
-                    (<UnderMenuBar clickMenu={clickMenu}>
+                { device === 'Mobile' && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
+                    (<UnderMenuBar clickMenu={clickMenu} isClick={isClick}>
                         { dropDownData.data.map( ({list, path, title},index) => (
                             ( list.length !== 0 ? (
                                 <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
                                     {clickMenu !== title ? (
                                         <UnderMenuUnClickWrapper >
-                                            <UnderMenuTitle id={title} onClick={CheckClickMenu}>{title}</UnderMenuTitle>
+                                            <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
                                             <CheckDrop>
                                                 <IoIosAdd />
                                             </CheckDrop>
@@ -215,7 +218,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                     ) : (
                                         <UnderMenuClickWrapper >
                                             <UnderMenuUnClickWrapper>
-                                                <UnderMenuTitle id={title} onClick={CheckClickMenu}>{title}</UnderMenuTitle>
+                                                <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
                                                 <CheckDrop>
                                                     <IoIosRemove />
                                                 </CheckDrop>
