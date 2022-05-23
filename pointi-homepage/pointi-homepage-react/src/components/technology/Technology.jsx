@@ -44,28 +44,29 @@ const Technology = () => {
                 {`Home > Technology > ${technologyData[isClick].title}`}
             </Location>
             
-            {/* { device === 'PC' ? 
-                <MenuKategorieLeftWrapper >
-                    <MenuKategorieLeft 
-                        kategorie={technologyData.kategorie} 
-                        setIsClick={setIsClick} 
-                        isClick={isClick} 
-                    />
-                </MenuKategorieLeftWrapper> :   
+            { device === 'PC' ? 
+                // <MenuKategorieLeftWrapper >
+                //     <MenuKategorieLeft 
+                //         kategorie={technologyData.kategorie} 
+                //         setIsClick={setIsClick} 
+                //         isClick={isClick} 
+                //     />
+                // </MenuKategorieLeftWrapper> : 
+                <MenuKategorie 
+                    kategorie={technologyData.kategorie} 
+                    setIsClick={setIsClick} 
+                    isClick={isClick}
+                    title={technologyData.title}
+                    page={'technology'}
+                /> :  
                 <MenuKategorieTable 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     device={device}
                 />
-            } */}
-            <MenuKategorie 
-                kategorie={technologyData.kategorie} 
-                setIsClick={setIsClick} 
-                isClick={isClick}
-                title={technologyData.title}
-                page={'technology'}
-            />
+            }
+
             <TechnologyListWrapper >
                 {/* <MenuKategorieLeft 
                     kategorie={technologyData.kategorie} 

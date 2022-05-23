@@ -56,28 +56,29 @@ const Solution = () => {
                 setIsClick={setIsClick} 
                 isClick={isClick}
             /> */}
-            {/* { device === 'PC' ? 
-                <MenuKategorieLeftWrapper>
-                    <MenuKategorieLeft 
-                        kategorie={solutrionData[id].kategorie} 
-                        setIsClick={setIsClick} 
-                        isClick={isClick}
-                    />
-                </MenuKategorieLeftWrapper> :
+            { device === 'PC' ? 
+                // <MenuKategorieLeftWrapper>
+                //     <MenuKategorieLeft 
+                //         kategorie={solutrionData[id].kategorie} 
+                //         setIsClick={setIsClick} 
+                //         isClick={isClick}
+                //     />
+                // </MenuKategorieLeftWrapper> :
+                <MenuKategorie 
+                    kategorie={solutrionData[id].kategorie} 
+                    setIsClick={setIsClick} 
+                    isClick={isClick}
+                    title={solutrionData[id].title}
+                    page={'solution'}
+                /> :
                 <MenuKategorieTable 
                     kategorie={solutrionData[id].kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     height={id === 'ict' ? '288px' : '160px'}
                 />
-            } */}
-            <MenuKategorie 
-                kategorie={solutrionData[id].kategorie} 
-                setIsClick={setIsClick} 
-                isClick={isClick}
-                title={solutrionData[id].title}
-                page={'solution'}
-            />
+            }
+            
             <SolutionListWrapper >
                 <Detail 
                     data={checkUndefined()} 
