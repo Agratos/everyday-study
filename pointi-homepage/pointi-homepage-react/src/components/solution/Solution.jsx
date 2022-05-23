@@ -60,7 +60,7 @@ const Solution = () => {
                 setIsClick={setIsClick} 
                 isClick={isClick}
             /> */}
-            { device === 'PC' ? 
+            {/* { device === 'PC' ? 
                 <MenuKategorieLeftWrapper>
                     <MenuKategorieLeft 
                         kategorie={solutrionData[id].kategorie} 
@@ -74,7 +74,12 @@ const Solution = () => {
                     isClick={isClick}
                     height={id === 'ict' ? '288px' : '160px'}
                 />
-            }
+            } */}
+            <MenuKategorie 
+                kategorie={solutrionData[id].kategorie} 
+                setIsClick={setIsClick} 
+                isClick={isClick}
+            />
             <SolutionListWrapper >
                 <Detail 
                     data={checkUndefined()} 
