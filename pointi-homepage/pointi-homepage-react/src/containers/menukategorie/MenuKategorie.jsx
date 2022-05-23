@@ -27,7 +27,7 @@ const Page = styled.div`
     width: 150px;
 `;
 const Select = styled(Page)`
-    width: 300px;
+    width: 400px;
     z-index: 2;
 `;
 const IconWrapper = styled.div`
@@ -35,7 +35,7 @@ const IconWrapper = styled.div`
 `;
 const UnderMenuBar = styled.div`
     position: absolute;
-    width: 332px;
+    width: 432px;
     top: 178px;
     background-color: #e2dddd;
     line-height: 32px;
@@ -56,12 +56,13 @@ const MenuText = styled.div`
     padding-left: 16px;
 `;
 
-const MenuKategorie = ({ kategorie, setIsClick, isClick }) => {
+const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     const params = useParams();
     const [ menuTitle, setMenuTitle ] = useState(kategorie[0].title) 
     const [ isMenuClick, setIsMenuClick ] = useState(false);
 
     useEffect(() => {
+        page === 'solution' &&
         setMenuTitle(document.getElementById(params.click).innerHTML)
     }, [ params ])
     
@@ -78,7 +79,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick }) => {
         <Wrapper>
             <KategorieWrapper>
                 <MenuBar>
-                    <Page>{params.id}</Page>
+                    <Page>{title}</Page>
                     <Select onClick={onClickMenu}>
                         {menuTitle}
                         <IconWrapper>

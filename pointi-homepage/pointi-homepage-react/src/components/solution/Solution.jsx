@@ -9,16 +9,12 @@ import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 import Detail from 'components/detail/Detail';
 
-const Flex = styled.div`
-    ${({theme}) => theme.divCommon.flex}
-`
-
 const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 16px auto;
 `;
 const Location = styled.div``;
 const SolutionListWrapper = styled.div`
-    //padding: 0 4vw;
     margin-top: 32px;
 `;
 const MenuKategorieLeftWrapper = styled.div`
@@ -79,6 +75,8 @@ const Solution = () => {
                 kategorie={solutrionData[id].kategorie} 
                 setIsClick={setIsClick} 
                 isClick={isClick}
+                title={solutrionData[id].title}
+                page={'solution'}
             />
             <SolutionListWrapper >
                 <Detail 

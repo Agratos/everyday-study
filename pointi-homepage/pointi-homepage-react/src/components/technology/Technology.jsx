@@ -9,10 +9,6 @@ import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
 import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
 import Detail from 'components/detail/Detail';
 
-const Flex = styled.div`
-    ${({theme}) => theme.divCommon.flex}
-`
-
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 16px auto;
@@ -48,7 +44,7 @@ const Technology = () => {
                 {`Home > Technology > ${technologyData[isClick].title}`}
             </Location>
             
-            { device === 'PC' ? 
+            {/* { device === 'PC' ? 
                 <MenuKategorieLeftWrapper >
                     <MenuKategorieLeft 
                         kategorie={technologyData.kategorie} 
@@ -62,7 +58,14 @@ const Technology = () => {
                     isClick={isClick}
                     device={device}
                 />
-            }
+            } */}
+            <MenuKategorie 
+                kategorie={technologyData.kategorie} 
+                setIsClick={setIsClick} 
+                isClick={isClick}
+                title={technologyData.title}
+                page={'technology'}
+            />
             <TechnologyListWrapper >
                 {/* <MenuKategorieLeft 
                     kategorie={technologyData.kategorie} 

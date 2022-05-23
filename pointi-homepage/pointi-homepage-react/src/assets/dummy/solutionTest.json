@@ -1,5 +1,6 @@
 {
     "ai-5g-bigdata" : {
+        "title" : "AIㆍ빅데이터",
         "kategorie" : [
             {
                 "title": "야생동물 감지 시스템",
@@ -208,6 +209,7 @@
         }
     },
     "ict" : {
+        "title" : "5GㆍICT",
         "kategorie" : [
             {
                 "title": "MEC Router",
