@@ -9,7 +9,7 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     border: 1px solid black; //#E8E8E8;
-    width: ${props => props.device !== 'Mobile' && '800px'};
+    width: ${props => props.device !== 'Mobile' && '900px'};
     margin: 0 auto;
 `;
 const Title = styled.div`
