@@ -122,7 +122,7 @@ const Detail = ({data, type}) => {
                     {data.function.map(({title, explan}, index) => (
                         <FunctionWrapper key={`function${index}`}>
                             <FunctionTitleWrapper>
-                                <FunctionIconWrapper><BsCheckLg size={14}/></FunctionIconWrapper>
+                                <FunctionIconWrapper><BsCheckLg size={10}/></FunctionIconWrapper>
                                 <FunctionTitle>{title}</FunctionTitle>
                             </FunctionTitleWrapper>
                             {explan.map((ex, index) => (
@@ -152,7 +152,7 @@ const Detail = ({data, type}) => {
                             </TitleWrapper>
                             {data.adaptation.map((adapt, index) => (
                                 <AdaptionWrapper key={`adaptation ${index}`}>
-                                    <FunctionIconWrapper><BsCheckLg size={14} /></FunctionIconWrapper>
+                                    <FunctionIconWrapper><BsCheckLg size={10} /></FunctionIconWrapper>
                                     <FunctionTitle>{adapt}</FunctionTitle>
                                 </AdaptionWrapper>
                             ))}
