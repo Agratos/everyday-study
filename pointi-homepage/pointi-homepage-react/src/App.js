@@ -17,8 +17,8 @@ const App = () => {
   // useHook로 변경 예정
   const dispatch = useDispatch();
   const isPc = useMediaQuery({ query: '(min-width: 1200px)' })
-  const isTablet = useMediaQuery({ query: '(min-width:800px) and (max-width: 1200px)'})
-  const isMobile = useMediaQuery({ query: '(max-width: 800px)' })
+  const isTablet = useMediaQuery({ query: '(min-width:910px) and (max-width: 1200px)'})
+  const isMobile = useMediaQuery({ query: '(max-width: 910px)' })
   const device = (isPc && 'PC') || (isTablet && 'Tablet') || (isMobile && 'Mobile') || 'PC';
 
 

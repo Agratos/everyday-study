@@ -51,7 +51,7 @@ const Solution = () => {
             <Location>
                 {`Home > Solution > ${id} > ${checkUndefined().title}`}
             </Location>
-            { device === 'PC' ? 
+            { device !== 'Mobile' ? 
                 // <MenuKategorieLeftWrapper>
                 //     <MenuKategorieLeft 
                 //         kategorie={solutrionData[id].kategorie} 

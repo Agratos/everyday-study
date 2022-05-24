@@ -25,7 +25,7 @@ const ImgWrapper = styled.div`
     text-align: center;
 `;
 const Img = styled.img`
-    max-width: 900px;
+    max-width: ${({device}) => device === 'Mobile' ? '100%' : '900px'};
 `;
 const TextWrapper = styled.div`
     padding: 16px;
@@ -100,7 +100,7 @@ const Detail = ({data, type}) => {
                 )}
 
                 <ImgWrapper>
-                    <Img src={require(`assets/imgs/${type}/${data.image}`)} />
+                    <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device}/>
                 </ImgWrapper>
 
                 <TextWrapper>
