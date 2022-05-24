@@ -29,9 +29,10 @@ const Img = styled.img`
 `;
 const TextWrapper = styled.div`
     padding: 16px;
+    margin-bottom: ${({bottom}) => bottom};
 `;
 const TitleWrapper = styled(Flex)`
-    margin-top: ${({margin}) => margin};
+    margin-top: ${({top}) => top || '32px'};
 `;
 const IconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnAround}
@@ -42,7 +43,7 @@ const TextFont = styled.div`
 `;
 const TextTitle = styled(TextFont)`
     font-size: 1.4rem;
-    margin: 1vh 0;
+    margin: 8px 0;
 `;
 const Solution = styled(TextFont)``;
 const FunctionWrapper = styled(TextFont)``;
@@ -87,7 +88,7 @@ const Detail = ({data, type}) => {
             <Title>{data.title}</Title>
             <DetailWrapper>
                 { type === 'solution' && (
-                    <TextWrapper>
+                    <TextWrapper bottom={'24px'}>
                         <TitleWrapper>
                             <IconWrapper><MdPlayArrow /></IconWrapper>
                             <TextTitle>솔루션</TextTitle>
@@ -105,7 +106,7 @@ const Detail = ({data, type}) => {
                 <TextWrapper>
                     { type === 'technology' && (
                         <div>
-                            <TitleWrapper>
+                            <TitleWrapper top={'8px'}>
                                 <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>기능</TextTitle>
                             </TitleWrapper>
@@ -114,7 +115,7 @@ const Detail = ({data, type}) => {
                             ))}
                         </div>
                     )}
-                    <TitleWrapper>
+                    <TitleWrapper top={'4px'}>
                         <IconWrapper><MdPlayArrow /></IconWrapper>
                         <TextTitle>주요 기능</TextTitle>
                     </TitleWrapper>
@@ -132,7 +133,7 @@ const Detail = ({data, type}) => {
                     ))}
                     { data.keyword !== undefined &&
                         <div>
-                            <TitleWrapper margin={'48px'}>
+                            <TitleWrapper>
                                 <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>관련 키워드</TextTitle>
                             </TitleWrapper>
