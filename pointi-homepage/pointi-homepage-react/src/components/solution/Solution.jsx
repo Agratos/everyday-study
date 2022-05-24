@@ -51,11 +51,6 @@ const Solution = () => {
             <Location>
                 {`Home > Solution > ${id} > ${checkUndefined().title}`}
             </Location>
-            {/* <MenuKategorie 
-                kategorie={solutrionData[id].kategorie} 
-                setIsClick={setIsClick} 
-                isClick={isClick}
-            /> */}
             { device === 'PC' ? 
                 // <MenuKategorieLeftWrapper>
                 //     <MenuKategorieLeft 

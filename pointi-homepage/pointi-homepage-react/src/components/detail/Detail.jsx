@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
+import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
@@ -24,12 +25,14 @@ const ImgWrapper = styled.div`
     text-align: center;
 `;
 const Img = styled.img`
-    width: 100%;
+    max-width: 900px;
 `;
 const TextWrapper = styled.div`
     padding: 16px;
 `;
-const TitleWrapper = styled(Flex)``;
+const TitleWrapper = styled(Flex)`
+    margin-top: ${({margin}) => margin};
+`;
 const IconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnAround}
     margin-right: 8px;
@@ -86,7 +89,7 @@ const Detail = ({data, type}) => {
                 { type === 'solution' && (
                     <TextWrapper>
                         <TitleWrapper>
-                            <IconWrapper><BsFillStopFill /></IconWrapper>
+                            <IconWrapper><MdPlayArrow /></IconWrapper>
                             <TextTitle>솔루션</TextTitle>
                         </TitleWrapper>
                         {data[type].map((solution, index) => (
@@ -103,7 +106,7 @@ const Detail = ({data, type}) => {
                     { type === 'technology' && (
                         <div>
                             <TitleWrapper>
-                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                                <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>기능</TextTitle>
                             </TitleWrapper>
                             {data[type].map((solution, index) => (
@@ -112,7 +115,7 @@ const Detail = ({data, type}) => {
                         </div>
                     )}
                     <TitleWrapper>
-                        <IconWrapper><BsFillStopFill /></IconWrapper>
+                        <IconWrapper><MdPlayArrow /></IconWrapper>
                         <TextTitle>주요 기능</TextTitle>
                     </TitleWrapper>
                     {data.function.map(({title, explan}, index) => (
@@ -129,8 +132,8 @@ const Detail = ({data, type}) => {
                     ))}
                     { data.keyword !== undefined &&
                         <div>
-                            <TitleWrapper>
-                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                            <TitleWrapper margin={'48px'}>
+                                <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>관련 키워드</TextTitle>
                             </TitleWrapper>
                             <KeywordWrapper> 
@@ -143,7 +146,7 @@ const Detail = ({data, type}) => {
                     { data.adaptation !== undefined &&
                         <div>
                             <TitleWrapper>
-                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                                <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>적용분야</TextTitle>
                             </TitleWrapper>
                             {data.adaptation.map((adapt, index) => (
@@ -157,7 +160,7 @@ const Detail = ({data, type}) => {
                     { data.link !== undefined && (
                         <div>
                             <TitleWrapper>
-                                <IconWrapper><BsFillStopFill /></IconWrapper>
+                                <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>관련링크</TextTitle>
                             </TitleWrapper>
                             {data.link.map((link,index) => (

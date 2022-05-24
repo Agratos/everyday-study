@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const KategorieWrapper = styled.div`
     display: flex;
     margin-top: 32px;
-    border-bottom: 3px solid #3d74a7;
+    //border-bottom: 3px solid #3d74a7;
     width: 900px;
     line-height: 16px;
 `;

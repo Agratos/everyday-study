@@ -45,13 +45,6 @@ const Technology = () => {
             </Location>
             
             { device === 'PC' ? 
-                // <MenuKategorieLeftWrapper >
-                //     <MenuKategorieLeft 
-                //         kategorie={technologyData.kategorie} 
-                //         setIsClick={setIsClick} 
-                //         isClick={isClick} 
-                //     />
-                // </MenuKategorieLeftWrapper> : 
                 <MenuKategorie 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
