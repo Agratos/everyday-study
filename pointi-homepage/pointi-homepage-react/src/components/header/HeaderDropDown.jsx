@@ -36,9 +36,6 @@ const DropDownWrapper = styled.div`
     background-color: rgb(239, 239, 239);
     align-items: center;
     position: absolute;
-    opacity: 0;
-    transition: all 0.8s;
-    pointer-events: none;
     margin-top: 8px;
 `;
 const MenuBarText = styled(Link)`
@@ -55,10 +52,13 @@ const MenuBarText = styled(Link)`
     }
 `;
 const DropDownText = styled(Link)`
-    padding: 12px;
+    ${({theme}) => theme.divCommon.flexColumnCenter}
     font-size: 0.9rem;
     color: black;
     width: 88px;
+    overflow: hidden;
+    height: 0px;
+    transition-duration: 0.4s;
     &:hover {
         background-color: rgb(193, 193, 193);
     }
@@ -66,9 +66,9 @@ const DropDownText = styled(Link)`
 const LinkWrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
     margin: 8px 32px;
-    &:hover ${DropDownWrapper}{
-        opacity: 1;
-        pointer-events: auto;
+    &:hover ${DropDownText}{
+        height: 32px;
+        padding: 4px 16px;
     }
 `;
 const IconWrapper = styled.div`
