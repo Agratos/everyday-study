@@ -15,44 +15,16 @@ const fontCommon = {
 }
 
 const animations = {
-    fadeInOut: `
+    rolling: `
         @keyframes fadeInDown {
             from {
-                opacity: 0;
-                height: 0;
+                
             }
             to {
-                opacity: 1;
             }
         }
         transition-duration: 0.5s;
-        animation: fadeInDown 1s;
-    `,
-    fadeIn:`
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                height: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        transition-duration: 0.5s;
-        animation: fadeInDown 1s;
-    `,
-    fadeOut:`
-        @keyframes fadeInDown {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-                height: 0;
-            }
-        }
-        transition-duration: 0.5s;
-        animation: fadeInDown 1s;
+        animation: rolling 1s;
     `,
 }
 

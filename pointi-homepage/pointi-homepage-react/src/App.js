@@ -3,16 +3,19 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
+import Loading from 'components/loading/Loading';
+
 import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
 import CompanyPage from './page/CompanyPage';
 import Technology from 'page/TechnologyPage';
 import SolutionPage from './page/SolutionPage';
 import RecruitingPage from 'page/RecruitingPage';
+import SolutionTestPage from 'page/SolutionTestPage';
 
 // Loading Component로 변경예정
 const App = () => {
-  return useSelector(state=>state.setDataReducer.isLoading) ? <div>Loading...</div> :
+  return useSelector(state=>state.setDataReducer.isLoading) ? <Loading /> :
   <BrowserRouter>
       <GlobalStyle />
       <Helmet>
@@ -22,10 +25,10 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/company/:id" element={<CompanyPage />} />
         <Route path="/technology/:id" element={<Technology />} />
-        {/* <Route path="/technology" element={<Technology />} /> */}
         <Route path="/solution/:id" element={<SolutionPage />} />
         <Route path="/solution/:id/:click" element={<SolutionPage />} />
         <Route path="/recruiting/:id" element={<RecruitingPage />} />
+        <Route path="/solution/test/:id/:click" element={<SolutionTestPage />} />
       </Routes>
     </BrowserRouter>
 }
