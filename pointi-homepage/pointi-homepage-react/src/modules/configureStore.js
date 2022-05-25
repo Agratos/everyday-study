@@ -9,5 +9,5 @@ const persistConfig = {
     storage,
 }
 
-export const stroe = createStore(pReducer, middleware);
+export const store= createStore(pReducer, middleware);
 export const persist = persistStore(store);

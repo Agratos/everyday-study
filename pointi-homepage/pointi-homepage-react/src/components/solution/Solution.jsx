@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 //import solutrionData from 'assets/dummy/solutionTest.json';
-import MenuKategorie from 'containers/menukategorie/MenuKategorie';
-import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
-import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
+import MenuKategorie from 'components/menukategorie/MenuKategorie';
+import MenuKategorieLeft from 'components/menukategorie/MenuKategorieLeft';
+import MenuKategorieTable from 'components/menukategorie/MenuKategorieTable';
 import Detail from 'components/detail/Detail';
 
 const Wrapper = styled.div`

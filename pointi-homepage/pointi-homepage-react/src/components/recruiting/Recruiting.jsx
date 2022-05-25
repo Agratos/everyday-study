@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 //import recruitingData from 'assets/dummy/recruiting.json';
-import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
+import MenuKategorieTable from 'components/menukategorie/MenuKategorieTable';
 import RecruitingContentList from './RecruitingContentList';
 import RecruitingEmployment from './RecruitingEmployment';
 import RecruitingEmploymentBoard from './RecruitingEmploymentBoard';

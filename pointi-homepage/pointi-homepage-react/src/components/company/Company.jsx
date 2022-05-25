@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 //import companyData from 'assets/dummy/company.json';
-import MenuKategorie from 'containers/menukategorie/MenuKategorie';
+import MenuKategorie from 'components/menukategorie/MenuKategorie';
 import Greeting from './Greeting';
 import Organization from './Organization';
 import PatentBoard from './PatentBoard';
@@ -12,8 +12,8 @@ import Relative from './Relative';
 import History from './History';
 import Location from './Location';
 
-import MenuKategorieTable from 'containers/menukategorie/MenuKategorieTable';
-import MenuKategorieLeft from 'containers/menukategorie/MenuKategorieLeft';
+import MenuKategorieTable from 'components/menukategorie/MenuKategorieTable';
+import MenuKategorieLeft from 'components/menukategorie/MenuKategorieLeft';
 
 
 const Wrapper = styled.div`
