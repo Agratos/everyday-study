@@ -20,11 +20,11 @@ const persistor = persistStore(store);
 ReactDOM.createRoot(rootNode).render(
   <HelmetProvider>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
-      </PersistGate>
+      {/* </PersistGate> */}
     </Provider>  
   </HelmetProvider>
 );
