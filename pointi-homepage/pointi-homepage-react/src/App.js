@@ -13,7 +13,6 @@ import SolutionPage from './page/SolutionPage';
 import RecruitingPage from 'page/RecruitingPage';
 import SolutionTestPage from 'page/SolutionTestPage';
 
-// Loading Component로 변경예정
 const App = () => {
   return useSelector(state=>state.setDataReducer.isLoading) ? <Loading /> :
   <BrowserRouter>

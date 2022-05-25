@@ -6,6 +6,7 @@ import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
+    overflow: hidden;
 `
 
 const Wrapper = styled.div`
@@ -36,29 +37,28 @@ const TitleWrapper = styled(Flex)`
     margin-top: ${({top}) => top || '32px'};
 `;
 const TitleTextWrapperOut = styled(Flex)`
-    margin-top: 16px;
+    margin: 24px 0 16px 0;
 `;
 const TitleTextWrapperIn = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     width: 160px;
     height: 160px;
     margin: auto;
-    border: 1px solid black;
     border-radius: 50%;
-    //background-color: #E8E8E8;
-    background-color: #87cfeb45;
-
+    background-color: #87cfeb24;
+    opacity: 0;
     @keyframes rolling {
         0% {
-            transform: matrix(1, -0.3, 0, 1, 0, 0);
+            transform: translate3d(700px,0,0) rotate(0deg);
         }
         100% {
-            transform: matrix(2, -0.6, 0, 2, 0, 0);
+            opacity: 1;
+            transform: translateZ(0) rotate(-720deg);
         }
     }
-    
-    transition-duration: 10s;
-    animation: rolling 1s;
+    animation: rolling 1s ease-out;
+    animation-delay: ${({wait}) => wait};
+    animation-fill-mode: forwards;
 `;
 const TitleText = styled.div`
     margin: 0 auto;
@@ -128,7 +128,7 @@ const TestDetail = ({data, type}) => {
                         </TitleWrapper>
                         <TitleTextWrapperOut>
                             {data.solution.map(({image, title}, index) => (
-                                <TitleTextWrapperIn key={`title-text-wrapper-in${index}`} wait={`${Number(index) * 2 }s`}>
+                                <TitleTextWrapperIn key={`title-text-wrapper-in${index}`} wait={`${Number(index) * 0.5 }s`}>
                                     <ImgWrapper>
                                         <Img src={require(`assets/imgs/test/${image}`)} width={'80px'}/>
                                     </ImgWrapper>
