@@ -45,7 +45,7 @@ const TitleTextWrapperIn = styled.div`
     height: 160px;
     margin: auto;
     border-radius: 50%;
-    background-color: #87cfeb24;
+    background-color: #87cfeb30;
     opacity: 0;
     @keyframes rolling {
         0% {
@@ -54,6 +54,10 @@ const TitleTextWrapperIn = styled.div`
         100% {
             opacity: 1;
             transform: translateZ(0) rotate(-720deg);
+            border-top: none;     
+            border-right: 2px solid #87cfeb85;
+            border-bottom: 3px solid #87cfeb96;
+            border-left: 2px solid #87cfeb85; 
         }
     }
     animation: rolling 1s ease-out;
