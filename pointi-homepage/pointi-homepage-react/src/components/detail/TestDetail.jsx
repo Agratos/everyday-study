@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 
@@ -79,20 +79,47 @@ const TextTitle = styled(TextFont)`
     font-size: 1.4rem;
     margin: 8px 0;
 `;
-const Solution = styled(TextFont)``;
-const FunctionWrapper = styled(TextFont)``;
-const FunctionTitleWrapper = styled(Flex)``;
-const FunctionIconWrapper = styled.div`
-    margin: 0 8px 0 24px;
+const FunctionWrapperOut = styled.div`
+    overflow: hidden;
 `;
-const FunctionTitle = styled(TextFont)``;
-const FunctionEx = styled.div`
-    margin-left: 40px;
+const FunctionWrapperIn = styled.div`
+    padding: 12px;
+    border-radius: 32px;
+    width: 550px;
+    margin: 16px 80px;
+    background-color: #a0a04a3a;
+    text-align: center;
+    opacity: 0;
+    @keyframes moveRight {
+        0%{
+            transform: translate3d(-700px,0,0);
+        }
+        100%{
+            transform: translateZ(0);
+            opacity: 1;
+        }
+    }
+    @keyframes moveLeft {
+        0%{
+            transform: translate3d(700px,0,0);
+        }
+        100%{
+            transform: translateZ(0);
+            opacity: 1;
+        }
+    }
+    animation: moveRight 1s linear;
+    ${({index}) => index % 2 === 1 && css`
+        margin-left: 204px;
+        animation: moveLeft 1s linear;
+    `}
+    animation-delay: ${({index}) => index+'s'};
+    animation-fill-mode: forwards;
 `;
-const FunctionExSub = styled.div`
-    margin-top: -8px;
-    margin-left: 48px;
-`;
+const FunctionTitle = styled.div`
+    font-size: 1.1rem;
+    font-weight: bolder;
+`; 
 const KeywordWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
 `;
@@ -118,7 +145,7 @@ const TestDetail = ({data, type}) => {
         return (str[0] === '(' && str[str.length-1] === ')')
     }
 
-    console.log(data.solution);
+    console.log(data);
 
     return (
         <Wrapper device={device}>
@@ -152,6 +179,13 @@ const TestDetail = ({data, type}) => {
                         <IconWrapper><MdPlayArrow /></IconWrapper>
                         <TextTitle>주요 기능</TextTitle>
                     </TitleWrapper>
+                    <FunctionWrapperOut>
+                        { data.function.map(({title, explan},index) => (
+                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index}>
+                                <FunctionTitle>{title}</FunctionTitle>
+                            </FunctionWrapperIn>
+                        ))}
+                    </FunctionWrapperOut>
                     { data.keyword !== undefined &&
                         <div>
                             <TitleWrapper>
