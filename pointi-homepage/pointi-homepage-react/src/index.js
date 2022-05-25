@@ -13,6 +13,8 @@ import { ThemeProvider } from 'styled-components';
 import theme from 'styles/theme';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import BeforeRendering from 'containers/setting/BeforeRendering';
+
 const rootNode = document.getElementById('root');
 const store = createStore(rootReducer,composeWithDevTools());
 const persistor = persistStore(store);
@@ -20,11 +22,12 @@ const persistor = persistStore(store);
 ReactDOM.createRoot(rootNode).render(
   <HelmetProvider>
     <Provider store={store}>
-      {/* <PersistGate loading={null} persistor={persistor}> */}
+      <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
+          <BeforeRendering />
           <App />
         </ThemeProvider>
-      {/* </PersistGate> */}
+      </PersistGate>
     </Provider>  
   </HelmetProvider>
 );

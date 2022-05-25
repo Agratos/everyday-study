@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
-import BeforeRendering from 'containers/setting/BeforeRendering';
 import GlobalStyle from 'styles/GlobalStyle';
 import Main from './page/MainPage';
 import CompanyPage from './page/CompanyPage';
@@ -11,6 +10,7 @@ import Technology from 'page/TechnologyPage';
 import SolutionPage from './page/SolutionPage';
 import RecruitingPage from 'page/RecruitingPage';
 
+// Loading Component로 변경예정
 const App = () => {
   return useSelector(state=>state.setDataReducer.isLoading) ? <div>Loading...</div> :
   <BrowserRouter>
