@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
@@ -10,7 +10,7 @@ const Flex = styled.div`
 `
 
 const Wrapper = styled.div`
-    border: 1px solid black; //#E8E8E8;
+    //border: 1px solid black; //#E8E8E8;
     width: ${props => props.device !== 'Mobile' && '900px'};
     margin: 0 auto;
 `;
@@ -60,7 +60,7 @@ const TitleTextWrapperIn = styled.div`
             border-left: 2px solid #87cfeb85; 
         }
     }
-    animation: rolling 1s ease-out;
+    animation: rolling 1s ease-in;
     animation-delay: ${({wait}) => wait};
     animation-fill-mode: forwards;
 `;
@@ -90,7 +90,34 @@ const FunctionWrapperIn = styled.div`
     background-color: #a0a04a3a;
     text-align: center;
     opacity: 0;
-    @keyframes moveRight {
+    ${({startAnimation}) => startAnimation !== false && css`
+        @keyframes moveRight {
+            0%{
+                transform: translate3d(-700px,0,0);
+            }
+            100%{
+                transform: translateZ(0);
+                opacity: 1;
+            }
+        }
+        @keyframes moveLeft {
+            0%{
+                transform: translate3d(700px,0,0);
+            }
+            100%{
+                transform: translateZ(0);
+                opacity: 1;
+            }
+        }
+        animation: moveRight 0.5s cubic-bezier(0.000, 0.975, 0.965, 1.000);
+        ${({index}) => index % 2 === 1 && css`
+            margin-left: 204px;
+            animation: moveLeft 0.5s cubic-bezier(0.000, 0.975, 0.965, 1.000);
+        `}
+        animation-delay: ${({index}) => index+'s'};
+        animation-fill-mode: forwards;
+    `}
+    /* @keyframes moveRight {
         0%{
             transform: translate3d(-700px,0,0);
         }
@@ -108,13 +135,13 @@ const FunctionWrapperIn = styled.div`
             opacity: 1;
         }
     }
-    animation: moveRight 1s linear;
+    animation: moveRight 0.6s linear;
     ${({index}) => index % 2 === 1 && css`
         margin-left: 204px;
-        animation: moveLeft 1s linear;
+        animation: moveLeft 0.6s linear;
     `}
     animation-delay: ${({index}) => index+'s'};
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards; */
 `;
 const FunctionTitle = styled.div`
     font-size: 1.1rem;
@@ -136,16 +163,20 @@ const LinkButton = styled.div`
     }
     word-break: break-all;
 `;
-
-
+const Button = styled.div``;
 
 const TestDetail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device);
+    const [ startAnimation, setStartAnimation] = useState(false);
+    const [ scrollY, setScrollY ] = useState(0);
     const checkSubText = (str) => {
         return (str[0] === '(' && str[str.length-1] === ')')
     }
 
-    console.log(data);
+    const start = () => {
+        setStartAnimation(!startAnimation);
+        console.log(test.current.scrollHeight);
+    }
 
     return (
         <Wrapper device={device}>
@@ -173,16 +204,17 @@ const TestDetail = ({data, type}) => {
                 <ImgWrapper>
                     <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device}/>
                 </ImgWrapper>
-
+                <Button onClick={start}>클릭시 실행</Button>
                 <TextWrapper>
                     <TitleWrapper top={'4px'}>
                         <IconWrapper><MdPlayArrow /></IconWrapper>
                         <TextTitle>주요 기능</TextTitle>
                     </TitleWrapper>
-                    <FunctionWrapperOut>
+                    <FunctionWrapperOut id={'test'} >
                         { data.function.map(({title, explan},index) => (
-                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index}>
+                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index} startAnimation={startAnimation}>
                                 <FunctionTitle>{title}</FunctionTitle>
+                                
                             </FunctionWrapperIn>
                         ))}
                     </FunctionWrapperOut>
