@@ -6,13 +6,15 @@ import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
-    overflow: hidden;
+
 `
 
 const Wrapper = styled.div`
-    //border: 1px solid black; //#E8E8E8;
+    border: 1px solid black; //#E8E8E8;
     width: ${props => props.device !== 'Mobile' && '900px'};
+    overflow: hidden;
     margin: 0 auto;
+    //position: relative;
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
@@ -90,7 +92,7 @@ const FunctionWrapperIn = styled.div`
     background-color: #a0a04a3a;
     text-align: center;
     opacity: 0;
-    ${({startAnimation}) => startAnimation !== false && css`
+    ${({start}) => start === 'true' && css`
         @keyframes moveRight {
             0%{
                 transform: translate3d(-700px,0,0);
@@ -114,9 +116,9 @@ const FunctionWrapperIn = styled.div`
             margin-left: 204px;
             animation: moveLeft 0.5s cubic-bezier(0.000, 0.975, 0.965, 1.000);
         `}
-        animation-delay: ${({index}) => index+'s'};
-        animation-fill-mode: forwards;
+        animation-delay: ${({index}) => index+'s'}; 
     `}
+    animation-fill-mode: forwards;
     /* @keyframes moveRight {
         0%{
             transform: translate3d(-700px,0,0);
@@ -163,23 +165,45 @@ const LinkButton = styled.div`
     }
     word-break: break-all;
 `;
-const Button = styled.div``;
 
 const TestDetail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device);
-    const [ startAnimation, setStartAnimation] = useState(false);
-    const [ scrollY, setScrollY ] = useState(0);
+    const [ scrollPosition, setScrollPosition ] = useState(0);
+    const [ scrollMaxHeight, setScrollMaxHeight ] = useState(0);
+    const [ mainFunctionHeight, setMainFunctionHeight ] = useState(0);
+    const wrapper = useRef(); 
+    const mainFunctionRef = useRef();
     const checkSubText = (str) => {
         return (str[0] === '(' && str[str.length-1] === ')')
     }
 
-    const start = () => {
-        setStartAnimation(!startAnimation);
-        console.log(test.current.scrollHeight);
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true});
+        setScrollMaxHeight(wrapper.current.scrollHeight);
+        setMainFunctionHeight(mainFunctionRef.current.offsetTop);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    },[])
+
+    const handleScroll = (e) => {
+        const position = window.scrollY;
+        setScrollPosition(position);
     }
 
+    // const start = () => {
+    //     console.log(`test: `, wrapper.current.scrollHeight);
+    //     console.log(`화면크기: `, window.innerHeight);
+    //     console.log(`wrapper 크기: `,wrapper.current.clientHeight);
+    //     console.log(`기능 절대 위치: `,mainFunctionRef.current.offsetTop);
+    //     console.log(`기능 높이: `,mainFunctionRef.current.clientHeight );
+    //     console.log(`기능 상대 높이: `,mainFunctionRef.current.getBoundingClientRect().top);
+    // }
+    // wrapper.current.clientHeight - mainFunctionRef.current.offsetTop <= scrollPosition
+    // window.innerHeight + scrollPosition >= mainFunctionRef.current.getBoundingClientRect().top
+
     return (
-        <Wrapper device={device}>
+        <Wrapper device={device} ref={wrapper}>
             <Title>{data.title}</Title>
             <DetailWrapper>
                 { type === 'solution' && (
@@ -204,15 +228,14 @@ const TestDetail = ({data, type}) => {
                 <ImgWrapper>
                     <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device}/>
                 </ImgWrapper>
-                <Button onClick={start}>클릭시 실행</Button>
                 <TextWrapper>
                     <TitleWrapper top={'4px'}>
                         <IconWrapper><MdPlayArrow /></IconWrapper>
-                        <TextTitle>주요 기능</TextTitle>
+                        <TextTitle >주요 기능</TextTitle>
                     </TitleWrapper>
-                    <FunctionWrapperOut id={'test'} >
+                    <FunctionWrapperOut id={'test'} ref={mainFunctionRef}>
                         { data.function.map(({title, explan},index) => (
-                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index} startAnimation={startAnimation}>
+                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index} start={(scrollMaxHeight - mainFunctionHeight <= scrollPosition).toString()}>
                                 <FunctionTitle>{title}</FunctionTitle>
                                 
                             </FunctionWrapperIn>
