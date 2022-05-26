@@ -138,6 +138,18 @@ const Image = styled.img`
     width: 90%;
     height: 80%;
 `;
+const Button = styled(Link)`
+    position: absolute;
+    top:0;
+    right:0;
+    padding: 16px 32px;
+    @keyframes test {
+        50% {
+            top: 32px;
+        }
+    }
+    animation: test 3s infinite;
+`;
 
 const Main = () => {
     const mainData = useSelector(state=>state.setDataReducer.main);
@@ -145,6 +157,7 @@ const Main = () => {
 
     return (
         <Wrapper device={device}>
+            <Button to='/solution/test/ai-5g-bigdata/wild-animal-detection'>Test Page</Button>
             {mainData.data.map(({path,title,image,text}, index) => (
                 <SolutionWrapper key={index} to={path} device={device}>
                     <Title>{title}</Title>
