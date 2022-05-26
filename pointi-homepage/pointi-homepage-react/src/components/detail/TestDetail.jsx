@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
+import ReactPlayer from 'react-player';
+
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 
@@ -18,7 +20,7 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    margin-bottom: 32px ;
+    margin-top: 32px;
 `;
 const DetailWrapper = styled.div`
     line-height: 32px;
@@ -36,7 +38,7 @@ const TextWrapper = styled.div`
     margin-bottom: ${({bottom}) => bottom};
 `;
 const TitleWrapper = styled(Flex)`
-    margin-top: ${({top}) => top || '32px'};
+    margin-top: ${({top}) => top || '16px'};
 `;
 const TitleTextWrapperOut = styled(Flex)`
     margin: 24px 0 16px 0;
@@ -165,50 +167,66 @@ const LinkButton = styled.div`
     }
     word-break: break-all;
 `;
+const Player = styled(ReactPlayer)`
+    margin: 16px auto;
+`;
 
 const TestDetail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device);
+    // 마우스 스크롤 감지 useHook으로 빠질 예정
     const [ scrollPosition, setScrollPosition ] = useState(0);
-    const [ scrollMaxHeight, setScrollMaxHeight ] = useState(0);
-    const [ mainFunctionHeight, setMainFunctionHeight ] = useState(0);
-    const [ start, setStart] = useState(false);
-    const wrapper = useRef(); 
+    const [ windowHeight, setWindowHeightt ] = useState(window.innerHeight);
+    const [ mainFunctionHeight, setMainFunctionHeight ] = useState(10000);
+    const [ playerHeight, setPlayerHeight ] = useState(10000);
+    const [ start, setStart] = useState([false,false]);
     const mainFunctionRef = useRef();
+    const playerRef = useRef();
     const checkSubText = (str) => {
         return (str[0] === '(' && str[str.length-1] === ')')
     }
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true});
-        setScrollMaxHeight(wrapper.current.scrollHeight);
-        setMainFunctionHeight(mainFunctionRef.current.offsetTop);
+        setWindowHeightt(window.innerHeight);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         }
     },[])
 
     useEffect(() => {
-        (!start) && (setStart(scrollMaxHeight - mainFunctionHeight < scrollPosition));
+        if(scrollPosition !== 0){
+            const functionStart = windowHeight + scrollPosition > (mainFunctionHeight + 150);
+            const playerStart = windowHeight + scrollPosition > (playerHeight + 450);
+            setMainFunctionHeight(mainFunctionRef.current.offsetTop);
+            setPlayerHeight(playerRef.current.offsetTop);
+            setStart([
+                (start[0] !== true ? functionStart : true),
+                (start[1] !== true ? playerStart : true)
+            ]);
+        }
     },[scrollPosition])
+
 
     const handleScroll = (e) => {
         const position = window.scrollY;
         setScrollPosition(position);
     }
 
-    // const start = () => {
+    // const test = () => {
     //     console.log(`test: `, wrapper.current.scrollHeight);
     //     console.log(`화면크기: `, window.innerHeight);
     //     console.log(`wrapper 크기: `,wrapper.current.clientHeight);
     //     console.log(`기능 절대 위치: `,mainFunctionRef.current.offsetTop);
     //     console.log(`기능 높이: `,mainFunctionRef.current.clientHeight );
-    //     console.log(`기능 상대 높이: `,mainFunctionRef.current.getBoundingClientRect().top);
+    //     console.log(`기능 상대 top: `,mainFunctionRef.current.getBoundingClientRect().top);
+    //     console.log(`기능 상대 bottom: `,mainFunctionRef.current.getBoundingClientRect().bottom);
+    //     console.log(`----------`);
     // }
     // wrapper.current.clientHeight - mainFunctionRef.current.offsetTop <= scrollPosition
     // window.innerHeight + scrollPosition >= mainFunctionRef.current.getBoundingClientRect().top
 
     return (
-        <Wrapper device={device} ref={wrapper}>
+        <Wrapper device={device}>
             <Title>{data.title}</Title>
             <DetailWrapper>
                 { type === 'solution' && (
@@ -240,15 +258,26 @@ const TestDetail = ({data, type}) => {
                     </TitleWrapper>
                     <FunctionWrapperOut id={'test'} ref={mainFunctionRef}>
                         { data.function.map(({title, explan},index) => (
-                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index} start={start.toString()}>
+                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index} start={start[0].toString()}>
                                 <FunctionTitle>{title}</FunctionTitle>
-                                
                             </FunctionWrapperIn>
                         ))}
                     </FunctionWrapperOut>
+                    <TitleWrapper top={'42px'} ref={playerRef}>
+                        <IconWrapper><MdPlayArrow /></IconWrapper>
+                        <TextTitle >영상소개 및 결과물</TextTitle>
+                    </TitleWrapper>
+                    <Player 
+                        className='react-player'
+                        url={require(`assets/imgs/test/Solution_AI_BigData_wildAnimalDetection.mp4`)}
+                        playing={start[1]}
+                        muted={true}
+                        controls={true}
+                        light={false}  
+                    />
                     { data.keyword !== undefined &&
                         <div>
-                            <TitleWrapper>
+                            <TitleWrapper top={'64px'}>
                                 <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>관련 키워드</TextTitle>
                             </TitleWrapper>

@@ -15,7 +15,8 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    margin-bottom: 32px ;
+    margin-top: 32px;
+    //margin-bottom: 32px ;
 `;
 const DetailWrapper = styled.div`
     line-height: 32px;
@@ -32,7 +33,7 @@ const TextWrapper = styled.div`
     margin-bottom: ${({bottom}) => bottom};
 `;
 const TitleWrapper = styled(Flex)`
-    margin-top: ${({top}) => top || '32px'};
+    margin-top: ${({top}) => top || '16px'};
 `;
 const IconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnAround}
@@ -133,7 +134,7 @@ const Detail = ({data, type}) => {
                     ))}
                     { data.keyword !== undefined &&
                         <div>
-                            <TitleWrapper>
+                            <TitleWrapper top={'32px'}>
                                 <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>관련 키워드</TextTitle>
                             </TitleWrapper>
