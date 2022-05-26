@@ -37,6 +37,7 @@ const DropDownWrapper = styled.div`
     align-items: center;
     position: absolute;
     margin-top: 8px;
+    overflow: hidden;
 `;
 const MenuBarText = styled(Link)`
     ${({theme}) => theme.divCommon.flex}
@@ -56,9 +57,9 @@ const DropDownText = styled(Link)`
     font-size: 0.9rem;
     color: black;
     width: 88px;
-    overflow: hidden;
     height: 0px;
     transition-duration: 0.4s;
+    overflow: hidden;
     &:hover {
         background-color: rgb(193, 193, 193);
     }
