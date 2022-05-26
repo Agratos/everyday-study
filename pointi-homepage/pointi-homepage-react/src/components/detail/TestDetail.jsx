@@ -116,7 +116,7 @@ const FunctionWrapperIn = styled.div`
             margin-left: 204px;
             animation: moveLeft 0.5s cubic-bezier(0.000, 0.975, 0.965, 1.000);
         `}
-        animation-delay: ${({index}) => index+'s'}; 
+        animation-delay: ${({index}) => index / 2 +'s'}; 
     `}
     animation-fill-mode: forwards;
     /* @keyframes moveRight {
@@ -171,6 +171,7 @@ const TestDetail = ({data, type}) => {
     const [ scrollPosition, setScrollPosition ] = useState(0);
     const [ scrollMaxHeight, setScrollMaxHeight ] = useState(0);
     const [ mainFunctionHeight, setMainFunctionHeight ] = useState(0);
+    const [ start, setStart] = useState(false);
     const wrapper = useRef(); 
     const mainFunctionRef = useRef();
     const checkSubText = (str) => {
@@ -185,6 +186,10 @@ const TestDetail = ({data, type}) => {
             window.removeEventListener('scroll', handleScroll);
         }
     },[])
+
+    useEffect(() => {
+        (!start) && (setStart(scrollMaxHeight - mainFunctionHeight < scrollPosition));
+    },[scrollPosition])
 
     const handleScroll = (e) => {
         const position = window.scrollY;
@@ -235,7 +240,7 @@ const TestDetail = ({data, type}) => {
                     </TitleWrapper>
                     <FunctionWrapperOut id={'test'} ref={mainFunctionRef}>
                         { data.function.map(({title, explan},index) => (
-                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index} start={(scrollMaxHeight - mainFunctionHeight <= scrollPosition).toString()}>
+                            <FunctionWrapperIn key={`function-wrapper-in${index}`} index={index} start={start.toString()}>
                                 <FunctionTitle>{title}</FunctionTitle>
                                 
                             </FunctionWrapperIn>
