@@ -14,17 +14,17 @@ const Map = styled.div`
 
 const KakaoMap = () => {
     const location = [
-        {latitude:37.521031834622924, longitude:127.03607157207173},
-        {latitude:35.81820900081049, longitude:127.10553536304494}
+        {latitude:37.521031834622924, longitude:127.03607157207173,text:'포인트아이 본사 청호빌딩 5층'},
+        {latitude:35.81820900081049, longitude:127.10553536304494, text:'포인트아이 전주 지사 2층 205E호'}
     ];
     const [linePath, setLinePath] = useState([])
-    const startLat = 37.521031834622924;
-    const startLng = 127.03607157207173;
+    const startLat = 33.669620417716707;
+    const startLng = 127.070803467558335;
     const test = []
     kakaoData.map.path.map(({latitude, longitude}) => {
         test.push(new window.kakao.maps.LatLng(latitude,longitude));
     })
-
+    
     const polyline = new window.kakao.maps.Polyline({
         path: test,
         strokeWeight: 3,
@@ -34,14 +34,13 @@ const KakaoMap = () => {
     })
     const circle = new window.kakao.maps.Circle({
         center : new window.kakao.maps.LatLng((location[0].latitude + location[1].latitude)/2, (location[0].longitude + location[1].longitude)/2),  // 원의 중심좌표 입니다 
-        radius: 95167, // 미터 단위의 원의 반지름입니다 
-        strokeWeight: 6, // 선의 두께입니다 
+        radius: 94535, // 미터 단위의 원의 반지름입니다 
+        strokeWeight: 2, // 선의 두께입니다 
         strokeColor: 'black', // 선의 색깔입니다
         strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
         strokeStyle: 'dashed', // 선의 스타일 입니다
     }); 
-    let map;
-    let marker;
+    //let map;
 
     const options = {
         //지도를 생성할 때 필요한 기본 옵션
@@ -55,36 +54,39 @@ const KakaoMap = () => {
     },[])
 
     useEffect(() => {
-        map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
+        const map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
         map.setDraggable(false);
         //map.setZoomable(false);
-        location.map(({latitude,longitude}) => {
-            marker = new window.kakao.maps.Marker({
-                position: new window.kakao.maps.LatLng(latitude, longitude)
-
+        location.map(({latitude,longitude,text}) => {
+            const marker = new window.kakao.maps.Marker({
+                position: new window.kakao.maps.LatLng(latitude, longitude),
+                clickalbe: true
             })
+            window.kakao.maps.event.addListener(marker, 'click', () => {
+                window.open(`https://map.kakao.com/link/to/${text},${latitude},${longitude}`,'포인트아이 길찾기');  
+            });
+            var content = `<div style="background-color:white; padding:4px; font-size:8px; border-radius:8px">${text}</div>`;
+            const customOverlay = new window.kakao.maps.CustomOverlay({
+                position: new window.kakao.maps.LatLng(latitude+0.5, longitude),
+                content: content   
+            });
+
             marker.setMap(map);
+            customOverlay.setMap(map);
         })
-        window.kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+        window.kakao.maps.event.addListener(map, 'click' , (mouseEvent) => {
             let clickPosition = mouseEvent.latLng;
             setLinePath([...linePath, new window.kakao.maps.LatLng(clickPosition.getLat(), clickPosition.getLng())])
-            //console.log(clickPosition.getLat(),clickPosition.getLng())
         })
         //circle.setMap(map);
         polyline.setMap(map);
     });
-    console.log(linePath);
-    
-    const findPointI = () => {
-        window.open('https://map.kakao.com/link/to/포인트아이,37.521031834622924,127.03607157207173','포인트아이 길찾기');
-    }
    
     return (
         <Wrapper>
             <Map
                 className="map"
                 ref={container}
-                //onClick={findPointI}
             />
         </Wrapper>
     )
