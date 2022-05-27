@@ -201,7 +201,7 @@ const TestDetail = ({data, type}) => {
             setPlayerHeight(playerRef.current.offsetTop);
             setStart([
                 (start[0] !== true ? functionStart : true),
-                (start[1] !== true ? playerStart : true)
+                playerStart
             ]);
         }
     },[scrollPosition])
