@@ -56,7 +56,7 @@ const KakaoMap = () => {
     useEffect(() => {
         const map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
         map.setDraggable(false);
-        //map.setZoomable(false);
+        map.setZoomable(false);
         location.map(({latitude,longitude,text}) => {
             const marker = new window.kakao.maps.Marker({
                 position: new window.kakao.maps.LatLng(latitude, longitude),
