@@ -9,7 +9,7 @@ const Flex = styled.div`
 `
 
 const Wrapper = styled.div`
-    //border: 1px solid black; //#E8E8E8;
+    border: 1px solid black; //#E8E8E8;
     width: ${props => props.device !== 'Mobile' && '900px'};
     margin: 0 auto;
 `;
@@ -26,7 +26,9 @@ const ImgWrapper = styled.div`
     text-align: center;
 `;
 const Img = styled.img`
+    width: 800px;
     max-width: ${({device}) => device === 'Mobile' ? '100%' : '900px'};
+    margin-top: ${({type}) => type === 'technology' && '32px'};
 `;
 const TextWrapper = styled.div`
     padding: 16px;
@@ -101,7 +103,7 @@ const Detail = ({data, type}) => {
                 )}
 
                 <ImgWrapper>
-                    <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device}/>
+                    <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
                 </ImgWrapper>
 
                 <TextWrapper>
