@@ -54,8 +54,14 @@ const UnderMenuBar = styled.div`
 const MenuText = styled.div`
     transition-duration: 0.5s;
     background-color: #e2dddd;
-    height: ${({isMenuClick}) => isMenuClick ? '32px' : '0px'};
-    opacity: ${({isMenuClick}) => isMenuClick ? '1' : '0'};
+    ${({isMenuClick}) => isMenuClick ? css`
+        height:32px;
+        opacity: 1;
+    `:css`
+        height:0px;
+        opacity: 0;
+        pointer-events: none;
+    `}
     &{
         ${ props => props.id === props.isClick && `
             color: #5DB2FF;

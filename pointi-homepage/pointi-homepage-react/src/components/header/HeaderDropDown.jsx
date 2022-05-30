@@ -111,7 +111,12 @@ const UnderMenuBar = styled.div`
     background-color: #e2dddd;
     line-height: 32px;
     height: ${({isClick, clickMenu}) => !isClick ? '0px' : clickMenu === null ? '129px' : clickMenu === 'Company' ? '322px' : '193px'};
-    opacity: ${({isClick}) => isClick ? '1' : '0'};
+    ${({isClick}) => isClick ? css`
+        opacity: 1;
+    `:css`
+        opacity: 0;
+        pointer-events:none;
+    `}
     transition-duration: 0.3s;
 `;
 const UnderMenuTextWrapper = styled.div`
@@ -133,10 +138,10 @@ const UnderMenuTextLink = styled(Link)`
 `;
 const UnderMenuTextLinkWrapper = styled.div`
     ${({ theme }) => theme.divCommon.flexColumn}
-    transition-duration: 0.5s;
     padding-left: 32px;
     position: relative;
     height: ${props => props.clickMenu === 'Company' ? '192px' : '64px'};
+    transition-duration: 0.5s;
 `
 const UnderMenuUnClickWrapper = styled(Flex)``;
 const UnderMenuClickWrapper = styled.div``;
@@ -153,7 +158,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
     const dropDownData = useSelector(state => state.setDataReducer.menu);
     const [ isClick, setIsClick ] = useState(false); // 메뉴버튼을 눌렀는지 확인
     const [ clickMenu, setClickMenu ] = useState(null); // 어떤 메뉴를 눌렀는지 확인
-
+    console.log(isClick, clickMenu);
     useEffect(() => {
         (() => device !== 'Mobile')(
             setIsClick(false),
@@ -168,6 +173,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
     }
     const MoveToLink = () => {
         setIsClick(false);
+        setClickMenu(null)
     }
 
     return (
@@ -228,7 +234,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                             </UnderMenuUnClickWrapper>
                                             <UnderMenuTextLinkWrapper clickMenu={clickMenu}>
                                                 {list.map( ({path, text},index) => (
-                                                        <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink}>{text}</UnderMenuTextLink>
+                                                        <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink} clickMenu={clickMenu}>{text}</UnderMenuTextLink>
                                                     ))}
                                             </UnderMenuTextLinkWrapper>
                                         </UnderMenuClickWrapper>
@@ -237,7 +243,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                             )
                             : ( 
                                 <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
-                                    <UnderMenuTextLink to={path}>{title}</UnderMenuTextLink>
+                                    <UnderMenuTextLink to={path} onClick={MoveToLink}>{title}</UnderMenuTextLink>
                                 </UnderMenuTextWrapper>   
                         ))))}
                     </UnderMenuBar>)}
