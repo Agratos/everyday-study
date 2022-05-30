@@ -133,24 +133,44 @@ const UnderMenuTextLink = styled(Link)`
     color: black;
     text-decoration: none;
     padding-left: 24px;
-    height: 32px;
-    transition-duration: 0.5s;
+    height: 0px;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    ${({title}) => title === 'Technology' && css`
+        opacity: 1;
+        pointer-events: all;
+        height: 32px;
+    `}
+    ${({clickMenu}) => clickMenu !== null && css`
+        @keyframes clickMenuIn {
+            0%{
+                pointer-events: all;
+            }
+            100%{
+                height: 32px;
+                opacity: 1;
+            }
+        }
+        animation: clickMenuIn;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    `}
 `;
 const UnderMenuTextLinkWrapper = styled.div`
     ${({ theme }) => theme.divCommon.flexColumn}
     padding-left: 32px;
     position: relative;
-    height: ${props => props.clickMenu === 'Company' ? '192px' : '64px'};
     transition-duration: 0.5s;
 `
 const UnderMenuUnClickWrapper = styled(Flex)``;
 const UnderMenuClickWrapper = styled.div``;
 const UnderMenuTitle = styled.div`
     ${({ theme }) => theme.zIndex.two}
-    transition-duration: 0.5s;
     width: 100%;
     padding-left: 24px;
     height: ${({isClick}) => isClick ? '32px' : '0px'};
+    transition-duration: 0.5s;
 `
 
 const HeaderDropDown = ({page, scrollMenu, device}) => {
@@ -232,7 +252,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                                     <IoIosRemove />
                                                 </CheckDrop>
                                             </UnderMenuUnClickWrapper>
-                                            <UnderMenuTextLinkWrapper clickMenu={clickMenu}>
+                                            <UnderMenuTextLinkWrapper>
                                                 {list.map( ({path, text},index) => (
                                                         <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink} clickMenu={clickMenu}>{text}</UnderMenuTextLink>
                                                     ))}
@@ -243,7 +263,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                             )
                             : ( 
                                 <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
-                                    <UnderMenuTextLink to={path} onClick={MoveToLink}>{title}</UnderMenuTextLink>
+                                    <UnderMenuTextLink to={path} onClick={MoveToLink} title={title}>{title}</UnderMenuTextLink>
                                 </UnderMenuTextWrapper>   
                         ))))}
                     </UnderMenuBar>)}
