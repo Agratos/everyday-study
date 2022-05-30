@@ -46,7 +46,7 @@ const Kategorie = styled.td`
 const UnderMenuBar = styled.div`
     position: absolute;
     width: 100%;
-    top: 132px;
+    margin-top: 16px;
     background-color: #e2dddd;
     line-height: 32px;
     height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};

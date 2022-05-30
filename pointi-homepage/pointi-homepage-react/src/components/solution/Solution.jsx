@@ -59,6 +59,29 @@ const Solution = () => {
                 //         isClick={isClick}
                 //     />
                 // </MenuKategorieLeftWrapper> :
+                // <div>
+                //     <Location>
+                //         {`Home > Solution > ${id} > ${checkUndefined().title}`}
+                //     </Location>
+                //     <MenuKategorie 
+                //         kategorie={solutrionData[id].kategorie} 
+                //         setIsClick={setIsClick} 
+                //         isClick={isClick}
+                //         title={solutrionData[id].title}
+                //         page={'solution'}
+                //     /> 
+                // </div>:
+                // <div>
+                //     <Location>
+                //         {`Home > Solution > ${id}`}
+                //     </Location>
+                //     <MenuKategorieTable 
+                //         kategorie={solutrionData[id].kategorie} 
+                //         setIsClick={setIsClick} 
+                //         isClick={isClick}
+                //         height={id === 'ict' ? '288px' : '160px'}
+                //     />
+                // </div>
                 <MenuKategorie 
                     kategorie={solutrionData[id].kategorie} 
                     setIsClick={setIsClick} 

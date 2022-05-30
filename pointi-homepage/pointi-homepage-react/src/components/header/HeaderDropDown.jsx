@@ -16,7 +16,9 @@ const Flex = styled.div`
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
     padding: 8px 8px 4px 8px;
-    border-bottom: 1px solid #ccbebe;
+    //border-bottom: 1px solid #ccbebe;
+    border: 1px solid #ccbebe;
+    border-top: none;
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
             display: block;
