@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import ReactPlayer from 'react-player';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 
@@ -79,6 +80,9 @@ const LinkButton = styled.div`
     }
     word-break: break-all;
 `;
+const Player = styled(ReactPlayer)`
+    margin: 16px auto;
+`;
 
 const Detail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device);
@@ -134,6 +138,35 @@ const Detail = ({data, type}) => {
                             ))}
                         </FunctionWrapper>
                     ))}
+                    {type === 'solution' &&
+                        <div>
+                            <TitleWrapper top={'32px'}>
+                                <IconWrapper><MdPlayArrow /></IconWrapper>
+                                <TextTitle>관련 영상</TextTitle>
+                            </TitleWrapper>
+                            <Player 
+                                className='react-player'
+                                url={require(`assets/imgs/test/Solution_AI_BigData_wildAnimalDetection.mp4`)}
+                                playing={true}
+                                muted={true}
+                                controls={true}
+                                light={false}  
+                            />
+                        </div>
+                    }
+                    { data.link !== undefined && (
+                        <div>
+                            <TitleWrapper>
+                                <IconWrapper><MdPlayArrow /></IconWrapper>
+                                <TextTitle>관련링크</TextTitle>
+                            </TitleWrapper>
+                            {data.link.map((link,index) => (
+                                <LinkWrapper key={`link ${index}`}>
+                                    <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
+                                </LinkWrapper>
+                            ))}
+                        </div>
+                    )}
                     { data.keyword !== undefined &&
                         <div>
                             <TitleWrapper top={'32px'}>
@@ -161,19 +194,6 @@ const Detail = ({data, type}) => {
                             ))}
                         </div>
                     }
-                    { data.link !== undefined && (
-                        <div>
-                            <TitleWrapper>
-                                <IconWrapper><MdPlayArrow /></IconWrapper>
-                                <TextTitle>관련링크</TextTitle>
-                            </TitleWrapper>
-                            {data.link.map((link,index) => (
-                                <LinkWrapper key={`link ${index}`}>
-                                    <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
-                                </LinkWrapper>
-                            ))}
-                        </div>
-                    )}
                 </TextWrapper>
             </DetailWrapper>
         </Wrapper>
