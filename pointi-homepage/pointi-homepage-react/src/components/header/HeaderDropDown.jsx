@@ -129,7 +129,7 @@ const CheckDrop = styled.div`
     font-size: 1.2rem;
     font-weight: bolder;
 `;
-const UnderMenuTextLink = styled(Link)`
+const UnderMenuTextLink = styled(({clickMenu, ...rest}) => <Link {...rest} />)`
     color: black;
     text-decoration: none;
     padding-left: 24px;
@@ -144,14 +144,12 @@ const UnderMenuTextLink = styled(Link)`
     `}
     ${({clickMenu}) => clickMenu !== null && css`
         @keyframes clickMenuIn {
-            0%{
-                pointer-events: all;
-            }
             100%{
                 height: 32px;
                 opacity: 1;
             }
         }
+        pointer-events: all;
         animation: clickMenuIn;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
