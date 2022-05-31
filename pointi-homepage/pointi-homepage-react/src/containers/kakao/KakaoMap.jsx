@@ -22,11 +22,8 @@ const KakaoMap = () => {
     const startLng = 127.070803467558335;
     const length_degree = 94535;
     const path = []
-    // kakaoData.map.path.map(({latitude, longitude}) => {
-    //     test.push(new window.kakao.maps.LatLng(latitude,longitude));
-    // })
 
-    const coordsAround = () => {
+    const coordsAround = () => { // 반원 그릴 좌표 자동 계산
         let i = 90;
         while(true){
             path.push(new window.kakao.maps.LatLng(3+startLat + length_degree / 111190 * Math.sin(i * Math.PI / 180),startLng + length_degree / 88900  * Math.cos(i * Math.PI / 180)));
@@ -44,14 +41,14 @@ const KakaoMap = () => {
         strokeOpactiy: 1,
         strokeStyle: 'solid',
     })
-    const circle = new window.kakao.maps.Circle({
-        center : new window.kakao.maps.LatLng((location[0].latitude + location[1].latitude)/2, (location[0].longitude + location[1].longitude)/2),  // 원의 중심좌표 입니다 
-        radius: 94535, // 미터 단위의 원의 반지름입니다 
-        strokeWeight: 2, // 선의 두께입니다 
-        strokeColor: 'black', // 선의 색깔입니다
-        strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-        strokeStyle: 'dashed', // 선의 스타일 입니다
-    }); 
+    // const circle = new window.kakao.maps.Circle({
+    //     center : new window.kakao.maps.LatLng((location[0].latitude + location[1].latitude)/2, (location[0].longitude + location[1].longitude)/2),  // 원의 중심좌표 입니다 
+    //     radius: 94535, // 미터 단위의 원의 반지름입니다 
+    //     strokeWeight: 2, // 선의 두께입니다 
+    //     strokeColor: 'black', // 선의 색깔입니다
+    //     strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+    //     strokeStyle: 'dashed', // 선의 스타일 입니다
+    // }); 
     //let map;
 
     const options = {
@@ -67,8 +64,8 @@ const KakaoMap = () => {
 
     useEffect(() => {
         const map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
-        //map.setDraggable(false);
-        //map.setZoomable(false);
+        map.setDraggable(false);
+        map.setZoomable(false);
         location.map(({latitude,longitude,text}) => {
             const marker = new window.kakao.maps.Marker({
                 position: new window.kakao.maps.LatLng(latitude, longitude),
