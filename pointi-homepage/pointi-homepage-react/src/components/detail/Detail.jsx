@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import ReactPlayer from 'react-player';
@@ -86,8 +86,33 @@ const Player = styled(ReactPlayer)`
 
 const Detail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device);
+    const [ scrollPosition, setScrollPosition ] = useState(0);
+    const [ windowHeight, setWindowHeightt ] = useState(window.innerHeight);
+    const [ playerHeight, setPlayerHeight ] = useState(10000);
+    const [ start, setStart] = useState(false);
+    const playerRef = useRef();
     const checkSubText = (str) => {
         return (str[0] === '(' && str[str.length-1] === ')')
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true});
+        setWindowHeightt(window.innerHeight);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    },[])
+    useEffect(() => {
+        if(scrollPosition !== 0){
+            const playerStart = windowHeight + scrollPosition > (playerHeight + 450);
+            setPlayerHeight(playerRef.current.offsetTop);
+            setStart(playerStart);
+        }
+    },[scrollPosition])
+
+    const handleScroll = (e) => {
+        const position = window.scrollY;
+        setScrollPosition(position);
     }
 
     return (
@@ -140,14 +165,14 @@ const Detail = ({data, type}) => {
                     ))}
                     {type === 'solution' &&
                         <div>
-                            <TitleWrapper top={'32px'}>
+                            <TitleWrapper top={'32px'} ref={playerRef}>
                                 <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>관련 영상</TextTitle>
                             </TitleWrapper>
                             <Player 
                                 className='react-player'
                                 url={require(`assets/imgs/test/Solution_AI_BigData_wildAnimalDetection.mp4`)}
-                                playing={true}
+                                playing={start}
                                 muted={true}
                                 controls={true}
                                 light={false}

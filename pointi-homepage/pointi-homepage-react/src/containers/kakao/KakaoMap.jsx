@@ -20,15 +20,15 @@ const KakaoMap = () => {
     const [linePath, setLinePath] = useState([])
     const startLat = 33.669620417716707;
     const startLng = 127.070803467558335;
-    const length_degree = 94535;
+    const length = 94535;
     const path = []
 
     const coordsAround = () => { // 반원 그릴 좌표 자동 계산
-        let i = 90;
+        let degree = 90;
         while(true){
-            path.push(new window.kakao.maps.LatLng(3+startLat + length_degree / 111190 * Math.sin(i * Math.PI / 180),startLng + length_degree / 88900  * Math.cos(i * Math.PI / 180)));
-            i += 4.5;
-            if (i > 270) break;
+            path.push(new window.kakao.maps.LatLng(3+startLat + length / 111190 * Math.sin(degree * Math.PI / 180),startLng + length / 88900  * Math.cos(degree * Math.PI / 180)));
+            degree += 10; // 각도
+            if (degree > 270) break;
         }
     }
 
