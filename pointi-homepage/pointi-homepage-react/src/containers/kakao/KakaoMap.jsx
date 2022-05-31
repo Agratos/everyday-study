@@ -20,13 +20,25 @@ const KakaoMap = () => {
     const [linePath, setLinePath] = useState([])
     const startLat = 33.669620417716707;
     const startLng = 127.070803467558335;
-    const test = []
-    kakaoData.map.path.map(({latitude, longitude}) => {
-        test.push(new window.kakao.maps.LatLng(latitude,longitude));
-    })
-    
+    const length_degree = 94535;
+    const path = []
+    // kakaoData.map.path.map(({latitude, longitude}) => {
+    //     test.push(new window.kakao.maps.LatLng(latitude,longitude));
+    // })
+
+    const coordsAround = () => {
+        let i = 90;
+        while(true){
+            path.push(new window.kakao.maps.LatLng(3+startLat + length_degree / 111190 * Math.sin(i * Math.PI / 180),startLng + length_degree / 88900  * Math.cos(i * Math.PI / 180)));
+            i += 4.5;
+            if (i > 270) break;
+        }
+    }
+
+    coordsAround();
+
     const polyline = new window.kakao.maps.Polyline({
-        path: test,
+        path: path,
         strokeWeight: 3,
         strokeColor: 'blue',
         strokeOpactiy: 1,
@@ -55,8 +67,8 @@ const KakaoMap = () => {
 
     useEffect(() => {
         const map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
-        map.setDraggable(false);
-        map.setZoomable(false);
+        //map.setDraggable(false);
+        //map.setZoomable(false);
         location.map(({latitude,longitude,text}) => {
             const marker = new window.kakao.maps.Marker({
                 position: new window.kakao.maps.LatLng(latitude, longitude),

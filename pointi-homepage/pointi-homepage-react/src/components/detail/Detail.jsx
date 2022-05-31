@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import ReactPlayer from 'react-player';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
@@ -150,7 +150,9 @@ const Detail = ({data, type}) => {
                                 playing={true}
                                 muted={true}
                                 controls={true}
-                                light={false}  
+                                light={false}
+                                width='80%'
+                                height='80%'
                             />
                         </div>
                     }
