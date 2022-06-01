@@ -103,7 +103,7 @@ const Detail = ({data, type}) => {
         }
     },[])
     useEffect(() => {
-        if(scrollPosition !== 0){
+        if(scrollPosition !== 0 && type === 'solution'){
             const playerStart = windowHeight + scrollPosition > (playerHeight + 450);
             setPlayerHeight(playerRef.current.offsetTop);
             setStart(playerStart);
