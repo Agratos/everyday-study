@@ -157,7 +157,6 @@ const Main = () => {
 
     return (
         <Wrapper device={device}>
-            <Button to='/solution/test/ai-5g-bigdata/wild-animal-detection'>Test Page</Button>
             {mainData.data.map(({path,title,image,text}, index) => (
                 <SolutionWrapper key={index} to={path} device={device}>
                     <Title>{title}</Title>
