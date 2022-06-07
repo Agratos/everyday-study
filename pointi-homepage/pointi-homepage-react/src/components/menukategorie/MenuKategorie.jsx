@@ -22,7 +22,7 @@ const MenuBar = styled.div`
     margin-left: calc((100% - 900px) / 2);
 `;
 const Page = styled.div`
-    border: 1px solid black;
+    border: 1px solid #e2dddd;
     padding: 16px;
     font-size: 1.1rem;
     width: 150px;

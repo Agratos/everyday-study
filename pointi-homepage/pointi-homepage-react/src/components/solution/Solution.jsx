@@ -13,7 +13,9 @@ const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 16px auto;
 `;
-const Location = styled.div``;
+const Location = styled.div`
+    margin-left: 32px;
+`;
 const SolutionListWrapper = styled.div`
     margin-top: 32px;
 `;
