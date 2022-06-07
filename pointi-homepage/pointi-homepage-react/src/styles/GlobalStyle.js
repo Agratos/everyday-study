@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
         body{
             padding: 0 15vw 0 15vw;
             margin: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 16px;
+            font-family: 'Noto Sans KR';
+            font-size: 14px;
             height: 100vh;
         };
     }
@@ -20,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
         body{
             padding: 0;
             margin: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 16px;
+            font-family: 'Noto Sans KR';
+            font-size: 14px;
             height: 100vh;
         };
     }
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
             padding: 0;
             margin: 0;
             font-family: 'Noto Sans KR';
-            font-size: 16px;
+            font-size: 14px;
             height: 100vh;
         };
     }
