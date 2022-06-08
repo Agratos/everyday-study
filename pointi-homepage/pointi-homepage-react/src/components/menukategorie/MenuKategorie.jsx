@@ -92,7 +92,12 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         {page:'5GㆍICT', path:'/solution/ict/mec-router'}];
     
     useEffect(() => {
-        page === 'solution' && setMenuTitle(document.getElementById(params.click).innerText)
+        if( page === 'solution'){
+            const menu = findMenuTitle('menu');
+            const id = findMenuTitle('id');
+            setMenuTitle(menu);
+            setIsClick(id);
+        }
     }, [ params ])
 
     const onClick = (e) => {
@@ -105,6 +110,19 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     }
     const onClickPage = () => {
         setIsPageClick(!isPageClick)
+    }
+
+    const findMenuTitle = (type) => {
+        for(let i = 0 ; i < kategorie.length; i++){
+            if(kategorie[i].id === params.click) {
+                switch(type){
+                    case 'menu' : 
+                        return kategorie[i].title
+                    case 'id' :
+                        return kategorie[i].id
+                } 
+            }
+        }
     }
 
     return(

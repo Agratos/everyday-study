@@ -39,14 +39,18 @@ const Solution = () => {
     const [isClick, setIsClick] = useState(click);
 
     useEffect(() => {
-        setIsClick(click)
+        setIsClick(click);
     },[id])
+
     useEffect(() => {
         window.history.pushState('','solution click시 url 변경',`/solution/${id}/${isClick}`);
-    })
+    },[isClick])
+
     const checkUndefined = () => {
         return (solutrionData[id][isClick] !== undefined ? solutrionData[id][isClick] : solutrionData[id][click])
     }
+
+    console.log(useParams());
 
     return (
         <Wrapper>
