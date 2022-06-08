@@ -7,12 +7,14 @@ const device = {
 }
 
 const GlobalStyle = createGlobalStyle`
+    body{
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    }
     @media screen and (${device.pc}){
         body{
             padding: 0 15vw 0 15vw;
             margin: 0;
-            font-family: 'Noto Sans KR';
-            font-size: 14px;
+            font-size: 16px;
             height: 100vh;
         };
     }
@@ -20,8 +22,7 @@ const GlobalStyle = createGlobalStyle`
         body{
             padding: 0;
             margin: 0;
-            font-family: 'Noto Sans KR';
-            font-size: 14px;
+            font-size: 16px;
             height: 100vh;
         };
     }
@@ -29,8 +30,7 @@ const GlobalStyle = createGlobalStyle`
         body{
             padding: 0;
             margin: 0;
-            font-family: 'Noto Sans KR';
-            font-size: 14px;
+            font-size: 16px;
             height: 100vh;
         };
     }
