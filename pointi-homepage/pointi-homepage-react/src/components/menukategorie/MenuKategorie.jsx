@@ -92,8 +92,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         {page:'5GㆍICT', path:'/solution/ict/mec-router'}];
     
     useEffect(() => {
-        page === 'solution' &&
-        setMenuTitle(document.getElementById(params.click).innerText)
+        page === 'solution' && setMenuTitle(document.getElementById(params.click).innerText)
     }, [ params ])
 
     const onClick = (e) => {
@@ -107,8 +106,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     const onClickPage = () => {
         setIsPageClick(!isPageClick)
     }
-    console.log(`isClick: ${isClick} page:${page} title:${title}`);
-    console.log(`메뉴카테고리: ${menuTitle}`);
+
     return(
         <Wrapper>
             <KategorieWrapper>
