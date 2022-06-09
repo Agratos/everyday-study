@@ -34,8 +34,7 @@ const MenuKategorieLeftWrapper = styled.div`
 const Solution = () => {
     const solutrionData = useSelector(state => state.setDataReducer.solution);
     const device = useSelector(state => state.setDeviceReducer.device);
-    const { id } = useParams();
-    const { click } = useParams();
+    const { id, click } = useParams();
     const [isClick, setIsClick] = useState(click);
 
     useEffect(() => {
