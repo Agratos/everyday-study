@@ -29,11 +29,9 @@ const MenuKategorieLeftWrapper = styled.div`
 const Technology = () => {
     const technologyData = useSelector(state => state.setDataReducer.technology);
     const device = useSelector(state => state.setDeviceReducer.device);
-    const [isClick, setIsClick] = useState('multi-media-process');
-    let { click } = useParams();
-    useEffect(() => {
-        click !== undefined && setIsClick(click)
-    },[click])
+    const { click } = useParams();
+    const [isClick, setIsClick] = useState(click);
+
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
             window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);

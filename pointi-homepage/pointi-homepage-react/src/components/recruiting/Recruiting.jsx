@@ -35,18 +35,20 @@ const ContentImge = styled.img`
 const Recruiting = () => {
     const recruitingData = useSelector(state => state.setDataReducer.career);
     const device = useSelector(state => state.setDeviceReducer.device);
-    const [isClick, setIsClick] = useState('philosophy-talent');
-    let { id } = useParams();
+    const { click } = useParams();
+    const [isClick, setIsClick] = useState(click);
 
-    useEffect(() => {
-        id !== undefined && setIsClick(id)
-    },[id])
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
             window.history.pushState('','recruiting click시 url 변경',`/recruiting/${isClick}`);
         }           
     },[isClick])
-
+    useEffect(() => {
+        if(window.location.pathname.split('/')[2] !== isClick){
+            setIsClick(window.location.pathname.split('/')[2]);
+        }
+    })
+    
     const renderSwitch = () => {
         switch(isClick) {
             case 'philosophy-talent' :

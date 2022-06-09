@@ -30,23 +30,25 @@ const MenuKategorieLeftWrapper = styled.div`
 `;
 
 const Company = () => {
-    let { click } = useParams();
     const companyData = useSelector(state => state.setDataReducer.introduce);
-    const [isClick, setIsClick] = useState(window.location.pathname.split('/')[2]);
+    const { click } = useParams();
+    const [isClick, setIsClick] = useState(click);
     const [subjectKategorie , setSubjectKategorie] = useState(companyData.kategorie[0].title);
     const [subtitleKategorie, setSubtitleKategorie] = useState('All');
     const device = useSelector(state => state.setDeviceReducer.device);
 
     useEffect(() => {
-        click !== undefined && setIsClick(click)
-    },[click])
-    useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
             window.history.pushState('','company click시 url 변경',`/company/${isClick}`);
         }
     },[isClick])
+    useEffect(() => {
+        if(window.location.pathname.split('/')[2] !== isClick){
+            setIsClick(window.location.pathname.split('/')[2]);
+        }
+    })
 
-    const renderSwicht = () => {
+    const renderSwich = () => {
         switch(isClick) {
             case 'history' :
                 return <History 
@@ -99,7 +101,7 @@ const Company = () => {
                 // </MenuKategorieLeftWrapper>
             )}
             <RenderWapper>
-                {renderSwicht()}
+                {renderSwich()}
             </RenderWapper>
         </Wrapper>
     )
