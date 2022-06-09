@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 //import technologyData from 'assets/dummy/technology.json';
@@ -35,7 +35,9 @@ const Technology = () => {
         click !== undefined && setIsClick(click)
     },[click])
     useEffect(() => {
-        window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`); 
+        if(window.location.pathname.split('/')[2] !== isClick) {
+            window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);
+        }           
     },[isClick])
     return (
         <Wrapper>

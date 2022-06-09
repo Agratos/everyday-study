@@ -43,7 +43,9 @@ const Solution = () => {
     },[id])
 
     useEffect(() => {
-        window.history.pushState('','solution click시 url 변경',`/solution/${id}/${isClick}`);
+        if(window.location.pathname.split('/')[3] !== isClick) {
+            window.history.pushState('','solution click시 url 변경',`/solution/${id}/${isClick}`);
+        } 
     },[isClick])
 
     const checkUndefined = () => {
