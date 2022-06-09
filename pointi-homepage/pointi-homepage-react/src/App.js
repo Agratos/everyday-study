@@ -22,7 +22,7 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/company/:id" element={<CompanyPage />} />
+        <Route path="/company/:click" element={<CompanyPage />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/technology/:click" element={<Technology />} />
         <Route path="/solution/:id" element={<SolutionPage />} />

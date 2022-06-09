@@ -41,9 +41,13 @@ const Recruiting = () => {
     useEffect(() => {
         id !== undefined && setIsClick(id)
     },[id])
+    useEffect(() => {
+        if(window.location.pathname.split('/')[2] !== isClick) {
+            window.history.pushState('','recruiting click시 url 변경',`/recruiting/${isClick}`);
+        }           
+    },[isClick])
 
     const renderSwitch = () => {
-        window.history.pushState('','Recruiting IsClick To Move',`/recruiting/${isClick}`);
         switch(isClick) {
             case 'philosophy-talent' :
                 return (
