@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
@@ -90,15 +90,13 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         {page:'Technology', path:'/technology/multi-media-process'},
                         {page:'AIㆍ빅데이터', path:'/solution/ai-5g-bigdata/wild-animal-detection'},
                         {page:'5GㆍICT', path:'/solution/ict/mec-router'}];
-    
+
     useEffect(() => {
-        if( page === 'solution'){
-            const menu = findMenuTitle('menu');
-            const id = findMenuTitle('id');
-            setMenuTitle(menu);
-            setIsClick(id);
-        }
-    }, [ params ])
+        const menu = findMenuTitle('menu');
+        const id = findMenuTitle('id');
+        setMenuTitle(menu);
+        setIsClick(id);
+    }, [ params ]) 
 
     const onClick = (e) => {
         setIsClick(e.target.id);

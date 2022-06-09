@@ -50,8 +50,6 @@ const Solution = () => {
         return (solutrionData[id][isClick] !== undefined ? solutrionData[id][isClick] : solutrionData[id][click])
     }
 
-    console.log(useParams());
-
     return (
         <Wrapper>
             <Location>
