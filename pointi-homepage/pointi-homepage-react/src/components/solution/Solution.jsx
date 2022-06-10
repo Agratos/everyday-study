@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 //import solutrionData from 'assets/dummy/solutionTest.json';
 import MenuKategorie from 'components/menukategorie/MenuKategorie';
@@ -32,6 +32,7 @@ const MenuKategorieLeftWrapper = styled.div`
 `;
 
 const Solution = () => {
+    const dispatch = useDispatch();
     const solutrionData = useSelector(state => state.setDataReducer.solution);
     const device = useSelector(state => state.setDeviceReducer.device);
     const { id, click } = useParams();
@@ -40,6 +41,10 @@ const Solution = () => {
     useEffect(() => {
         if(window.location.pathname.split('/')[3] !== isClick) {
             window.history.pushState('','solution click시 url 변경',`/solution/${id}/${isClick}`);
+            dispatch({
+                type: 'SET_CHANGE',
+                isChange: window.location.pathname,
+            })
         } 
     },[isClick])
 
@@ -49,9 +54,9 @@ const Solution = () => {
 
     return (
         <Wrapper>
-            <Location>
+            {/* <Location>
                 {`Home > Solution > ${id} > ${checkUndefined().title}`}
-            </Location>
+            </Location> */}
             { device !== 'Mobile' ? 
                 // <MenuKategorieLeftWrapper>
                 //     <MenuKategorieLeft 

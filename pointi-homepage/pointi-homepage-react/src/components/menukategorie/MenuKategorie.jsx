@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useParams, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
@@ -82,6 +83,7 @@ const PageLink = styled(Link)`
 `;
 
 const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
+    const dispatch = useDispatch();
     const params = useParams();
     const [ menuTitle, setMenuTitle ] = useState(kategorie[0].title) 
     const [ isMenuClick, setIsMenuClick ] = useState(false);
@@ -109,6 +111,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     const onClickPage = () => {
         setIsPageClick(!isPageClick)
     }
+
 
     const findMenuTitle = (type) => {
         for(let i = 0 ; i < kategorie.length; i++){
@@ -146,7 +149,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                                 title={title}
                                 to={path}
                                 click={isPageClick.toString()}
-                                onClick={onClickPage}
+                                onClick={() => onClickPage()}
                                 key={`UnderPageBar${index}`}
                             >
                                 {page}

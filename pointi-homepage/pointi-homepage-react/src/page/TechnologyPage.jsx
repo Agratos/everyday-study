@@ -10,7 +10,7 @@ const Wrapper = styled.div``;
 const TechnologyPage = () => {
     return (
         <Wrapper>
-            <Header />
+            <Header page={'technology'} />
             <Technology />
             <Footer />
         </Wrapper>

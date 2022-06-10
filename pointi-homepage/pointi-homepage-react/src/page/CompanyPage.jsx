@@ -10,7 +10,7 @@ const Wrapper = styled.div``;
 const CompanyPage = () => {
     return (
         <Wrapper id='introduce-page-wrapper'>
-            <Header />
+            <Header page={'company'} />
             <Company />
             <Footer />
         </Wrapper>

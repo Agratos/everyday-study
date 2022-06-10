@@ -10,7 +10,7 @@ const Wrapper = styled.div``;
 const RecruitingPage = () => {
     return (
         <Wrapper>
-            <Header />
+            <Header page={'recruiting'} />
             <Recruiting />
             <Footer />
         </Wrapper>

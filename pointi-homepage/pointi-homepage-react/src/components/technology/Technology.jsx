@@ -39,10 +39,9 @@ const Technology = () => {
     },[isClick])
     return (
         <Wrapper>
-            <Location>
+            {/* <Location>
                 {`Home > Technology > ${technologyData[isClick].title}`}
-            </Location>
-            
+            </Location> */}
             { device !== 'Mobile' ? 
                 <MenuKategorie 
                     kategorie={technologyData.kategorie} 
