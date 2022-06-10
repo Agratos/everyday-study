@@ -7,8 +7,8 @@ const Wrapper = styled.div`
 `;
 const CopyrightText = styled.div`
     ${({theme}) => theme.divCommon.flexCenter}
-    margin-top: 10px;
-    font-size: 0.9rem;
+    margin-top: 8px;
+    font-size: 0.8rem;
 `;
 const Colorlib = styled.div`
     color: #5DB2FF;

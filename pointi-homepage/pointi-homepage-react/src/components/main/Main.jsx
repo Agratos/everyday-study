@@ -98,14 +98,17 @@ import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/i
 // `;
 
 const Wrapper = styled.div`
-    ${({ theme }) => theme.divCommon.flexSpaceAround}
+    ${({ theme }) => theme.divCommon.flexSpaceAroundCenter}
+    height: calc(52vh - 96px);
+    padding: 0 5vw;
     ${props=> props.device === 'Mobile' && 
         css`
             ${({ theme }) => theme.divCommon.flexColumn}
             width: 100%;
+            height: fit-content;
+            padding: 0;
         `
     }
-    margin: 32px 0;
 `;
 const SolutionWrapper = styled(Link)`
     ${({ theme }) => theme.divCommon.flexSpaceAround}
@@ -114,7 +117,6 @@ const SolutionWrapper = styled(Link)`
     height: 240px;
     padding: 8px;
     background: linear-gradient(-135deg, transparent 32px, #F0F9FD 0);
-    margin-bottom: 32px;
     font-size: 1.1rem;
     text-decoration: none;
     ${props=> props.device === 'Mobile' && 

@@ -23,14 +23,13 @@ const Wrapper = styled.div`
             transition: all 1000ms ease 0s;
         `
     } */
-
+    
 `;
 const SliderArea = styled.div`
     ${props => props.page === 'main' &&
         css`
-            min-height: 400px;
-            height: 35vh;
-            max-height: 500px;
+            height: 40vh;
+            //max-height: 500px;
             background: url(${props => props.logo}) no-repeat center;
             background-size: cover;
             background-blend-mode:multiply;
@@ -38,7 +37,6 @@ const SliderArea = styled.div`
             transition: all 1000ms ease 0s;
         `
     }
-    height: ${props => props.device === 'Mobile' && '100vh'};
 `;
 const SliderAreaTextWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
@@ -96,9 +94,9 @@ const Header = ({ page }) => {
                                     <SliderAreaText className='text-2'>{text2}</SliderAreaText>
                                     <SliderAreaTextButton to='/solution/ai-5g-bigdata/wild-animal-detection'>Our Solutions</SliderAreaTextButton>
                                 </div>} */}
-                                <SliderAreaText className='text-1'>{text1}</SliderAreaText>
+                                {/* <SliderAreaText className='text-1'>{text1}</SliderAreaText>
                                 <SliderAreaText className='text-2'>{text2}</SliderAreaText>
-                                <SliderAreaTextButton to='/solution/ai-5g-bigdata/wild-animal-detection'>Our Solutions</SliderAreaTextButton>
+                                <SliderAreaTextButton to='/solution/ai-5g-bigdata/wild-animal-detection'>Our Solutions</SliderAreaTextButton> */}
                             </SliderAreaTextWrapper>
                         ))   
                     ))}

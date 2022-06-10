@@ -97,6 +97,11 @@ const divCommon = {
         display: flex;
         justify-content: space-around;
     `,
+    flexSpaceAroundCenter:`
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    `,
 }
 
 const zIndex = {

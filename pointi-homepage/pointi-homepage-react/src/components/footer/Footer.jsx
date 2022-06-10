@@ -75,9 +75,10 @@ import phone2 from 'assets/imgs/footer/phone2.png';
 // `;
 
 const Wrapper = styled.div`
+    height: 8vh;
     padding-top: 24px;
     padding-bottom: 16px;
-    background-color: aliceblue;
+    background-color: #BDD7EE;
 `;
 const LogoWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter};
@@ -95,7 +96,7 @@ const TextWrapperOut = styled.div`
     ${({theme}) => theme.divCommon.column};
 `;
 const TextWrapper = styled.div`
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 `;
 const GoToTheMapButton = styled(Link)`
     ${({theme}) => theme.divCommon.flexCenter};
@@ -103,7 +104,7 @@ const GoToTheMapButton = styled(Link)`
     color: #242323d7;
     width: fit-content;
     padding: 8px 16px;
-    position: relative;
+    position: absolute;
     left: calc(50% + 320px);
     margin-top: -24px;
     font-size: 0.9rem;
