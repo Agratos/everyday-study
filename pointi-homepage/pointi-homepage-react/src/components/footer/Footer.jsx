@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-//import footerData from 'assets/dummy/footer.json';
+import footerData from 'assets/dummy/footer.json';
 import Copyright from './Copyright';
-import logo from 'assets/imgs/footer/logo.png';
+import logo from 'assets/imgs/custom/logo.png';
 import mail from 'assets/imgs/footer/mail.png';
 import phone1 from 'assets/imgs/footer/phone1.png';
 import phone2 from 'assets/imgs/footer/phone2.png';
@@ -75,37 +75,67 @@ import phone2 from 'assets/imgs/footer/phone2.png';
 // `;
 
 const Wrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexCenter}
     padding-top: 24px;
     padding-bottom: 16px;
+    background-color: aliceblue;
+`;
+const LogoWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexCenterCenter};
 `;
 const Logo = styled.img`
-    margin: auto 0;
     margin-right: 16px;
     width: 120px;
-    height: 40px;
+    height: 48px;
 `;
 const TextArea = styled.div`
+    ${({theme}) => theme.divCommon.flexCenter};
     margin-left: 16px;
+`;
+const TextWrapperOut = styled.div`
+    ${({theme}) => theme.divCommon.column};
 `;
 const TextWrapper = styled.div`
     font-size: 0.9rem;
 `;
+const GoToTheMapButton = styled(Link)`
+    ${({theme}) => theme.divCommon.flexCenter};
+    background-color: #F8CBAD;
+    color: #242323d7;
+    width: fit-content;
+    padding: 8px 16px;
+    position: relative;
+    left: calc(50% + 320px);
+    margin-top: -24px;
+    font-size: 0.9rem;
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
 const Footer = () => {
-    const footerData = useSelector(state => state.setDataReducer.footer);
+    //const footerData = useSelector(state => state.setDataReducer.footer);
     const device = useSelector(state => state.setDeviceReducer.device);
 
     return (
         device !== 'Mobile' &&
         <Wrapper device={device}>
-            <Logo src={logo} />
+            <GoToTheMapButton to={'/company/location'}>
+                오시는 길
+            </GoToTheMapButton>
             <TextArea>
-                {footerData.data[0].list.map((list,index) => (
-                    <TextWrapper key={`footer-text-wrapper${index}`}>
-                        {list}
-                    </TextWrapper>
-                ))}
+                <LogoWrapper>
+                    <Logo src={logo} />
+                </LogoWrapper>
+                <TextWrapperOut>
+                    {footerData.data[0].list.map((list,index) => (
+                        <TextWrapper key={`footer-text-wrapper${index}`}>
+                            {list}
+                        </TextWrapper>
+                    ))}
+                </TextWrapperOut>
             </TextArea>
+            <Copyright />
+
             {/* <BottomNaviWrapper>
                 <LeftPointiInfo>
                     <LogoImg src={logo}/>
