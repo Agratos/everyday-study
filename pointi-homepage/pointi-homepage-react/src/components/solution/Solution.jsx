@@ -11,7 +11,7 @@ import Detail from 'components/detail/Detail';
 
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
-    margin: 16px auto;
+    margin: 0 auto;
 `;
 const Location = styled.div`
     margin-left: 32px;

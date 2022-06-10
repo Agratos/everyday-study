@@ -95,7 +95,6 @@ const Header = ({ page }) => {
     })
 
     useEffect(() => {
-        console.log(isChange);
         const url = window.location.pathname.split('/');
         if(url.length > 3){
             setId(url[2])
