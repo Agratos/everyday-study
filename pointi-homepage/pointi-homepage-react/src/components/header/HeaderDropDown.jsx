@@ -17,8 +17,8 @@ const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
     padding: 8px 8px 4px 8px;
     //border-bottom: 1px solid #ccbebe;
-    border: 1px solid #ccbebe;
-    border-top: none;
+    //border: 1px solid #ccbebe;
+    //border-top: none;
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
             display: block;
@@ -31,7 +31,9 @@ const Wrapper = styled.div`
 `;
 const HeaderMiddleArea = styled.div``;
 const TopDropDownWrapper = styled(Flex)``;
-const MenuBarArea = styled.div``;
+const MenuBarArea = styled.div`
+    font-weight: 400;
+`;
 const MenuBar = styled(Flex)``;
 const DropDownWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumn}
@@ -43,7 +45,8 @@ const DropDownWrapper = styled.div`
 `;
 const MenuBarText = styled(Link)`
     ${({theme}) => theme.divCommon.flex}
-    color: ${props => props.page === 'main' ? 'white' : 'black'};
+    /* color: ${props => props.page === 'main' ? 'white' : 'black'}; */
+    color: #3a3939ce;
     font-weight: bolder;
     font-size: 1.1rem;
     text-decoration: none;
@@ -90,7 +93,7 @@ const MenuIconWrapper = styled(IconWrapper)`
     color: ${props=>props.page === 'main' ? 'white' : 'black'};
 `
 const LeftLogoArea = styled.div`
-    padding: 0 16px 0 16px;
+    padding-left: ${({device}) => device === 'PC' && '15vw'};
     width: 25%;
 `;
 const LeftLogo = styled.img`
@@ -198,8 +201,8 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
             <HeaderMiddleArea>
                 <TopDropDownWrapper>
-                    <LeftLogoArea>
-                        <Link to='/' ><LeftLogo src={page==='main'?logoWhite:logoBlack} /></Link>
+                    <LeftLogoArea device={device}>
+                        <Link to='/' ><LeftLogo src={logoBlack} /></Link>
                     </LeftLogoArea>
                     <MenuBarArea>
                         { device !== 'Mobile' ? // PC Tablet 일때 보여지는 메뉴

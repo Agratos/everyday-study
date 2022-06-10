@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
-    background-color: none;
-    ${props => props.page === 'main' &&
+    // background-color: none;
+    /* ${props => props.page === 'main' &&
         css`
             min-height: 400px;
             height: 49vh;
@@ -22,27 +22,41 @@ const Wrapper = styled.div`
             background-color: #7794b085;
             transition: all 1000ms ease 0s;
         `
+    } */
+
+`;
+const SliderArea = styled.div`
+    ${props => props.page === 'main' &&
+        css`
+            min-height: 400px;
+            height: 35vh;
+            max-height: 500px;
+            background: url(${props => props.logo}) no-repeat center;
+            background-size: cover;
+            background-blend-mode:multiply;
+            background-color: #7794b085;
+            transition: all 1000ms ease 0s;
+        `
     }
     height: ${props => props.device === 'Mobile' && '100vh'};
 `;
-const SliderArea = styled.div``;
 const SliderAreaTextWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
-    padding: 8vh;
+    padding: 10vh;
     ${props => props.device === 'Mobile' && css`
         height: 60vh;
         padding: 5vh 2vh;
     `}
 `;
 const SliderAreaText = styled.div`
-    color: white;
+    color: #ebe1e1;
     font-size: ${props => props.size || '2rem'}; 
     margin-bottom: 8px;
 `;
 const SliderAreaTextButton = styled(Link)`
     ${({theme}) => theme.divCommon.flexCenterCenter}
     background: linear-gradient(45deg,#0181f5,#05aae6);
-    color: white;
+    color: #eae3e3;
     border: none;
     width: 152px;
     height: 64px;
@@ -68,11 +82,11 @@ const Header = ({ page }) => {
 
     return (
         page === 'main' ? (
-        <Wrapper logo={imgData[dataIndex%2]}  id="top" page={page} device={device}>
+        <Wrapper   id="top"  device={device}>
             {/* <HeaderTop /> */}
             <HeaderDropDown  page={page} device={device}/>
             {/* <HeaderDropDown scrollMenu={true} /> */}
-            <SliderArea> 
+            <SliderArea logo={imgData[dataIndex%2]} page={page}> 
                     {headerData.data.map(({id, text1, text2},index) => (
                         ( id === dataIndex && (
                             <SliderAreaTextWrapper key={`slider-area-${index}`} device={device}>
