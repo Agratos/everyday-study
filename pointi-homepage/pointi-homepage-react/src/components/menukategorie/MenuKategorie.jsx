@@ -46,19 +46,16 @@ const UnderBar = styled.div`
     margin-top: 9px;
     background-color: #e2dddd;
     line-height: 32px;
+    width: 50%;
 `;
 const UnderMenuBar = styled(UnderBar)`
     left: 50%;
     height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
-    width: 30%;
-    padding-left: 20%;
 `;
 const UnderPageBar = styled(UnderBar)`
     ${({theme}) => theme.divCommon.flexColumn}
     height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
     left: 0;
-    width: calc(25% + 1px);
-    padding-left: 25%;
 `;
 const MenuText = styled.div`
     transition-duration: 0.5s;
@@ -67,10 +64,14 @@ const MenuText = styled.div`
     opacity: ${({isMenuClick}) => isMenuClick ? '1' : '0'};
     &{
         ${ props => props.id === props.isClick && `
-            color: #5DB2FF;
+            color: #4e95d7;
             font-weight: bolder;
             // padding: 12px 32px;
         `}
+    }
+    padding-left: 40%;
+    &:hover {
+        background-color: #d5d8e0
     }
 `;
 const PageLink = styled(Link)`
@@ -85,6 +86,10 @@ const PageLink = styled(Link)`
             font-weight: bolder;
             // padding: 12px 32px;
         `}
+    }
+    padding-left: 50%;
+    &:hover {
+        background-color: #d5d8e0;
     }
 `;
 

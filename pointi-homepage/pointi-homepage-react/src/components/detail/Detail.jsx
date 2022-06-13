@@ -16,7 +16,10 @@ const Wrapper = styled.div`
 `;
 const SolutionWrapper = styled(Flex)`
     padding: 8px;
-    background-color: #cac9c9;
+    background-color: #cac9c988;
+`;
+const SolutionTextWrapper = styled.div`
+    padding: 0px 32px;
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
@@ -26,10 +29,10 @@ const Title = styled.div`
     //margin-bottom: 32px ;
 `;
 const DetailWrapper = styled.div`
-    line-height: 32px;
+    line-height: 24px;
 `;
 const ImgWrapper = styled(Flex)`
-    max-width: 100%;
+    max-width: 400px;
 `;
 const Img = styled.img`
     max-width: inherit;
@@ -37,11 +40,12 @@ const Img = styled.img`
     margin-top: ${({type}) => type === 'technology' && '32px'};
 `;
 const TextWrapper = styled.div`
-    padding: 0px 32px;
+    margin-top: 32px; 
     margin-bottom: ${({bottom}) => bottom};
 `;
 const TitleWrapper = styled(Flex)`
     margin-top: ${({top}) => top || '16px'};
+    border-bottom: 2px solid black;
 `;
 const IconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnAround}
@@ -51,20 +55,33 @@ const TextFont = styled.div`
     font-size: 1rem;
 `;
 const TextTitle = styled(TextFont)`
-    font-size: 1.4rem;
+    ${({theme}) => theme.fontCommon.title}
     margin: 8px 0;
 `;
 const Solution = styled(TextFont)`
     margin-bottom: 32px;
 `;
-const FunctionWrapper = styled(TextFont)``;
+const FunctionWrapperOut = styled.div`
+    margin-bottom: 40px;
+    background-color: #cac9c988;
+    border-bottom: 2px solid black;
+`;
+const FunctionWrapperIn = styled(TextFont)`
+    border-bottom: ${({length, index}) => length !== index && '1px solid black'};
+    padding: 10px 8px;
+`;
 const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
     margin: 0 8px 0 24px;
 `;
-const FunctionTitle = styled(TextFont)``;
+const FunctionTitle = styled(TextFont)`
+    font-weight: bold;
+    color: #4d4a4ae7;
+`;
 const FunctionEx = styled.div`
     margin-left: 40px;
+    font-size: 0.9rem;
+    color: #4d4a4af3;
 `;
 const FunctionExSub = styled.div`
     margin-top: -8px;
@@ -87,9 +104,17 @@ const LinkButton = styled.div`
     }
     word-break: break-all;
 `;
-const Player = styled(ReactPlayer)`
-    margin: 16px auto;
+const PlayerWrapperOut = styled.div`
+    margin-bottom: 64px;
 `;
+const PlayerWrapperIn = styled.div`
+    text-align: center;
+    align-items: center;
+    background-color: #cac9c988;
+    border-bottom: 2px solid black;
+    padding-left: 130px;
+`;
+const Player = styled(ReactPlayer)``;
 
 const Detail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device);
@@ -110,7 +135,7 @@ const Detail = ({data, type}) => {
         }
     },[])
     useEffect(() => {
-        if(scrollPosition !== 0 && type === 'solution'){
+        if(scrollPosition !== 0 && data.video !== undefined){
             const playerStart = windowHeight + scrollPosition > (playerHeight + 450);
             setPlayerHeight(playerRef.current.offsetTop);
             setStart(playerStart);
@@ -131,17 +156,13 @@ const Detail = ({data, type}) => {
                         <ImgWrapper>
                             <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
                         </ImgWrapper>
-                        <TextWrapper>
+                        <SolutionTextWrapper>
                             {data[type].map((solution, index) => (
                                 <Solution key={`solution${index}`}>{solution}</Solution>
                             ))}
-                        </TextWrapper>
+                        </SolutionTextWrapper>
                     </SolutionWrapper>
                 )}
-
-                {/* <ImgWrapper>
-                    <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
-                </ImgWrapper> */}
 
                 <TextWrapper>
                     { type === 'technology' && (
@@ -156,40 +177,42 @@ const Detail = ({data, type}) => {
                         </div>
                     )}
                     <TitleWrapper top={'4px'}>
-                        <IconWrapper><MdPlayArrow /></IconWrapper>
-                        <TextTitle>주요 기능</TextTitle>
+                        <TextTitle>주요 특징</TextTitle>
                     </TitleWrapper>
-                    {data.function.map(({title, explan}, index) => (
-                        <FunctionWrapper key={`function${index}`}>
-                            <FunctionTitleWrapper>
-                                <FunctionIconWrapper><BsCheckLg size={10}/></FunctionIconWrapper>
-                                <FunctionTitle>{title}</FunctionTitle>
-                            </FunctionTitleWrapper>
-                            {explan.map((ex, index) => (
-                                checkSubText(ex) ? <FunctionExSub key={`explan${index}`}>{ex}</FunctionExSub>
-                                : <FunctionEx key={`explan${index}`}>-{ex}</FunctionEx>
-                            ))}
-                        </FunctionWrapper>
-                    ))}
-                    {type === 'solution' &&
-                        <div>
+                    <FunctionWrapperOut>
+                        {data.function.map(({title, explan}, index) => (
+                            <FunctionWrapperIn key={`function${index}`} index={index+1} length={data.function.length}>
+                                <FunctionTitleWrapper>
+                                    <FunctionIconWrapper>◉</FunctionIconWrapper>
+                                    <FunctionTitle>{title}</FunctionTitle>
+                                </FunctionTitleWrapper>
+                                {explan.map((ex, index) => (
+                                    checkSubText(ex) ? <FunctionExSub key={`explan${index}`}>{ex}</FunctionExSub>
+                                    : <FunctionEx key={`explan${index}`}>- {ex}</FunctionEx>
+                                ))}
+                            </FunctionWrapperIn>
+                        ))}
+                    </FunctionWrapperOut>
+                    {data.video !== undefined && data.video !== null &&
+                        <PlayerWrapperOut>
                             <TitleWrapper top={'32px'} ref={playerRef}>
-                                <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>관련 영상</TextTitle>
                             </TitleWrapper>
-                            <Player 
-                                className='react-player'
-                                url={require(`assets/imgs/test/Solution_AI_BigData_wildAnimalDetection.mp4`)}
-                                playing={start}
-                                muted={true}
-                                controls={true}
-                                light={false}
-                                width='80%'
-                                height='80%'
-                            />
-                        </div>
+                            <PlayerWrapperIn>
+                                <Player 
+                                    className='react-player'
+                                    url={require(`assets/videos/${data.video}`)}
+                                    playing={start}
+                                    muted={true}
+                                    controls={true}
+                                    light={false}
+                                    //width='60%'
+                                    //height='100%'
+                                />
+                            </PlayerWrapperIn>
+                        </PlayerWrapperOut>
                     }
-                    { data.link !== undefined && (
+                    {/* { data.link !== undefined && (
                         <div>
                             <TitleWrapper>
                                 <IconWrapper><MdPlayArrow /></IconWrapper>
@@ -214,7 +237,7 @@ const Detail = ({data, type}) => {
                                 ))}
                             </KeywordWrapper>
                         </div>
-                    }
+                    } */}
                     { data.adaptation !== undefined &&
                         <div>
                             <TitleWrapper>
