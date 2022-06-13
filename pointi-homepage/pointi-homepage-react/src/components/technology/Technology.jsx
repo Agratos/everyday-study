@@ -34,7 +34,7 @@ const Technology = () => {
 
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
-            window.history.pushState('','solution click시 url 변경',`/solution/${isClick}`);
+            window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);
             dispatch({
                 type: 'SET_CHANGE',
                 isChange: window.location.pathname,
@@ -48,7 +48,7 @@ const Technology = () => {
                 {`Home > Technology > ${technologyData[isClick].title}`}
             </Location> */}
             { device !== 'Mobile' ? 
-                <MenuKategorie 
+                <MenuKategorieLeft 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}

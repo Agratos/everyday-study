@@ -116,7 +116,7 @@ const Header = ({ page }) => {
     
     return (
         page === 'main' ? (
-        <Wrapper   id="top"  device={device}>
+        <Wrapper id={'top'} device={device}>
             {/* <HeaderTop /> */}
             <HeaderDropDown  page={page} device={device}/>
             {/* <HeaderDropDown scrollMenu={true} /> */}
@@ -139,7 +139,7 @@ const Header = ({ page }) => {
             </SliderArea>
         </Wrapper>
     ) : (
-        <Wrapper>
+        <Wrapper id={'top'}>
             <HeaderDropDown page={page} device={device} />
             <SliderArea page={page}> 
                 { page === 'solution' &&

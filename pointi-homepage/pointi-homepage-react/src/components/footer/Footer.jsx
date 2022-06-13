@@ -119,7 +119,7 @@ const Footer = () => {
 
     return (
         device !== 'Mobile' &&
-        <Wrapper device={device}>
+        <Wrapper id={'footer'} device={device}>
             <GoToTheMapButton to={'/company/location'}>
                 오시는 길
             </GoToTheMapButton>

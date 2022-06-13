@@ -161,7 +161,7 @@ const Detail = ({data, type}) => {
     }
 
     return (
-        <Wrapper device={device}>
+        <Wrapper device={device} id={'detail'}>
             <Title>{data.title}</Title>
             <DetailWrapper>
                 { type === 'solution' && (

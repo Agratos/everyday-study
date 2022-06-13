@@ -1,59 +1,111 @@
-import React from 'react';
+import React, { useState, useEffect}from 'react';
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import dummyData from 'assets/dummy/menu.json';
+import { IoIosMenu } from "react-icons/io";
 
 const Wrapper = styled.div``;
-const KategorieWrapper = styled.div`
-    justify-content: ${props => props.justify};
-    flex-wrap: ${props => props.isWrap || 'wrap'};
-    margin: 32px 0;
-    border-bottom: 3px solid #3d74a7;
-    border-top: 2px solid #3d74a7;
-    line-height: 16px;
-    &:hover {
+const MenuClick = styled.div`
+    position: fixed;
+    right: 0;
+    margin: 8px;
+`;
+const LeftMenuWrapper = styled.div`
+    display: ${({isClick}) => isClick === false && 'none'};
+    position: fixed;
+    left:0;
+    top:0;
+    background-color: #adadde;
+    z-index: 10;
+    height: 100%;
+    padding: 16px;
+    overflow: auto;
+`;
+const CloseButton = styled.div`
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 24px;
+    :hover {
         cursor: pointer;
     }
-    ${props => props.subtitle && 
-        css`
-            border-bottom: 1px solid black;
-        `
-    }
 `;
-const Kategorie = styled.div`
-    margin: 8px 0;
-    padding: 8px 24px;
-    border-radius: 24px;
-    word-break: break-word;
-    &{
-        ${ props => props.id === props.isClick && `
-            color: #5DB2FF;
-            padding: 8px 24px;
-            width: fit-content;
-        `}
-    }
+const MenuWrapper = styled.div`
+    margin: 16px;
+    line-height: 24px;
+`;
+const Title = styled.div`
+    ${({index}) => index !== 2 && index !== 3 ? css`
+        font-size: 1.5rem;
+    `: css`
+        font-size: 1.2rem;
+        margin-left: 16px;
+        margin-top: 4px;
+    `};
+`;
+const Solution = styled.div`
+    font-size: 1.7rem;
+`;
+const LinkWrapperOut = styled.div`
+    font-size: 1rem;
+    margin-left: 16px;
+`;
+const LinkWrapperIn = styled(Link)`
+    ${({theme}) => theme.divCommon.flexColumn}
+    color: black;
+    margin-top: ${({index}) => index === 0 && '4px'};
 `;
 
-const MenuKategorieLeft = ({ kategorie, justify, subtitle, setIsClick, isClick, setSubjectKategorie, setSubtitleKategorie, isWrap}) => {
-    const onClick = (e) => {
-        setIsClick(e.target.id);
-        setSubtitleKategorie?.(e.target.id);
+const MenuKategorieLeft = () => {
+    // const dropDownData = useSelector(state => state.setDataReducer.menu);
+    const [ isClick, setIsClick ] = useState(false);
+
+    useEffect(() => {
+        if(isClick === true){
+            document.getElementById('detail').style.opacity = '0.3';
+            document.getElementById('detail').style.pointerEvents = 'none';
+            document.getElementById('top').style.opacity = '0.3';
+            document.getElementById('top').style.pointerEvents = 'none';
+            document.getElementById('footer').style.opacity = '0.3';
+            document.getElementById('top').style.opacity = 'none';
+        } else {
+            document.getElementById('detail').style.opacity = '1'
+            document.getElementById('detail').style.pointerEvents = 'auto';
+            document.getElementById('top').style.opacity = '1';
+            document.getElementById('top').style.pointerEvents = 'auto';
+            document.getElementById('footer').style.opacity = '1';
+            document.getElementById('footer').style.pointerEvents = 'auto';
+        }
+    },[isClick])
+    const handleIsClick = () => {
+        setIsClick(!isClick);
     }
-    
+
     return(
-        <Wrapper>
-            <KategorieWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
-                { kategorie.map(({title,id}, index) => (
-                    <div key={`menuKategroieLeft${title}`}>
-                        <Kategorie 
-                            id={id}  
-                            onClick={(e) => onClick(e)}
-                            isClick={isClick}
-                        >
+        <Wrapper id='test'>
+            <MenuClick onClick={handleIsClick}>
+                <IoIosMenu size={42}/>
+            </MenuClick>
+            <LeftMenuWrapper isClick={isClick}>
+                <CloseButton onClick={handleIsClick}>X</CloseButton>
+                {dummyData.menu.map(({title, list},index) => (
+                    <MenuWrapper key={`menu-${index}`}>
+                        {index === 2 && <Solution>Solution</Solution>}
+                        <Title index={index}>
                             {title}
-                        </Kategorie>
-                        {kategorie.length - 1 !== index && <hr/>}
-                    </div>
+                            <LinkWrapperOut>
+                                {list.map(({title, path},index) => (
+                                    <LinkWrapperIn to={path} index={index} key={`link-${index}`}>
+                                        - {title}
+                                    </LinkWrapperIn>
+                                ))}
+                            </LinkWrapperOut>
+                        </Title>
+                    </MenuWrapper>
                 ))}
-            </KategorieWrapper>
+            </LeftMenuWrapper>
         </Wrapper>
     )
 }

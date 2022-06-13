@@ -88,7 +88,7 @@ const Solution = () => {
                 //         height={id === 'ict' ? '288px' : '160px'}
                 //     />
                 // </div>
-                <MenuKategorie 
+                <MenuKategorie
                     kategorie={solutrionData[id].kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
