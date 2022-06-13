@@ -27,35 +27,38 @@ const Page = styled.div`
     border: 1px solid #e2dddd;
     padding: 8px;
     font-size: 0.9rem;
-    width: 30%;
+    width: 25%;
     &:hover{
         cursor: pointer;
     }
-    padding-left: 15%;
+    padding-left: 25%;
 `;
 const Select = styled(Page)`
-    width: 60%;
-    padding-left: 10%;
-    z-index: 2;
+    width: 30%;
+    padding-left: 20%;
 `;
 const IconWrapper = styled.div`
     float: right;
     z-index: 1;
 `;
-const UnderMenuBar = styled.div`
+const UnderBar = styled.div`
     position: absolute;
-    width: 60%;
     margin-top: 9px;
     background-color: #e2dddd;
     line-height: 32px;
-    height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
 `;
-const UnderPageBar = styled(UnderMenuBar)`
+const UnderMenuBar = styled(UnderBar)`
+    left: 50%;
+    height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
+    width: 30%;
+    padding-left: 20%;
+`;
+const UnderPageBar = styled(UnderBar)`
     ${({theme}) => theme.divCommon.flexColumn}
     height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
     left: 0;
-    padding-left: 15%;
-    width: 25%;
+    width: calc(25% + 1px);
+    padding-left: 25%;
 `;
 const MenuText = styled.div`
     transition-duration: 0.5s;
@@ -69,14 +72,12 @@ const MenuText = styled.div`
             // padding: 12px 32px;
         `}
     }
-    padding-left: 16px;
 `;
 const PageLink = styled(Link)`
     transition-duration: 0.5s;
     background-color: #e2dddd;
     height: ${({click}) => click === 'true' ? '40px' : '0px'};
     opacity: ${({click}) => click === 'true' ? '1' : '0'};
-    padding-left: 16px;
     color: black;
     &{
         ${({title, id}) => id === title && `
@@ -160,7 +161,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         <IconWrapper>
                             {isMenuClick ? <AiFillCaretUp /> : <AiFillCaretDown />}
                         </IconWrapper>
-                        <UnderMenuBar height={'160px'} isMenuClick={isMenuClick}>
+                        <UnderMenuBar height={'130px'} isMenuClick={isMenuClick}>
                             { kategorie.map(({title,id}, index) => (
                                 <MenuText 
                                     id={id}  

@@ -14,25 +14,30 @@ const Wrapper = styled.div`
     width: ${props => props.device !== 'Mobile' && '900px'};
     margin: 0 auto;
 `;
+const SolutionWrapper = styled(Flex)`
+    padding: 8px;
+    background-color: #cac9c9;
+`;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
+    text-align: left;
     margin-top: 32px;
+    margin-bottom: 16px;
     //margin-bottom: 32px ;
 `;
 const DetailWrapper = styled.div`
     line-height: 32px;
-    
 `;
-const ImgWrapper = styled.div`
-    text-align: center;
+const ImgWrapper = styled(Flex)`
+    max-width: 100%;
 `;
 const Img = styled.img`
-    width: 800px;
-    max-width: ${({device}) => device === 'Mobile' ? '100%' : '400px'};
+    max-width: inherit;
+    /* max-width: ${({device}) => device === 'Mobile' ? '100%' : 'inherit'}; */
     margin-top: ${({type}) => type === 'technology' && '32px'};
 `;
 const TextWrapper = styled.div`
-    padding: 16px;
+    padding: 0px 32px;
     margin-bottom: ${({bottom}) => bottom};
 `;
 const TitleWrapper = styled(Flex)`
@@ -43,13 +48,15 @@ const IconWrapper = styled.div`
     margin-right: 8px;
 `;
 const TextFont = styled.div`
-    font-size: 1.1rem;
+    font-size: 1rem;
 `;
 const TextTitle = styled(TextFont)`
     font-size: 1.4rem;
     margin: 8px 0;
 `;
-const Solution = styled(TextFont)``;
+const Solution = styled(TextFont)`
+    margin-bottom: 32px;
+`;
 const FunctionWrapper = styled(TextFont)``;
 const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
@@ -120,20 +127,21 @@ const Detail = ({data, type}) => {
             <Title>{data.title}</Title>
             <DetailWrapper>
                 { type === 'solution' && (
-                    <TextWrapper bottom={'24px'}>
-                        <TitleWrapper>
-                            <IconWrapper><MdPlayArrow /></IconWrapper>
-                            <TextTitle>솔루션</TextTitle>
-                        </TitleWrapper>
-                        {data[type].map((solution, index) => (
-                            <Solution key={`solution${index}`}>{solution}</Solution>
-                        ))}
-                    </TextWrapper>
+                    <SolutionWrapper>
+                        <ImgWrapper>
+                            <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
+                        </ImgWrapper>
+                        <TextWrapper>
+                            {data[type].map((solution, index) => (
+                                <Solution key={`solution${index}`}>{solution}</Solution>
+                            ))}
+                        </TextWrapper>
+                    </SolutionWrapper>
                 )}
 
-                <ImgWrapper>
+                {/* <ImgWrapper>
                     <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
-                </ImgWrapper>
+                </ImgWrapper> */}
 
                 <TextWrapper>
                     { type === 'technology' && (

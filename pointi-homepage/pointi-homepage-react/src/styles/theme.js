@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const fontCommon = {
     title: `
-        font-size: 40px;
+        font-size: 32px;
         font-weight: bolder;
         text-align: center;
     `,
@@ -17,8 +17,7 @@ const fontCommon = {
 const animations = {
     rolling: `
         @keyframes fadeInDown {
-            from {
-                
+            from {  
             }
             to {
             }
