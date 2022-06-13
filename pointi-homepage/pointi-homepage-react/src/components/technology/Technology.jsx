@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 //import technologyData from 'assets/dummy/technology.json';
 import MenuKategorie from 'components/menukategorie/MenuKategorie';
@@ -11,11 +11,10 @@ import Detail from 'components/detail/Detail';
 
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
-    margin: 16px auto;
 `;
 const Location = styled.div``;
 const TechnologyListWrapper = styled.div`
-    margin-top: 32px;
+    //margin-top: 32px;
 `;
 const MenuKategorieLeftWrapper = styled.div`
     ${({theme}) => theme.divCommon.fixedLeftTop}
@@ -27,6 +26,7 @@ const MenuKategorieLeftWrapper = styled.div`
 
 
 const Technology = () => {
+    const dispatch = useDispatch();
     const technologyData = useSelector(state => state.setDataReducer.technology);
     const device = useSelector(state => state.setDeviceReducer.device);
     const { click } = useParams();
@@ -34,9 +34,14 @@ const Technology = () => {
 
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
-            window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);
-        }           
+            window.history.pushState('','solution click시 url 변경',`/solution/${isClick}`);
+            dispatch({
+                type: 'SET_CHANGE',
+                isChange: window.location.pathname,
+            })
+        } 
     },[isClick])
+
     return (
         <Wrapper>
             {/* <Location>

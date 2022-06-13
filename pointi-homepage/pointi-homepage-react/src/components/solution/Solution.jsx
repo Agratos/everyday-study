@@ -17,7 +17,7 @@ const Location = styled.div`
     margin-left: 32px;
 `;
 const SolutionListWrapper = styled.div`
-    margin-top: 32px;
+    margin-top: 16px;
 `;
 const MenuKategorieLeftWrapper = styled.div`
     ${({theme}) => theme.divCommon.fixedLeftTop}

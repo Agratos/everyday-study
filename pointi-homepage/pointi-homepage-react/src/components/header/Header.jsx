@@ -104,13 +104,11 @@ const Header = ({ page }) => {
         }
     },[ isChange ])
 
-
     useEffect(() => {
         setTimeout(() =>{
             setDataIndex((dataIndex + 1) % 3)
         }, 5000)
     }, [dataIndex] )
-
 
     const ChangeFirstToUpper = (str) => {
         return str[0].toUpperCase() + str.slice(1);
@@ -144,9 +142,11 @@ const Header = ({ page }) => {
         <Wrapper>
             <HeaderDropDown page={page} device={device} />
             <SliderArea page={page}> 
-                { page === 'solution' ? 
-                    `Home\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[id].title}\u00A0\u00A0>\u00A0\u00A0${data[id][click].title}` :
-                    `Home\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}`
+                { page === 'solution' &&
+                    `Home\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[id].title}\u00A0\u00A0>\u00A0\u00A0${data[id][click].title}`
+                } 
+                { page === 'technology' &&
+                    `Home\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[click].title}`
                 }
             </SliderArea>
         </Wrapper>

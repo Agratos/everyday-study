@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import ReactPlayer from 'react-player';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
+import Technology from 'components/technology/Technology';
 
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
@@ -32,12 +33,13 @@ const DetailWrapper = styled.div`
     line-height: 24px;
 `;
 const ImgWrapper = styled(Flex)`
-    max-width: 400px;
+    max-width: ${({type}) => type === 'solution' && '400px'};
+    //max-width: 400px;;
 `;
 const Img = styled.img`
     max-width: inherit;
     /* max-width: ${({device}) => device === 'Mobile' ? '100%' : 'inherit'}; */
-    margin-top: ${({type}) => type === 'technology' && '32px'};
+    margin-top: ${({type}) => type === 'technology' && '8px'};
 `;
 const TextWrapper = styled.div`
     margin-top: 32px; 
@@ -65,6 +67,7 @@ const FunctionWrapperOut = styled.div`
     margin-bottom: 40px;
     background-color: #cac9c988;
     border-bottom: 2px solid black;
+    border-top: ${({type}) => type === 'technology' && '2px solid black'};
 `;
 const FunctionWrapperIn = styled(TextFont)`
     border-bottom: ${({length, index}) => length !== index && '1px solid black'};
@@ -72,6 +75,7 @@ const FunctionWrapperIn = styled(TextFont)`
 `;
 const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
+    font-size: 0.7rem;
     margin: 0 8px 0 24px;
 `;
 const FunctionTitle = styled(TextFont)`
@@ -90,7 +94,11 @@ const FunctionExSub = styled.div`
 const KeywordWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
 `;
-const AdaptionWrapper = styled(Flex)``;
+const AdaptionWrapper = styled(Flex)`
+    background-color: ${({index}) => index%2 === 0 ? '#cac9c9db' : '#cac9c988'};
+    border-bottom: ${({index, length}) => index === length ? '2px solid black' : '1px solid black'};
+    padding: 8px;
+`;
 const Keyword = styled.div`
     font-size: 1.2rem;
     margin: 0;
@@ -115,6 +123,11 @@ const PlayerWrapperIn = styled.div`
     padding-left: 130px;
 `;
 const Player = styled(ReactPlayer)``;
+
+const TechnologyWrapper = styled.div`
+    margin-bottom: 30px;
+`;
+const TechnologyAdaptionWrapper = styled(TechnologyWrapper)``;
 
 const Detail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device);
@@ -153,7 +166,7 @@ const Detail = ({data, type}) => {
             <DetailWrapper>
                 { type === 'solution' && (
                     <SolutionWrapper>
-                        <ImgWrapper>
+                        <ImgWrapper type={type}>
                             <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
                         </ImgWrapper>
                         <SolutionTextWrapper>
@@ -163,23 +176,27 @@ const Detail = ({data, type}) => {
                         </SolutionTextWrapper>
                     </SolutionWrapper>
                 )}
-
+                { type === 'technology' && (
+                    <TechnologyWrapper>
+                        {/* <TitleWrapper top={'8px'}>
+                            <IconWrapper><MdPlayArrow /></IconWrapper>
+                            <TextTitle>기능</TextTitle>
+                        </TitleWrapper>
+                        {data[type].map((solution, index) => (
+                            <Solution key={`technology${index}`}>{solution}</Solution>
+                        ))} */}
+                        <ImgWrapper>
+                            <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
+                        </ImgWrapper>
+                    </TechnologyWrapper>
+                )}
                 <TextWrapper>
-                    { type === 'technology' && (
-                        <div>
-                            <TitleWrapper top={'8px'}>
-                                <IconWrapper><MdPlayArrow /></IconWrapper>
-                                <TextTitle>기능</TextTitle>
-                            </TitleWrapper>
-                            {data[type].map((solution, index) => (
-                                <Solution key={`technology${index}`}>{solution}</Solution>
-                            ))}
-                        </div>
-                    )}
-                    <TitleWrapper top={'4px'}>
-                        <TextTitle>주요 특징</TextTitle>
-                    </TitleWrapper>
-                    <FunctionWrapperOut>
+                    { type === 'solution' &&
+                        <TitleWrapper top={'4px'}>
+                            <TextTitle>주요 특징</TextTitle>
+                        </TitleWrapper>
+                    }
+                    <FunctionWrapperOut type={type}>                  
                         {data.function.map(({title, explan}, index) => (
                             <FunctionWrapperIn key={`function${index}`} index={index+1} length={data.function.length}>
                                 <FunctionTitleWrapper>
@@ -239,18 +256,17 @@ const Detail = ({data, type}) => {
                         </div>
                     } */}
                     { data.adaptation !== undefined &&
-                        <div>
+                        <TechnologyAdaptionWrapper>
                             <TitleWrapper>
-                                <IconWrapper><MdPlayArrow /></IconWrapper>
                                 <TextTitle>적용분야</TextTitle>
                             </TitleWrapper>
-                            {data.adaptation.map((adapt, index) => (
-                                <AdaptionWrapper key={`adaptation ${index}`}>
-                                    <FunctionIconWrapper><BsCheckLg size={10} /></FunctionIconWrapper>
-                                    <FunctionTitle>{adapt}</FunctionTitle>
-                                </AdaptionWrapper>
-                            ))}
-                        </div>
+                                {data.adaptation.map((adapt, index) => (
+                                    <AdaptionWrapper key={`adaptation ${index}`} index={index+1} length={data.adaptation.length}>
+                                        <FunctionIconWrapper>◉</FunctionIconWrapper>
+                                        <FunctionTitle>{adapt}</FunctionTitle>
+                                    </AdaptionWrapper>
+                                ))}
+                        </TechnologyAdaptionWrapper>
                     }
                 </TextWrapper>
             </DetailWrapper>
