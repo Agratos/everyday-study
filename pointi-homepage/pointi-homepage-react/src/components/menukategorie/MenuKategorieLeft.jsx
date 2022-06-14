@@ -1,7 +1,7 @@
 import React, { useState, useEffect}from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import dummyData from 'assets/dummy/menu.json';
 import { IoIosMenu } from "react-icons/io";
@@ -60,6 +60,7 @@ const LinkWrapperIn = styled(Link)`
 
 const MenuKategorieLeft = () => {
     // const dropDownData = useSelector(state => state.setDataReducer.menu);
+    const dispatch = useDispatch();
     const [ isClick, setIsClick ] = useState(false);
 
     useEffect(() => {
@@ -69,7 +70,7 @@ const MenuKategorieLeft = () => {
             document.getElementById('top').style.opacity = '0.3';
             document.getElementById('top').style.pointerEvents = 'none';
             document.getElementById('footer').style.opacity = '0.3';
-            document.getElementById('top').style.opacity = 'none';
+            document.getElementById('footer').style.pointerEvents = 'none';
         } else {
             document.getElementById('detail').style.opacity = '1'
             document.getElementById('detail').style.pointerEvents = 'auto';
@@ -81,6 +82,14 @@ const MenuKategorieLeft = () => {
     },[isClick])
     const handleIsClick = () => {
         setIsClick(!isClick);
+    }
+
+    const handleLinkClick = (e) => {
+        dispatch({
+            type: 'SET_CHANGE',
+            isChange: e.target.href,
+        });
+        setIsClick(false);
     }
 
     return(
@@ -97,7 +106,12 @@ const MenuKategorieLeft = () => {
                             {title}
                             <LinkWrapperOut>
                                 {list.map(({title, path},index) => (
-                                    <LinkWrapperIn to={path} index={index} key={`link-${index}`}>
+                                    <LinkWrapperIn 
+                                        to={path} 
+                                        index={index} 
+                                        key={`link-${index}`}
+                                        onClick={handleLinkClick}
+                                    >
                                         - {title}
                                     </LinkWrapperIn>
                                 ))}

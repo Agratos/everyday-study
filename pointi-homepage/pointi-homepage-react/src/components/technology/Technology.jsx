@@ -29,9 +29,14 @@ const Technology = () => {
     const dispatch = useDispatch();
     const technologyData = useSelector(state => state.setDataReducer.technology);
     const device = useSelector(state => state.setDeviceReducer.device);
+    const isChange = useSelector(state => state.setChangeReducer.isChange);
     const { click } = useParams();
     const [isClick, setIsClick] = useState(click);
 
+    useEffect(() => {
+        const url = window.location.pathname.split('/');
+        setIsClick(url[2])
+    },[ isChange ])
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
             window.history.pushState('','technology click시 url 변경',`/technology/${isClick}`);
