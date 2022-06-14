@@ -97,6 +97,8 @@ const TextWrapperOut = styled.div`
 `;
 const TextWrapper = styled.div`
     font-size: 0.8rem;
+    font-size: ${({index}) => index === 1 && '0.9rem'};
+    margin-top: ${({index}) => index === 2 && '2px'};
 `;
 const GoToTheMapButton = styled(Link)`
     ${({theme}) => theme.divCommon.flexCenter};
@@ -129,7 +131,7 @@ const Footer = () => {
                 </LogoWrapper>
                 <TextWrapperOut>
                     {footerData.data[0].list.map((list,index) => (
-                        <TextWrapper key={`footer-text-wrapper${index}`}>
+                        <TextWrapper key={`footer-text-wrapper${index}`} index={index}>
                             {list}
                         </TextWrapper>
                     ))}

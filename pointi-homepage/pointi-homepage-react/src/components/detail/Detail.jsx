@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import ReactPlayer from 'react-player';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
+import { VscCircleFilled } from "react-icons/vsc";
 import Technology from 'components/technology/Technology';
 
 const Flex = styled.div`
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 `;
 const SolutionWrapper = styled(Flex)`
     padding: 8px;
-    background-color: #cac9c988;
+    background-color: #cac9c946;
 `;
 const SolutionTextWrapper = styled.div`
     padding: 0px 32px;
@@ -65,16 +66,17 @@ const Solution = styled(TextFont)`
 `;
 const FunctionWrapperOut = styled.div`
     margin-bottom: 40px;
-    background-color: #cac9c988;
+    background-color: #cac9c946;
     border-bottom: 2px solid black;
     border-top: ${({type}) => type === 'technology' && '2px solid black'};
 `;
 const FunctionWrapperIn = styled(TextFont)`
-    border-bottom: ${({length, index}) => length !== index && '1px solid black'};
+    border-bottom: ${({length, index}) => length !== index && '1px solid #cac9c9b5'};
     padding: 10px 8px;
 `;
 const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexCenterCenter}
     font-size: 0.7rem;
     margin: 0 8px 0 24px;
 `;
@@ -95,8 +97,8 @@ const KeywordWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
 `;
 const AdaptionWrapper = styled(Flex)`
-    background-color: ${({index}) => index%2 === 0 ? '#cac9c9db' : '#cac9c988'};
-    border-bottom: ${({index, length}) => index === length ? '2px solid black' : '1px solid black'};
+    background-color: ${({index}) => index%2 === 0 ? '#cac9c946' : '#cac9c946'}; // 번갈아 가면서 작동 
+    border-bottom: ${({index, length}) => index === length ? '2px solid black' : '1px solid #cac9c9b5'};
     padding: 8px;
 `;
 const Keyword = styled.div`
@@ -200,7 +202,7 @@ const Detail = ({data, type}) => {
                         {data.function.map(({title, explan}, index) => (
                             <FunctionWrapperIn key={`function${index}`} index={index+1} length={data.function.length}>
                                 <FunctionTitleWrapper>
-                                    <FunctionIconWrapper>◉</FunctionIconWrapper>
+                                    <FunctionIconWrapper><VscCircleFilled /></FunctionIconWrapper>
                                     <FunctionTitle>{title}</FunctionTitle>
                                 </FunctionTitleWrapper>
                                 {explan.map((ex, index) => (
@@ -262,7 +264,7 @@ const Detail = ({data, type}) => {
                             </TitleWrapper>
                                 {data.adaptation.map((adapt, index) => (
                                     <AdaptionWrapper key={`adaptation ${index}`} index={index+1} length={data.adaptation.length}>
-                                        <FunctionIconWrapper>◉</FunctionIconWrapper>
+                                        <FunctionIconWrapper><VscCircleFilled /></FunctionIconWrapper>
                                         <FunctionTitle>{adapt}</FunctionTitle>
                                     </AdaptionWrapper>
                                 ))}

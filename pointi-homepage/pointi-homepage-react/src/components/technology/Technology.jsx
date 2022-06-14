@@ -53,7 +53,7 @@ const Technology = () => {
                 {`Home > Technology > ${technologyData[isClick].title}`}
             </Location> */}
             { device !== 'Mobile' ? 
-                <MenuKategorieLeft 
+                <MenuKategorie
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}

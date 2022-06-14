@@ -8,7 +8,8 @@ const device = {
 
 const GlobalStyle = createGlobalStyle`
     body{
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        font-family: 'Nanum Gothic', sans-serif;
+        //font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     }
     @media screen and (${device.pc}){
         body{

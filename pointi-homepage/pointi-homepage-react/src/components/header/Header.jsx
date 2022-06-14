@@ -40,7 +40,7 @@ const SliderArea = styled.div`
         css`
             ${({theme}) => theme.divCommon.flexCenterCenter}
             background: linear-gradient(45deg,#83bbef,#78c6e2ab);
-            height: 10vh;
+            height: 48px;
             font-size: 1.2rem;
             color: #27292ba9;
             //max-height: 500px;
