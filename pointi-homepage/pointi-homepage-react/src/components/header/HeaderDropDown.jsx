@@ -34,7 +34,9 @@ const TopDropDownWrapper = styled(Flex)``;
 const MenuBarArea = styled.div`
     font-weight: 400;
 `;
-const MenuBar = styled(Flex)``;
+const MenuBar = styled(Flex)`
+    margin-left: -16px;
+`;
 const DropDownWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumn}
     background-color: rgb(239, 239, 239);
@@ -42,6 +44,7 @@ const DropDownWrapper = styled.div`
     position: absolute;
     margin-top: 8px;
     overflow: hidden;
+   
 `;
 const MenuBarText = styled(Link)`
     ${({theme}) => theme.divCommon.flex}
@@ -93,7 +96,7 @@ const MenuIconWrapper = styled(IconWrapper)`
     color: ${props=>props.page === 'main' ? 'white' : 'black'};
 `
 const LeftLogoArea = styled.div`
-    padding-left: ${({device}) => device === 'PC' && '15vw'};
+    padding-left: ${({device}) => device === 'PC' && '140px'};
     width: 25%;
 `;
 const LeftLogo = styled.img`

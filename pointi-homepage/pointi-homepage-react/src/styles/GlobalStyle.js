@@ -14,11 +14,14 @@ const GlobalStyle = createGlobalStyle`
     @media screen and (${device.pc}){
         body{
             padding: 0;
+            width: 1200px;
             max-width: 2000px;
             max-height: 1600px;
             margin: auto;
             font-size: 16px;
-            height: 100vh;
+            height: 100%;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
         };
     }
     @media screen and (${device.tablet}){
@@ -26,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
             padding: 0;
             margin: 0;
             font-size: 16px;
-            height: 100vh;
+            height: 100%;
         };
     }
     @media screen and (${device.mobile}){
@@ -34,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
             padding: 0;
             margin: 0;
             font-size: 16px;
-            height: 100vh;
+            height: 100%;
         };
     }
     table{

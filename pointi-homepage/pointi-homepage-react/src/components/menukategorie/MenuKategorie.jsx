@@ -20,40 +20,43 @@ const KategorieWrapper = styled.div`
 const MenuBar = styled.div`
     display: flex;
     width: 100%;
+    height: 32px;
     //width: fit-content;
     //margin-left: calc((100% - 900px) / 2);
 `;
 const Page = styled.div`
+    ${({theme}) => theme.divCommon.flex}
     border: 1px solid #e2dddd;
     padding: 8px;
+    padding-left: 150px;
     font-size: 0.9rem;
-    width: 25%;
+    width: 50%;
     &:hover{
         cursor: pointer;
     }
-    padding-left: 25%;
 `;
-const Select = styled(Page)`
-    width: 30%;
-    padding-left: 20%;
-`;
+const Select = styled(Page)``;
 const IconWrapper = styled.div`
-    float: right;
+    position: absolute;
     z-index: 1;
+    left: ${({type}) => type === 'select' ? 'calc(50% + 568px)' : 'calc(50% - 32px)'};
+    
+
 `;
 const UnderBar = styled.div`
+    ${({theme}) => theme.divCommon.flexColumn}
     position: absolute;
-    margin-top: 9px;
     background-color: #e2dddd;
     line-height: 32px;
-    width: 50%;
+    width: 600px;
+    margin-left: calc(50% - 600px);
+    top: 136px;
 `;
 const UnderMenuBar = styled(UnderBar)`
-    left: 50%;
     height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
+    left: 600px;
 `;
 const UnderPageBar = styled(UnderBar)`
-    ${({theme}) => theme.divCommon.flexColumn}
     height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
     left: 0;
 `;
@@ -69,7 +72,7 @@ const MenuText = styled.div`
             // padding: 12px 32px;
         `}
     }
-    padding-left: 40%;
+    padding-left: 150px;
     &:hover {
         background-color: #d5d8e0
     }
@@ -80,14 +83,16 @@ const PageLink = styled(Link)`
     height: ${({click}) => click === 'true' ? '40px' : '0px'};
     opacity: ${({click}) => click === 'true' ? '1' : '0'};
     color: black;
+    text-align: left;
+    padding-left: 150px;
     &{
         ${({title, id}) => id === title && `
-            color: #5DB2FF;
+            color: #4e95d7;
             font-weight: bolder;
             // padding: 12px 32px;
         `}
     }
-    padding-left: 50%;
+    //padding-left: 50%;
     &:hover {
         background-color: #d5d8e0;
     }
@@ -163,7 +168,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                     </Page>
                     <Select id='select' onClick={onClickMenu}>
                         {menuTitle}
-                        <IconWrapper>
+                        <IconWrapper type={'select'}>
                             {isMenuClick ? <AiFillCaretUp /> : <AiFillCaretDown />}
                         </IconWrapper>
                         <UnderMenuBar height={'130px'} isMenuClick={isMenuClick}>

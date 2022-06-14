@@ -75,7 +75,7 @@ import phone2 from 'assets/imgs/footer/phone2.png';
 // `;
 
 const Wrapper = styled.div`
-    height: 8vh;
+    height: 64px;
     padding-top: 24px;
     padding-bottom: 16px;
     background-color: #BDD7EE;

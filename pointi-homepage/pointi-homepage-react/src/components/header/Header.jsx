@@ -38,10 +38,13 @@ const SliderArea = styled.div`
             //max-height: 500px;
         ` : 
         css`
-            ${({theme}) => theme.divCommon.flexCenterCenter}
+            ${({theme}) => theme.divCommon.flex}
+            align-items: center;
+            padding-left: 150px;
             background: linear-gradient(45deg,#83bbef,#78c6e2ab);
             height: 48px;
             font-size: 1.2rem;
+            font-weight: 600;
             color: #27292ba9;
             //max-height: 500px;
         `
