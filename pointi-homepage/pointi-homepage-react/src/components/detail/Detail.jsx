@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
 `;
 const SolutionWrapper = styled(Flex)`
-    ${({theme, imgWidth}) => imgWidth > 400 && theme.divCommon.flexColumnCenterCenter};
+    ${({theme, imgWidth}) => imgWidth > 450 && theme.divCommon.flexColumnCenterCenter};
     width: 100%;
     background-color: rgba(225, 222, 222, 0.2);
     border-top: 2px solid black;
