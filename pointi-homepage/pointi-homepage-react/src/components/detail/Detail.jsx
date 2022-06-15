@@ -24,8 +24,10 @@ const SolutionWrapper = styled(Flex)`
 `;
 const SolutionTextWrapper = styled.div`
     width: 95%;
+    transition-timing-function: ease-in-out;
     ${({imgWidth}) => imgWidth > 400 ? css`
         margin-top: 8px;
+        margin-left: -40px;
     ` : css`
         margin-left: 16px;
     `}
@@ -72,7 +74,12 @@ const TextTitle = styled(TextFont)`
     margin: 8px 0;
 `;
 const Solution = styled(TextFont)`
-    margin-bottom: 16px;
+    ${({theme}) => theme.divCommon.flex}
+    margin-bottom: ${({index}) => !index && '16px'};
+`;
+const SolutionIconWrapper = styled.div`
+    font-size: 0.6rem;
+    margin-right: 4px;
 `;
 const FunctionWrapperOut = styled.div`
     margin-bottom: 40px;
@@ -87,7 +94,7 @@ const FunctionWrapperIn = styled(TextFont)`
 const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter}
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     margin: 0 8px 0 12px;
 `;
 const FunctionTitle = styled(TextFont)`
@@ -147,7 +154,7 @@ const Detail = ({data, type}) => {
     const [ windowHeight, setWindowHeightt ] = useState(window.innerHeight);
     const [ playerHeight, setPlayerHeight ] = useState(10000);
     const [ start, setStart] = useState(false);
-    const [ imgWidth, setImgWidth ] = useState(400);
+    const [ imgWidth, setImgWidth ] = useState(0);
     const playerRef = useRef();
     const imgRef = useRef();
 
@@ -186,7 +193,10 @@ const Detail = ({data, type}) => {
                         />
                         <SolutionTextWrapper imgWidth={imgWidth}>
                             {data[type].map((solution, index) => (
-                                <Solution key={`solution${index}`}>{solution}</Solution>
+                                <Solution key={`solution${index}`} index={index + 1 === data[type].length}>
+                                    <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
+                                    {solution}
+                                </Solution>
                             ))}
                         </SolutionTextWrapper>
                     </SolutionWrapper>
