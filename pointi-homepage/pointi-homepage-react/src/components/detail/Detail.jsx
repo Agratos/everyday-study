@@ -17,11 +17,19 @@ const Wrapper = styled.div`
     margin: 0 auto;
 `;
 const SolutionWrapper = styled(Flex)`
+    ${({theme, imgWidth}) => imgWidth > 400 && theme.divCommon.flexColumnCenterCenter};
+    width: 100%;
     padding: 8px;
-    background-color: #cac9c946;
+    background-color: #e1dede54;
 `;
 const SolutionTextWrapper = styled.div`
-    padding: 0px 32px;
+    width: 95%;
+    ${({imgWidth}) => imgWidth > 400 ? css`
+        margin-top: 8px;
+    ` : css`
+        margin-left: 16px;
+    `}
+
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
@@ -38,9 +46,11 @@ const ImgWrapper = styled(Flex)`
     //max-width: 400px;;
 `;
 const Img = styled.img`
-    max-width: inherit;
+    //max-width: 880px;
+    height: fit-content;
+    //max-width: inherit;
     /* max-width: ${({device}) => device === 'Mobile' ? '100%' : 'inherit'}; */
-    margin-top: ${({type}) => type === 'technology' && '8px'};
+    //margin-top: ${({type}) => type === 'technology' && '8px'};
 `;
 const TextWrapper = styled.div`
     margin-top: 32px; 
@@ -62,30 +72,30 @@ const TextTitle = styled(TextFont)`
     margin: 8px 0;
 `;
 const Solution = styled(TextFont)`
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 `;
 const FunctionWrapperOut = styled.div`
     margin-bottom: 40px;
-    background-color: #cac9c946;
+    background-color: #e1dede54;
     border-bottom: 2px solid black;
     border-top: ${({type}) => type === 'technology' && '2px solid black'};
 `;
 const FunctionWrapperIn = styled(TextFont)`
     border-bottom: ${({length, index}) => length !== index && '1px solid #cac9c9b5'};
-    padding: 10px 8px;
+    padding: 10px 0;
 `;
 const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter}
     font-size: 0.7rem;
-    margin: 0 8px 0 24px;
+    margin: 0 8px 0 12px;
 `;
 const FunctionTitle = styled(TextFont)`
     font-weight: bold;
     color: #4d4a4ae7;
 `;
 const FunctionEx = styled.div`
-    margin-left: 40px;
+    margin-left: 32px;
     font-size: 0.9rem;
     color: #4d4a4af3;
 `;
@@ -120,7 +130,7 @@ const PlayerWrapperOut = styled.div`
 const PlayerWrapperIn = styled.div`
     text-align: center;
     align-items: center;
-    background-color: #cac9c988;
+    background-color: #e1dede54;
     border-bottom: 2px solid black;
     padding-left: 130px;
 `;
@@ -132,15 +142,14 @@ const TechnologyWrapper = styled.div`
 const TechnologyAdaptionWrapper = styled(TechnologyWrapper)``;
 
 const Detail = ({data, type}) => {
-    const device = useSelector(state => state.setDeviceReducer.device);
+    const device = useSelector(state => state.setDeviceReducer.device); 
     const [ scrollPosition, setScrollPosition ] = useState(0);
     const [ windowHeight, setWindowHeightt ] = useState(window.innerHeight);
     const [ playerHeight, setPlayerHeight ] = useState(10000);
     const [ start, setStart] = useState(false);
+    const [ imgWidth, setImgWidth ] = useState(400);
     const playerRef = useRef();
-    const checkSubText = (str) => {
-        return (str[0] === '(' && str[str.length-1] === ')')
-    }
+    const imgRef = useRef();
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true});
@@ -156,22 +165,26 @@ const Detail = ({data, type}) => {
             setStart(playerStart);
         }
     },[scrollPosition])
-
     const handleScroll = (e) => {
         const position = window.scrollY;
         setScrollPosition(position);
     }
+    const checkSubText = (str) => {
+        return (str[0] === '(' && str[str.length-1] === ')')
+    }
+
+    //console.log(imgWidth);
 
     return (
         <Wrapper device={device} id={'detail'}>
             <Title>{data.title}</Title>
             <DetailWrapper>
                 { type === 'solution' && (
-                    <SolutionWrapper>
-                        <ImgWrapper type={type}>
-                            <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
-                        </ImgWrapper>
-                        <SolutionTextWrapper>
+                    <SolutionWrapper imgWidth={imgWidth}>
+                        <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type} ref={imgRef} 
+                            onLoad={() => setImgWidth(imgRef.current.offsetWidth)}
+                        />
+                        <SolutionTextWrapper imgWidth={imgWidth}>
                             {data[type].map((solution, index) => (
                                 <Solution key={`solution${index}`}>{solution}</Solution>
                             ))}
