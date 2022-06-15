@@ -19,17 +19,20 @@ const Wrapper = styled.div`
 const SolutionWrapper = styled(Flex)`
     ${({theme, imgWidth}) => imgWidth > 400 && theme.divCommon.flexColumnCenterCenter};
     width: 100%;
-    padding: 8px;
-    background-color: #e1dede54;
+    background-color: rgba(225, 222, 222, 0.2);
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding-top: 8px;
 `;
 const SolutionTextWrapper = styled.div`
-    width: 95%;
-    transition-timing-function: ease-in-out;
+    width: 100%;
+    margin-top: 8px;
+    //border-top: 2px solid black;
     ${({imgWidth}) => imgWidth > 400 ? css`
-        margin-top: 8px;
-        margin-left: -40px;
+        //margin-top: 8px;
+        //margin-left: -40px;
     ` : css`
-        margin-left: 16px;
+        //margin-left: 16px;
     `}
 
 `;
@@ -37,7 +40,7 @@ const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
     text-align: left;
     margin-top: 32px;
-    margin-bottom: 16px;
+    //margin-bottom: 16px;
     //margin-bottom: 32px ;
 `;
 const DetailWrapper = styled.div`
@@ -75,7 +78,10 @@ const TextTitle = styled(TextFont)`
 `;
 const Solution = styled(TextFont)`
     ${({theme}) => theme.divCommon.flex}
-    margin-bottom: ${({index}) => !index && '16px'};
+    /* border-top: ${({index}) => !index && '1px solid #cac9c9b5'}; */
+    border-top: 1px solid #cac9c9b5;
+    padding: 8px;
+    //margin-bottom: ${({index}) => !index && '16px'};
 `;
 const SolutionIconWrapper = styled.div`
     font-size: 0.6rem;
@@ -83,7 +89,7 @@ const SolutionIconWrapper = styled.div`
 `;
 const FunctionWrapperOut = styled.div`
     margin-bottom: 40px;
-    background-color: #e1dede54;
+    background-color: rgba(225, 222, 222, 0.2);
     border-bottom: 2px solid black;
     border-top: ${({type}) => type === 'technology' && '2px solid black'};
 `;
@@ -114,7 +120,7 @@ const KeywordWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
 `;
 const AdaptionWrapper = styled(Flex)`
-    background-color: ${({index}) => index%2 === 0 ? '#cac9c946' : '#cac9c946'}; // 번갈아 가면서 작동 
+    background-color: ${({index}) => index%2 === 0 ? 'rgba(225, 222, 222, 0.2)' : 'rgba(225, 222, 222, 0.2)'}; // 번갈아 가면서 작동 
     border-bottom: ${({index, length}) => index === length ? '2px solid black' : '1px solid #cac9c9b5'};
     padding: 8px;
 `;
@@ -137,7 +143,7 @@ const PlayerWrapperOut = styled.div`
 const PlayerWrapperIn = styled.div`
     text-align: center;
     align-items: center;
-    background-color: #e1dede54;
+    background-color: rgba(225, 222, 222, 0.2);
     border-bottom: 2px solid black;
     padding-left: 130px;
 `;
