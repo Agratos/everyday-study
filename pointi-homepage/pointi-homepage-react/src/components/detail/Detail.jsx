@@ -18,21 +18,29 @@ const Wrapper = styled.div`
 `;
 const SolutionWrapper = styled(Flex)`
     ${({theme, imgWidth}) => imgWidth > 450 && theme.divCommon.flexColumnCenterCenter};
+    ${({imgWidth}) => imgWidth > 450 ? css`
+    
+    ` : css`
+        padding-left: 16px;
+        padding-bottom: 16px;
+    `}
     width: 100%;
     background-color: rgba(225, 222, 222, 0.2);
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    padding-top: 8px;
+    padding-top: 16px;
+    margin-bottom: 40px;
+    margin-top: 16px;
 `;
 const SolutionTextWrapper = styled.div`
     width: 100%;
-    margin-top: 8px;
-    //border-top: 2px solid black;
-    ${({imgWidth}) => imgWidth > 400 ? css`
-        //margin-top: 8px;
-        //margin-left: -40px;
+    //margin-top: 8px;
+    ${({imgWidth}) => imgWidth > 450 ? css`
+        margin-top: 16px;
     ` : css`
-        //margin-left: 16px;
+        border-left: 1px solid black;
+        margin: -16px 0;
+        margin-left: 16px;
     `}
 
 `;
@@ -58,7 +66,7 @@ const Img = styled.img`
     //margin-top: ${({type}) => type === 'technology' && '8px'};
 `;
 const TextWrapper = styled.div`
-    margin-top: 32px; 
+    margin-top: 16px; 
     margin-bottom: ${({bottom}) => bottom};
 `;
 const TitleWrapper = styled(Flex)`
@@ -78,10 +86,12 @@ const TextTitle = styled(TextFont)`
 `;
 const Solution = styled(TextFont)`
     ${({theme}) => theme.divCommon.flex}
-    /* border-top: ${({index}) => !index && '1px solid #cac9c9b5'}; */
-    border-top: 1px solid #cac9c9b5;
+    ${({imgWidth, index}) => imgWidth > 450 ? css`
+        border-top: 1px solid #cac9c9b5;
+    ` : css`
+        border-bottom: ${!index && '1px solid #cac9c9b5'};
+    `}
     padding: 8px;
-    //margin-bottom: ${({index}) => !index && '16px'};
 `;
 const SolutionIconWrapper = styled.div`
     font-size: 0.6rem;
@@ -94,7 +104,8 @@ const FunctionWrapperOut = styled.div`
     border-top: ${({type}) => type === 'technology' && '2px solid black'};
 `;
 const FunctionWrapperIn = styled(TextFont)`
-    border-bottom: ${({length, index}) => length !== index && '1px solid #cac9c9b5'};
+    border-top: 1px solid #cac9c9b5;
+    //border-bottom: ${({length, index}) => length !== index && '1px solid #cac9c9b5'};
     padding: 10px 0;
 `;
 const FunctionTitleWrapper = styled(Flex)``;
@@ -150,7 +161,8 @@ const PlayerWrapperIn = styled.div`
 const Player = styled(ReactPlayer)``;
 
 const TechnologyWrapper = styled.div`
-    margin-bottom: 30px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 `;
 const TechnologyAdaptionWrapper = styled(TechnologyWrapper)``;
 
@@ -186,8 +198,6 @@ const Detail = ({data, type}) => {
         return (str[0] === '(' && str[str.length-1] === ')')
     }
 
-    //console.log(imgWidth);
-
     return (
         <Wrapper device={device} id={'detail'}>
             <Title>{data.title}</Title>
@@ -199,7 +209,8 @@ const Detail = ({data, type}) => {
                         />
                         <SolutionTextWrapper imgWidth={imgWidth}>
                             {data[type].map((solution, index) => (
-                                <Solution key={`solution${index}`} index={index + 1 === data[type].length}>
+                                <Solution key={`solution${index}`} index={index + 1 === data[type].length} imgWidth={imgWidth}>
+                                    {console.log(index + 1 === data[type].length)}
                                     <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
                                     {solution}
                                 </Solution>
@@ -207,27 +218,21 @@ const Detail = ({data, type}) => {
                         </SolutionTextWrapper>
                     </SolutionWrapper>
                 )}
-                { type === 'technology' && (
-                    <TechnologyWrapper>
-                        {/* <TitleWrapper top={'8px'}>
-                            <IconWrapper><MdPlayArrow /></IconWrapper>
-                            <TextTitle>기능</TextTitle>
-                        </TitleWrapper>
-                        {data[type].map((solution, index) => (
-                            <Solution key={`technology${index}`}>{solution}</Solution>
-                        ))} */}
-                        <ImgWrapper>
-                            <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
-                        </ImgWrapper>
-                    </TechnologyWrapper>
-                )}
+
                 <TextWrapper>
                     { type === 'solution' &&
                         <TitleWrapper top={'4px'}>
                             <TextTitle>주요 특징</TextTitle>
                         </TitleWrapper>
                     }
-                    <FunctionWrapperOut type={type}>                  
+                    <FunctionWrapperOut type={type}>
+                        { type === 'technology' && (
+                            <TechnologyWrapper>
+                                <ImgWrapper>
+                                    <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
+                                </ImgWrapper>
+                            </TechnologyWrapper>
+                        )}
                         {data.function.map(({title, explan}, index) => (
                             <FunctionWrapperIn key={`function${index}`} index={index+1} length={data.function.length}>
                                 <FunctionTitleWrapper>
@@ -254,8 +259,6 @@ const Detail = ({data, type}) => {
                                     muted={true}
                                     controls={true}
                                     light={false}
-                                    //width='60%'
-                                    //height='100%'
                                 />
                             </PlayerWrapperIn>
                         </PlayerWrapperOut>
