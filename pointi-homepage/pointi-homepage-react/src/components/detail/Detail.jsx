@@ -210,7 +210,6 @@ const Detail = ({data, type}) => {
                         <SolutionTextWrapper imgWidth={imgWidth}>
                             {data[type].map((solution, index) => (
                                 <Solution key={`solution${index}`} index={index + 1 === data[type].length} imgWidth={imgWidth}>
-                                    {console.log(index + 1 === data[type].length)}
                                     <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
                                     {solution}
                                 </Solution>

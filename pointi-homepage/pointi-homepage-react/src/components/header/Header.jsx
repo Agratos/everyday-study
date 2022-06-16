@@ -11,6 +11,8 @@ import setChangeReducer from 'modules/change';
 
 const Wrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
+    border-left: 1px solid #e2dddd;
+    border-right: 1px solid #e2dddd;
     // background-color: none;
     /* ${props => props.page === 'main' &&
         css`
