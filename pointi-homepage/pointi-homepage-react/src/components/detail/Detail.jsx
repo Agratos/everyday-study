@@ -5,7 +5,6 @@ import ReactPlayer from 'react-player';
 import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
 import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 import { VscCircleFilled } from "react-icons/vsc";
-import Technology from 'components/technology/Technology';
 
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
@@ -16,7 +15,6 @@ const Wrapper = styled.div`
     width: ${props => props.device !== 'Mobile' && 'inherit'};
     margin: 0 auto;
     padding: 8px;
-    //width: inherit
 `;
 const SolutionWrapper = styled(Flex)`
     ${({theme, imgWidth}) => imgWidth > 450 && theme.divCommon.flexColumnCenterCenter};
@@ -44,7 +42,6 @@ const SolutionTextWrapper = styled.div`
         margin: -16px 0;
         margin-left: 16px;
     `}
-
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
@@ -65,7 +62,6 @@ const Img = styled.img`
         padding-left: 16px;
         padding-right:16px;
     `}
-
     //max-width: inherit;
     /* max-width: ${({device}) => device === 'Mobile' ? '100%' : 'inherit'}; */
     //margin-top: ${({type}) => type === 'technology' && '8px'};
@@ -132,7 +128,7 @@ const FunctionEx = styled.div`
 `;
 const FunctionExSub = styled.div`
     font-size: 0.85rem;
-    margin-top: -8px;
+    margin-top: -4px;
     margin-left: 48px;
 `;
 const KeywordWrapper = styled.div`

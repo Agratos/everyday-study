@@ -29,13 +29,13 @@ const Wrapper = styled.div`
     
 `;
 const SliderArea = styled.div`
-    background: url(${props => props.logo}) no-repeat center;
-    background-size: cover;
-    background-blend-mode:multiply;
     background-color: #0d4bf7aa;
     transition: all 1000ms ease 0s;
     ${props => props.page === 'main' ?
         css`
+            background: url(${props => props.logo}) no-repeat center;
+            background-size: cover;
+            background-blend-mode:multiply;
             height: 300px;
             background-color: #0d4bf734;
             //max-height: 500px;

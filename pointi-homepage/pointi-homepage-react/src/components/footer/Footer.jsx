@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import footerData from 'assets/dummy/footer.json';
+//import footerData from 'assets/dummy/footer.json';
 import Copyright from './Copyright';
 import logo from 'assets/imgs/custom/logo.png';
 import mail from 'assets/imgs/footer/mail.png';
@@ -116,7 +116,7 @@ const GoToTheMapButton = styled(Link)`
 `;
 
 const Footer = () => {
-    //const footerData = useSelector(state => state.setDataReducer.footer);
+    const footerData = useSelector(state => state.setDataReducer.footer);
     const device = useSelector(state => state.setDeviceReducer.device);
 
     return (
