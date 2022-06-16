@@ -113,7 +113,7 @@ const Wrapper = styled.div`
 const SolutionWrapper = styled(Link)`
     ${({ theme }) => theme.divCommon.flexSpaceAround}
     ${({ theme }) => theme.divCommon.flexColumn}
-    width: 320px;
+    width: 256px;
     height: 240px;
     padding: 8px;
     background: linear-gradient(-135deg, transparent 32px, #F0F9FD 0);

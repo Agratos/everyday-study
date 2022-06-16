@@ -120,6 +120,7 @@ const FunctionEx = styled.div`
     color: #4d4a4af3;
 `;
 const FunctionExSub = styled.div`
+    font-size: 0.85rem;
     margin-top: -8px;
     margin-left: 48px;
 `;
@@ -157,9 +158,11 @@ const PlayerWrapperIn = styled.div`
 const Player = styled(ReactPlayer)``;
 
 const TechnologyWrapper = styled.div`
-    padding: 16px;
+    margin: 16px 0;
 `;
-const TechnologyAdaptionWrapper = styled(TechnologyWrapper)``;
+const TechnologyAdaptionWrapper = styled(TechnologyWrapper)`
+    margin-bottom: 32px;
+`;
 
 const Detail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device); 

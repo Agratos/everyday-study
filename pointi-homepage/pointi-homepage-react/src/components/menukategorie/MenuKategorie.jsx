@@ -8,6 +8,8 @@ import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenter}
+    /* width: 900px;
+    margin: 0 auto; */
     //width: 100%;
 `;
 const KategorieWrapper = styled.div`

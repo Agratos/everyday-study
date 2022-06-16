@@ -47,7 +47,7 @@ const SliderArea = styled.div`
             height: 48px;
             font-size: 1.2rem;
             font-weight: 600;
-            color: #27292b4d;
+            color: #27292b55;
             //max-height: 500px;
         `
     }
@@ -83,10 +83,11 @@ const LocationText = styled.div`
     ${({theme}) => theme.divCommon.flex};
 `;
 const LocationCurrentText = styled.div`
-    color: #27292b92;
+    color: #27292bab;
 `;
 const LocationHome = styled(Link)`
-    color: #27292b4d;
+    color: #27292b55;
+    font-weight: 600;
 `;
 
 const Header = ({ page }) => {
