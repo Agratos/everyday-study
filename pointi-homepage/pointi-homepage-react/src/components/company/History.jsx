@@ -59,17 +59,6 @@ const History = ({data, kategorie, setSubtitleKategorie, device}) => {
     return (
         <Wrapper id={`history`}>
             <Title>회사 연혁</Title>
-                { device !== 'Mobile' && 
-                    <MenuKategorieWrapper>
-                        <MenuKategorieLeft 
-                            isClick={isClick} 
-                            setIsClick={setIsClick} 
-                            kategorie={kategorie} 
-                            setSubtitleKategorie={setSubtitleKategorie}
-                            subtitle={true} 
-                            isWrap={'nowrap'} />
-                    </MenuKategorieWrapper>
-                }
             <ListWrapper>
                 <Left id='left'>
                     {selected.map(({date, list}, index) => (
