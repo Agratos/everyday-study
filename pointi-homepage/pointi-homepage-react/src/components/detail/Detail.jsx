@@ -38,7 +38,7 @@ const SolutionTextWrapper = styled.div`
     ${({imgWidth}) => imgWidth > 450 ? css`
         margin-top: 16px;
     ` : css`
-        border-left: 1px solid black;
+        border-left: 1px solid #cac9c9b5;
         margin: -16px 0;
         margin-left: 16px;
     `}
