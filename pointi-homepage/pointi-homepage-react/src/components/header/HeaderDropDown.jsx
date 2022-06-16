@@ -96,8 +96,8 @@ const MenuIconWrapper = styled(IconWrapper)`
     color: ${props=>props.page === 'main' ? 'white' : 'black'};
 `
 const LeftLogoArea = styled.div`
-    padding-left: ${({device}) => device === 'PC' && '140px'};
-    width: 25%;
+    padding-left: ${({device}) => device === 'PC' && '70px'};
+    width: 40%;
 `;
 const LeftLogo = styled.img`
     width: 113px;

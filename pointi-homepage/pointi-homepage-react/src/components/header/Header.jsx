@@ -47,7 +47,7 @@ const SliderArea = styled.div`
             height: 48px;
             font-size: 1.2rem;
             font-weight: 600;
-            color: #27292ba9;
+            color: #27292b4d;
             //max-height: 500px;
         `
     }
@@ -78,6 +78,15 @@ const SliderAreaTextButton = styled(Link)`
     &:hover {
         background: linear-gradient(45deg,#05aae6,#0181f5);
     }
+`;
+const LocationText = styled.div`
+    ${({theme}) => theme.divCommon.flex};
+`;
+const LocationCurrentText = styled.div`
+    color: #27292b92;
+`;
+const LocationHome = styled(Link)`
+    color: #27292b4d;
 `;
 
 const Header = ({ page }) => {
@@ -148,10 +157,26 @@ const Header = ({ page }) => {
             <HeaderDropDown page={page} device={device} />
             <SliderArea page={page}> 
                 { page === 'solution' &&
-                    `Home\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[id].title}\u00A0\u00A0>\u00A0\u00A0${data[id][click].title}`
+                    <LocationText>
+                        <LocationHome to={'/'}>
+                            Home
+                        </LocationHome>
+                        {`\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[id].title}\u00A0\u00A0>\u00A0\u00A0`}
+                        <LocationCurrentText>
+                            {data[id][click].title}
+                        </LocationCurrentText>
+                    </LocationText>
                 } 
                 { page === 'technology' &&
-                    `Home\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[click].title}`
+                    <LocationText>
+                        <LocationHome to={'/'}>
+                            Home
+                        </LocationHome>
+                        {`\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0`}
+                        <LocationCurrentText>
+                            {data[click].title}
+                        </LocationCurrentText>
+                    </LocationText>
                 }
             </SliderArea>
         </Wrapper>

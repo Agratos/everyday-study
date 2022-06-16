@@ -54,12 +54,8 @@ const Title = styled.div`
 const DetailWrapper = styled.div`
     line-height: 24px;
 `;
-const ImgWrapper = styled(Flex)`
-    max-width: ${({type}) => type === 'solution' && '400px'};
-    //max-width: 400px;;
-`;
+const ImgWrapper = styled.div``;
 const Img = styled.img`
-    //max-width: 880px;
     height: fit-content;
     //max-width: inherit;
     /* max-width: ${({device}) => device === 'Mobile' ? '100%' : 'inherit'}; */
@@ -161,8 +157,7 @@ const PlayerWrapperIn = styled.div`
 const Player = styled(ReactPlayer)``;
 
 const TechnologyWrapper = styled.div`
-    margin-top: 16px;
-    margin-bottom: 16px;
+    padding: 16px;
 `;
 const TechnologyAdaptionWrapper = styled(TechnologyWrapper)``;
 
