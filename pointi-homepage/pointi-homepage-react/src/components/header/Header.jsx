@@ -81,6 +81,7 @@ const SliderAreaTextButton = styled(Link)`
 `;
 const LocationText = styled.div`
     ${({theme}) => theme.divCommon.flex};
+    cursor: default;
 `;
 const LocationCurrentText = styled.div`
     color: #27292bab;
