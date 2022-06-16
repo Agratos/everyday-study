@@ -30,7 +30,7 @@ const Page = styled.div`
     ${({theme}) => theme.divCommon.flex}
     border: 1px solid #e2dddd;
     padding: 8px;
-    padding-left: 150px;
+    padding-left: 16px;
     font-size: 0.9rem;
     width: 50%;
     &:hover{
@@ -41,16 +41,14 @@ const Select = styled(Page)``;
 const IconWrapper = styled.div`
     position: absolute;
     z-index: 1;
-    left: ${({type}) => type === 'select' ? 'calc(50% + 568px)' : 'calc(50% - 32px)'};
-    
-
+    left: ${({type}) => type === 'select' ? 'calc(50% + 428px)' : 'calc(50% - 32px)'};
 `;
 const UnderBar = styled.div`
     ${({theme}) => theme.divCommon.flexColumn}
     position: absolute;
     background-color: #e2dddd;
     line-height: 32px;
-    width: 600px;
+    width: 450px;
     margin-left: calc(50% - 600px);
     top: 136px;
 `;
@@ -60,7 +58,7 @@ const UnderMenuBar = styled(UnderBar)`
 `;
 const UnderPageBar = styled(UnderBar)`
     height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
-    left: 0;
+    left: 150px;
 `;
 const MenuText = styled.div`
     transition-duration: 0.5s;
@@ -74,7 +72,7 @@ const MenuText = styled.div`
             // padding: 12px 32px;
         `}
     }
-    padding-left: 150px;
+    padding-left: 16px;
     &:hover {
         background-color: #d5d8e0
     }
@@ -82,11 +80,12 @@ const MenuText = styled.div`
 const PageLink = styled(Link)`
     transition-duration: 0.5s;
     background-color: #e2dddd;
-    height: ${({click}) => click === 'true' ? '40px' : '0px'};
+    height: ${({click}) => click === 'true' ? '32px' : '0px'};
     opacity: ${({click}) => click === 'true' ? '1' : '0'};
     color: black;
     text-align: left;
-    padding-left: 150px;
+    padding-left: 16px;
+    
     &{
         ${({title, id}) => id === title && `
             color: #4e95d7;
@@ -94,7 +93,6 @@ const PageLink = styled(Link)`
             // padding: 12px 32px;
         `}
     }
-    //padding-left: 50%;
     &:hover {
         background-color: #d5d8e0;
     }
@@ -153,7 +151,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         <IconWrapper>
                             {isPageClick ? <AiFillCaretUp /> : <AiFillCaretDown />}
                         </IconWrapper>
-                        <UnderPageBar height={'120px'} isPageClick={isPageClick}>
+                        <UnderPageBar height={'96px'} isPageClick={isPageClick}>
                             { pageList.map(({page,path},index) => (
                                 <PageLink 
                                     id={page}

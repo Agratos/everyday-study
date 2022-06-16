@@ -13,8 +13,10 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     //border: 1px solid black; //#E8E8E8;
-    width: ${props => props.device !== 'Mobile' && '900px'};
+    width: ${props => props.device !== 'Mobile' && 'inherit'};
     margin: 0 auto;
+    padding: 8px;
+    //width: inherit
 `;
 const SolutionWrapper = styled(Flex)`
     ${({theme, imgWidth}) => imgWidth > 450 && theme.divCommon.flexColumnCenterCenter};
@@ -30,7 +32,7 @@ const SolutionWrapper = styled(Flex)`
     border-bottom: 2px solid black;
     padding-top: 16px;
     margin-bottom: 40px;
-    margin-top: 16px;
+    margin-top: 8px;
 `;
 const SolutionTextWrapper = styled.div`
     width: 100%;
@@ -47,7 +49,8 @@ const SolutionTextWrapper = styled.div`
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
     text-align: left;
-    margin-top: 32px;
+    margin-top: 24px;
+    padding-left: 16px;
     //margin-bottom: 16px;
     //margin-bottom: 32px ;
 `;
@@ -56,7 +59,13 @@ const DetailWrapper = styled.div`
 `;
 const ImgWrapper = styled.div``;
 const Img = styled.img`
+    max-width: 850px;
     height: fit-content;
+    ${({imgWidth}) => imgWidth > 450 && css`
+        padding-left: 16px;
+        padding-right:16px;
+    `}
+
     //max-width: inherit;
     /* max-width: ${({device}) => device === 'Mobile' ? '100%' : 'inherit'}; */
     //margin-top: ${({type}) => type === 'technology' && '8px'};
@@ -67,6 +76,7 @@ const TextWrapper = styled.div`
 `;
 const TitleWrapper = styled(Flex)`
     margin-top: ${({top}) => top || '16px'};
+    padding-bottom: 8px;
     border-bottom: 2px solid black;
 `;
 const IconWrapper = styled.div`
@@ -79,6 +89,7 @@ const TextFont = styled.div`
 const TextTitle = styled(TextFont)`
     ${({theme}) => theme.fontCommon.title}
     margin: 8px 0;
+    padding-left: 16px;
 `;
 const Solution = styled(TextFont)`
     ${({theme}) => theme.divCommon.flex}
@@ -203,7 +214,7 @@ const Detail = ({data, type}) => {
                 { type === 'solution' && (
                     <SolutionWrapper imgWidth={imgWidth}>
                         <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type} ref={imgRef} 
-                            onLoad={() => setImgWidth(imgRef.current.offsetWidth)}
+                            onLoad={() => setImgWidth(imgRef.current.offsetWidth)} imgWidth={imgWidth}
                         />
                         <SolutionTextWrapper imgWidth={imgWidth}>
                             {data[type].map((solution, index) => (

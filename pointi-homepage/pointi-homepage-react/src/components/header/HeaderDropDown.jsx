@@ -15,7 +15,7 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
-    padding: 8px 8px 4px 8px;
+    padding: 8px 0px 4px 8px;
     //border-bottom: 1px solid #ccbebe;
     //border: 1px solid #ccbebe;
     //border-top: none;
@@ -74,7 +74,7 @@ const DropDownText = styled(Link)`
 `;
 const LinkWrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
-    margin: 8px 32px;
+    margin: 8px 16px 8px 32px;
     &:hover ${DropDownText}{
         height: 32px;
         padding: 4px 16px;
@@ -96,8 +96,8 @@ const MenuIconWrapper = styled(IconWrapper)`
     color: ${props=>props.page === 'main' ? 'white' : 'black'};
 `
 const LeftLogoArea = styled.div`
-    padding-left: ${({device}) => device === 'PC' && '70px'};
-    width: 40%;
+    padding-left: ${({device}) => device === 'PC' && '0px'};
+    width: 60%;
 `;
 const LeftLogo = styled.img`
     width: 113px;

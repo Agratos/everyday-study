@@ -32,22 +32,23 @@ const SliderArea = styled.div`
     background: url(${props => props.logo}) no-repeat center;
     background-size: cover;
     background-blend-mode:multiply;
-    background-color: #7794b085;
+    background-color: #0d4bf7aa;
     transition: all 1000ms ease 0s;
     ${props => props.page === 'main' ?
         css`
-            height: 40vh;
+            height: 300px;
+            background-color: #0d4bf734;
             //max-height: 500px;
         ` : 
         css`
             ${({theme}) => theme.divCommon.flex}
             align-items: center;
-            padding-left: 150px;
-            background: linear-gradient(45deg,#83bbef,#78c6e2ab);
+            padding-left: 16px;
+            //background: linear-gradient(45deg,#83bbef,#78c6e2ab);
             height: 48px;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: #27292b55;
+            color: #ffffffc2;
             //max-height: 500px;
         `
     }
@@ -84,10 +85,10 @@ const LocationText = styled.div`
     cursor: default;
 `;
 const LocationCurrentText = styled.div`
-    color: #27292bab;
+    color: #fffffffc;
 `;
 const LocationHome = styled(Link)`
-    color: #27292b55;
+    color: #ffffffc2;
     font-weight: 600;
 `;
 

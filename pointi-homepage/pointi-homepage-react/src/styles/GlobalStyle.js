@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     @media screen and (${device.pc}){
         body{
             padding: 0;
-            width: 1200px;
+            width: 900px;
             max-width: 2000px;
             max-height: 1600px;
             margin: auto;

@@ -99,8 +99,8 @@ import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/i
 
 const Wrapper = styled.div`
     ${({ theme }) => theme.divCommon.flexSpaceAroundCenter}
-    height: calc(52vh - 96px);
-    padding: 0 5vw;
+    //height: calc(52vh - 96px);
+    padding: 32px 0;
     ${props=> props.device === 'Mobile' && 
         css`
             ${({ theme }) => theme.divCommon.flexColumn}
