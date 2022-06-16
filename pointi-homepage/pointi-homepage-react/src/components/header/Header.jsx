@@ -57,8 +57,8 @@ const SliderAreaTextWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     padding: 10vh;
     ${props => props.device === 'Mobile' && css`
-        height: 60vh;
-        padding: 5vh 2vh;
+        //height: 60vh;
+        //padding: 5vh 2vh;
     `}
 `;
 const SliderAreaText = styled.div`

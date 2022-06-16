@@ -93,7 +93,8 @@ const IconWrapper = styled.div`
     }
 `;
 const MenuIconWrapper = styled(IconWrapper)`
-    color: ${props=>props.page === 'main' ? 'white' : 'black'};
+    color: ${props=>props.page === 'main' ? 'black' : 'black'};
+    margin-top: -4px;
 `
 const LeftLogoArea = styled.div`
     padding-left: ${({device}) => device === 'PC' && '0px'};
@@ -111,7 +112,7 @@ const UnderMenuBar = styled.div`
     position: absolute;
     flex-direction: column;
     width: 100%;
-    top: 57px;
+    top: 54px;
     left: 0;
     border-top: 1px solid #ccbebe;
     background-color: #e2dddd;
