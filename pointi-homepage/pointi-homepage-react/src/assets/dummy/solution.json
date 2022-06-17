@@ -551,7 +551,7 @@
         },
         "video-information-center" :{
             "title" : "영상정보센터",
-            "image" : "Solution_ICT_cideoInformationCenterr.png",
+            "image" : "Solution_ICT_videoInformationCenterr.png",
             "solution" : [
                 "Mobile Network 환경에서 멀티미디어 서비스 제공을 위한 시스템으로 영상사서함, 영상편지, 영상수화, 영상회의, 영상전화 개통시험 등의 서비스 제공",
                 "VIC: Video Information Center"     

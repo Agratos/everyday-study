@@ -119,6 +119,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     const onClick = (e) => {
         setIsClick(e.target.id);
         setIsMenuClick(false);
+        setIsPageClick(false);
         setMenuTitle(document.getElementById(e.target.id).innerText);
     }
     const onClickMenu = () => {
