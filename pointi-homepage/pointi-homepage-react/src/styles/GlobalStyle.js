@@ -19,8 +19,8 @@ const GlobalStyle = createGlobalStyle`
             margin: auto;
             font-size: 16px;
             height: 100%;
-            border-left: 1px solid black;
-            border-right: 1px solid black;
+            /* border-left: 1px solid black;
+            border-right: 1px solid black; */
         };
     }
     @media screen and (${device.tablet}){
