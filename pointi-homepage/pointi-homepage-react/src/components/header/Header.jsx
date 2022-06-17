@@ -85,7 +85,7 @@ const LocationCurrentText = styled.div`
 `;
 const LocationHome = styled(Link)`
     color: #ffffffc2;
-    font-weight: 600;
+    font-weight: 700;
 `;
 
 const Header = ({ page }) => {

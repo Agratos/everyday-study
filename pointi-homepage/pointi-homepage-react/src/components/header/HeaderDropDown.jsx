@@ -15,11 +15,6 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
-    //padding: 8px 0px 4px 8px;
-    //border-bottom: 1px solid #ccbebe;
-    //border: 1px solid #ccbebe;
-    //border-top: none;
-    
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
             display: block;
@@ -35,9 +30,7 @@ const TopDropDownWrapper = styled(Flex)``;
 const MenuBarArea = styled.div`
     font-weight: 400;
 `;
-const MenuBar = styled(Flex)`
-    margin-left: -16px;
-`;
+const MenuBar = styled(Flex)``;
 const DropDownWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumn}
     background-color: rgb(239, 239, 239);
