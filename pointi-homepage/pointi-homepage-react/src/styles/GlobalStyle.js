@@ -9,7 +9,6 @@ const device = {
 const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Nanum Gothic', sans-serif;
-        //font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     }
     @media screen and (${device.pc}){
         body{
@@ -20,8 +19,8 @@ const GlobalStyle = createGlobalStyle`
             margin: auto;
             font-size: 16px;
             height: 100%;
-            /* border-left: 1px solid black;
-            border-right: 1px solid black; */
+            border-left: 1px solid black;
+            border-right: 1px solid black;
         };
     }
     @media screen and (${device.tablet}){

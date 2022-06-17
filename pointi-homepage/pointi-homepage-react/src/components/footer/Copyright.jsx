@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     //border-top: 1px solid #eee7e7;
-    color: #919191;
+    //color: #ffffff82;
 `;
 const CopyrightText = styled.div`
     ${({theme}) => theme.divCommon.flexCenter}
@@ -11,7 +11,7 @@ const CopyrightText = styled.div`
     font-size: 0.8rem;
 `;
 const Colorlib = styled.div`
-    color: #5DB2FF;
+    //color: #5DB2FF;
     &:hover {
         cursor: pointer;
     }

@@ -13,23 +13,7 @@ const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 0 auto;
 `;
-const Location = styled.div`
-    margin-left: 32px;
-`;
-const SolutionListWrapper = styled.div`
-    margin-top: 16px;
-`;
-const MenuKategorieLeftWrapper = styled.div`
-    ${({theme}) => theme.divCommon.fixedLeftTop}
-    /* top: 95px;
-    height: 100%;
-    margin-left: 28px;
-    width: 16%; */
-    top: 95px;
-    //left: calc(5% - 0px);
-    height: 100%;
-    width: 15%;
-`;
+const SolutionListWrapper = styled.div``;
 
 const Solution = () => {
     const dispatch = useDispatch();
@@ -54,40 +38,7 @@ const Solution = () => {
 
     return (
         <Wrapper>
-            {/* <Location>
-                {`Home > Solution > ${id} > ${checkUndefined().title}`}
-            </Location> */}
             { device !== 'Mobile' ? 
-                // <MenuKategorieLeftWrapper>
-                //     <MenuKategorieLeft 
-                //         kategorie={solutrionData[id].kategorie} 
-                //         setIsClick={setIsClick} 
-                //         isClick={isClick}
-                //     />
-                // </MenuKategorieLeftWrapper> :
-                // <div>
-                //     <Location>
-                //         {`Home > Solution > ${id} > ${checkUndefined().title}`}
-                //     </Location>
-                //     <MenuKategorie 
-                //         kategorie={solutrionData[id].kategorie} 
-                //         setIsClick={setIsClick} 
-                //         isClick={isClick}
-                //         title={solutrionData[id].title}
-                //         page={'solution'}
-                //     /> 
-                // </div>:
-                // <div>
-                //     <Location>
-                //         {`Home > Solution > ${id}`}
-                //     </Location>
-                //     <MenuKategorieTable 
-                //         kategorie={solutrionData[id].kategorie} 
-                //         setIsClick={setIsClick} 
-                //         isClick={isClick}
-                //         height={id === 'ict' ? '288px' : '160px'}
-                //     />
-                // </div>
                 <MenuKategorie
                     kategorie={solutrionData[id].kategorie} 
                     setIsClick={setIsClick} 
@@ -102,7 +53,6 @@ const Solution = () => {
                     height={id === 'ict' ? '288px' : '160px'}
                 />
             }
-            
             <SolutionListWrapper >
                 <Detail 
                     data={checkUndefined()} 

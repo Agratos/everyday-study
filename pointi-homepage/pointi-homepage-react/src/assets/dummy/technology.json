@@ -211,7 +211,7 @@
                 "title": "다양한 연동 Interface 지원",
                 "explan": [
                     "IP, ATM, E1 기반 Interface",
-                    "IP ↔ ATM, IP ↔ E1 Base Protocol 변환"
+                    "IP <-> ATM, IP ↔ E1 Base Protocol 변환"
                 ]
             },
             {

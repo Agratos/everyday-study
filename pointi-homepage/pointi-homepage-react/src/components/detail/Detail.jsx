@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import ReactPlayer from 'react-player';
-import { BsFillStopFill, BsCheckLg } from 'react-icons/bs';
-import { MdArrowRight, MdPlayArrow } from 'react-icons/md'
 import { VscCircleFilled } from "react-icons/vsc";
 
 const Flex = styled.div`
@@ -11,10 +9,8 @@ const Flex = styled.div`
 `
 
 const Wrapper = styled.div`
-    //border: 1px solid black; //#E8E8E8;
     width: ${props => props.device !== 'Mobile' && 'inherit'};
-    margin: 0 auto;
-    padding: 8px;
+    margin-top: 16px;
 `;
 const SolutionWrapper = styled(Flex)`
     ${({theme, imgWidth}) => imgWidth > 450 && theme.divCommon.flexColumnCenterCenter};
@@ -24,17 +20,15 @@ const SolutionWrapper = styled(Flex)`
         padding-left: 16px;
         padding-bottom: 16px;
     `}
-    width: 100%;
     background-color: rgba(225, 222, 222, 0.2);
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     padding-top: 16px;
-    margin-bottom: 40px;
     margin-top: 8px;
+    margin-bottom: 32px;
 `;
 const SolutionTextWrapper = styled.div`
     width: 100%;
-    //margin-top: 8px;
     ${({imgWidth}) => imgWidth > 450 ? css`
         margin-top: 16px;
     ` : css`
@@ -44,30 +38,17 @@ const SolutionTextWrapper = styled.div`
     `}
 `;
 const Title = styled.div`
-    ${({theme}) => theme.fontCommon.title}
+    ${({theme}) => theme.fontCommon.subtitle}
     text-align: left;
-    margin-top: 24px;
     padding-left: 16px;
-    //margin-bottom: 16px;
-    //margin-bottom: 32px ;
 `;
 const DetailWrapper = styled.div`
     line-height: 24px;
 `;
 const ImgWrapper = styled.div``;
-const Img = styled.img`
-    max-width: 850px;
-    height: fit-content;
-    ${({imgWidth}) => imgWidth > 450 && css`
-        padding-left: 16px;
-        padding-right:16px;
-    `}
-    //max-width: inherit;
-    /* max-width: ${({device}) => device === 'Mobile' ? '100%' : 'inherit'}; */
-    //margin-top: ${({type}) => type === 'technology' && '8px'};
-`;
+const Img = styled.img``;
 const TextWrapper = styled.div`
-    margin-top: 16px; 
+    margin-top: 8px; 
     margin-bottom: ${({bottom}) => bottom};
 `;
 const TitleWrapper = styled(Flex)`
@@ -75,24 +56,15 @@ const TitleWrapper = styled(Flex)`
     padding-bottom: 8px;
     border-bottom: 2px solid black;
 `;
-const IconWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexColumnAround}
-    margin-right: 8px;
-`;
 const TextFont = styled.div`
     font-size: 1rem;
-`;
-const TextTitle = styled(TextFont)`
-    ${({theme}) => theme.fontCommon.title}
-    margin: 8px 0;
-    padding-left: 16px;
 `;
 const Solution = styled(TextFont)`
     ${({theme}) => theme.divCommon.flex}
     ${({imgWidth, index}) => imgWidth > 450 ? css`
         border-top: 1px solid #cac9c9b5;
     ` : css`
-        border-bottom: ${!index && '1px solid #cac9c9b5'};
+        
     `}
     padding: 8px;
 `;
@@ -101,7 +73,7 @@ const SolutionIconWrapper = styled.div`
     margin-right: 4px;
 `;
 const FunctionWrapperOut = styled.div`
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     background-color: rgba(225, 222, 222, 0.2);
     border-bottom: 2px solid black;
     border-top: ${({type}) => type === 'technology' && '2px solid black'};
@@ -128,32 +100,17 @@ const FunctionEx = styled.div`
 `;
 const FunctionExSub = styled.div`
     font-size: 0.85rem;
+    color: #4d4a4af3;
     margin-top: -4px;
     margin-left: 48px;
-`;
-const KeywordWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexWrap}
 `;
 const AdaptionWrapper = styled(Flex)`
     background-color: ${({index}) => index%2 === 0 ? 'rgba(225, 222, 222, 0.2)' : 'rgba(225, 222, 222, 0.2)'}; // 번갈아 가면서 작동 
     border-bottom: ${({index, length}) => index === length ? '2px solid black' : '1px solid #cac9c9b5'};
-    padding: 8px;
-`;
-const Keyword = styled.div`
-    font-size: 1.2rem;
-    margin: 0;
-    margin-right: 24px;
-`;
-const LinkWrapper = styled.div``;
-const LinkButton = styled.div`
-    &:hover {
-        cursor: pointer;
-        color: #5b2fd4;
-    }
-    word-break: break-all;
+    padding: 10px 0;
 `;
 const PlayerWrapperOut = styled.div`
-    margin-bottom: 64px;
+    margin-bottom: 32px;
 `;
 const PlayerWrapperIn = styled.div`
     text-align: center;
@@ -204,9 +161,9 @@ const Detail = ({data, type}) => {
     }
 
     return (
-        <Wrapper device={device} id={'detail'}>
-            <Title>{data.title}</Title>
+        <Wrapper device={device} id={'detail'}>    
             <DetailWrapper>
+                <Title>{data.title}</Title>
                 { type === 'solution' && (
                     <SolutionWrapper imgWidth={imgWidth}>
                         <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type} ref={imgRef} 
@@ -226,7 +183,7 @@ const Detail = ({data, type}) => {
                 <TextWrapper>
                     { type === 'solution' &&
                         <TitleWrapper top={'4px'}>
-                            <TextTitle>주요 특징</TextTitle>
+                            <Title>주요 특징</Title>
                         </TitleWrapper>
                     }
                     <FunctionWrapperOut type={type}>
@@ -253,7 +210,7 @@ const Detail = ({data, type}) => {
                     {data.video !== undefined && data.video !== null &&
                         <PlayerWrapperOut>
                             <TitleWrapper top={'32px'} ref={playerRef}>
-                                <TextTitle>관련 영상</TextTitle>
+                                <Title>관련 영상</Title>
                             </TitleWrapper>
                             <PlayerWrapperIn>
                                 <Player 
@@ -267,36 +224,10 @@ const Detail = ({data, type}) => {
                             </PlayerWrapperIn>
                         </PlayerWrapperOut>
                     }
-                    {/* { data.link !== undefined && (
-                        <div>
-                            <TitleWrapper>
-                                <IconWrapper><MdPlayArrow /></IconWrapper>
-                                <TextTitle>관련링크</TextTitle>
-                            </TitleWrapper>
-                            {data.link.map((link,index) => (
-                                <LinkWrapper key={`link ${index}`}>
-                                    <LinkButton onClick={() => window.open(link)}>{link}</LinkButton>
-                                </LinkWrapper>
-                            ))}
-                        </div>
-                    )}
-                    { data.keyword !== undefined &&
-                        <div>
-                            <TitleWrapper top={'32px'}>
-                                <IconWrapper><MdPlayArrow /></IconWrapper>
-                                <TextTitle>관련 키워드</TextTitle>
-                            </TitleWrapper>
-                            <KeywordWrapper> 
-                                {data.keyword.map((keyword, index) => (
-                                    <Keyword key={`datakeyword${index}`}>#{keyword}</Keyword>
-                                ))}
-                            </KeywordWrapper>
-                        </div>
-                    } */}
                     { data.adaptation !== undefined &&
                         <TechnologyAdaptionWrapper>
                             <TitleWrapper>
-                                <TextTitle>적용분야</TextTitle>
+                                <Title>적용 분야</Title>
                             </TitleWrapper>
                                 {data.adaptation.map((adapt, index) => (
                                     <AdaptionWrapper key={`adaptation ${index}`} index={index+1} length={data.adaptation.length}>

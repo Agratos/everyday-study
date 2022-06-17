@@ -11,14 +11,13 @@ import setChangeReducer from 'modules/change';
 
 const Wrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
-    border-left: 1px solid #e2dddd;
-    border-right: 1px solid #e2dddd;
+    /* border-left: 1px solid #e2dddd;
+    border-right: 1px solid #e2dddd; */
     // background-color: none;
     /* ${props => props.page === 'main' &&
         css`
             min-height: 400px;
             height: 49vh;
-            //max-height: 600px;
             background: url(${props => props.logo}) no-repeat center;
             background-size: cover;
             background-blend-mode:multiply;
@@ -38,7 +37,6 @@ const SliderArea = styled.div`
             background-blend-mode:multiply;
             height: 300px;
             background-color: #0d4bf734;
-            //max-height: 500px;
         ` : 
         css`
             ${({theme}) => theme.divCommon.flex}
@@ -46,10 +44,9 @@ const SliderArea = styled.div`
             padding-left: 16px;
             //background: linear-gradient(45deg,#83bbef,#78c6e2ab);
             height: 48px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #ffffffc2;
-            //max-height: 500px;
         `
     }
 `;
@@ -57,8 +54,7 @@ const SliderAreaTextWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     padding: 10vh;
     ${props => props.device === 'Mobile' && css`
-        //height: 60vh;
-        //padding: 5vh 2vh;
+
     `}
 `;
 const SliderAreaText = styled.div`

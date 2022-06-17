@@ -12,17 +12,7 @@ import Detail from 'components/detail/Detail';
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
 `;
-const Location = styled.div``;
-const TechnologyListWrapper = styled.div`
-    //margin-top: 32px;
-`;
-const MenuKategorieLeftWrapper = styled.div`
-    ${({theme}) => theme.divCommon.fixedLeftTop}
-    top: 95px;
-    //left: calc(5% - 0px);
-    height: 100%;
-    width: 15%;
-`;
+const TechnologyListWrapper = styled.div``;
 
 
 const Technology = () => {
@@ -49,9 +39,6 @@ const Technology = () => {
 
     return (
         <Wrapper>
-            {/* <Location>
-                {`Home > Technology > ${technologyData[isClick].title}`}
-            </Location> */}
             { device !== 'Mobile' ? 
                 <MenuKategorie
                     kategorie={technologyData.kategorie} 
@@ -69,11 +56,6 @@ const Technology = () => {
             }
 
             <TechnologyListWrapper >
-                {/* <MenuKategorieLeft 
-                    kategorie={technologyData.kategorie} 
-                    setIsClick={setIsClick} 
-                    isClick={isClick} 
-                /> */}
                 <Detail 
                     data={technologyData[isClick]} 
                     type='technology' 
