@@ -15,6 +15,7 @@ const Flex = styled.div`
 
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
+    height: 40px;
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
             display: block;
@@ -28,7 +29,7 @@ const Wrapper = styled.div`
 const HeaderMiddleArea = styled.div``;
 const TopDropDownWrapper = styled(Flex)``;
 const MenuBarArea = styled.div`
-    font-weight: 400;
+    font-weight: 600;
 `;
 const MenuBar = styled(Flex)``;
 const DropDownWrapper = styled.div`
@@ -36,13 +37,11 @@ const DropDownWrapper = styled.div`
     background-color: rgb(239, 239, 239);
     align-items: center;
     position: absolute;
-    margin-top: 8px;
     overflow: hidden;
    
 `;
 const MenuBarText = styled(Link)`
     ${({theme}) => theme.divCommon.flex}
-    /* color: ${props => props.page === 'main' ? 'white' : 'black'}; */
     color: #3a3939ce;
     font-weight: bolder;
     font-size: 1.1rem;
@@ -68,6 +67,7 @@ const DropDownText = styled(Link)`
 `;
 const LinkWrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
+    
     margin: 8px 16px 8px 32px;
     &:hover ${DropDownText}{
         height: 32px;
