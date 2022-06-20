@@ -92,6 +92,7 @@ const MenuIconWrapper = styled(IconWrapper)`
 `
 const LeftLogoArea = styled.div`
     padding-left: ${({device}) => device === 'PC' && '0px'};
+    height: 40px;
     width: 60%;
 `;
 const LeftLogo = styled.img`

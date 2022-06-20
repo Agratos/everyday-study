@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
-import { createStore } from 'redux';
+import { legacy_createStore as createStore } from 'redux';
 import rootReducer from './modules';
 import { ThemeProvider } from 'styled-components';
 import theme from 'styles/theme';
