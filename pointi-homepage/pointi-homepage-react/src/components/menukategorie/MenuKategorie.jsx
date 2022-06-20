@@ -50,7 +50,7 @@ const UnderBar = styled.div`
     line-height: 32px;
     width: 450px;
     margin-left: calc(50% - 600px);
-    top: 124px;
+    top: 120px;
 `;
 const UnderMenuBar = styled(UnderBar)`
     height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
