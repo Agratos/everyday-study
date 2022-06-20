@@ -139,7 +139,7 @@ const Title = styled.div`
 `;
 const Image = styled.img`
     margin: 4px auto;
-    width: calc(100vw - 100px);
+    width: ${({device}) => device === 'Mobile' ? 'calc(100vw - 100px);' : '90%'};
     height: 80%;
 `;
 const Button = styled(Link)`
@@ -164,7 +164,7 @@ const Main = () => {
             {mainData.data.map(({path,title,image,text}, index) => (
                 <SolutionWrapper key={index} to={path} device={device}>
                     <Title>{title}</Title>
-                    <Image src={image} />
+                    <Image src={image} device={device}/>
                 </SolutionWrapper>
             ))}
         </Wrapper>
