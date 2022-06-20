@@ -48,7 +48,7 @@ const DetailWrapper = styled.div`
 const ImgWrapper = styled.div``;
 const Img = styled.img`
     ${({device}) => device === 'Mobile' && css`
-        max-width: 100%;
+        max-width: calc(100% - 16px);
     `}
 `;
 const TextWrapper = styled.div`

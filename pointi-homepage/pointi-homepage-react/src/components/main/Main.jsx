@@ -121,11 +121,11 @@ const SolutionWrapper = styled(Link)`
     background: linear-gradient(-135deg, transparent 32px, #F0F9FD 0);
     font-size: 1.1rem;
     text-decoration: none;
+    color: black;
     ${props=> props.device === 'Mobile' && 
         css`
             margin: 8px auto;
-            width: 90vw;
-            height: 320px;
+            width: calc(100vw - 100px);
         `
     }
     &:hover {
@@ -139,7 +139,7 @@ const Title = styled.div`
 `;
 const Image = styled.img`
     margin: 4px auto;
-    width: 90%;
+    width: calc(100vw - 100px);
     height: 80%;
 `;
 const Button = styled(Link)`

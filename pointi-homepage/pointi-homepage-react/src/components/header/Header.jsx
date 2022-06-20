@@ -86,7 +86,7 @@ const LocationCurrentText = styled.div`
 const LocationHome = styled(Link)`
     width: fit-content;
     color: #ffffffc2;
-    font-weight: 700;
+    font-weight: 800;
     float: left;
 `;
 const LocationMiddle = styled.div`
