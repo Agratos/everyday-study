@@ -106,8 +106,8 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     const [ isPageClick, setIsPageClick ] = useState(false);
     const pageList = [
                         {page:'Technology', path:'/technology/multi-media-process'},
-                        {page:'AIㆍ빅데이터', path:'/solution/ai-5g-bigdata/wild-animal-detection'},
-                        {page:'5GㆍICT', path:'/solution/ict/mec-router'}];
+                        {page:'AIㆍ빅데이터', path:'/solution/ai-bigdata/wild-animal-detection'},
+                        {page:'5GㆍICT', path:'/solution/5g-ict/mec-router'}];
 
     useEffect(() => {
         const menu = findMenuTitle('menu');

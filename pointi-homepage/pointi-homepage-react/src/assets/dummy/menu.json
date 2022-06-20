@@ -44,43 +44,43 @@
         {   "title" :"AIㆍ빅데이터",
             "list" : [{
                     "title" : "야생동물 감지 시스템",
-                    "path" : "/solution/ai-5g-bigdata/wild-animal-detection"
+                    "path" : "/solution/ai-bigdata/wild-animal-detection"
                 },{
                     "title" : "이미지분류서비스",
-                    "path" : "/solution/ai-5g-bigdata/image-classfication"
+                    "path" : "/solution/ai-bigdata/image-classfication"
                 },{
                     "title" : "빅데이터 UI / UX",
-                    "path" : "/solution/ai-5g-bigdata/bigdata-ui-ux"
+                    "path" : "/solution/ai-bigdata/bigdata-ui-ux"
                 },{
                     "title" : "통합관제 시스템(UI, UX)",
-                    "path" : "/solution/ai-5g-bigdata/integrated-control-gui"
+                    "path" : "/solution/ai-bigdata/integrated-control-gui"
                 }
             ]},
         {   "title": "5GㆍICT",
             "list" : [{
                     "title" : "MEC Router",
-                    "path" : "/solution/ict/mec-router"
+                    "path" : "/solution/5g-ict/mec-router"
                 },{
                     "title" : "MGCF",
-                    "path" : "/solution/ict/mgcf"
+                    "path" : "/solution/5g-ict/mgcf"
                 },{
                     "title" : "IBC",
-                    "path" : "/solution/ict/ibc"
+                    "path" : "/solution/5g-ict/ibc"
                 },{
                     "title" : "컬러링",
-                    "path" : "/solution/ict/coloring"
+                    "path" : "/solution/5g-ict/coloring"
                 },{
                     "title" : "부가서비스",
-                    "path" : "/solution/ict/extra-service"
+                    "path" : "/solution/5g-ict/extra-service"
                 },{
                     "title" : "통합 사서함",
-                    "path" : "/solution/ict/unified-mailbox"
+                    "path" : "/solution/5g-ict/unified-mailbox"
                 },{
                     "title" : "영상정보센터",
-                    "path" : "/solution/ict/video-information-center"
+                    "path" : "/solution/5g-ict/video-information-center"
                 },{
                     "title" : "T그룹통화",
-                    "path" : "/solution/ict/t-group-call"
+                    "path" : "/solution/5g-ict/t-group-call"
                 }
         ]},
         {   "title": "Recruiting",

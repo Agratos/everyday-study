@@ -38,15 +38,15 @@
         }
         ,{
             "id":2,
-            "path":"/solution/ai-5g-bigdata/wild-animal-detection", 
+            "path":"/solution/ai-bigdata/wild-animal-detection", 
             "title":"Solution",
             "list": [
                 {
-                    "path" :"/solution/ai-5g-bigdata/wild-animal-detection",
+                    "path" :"/solution/ai-bigdata/wild-animal-detection",
                     "text" :"AIㆍ빅데이터"
                 },
                 {
-                    "path" :"/solution/ict/mec-router",
+                    "path" :"/solution/5g-ict/mec-router",
                     "text" :"5GㆍICT"
                 }
             ]

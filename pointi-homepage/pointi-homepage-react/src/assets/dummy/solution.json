@@ -1,5 +1,5 @@
 {
-    "ai-5g-bigdata" : {
+    "ai-bigdata" : {
         "title" : "AIㆍ빅데이터",
         "kategorie" : [
             {
@@ -209,7 +209,7 @@
             ]
         }
     },
-    "ict" : {
+    "5g-ict" : {
         "title" : "5GㆍICT",
         "kategorie" : [
             {
