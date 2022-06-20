@@ -91,6 +91,7 @@ const FunctionTitleWrapper = styled(Flex)``;
 const FunctionIconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter}
     font-size: 0.6rem;
+    height: 24px;
     margin: 0 8px 0 12px;
 `;
 const FunctionTitle = styled(TextFont)`
