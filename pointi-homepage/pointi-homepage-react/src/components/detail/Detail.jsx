@@ -13,8 +13,8 @@ const Wrapper = styled.div`
     margin-top: 16px;
 `;
 const SolutionWrapper = styled(Flex)`
-    ${({theme, imgWidth}) => imgWidth > 450 && theme.divCommon.flexColumnCenterCenter};
-    ${({imgWidth}) => imgWidth > 450 ? css`
+    ${({theme, imgWidth, device}) => (imgWidth > 450 || device === 'Mobile') && theme.divCommon.flexColumnCenterCenter};
+    ${({imgWidth, device}) => (imgWidth > 450 || device === 'Mobile') ? css`
     
     ` : css`
         padding-left: 16px;
@@ -29,7 +29,7 @@ const SolutionWrapper = styled(Flex)`
 `;
 const SolutionTextWrapper = styled.div`
     width: 100%;
-    ${({imgWidth}) => imgWidth > 450 ? css`
+    ${({imgWidth, device}) => (imgWidth > 450 || device === 'Mobile') ? css`
         margin-top: 16px;
     ` : css`
         border-left: 1px solid #cac9c9b5;
@@ -169,11 +169,11 @@ const Detail = ({data, type}) => {
             <DetailWrapper>
                 <Title>{data.title}</Title>
                 { type === 'solution' && (
-                    <SolutionWrapper imgWidth={imgWidth}>
+                    <SolutionWrapper imgWidth={imgWidth} device={device}>
                         <Img src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
                             onLoad={() => setImgWidth(imgRef.current.offsetWidth)} imgWidth={imgWidth}
                         />
-                        <SolutionTextWrapper imgWidth={imgWidth}>
+                        <SolutionTextWrapper imgWidth={imgWidth} device={device}>
                             {data[type].map((solution, index) => (
                                 <Solution key={`solution${index}`} index={index} imgWidth={imgWidth}>
                                     <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
