@@ -46,7 +46,11 @@ const DetailWrapper = styled.div`
     line-height: 24px;
 `;
 const ImgWrapper = styled.div``;
-const Img = styled.img``;
+const Img = styled.img`
+    ${({device}) => device === 'Mobile' && css`
+        max-width: 100%;
+    `}
+`;
 const TextWrapper = styled.div`
     margin-top: 8px; 
     margin-bottom: ${({bottom}) => bottom};

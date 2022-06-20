@@ -49,7 +49,10 @@ const UnderMenuBar = styled.div`
     margin-top: 16px;
     background-color: #e2dddd;
     line-height: 32px;
-    height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
+    height: 0px;
+    ${({isMenuClick, height}) => isMenuClick && css`
+        height: ${height};
+    `}
 `;
 const MenuText = styled.div`
     transition-duration: 0.5s;
@@ -57,17 +60,16 @@ const MenuText = styled.div`
     ${({isMenuClick}) => isMenuClick ? css`
         height:32px;
         opacity: 1;
+        padding: 0px 8px;
     `:css`
         height:0px;
         opacity: 0;
         pointer-events: none;
     `}
-    &{
-        ${ props => props.id === props.isClick && `
-            color: #5DB2FF;
-            padding: 12px 24px;
-        `}
-    }
+    ${ props => props.id === props.isClick && `
+        color: #5DB2FF;
+    `}
+
 `
 
 
