@@ -77,15 +77,20 @@ const SliderAreaTextButton = styled(Link)`
     }
 `;
 const LocationText = styled.div`
-    ${({theme}) => theme.divCommon.flex};
+    width: 100%;
     cursor: default;
 `;
 const LocationCurrentText = styled.div`
     color: #fffffffc;
 `;
 const LocationHome = styled(Link)`
+    width: fit-content;
     color: #ffffffc2;
     font-weight: 700;
+    float: left;
+`;
+const LocationMiddle = styled.div`
+    float: left;
 `;
 
 const Header = ({ page }) => {
@@ -156,22 +161,26 @@ const Header = ({ page }) => {
             <HeaderDropDown page={page} device={device} />
             <SliderArea page={page}> 
                 { page === 'solution' &&
-                    <LocationText>
+                    <LocationText device={device}>
                         <LocationHome to={'/'}>
                             Home
                         </LocationHome>
-                        {`\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[id].title}\u00A0\u00A0>\u00A0\u00A0`}
+                        <LocationMiddle>
+                            {`\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0${data[id].title}\u00A0\u00A0>\u00A0\u00A0`}
+                        </LocationMiddle>
                         <LocationCurrentText>
                             {data[id][click].title}
                         </LocationCurrentText>
                     </LocationText>
                 } 
                 { page === 'technology' &&
-                    <LocationText>
+                    <LocationText device={device}>
                         <LocationHome to={'/'}>
                             Home
                         </LocationHome>
-                        {`\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0`}
+                        <LocationMiddle>
+                            {`\u00A0\u00A0>\u00A0\u00A0${ChangeFirstToUpper(page)}\u00A0\u00A0>\u00A0\u00A0`}
+                        </LocationMiddle>
                         <LocationCurrentText>
                             {data[click].title}
                         </LocationCurrentText>

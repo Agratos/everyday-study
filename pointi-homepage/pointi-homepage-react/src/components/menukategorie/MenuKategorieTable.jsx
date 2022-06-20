@@ -10,8 +10,8 @@ const Wrapper = styled.div`
 `;
 const MobileWrapper = styled(Wrapper)`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
-    margin-top: 8px;
-    margin-bottom: -16px;
+    margin-top: 4px;
+    margin-bottom: -12px;
 `;
 const KategorieWrapper = styled.table`
     display: flex;
