@@ -113,13 +113,13 @@ const PlayerWrapperOut = styled.div`
     margin-bottom: 32px;
 `;
 const PlayerWrapperIn = styled.div`
-    text-align: center;
-    align-items: center;
+    ${({theme}) => theme.divCommon.flexCenterCenter}
     background-color: rgba(225, 222, 222, 0.2);
     border-bottom: 2px solid black;
-    padding-left: 130px;
 `;
-const Player = styled(ReactPlayer)``;
+const Player = styled(ReactPlayer)`
+    width: auto;
+`;
 
 const TechnologyWrapper = styled.div`
     margin: 16px 0;
@@ -166,7 +166,7 @@ const Detail = ({data, type}) => {
                 <Title>{data.title}</Title>
                 { type === 'solution' && (
                     <SolutionWrapper imgWidth={imgWidth}>
-                        <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type} ref={imgRef} 
+                        <Img src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
                             onLoad={() => setImgWidth(imgRef.current.offsetWidth)} imgWidth={imgWidth}
                         />
                         <SolutionTextWrapper imgWidth={imgWidth}>
@@ -190,7 +190,7 @@ const Detail = ({data, type}) => {
                         { type === 'technology' && (
                             <TechnologyWrapper>
                                 <ImgWrapper>
-                                    <Img src={require(`assets/imgs/${type}/${data.image}`)} device={device} type={type}/>
+                                    <Img src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type}/>
                                 </ImgWrapper>
                             </TechnologyWrapper>
                         )}

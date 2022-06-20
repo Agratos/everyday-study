@@ -106,7 +106,7 @@ const UnderMenuBar = styled.div`
     position: absolute;
     flex-direction: column;
     width: 100%;
-    top: 54px;
+    top: 40px;
     left: 0;
     border-top: 1px solid #ccbebe;
     background-color: #e2dddd;
