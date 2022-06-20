@@ -65,7 +65,7 @@ const TextFont = styled.div`
 `;
 const Solution = styled(TextFont)`
     ${({theme}) => theme.divCommon.flex}
-    ${({imgWidth, index}) => imgWidth > 450 && index === 0 ? css`
+    ${({imgWidth, index, device}) => (imgWidth > 450 || device === 'Mobile') && index === 0 ? css`
         border-top: 1px solid #cac9c9b5;
     ` : css`
         
@@ -176,7 +176,7 @@ const Detail = ({data, type}) => {
                         />
                         <SolutionTextWrapper imgWidth={imgWidth} device={device}>
                             {data[type].map((solution, index) => (
-                                <Solution key={`solution${index}`} index={index} imgWidth={imgWidth}>
+                                <Solution key={`solution${index}`} index={index} imgWidth={imgWidth} device={device}>
                                     <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
                                     {solution}
                                 </Solution>
