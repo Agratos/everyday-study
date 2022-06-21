@@ -127,7 +127,7 @@ const Player = styled(ReactPlayer)`
 `;
 
 const TechnologyWrapper = styled.div`
-    margin: 16px 0;
+    margin: 16px 0 8px 0;
 `;
 const TechnologyAdaptionWrapper = styled(TechnologyWrapper)`
     margin-bottom: 32px;
