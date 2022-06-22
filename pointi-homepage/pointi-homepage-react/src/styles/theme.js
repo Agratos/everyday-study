@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 const fontCommon = {
     title: `
-        font-size: 32px;
+        font-size: 2rem;
         font-weight: bolder;
         text-align: center;
     `,
     subtitle: `
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: bolder;
     `,
 }

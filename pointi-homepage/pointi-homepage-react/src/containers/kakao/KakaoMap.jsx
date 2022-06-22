@@ -88,7 +88,7 @@ const KakaoMap = () => {
             setLinePath([...linePath, new window.kakao.maps.LatLng(clickPosition.getLat(), clickPosition.getLng())])
         })
         //circle.setMap(map);
-        polyline.setMap(map);
+        //polyline.setMap(map);
     });
    
     return (

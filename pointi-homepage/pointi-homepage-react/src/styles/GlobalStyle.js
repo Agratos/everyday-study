@@ -17,27 +17,31 @@ const GlobalStyle = createGlobalStyle`
             max-width: 2000px;
             max-height: 1600px;
             margin: auto;
-            font-size: 16px;
             height: 100%;
             /* border-left: 1px solid black;
             border-right: 1px solid black; */
-        };
+        };html{
+            font-size: 16px;
+        }
     }
     @media screen and (${device.tablet}){
         body{
             padding: 0;
             margin: 0;
-            font-size: 16px;
             height: 100%;
-        };
+        };html{
+            font-size: 16px;
+        }
     }
     @media screen and (${device.mobile}){
         body{
             padding: 0;
             margin: 0;
-            font-size: 16px;
             height: 100%;
         };
+        html{
+            font-size: 12px;
+        }
     }
     table{
         width: 100%;

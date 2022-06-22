@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 
 import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
 import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/io";
+import { BsHandIndex } from 'react-icons/bs';
 
 // const Wrapper = styled.div`
 //     margin: 4vh 10vw;
@@ -116,7 +117,6 @@ const SolutionWrapper = styled(Link)`
     width: 256px;
     height: 240px;
     max-width: fit-content;
-    //max-height: fit-content;
     padding: 8px;
     background: linear-gradient(-135deg, transparent 32px, #F0F9FD 0);
     font-size: 1.1rem;
@@ -125,7 +125,10 @@ const SolutionWrapper = styled(Link)`
     ${props=> props.device === 'Mobile' && 
         css`
             margin: 8px auto;
+            margin: ${({index}) => index === 0 && '8px auto'};
             width: calc(100vw - 100px);
+            background: linear-gradient(-135deg, transparent 24px, #F0F9FD 0);\
+            font-size: 1rem;
         `
     }
     &:hover {
@@ -134,13 +137,20 @@ const SolutionWrapper = styled(Link)`
     }
 `;
 const Title = styled.div`
-    margin: 0 24px;
-    font-size: 1.1rem;
+    margin: ${({device}) => device === 'Mobile' ? '2px 4px' : '0 24px'};
+    font-size: ${({device}) => device === 'Mobile' ? '1.4rem' : '1.2rem'};;
 `;
 const Image = styled.img`
     margin: 4px auto;
     width: ${({device}) => device === 'Mobile' ? 'calc(100vw - 100px);' : '90%'};
     height: 80%;
+    ${({device}) => device === 'Mobile' ? css`
+        width: calc(100vw - 150px);
+        height: 200px;
+    `: css`
+        width: 90%;
+    `}
+    max-width: 300px;
 `;
 const Button = styled(Link)`
     position: absolute;
@@ -162,8 +172,8 @@ const Main = () => {
     return (
         <Wrapper device={device}>
             {mainData.data.map(({path,title,image,text}, index) => (
-                <SolutionWrapper key={index} to={path} device={device}>
-                    <Title>{title}</Title>
+                <SolutionWrapper key={index} to={path} device={device} index={index}>
+                    <Title device={device}>{title}</Title>
                     <Image src={image} device={device}/>
                 </SolutionWrapper>
             ))}

@@ -43,7 +43,7 @@ const SliderArea = styled.div`
             align-items: center;
             padding-left: 16px;
             //background: linear-gradient(45deg,#83bbef,#78c6e2ab);
-            height: 48px;
+            height: ${({device}) => device === 'Mobile' ? '48px' : '48px'};
             font-size: 0.95rem;
             font-weight: 600;
             color: #ffffffc2;
@@ -54,7 +54,7 @@ const SliderAreaTextWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     padding: 10vh;
     ${props => props.device === 'Mobile' && css`
-
+        
     `}
 `;
 const SliderAreaText = styled.div`
@@ -82,6 +82,7 @@ const LocationText = styled.div`
 `;
 const LocationCurrentText = styled.div`
     color: #fffffffc;
+    word-break: keep-all;
 `;
 const LocationHome = styled(Link)`
     width: fit-content;
@@ -159,7 +160,7 @@ const Header = ({ page }) => {
     ) : (
         <Wrapper id={'top'}>
             <HeaderDropDown page={page} device={device} />
-            <SliderArea page={page}> 
+            <SliderArea page={page} device={device}> 
                 { page === 'solution' &&
                     <LocationText device={device}>
                         <LocationHome to={'/'}>

@@ -40,6 +40,7 @@ const SolutionTextWrapper = styled.div`
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.subtitle}
     text-align: left;
+    word-break: keep-all;
     padding-left: 16px;
 `;
 const DetailWrapper = styled.div`
