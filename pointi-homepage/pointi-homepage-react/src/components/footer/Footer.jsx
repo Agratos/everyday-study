@@ -59,11 +59,13 @@ const Footer = () => {
     const device = useSelector(state => state.setDeviceReducer.device);
 
     return (
-        device !== 'Mobile' &&
+        device === 'PC' &&
         <Wrapper id={'footer'} device={device}>
-            <GoToTheMapButton to={'/company/location'}>
-                오시는 길
-            </GoToTheMapButton>
+            {device === 'PC' && 
+                <GoToTheMapButton to={'/company/location'}>
+                    오시는 길
+                </GoToTheMapButton>
+            }
             <TextArea>
                 <LogoWrapper>
                     <Logo src={logo} />

@@ -16,6 +16,7 @@ const Flex = styled.div`
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
     height: 40px;
+    margin-top: 2px;
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
             display: block;
@@ -26,19 +27,24 @@ const Wrapper = styled.div`
         ` 
     }
 `;
-const HeaderMiddleArea = styled.div``;
 const TopDropDownWrapper = styled(Flex)``;
 const MenuBarArea = styled.div`
+    width: 100%;
+    margin: 2.5px 0;
     font-weight: 600;
+    padding-right: ${({device}) => device !== 'PC' && '15px'};
 `;
-const MenuBar = styled(Flex)``;
+const MenuBar = styled(Flex)`
+    float: right;
+`;
 const DropDownWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumn}
     background-color: rgb(239, 239, 239);
     align-items: center;
     position: absolute;
     overflow: hidden;
-   
+    width: fit-content;
+    margin-top: 8px;
 `;
 const MenuBarText = styled(Link)`
     ${({theme}) => theme.divCommon.flex}
@@ -92,8 +98,7 @@ const MenuIconWrapper = styled(IconWrapper)`
 `
 const LeftLogoArea = styled.div`
     padding-left: ${({device}) => device === 'PC' && '0px'};
-    height: 40px;
-    width: 60%;
+    float: left;
 `;
 const LeftLogo = styled.img`
     width: 113px;
@@ -198,76 +203,74 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
 
     return (
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
-            <HeaderMiddleArea>
-                <TopDropDownWrapper>
-                    <LeftLogoArea device={device}>
-                        <Link to='/' ><LeftLogo src={logoBlack} /></Link>
-                    </LeftLogoArea>
-                    <MenuBarArea>
-                        { device !== 'Mobile' ? // PC Tablet 일때 보여지는 메뉴
-                            (<MenuBar>
-                                { dropDownData.data.map( ({list, path, title},index) => (
-                                    ( list.length !== 0 ? (
-                                        <LinkWrapper key={`menu-bar-text-${index}`}>
-                                            <MenuBarText to={path} page={page}>
-                                                {title}
-                                                <IconWrapper><IoIosArrowDown /></IconWrapper>
-                                            </MenuBarText>
-                                            <DropDownWrapper>
-                                                {list.map( ({path, text},index) => (
-                                                    <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
-                                                ))}
-                                            </DropDownWrapper>
-                                        </LinkWrapper>
-                                    )
-                                    : 
+            <TopDropDownWrapper>
+                <LeftLogoArea device={device}>
+                    <Link to='/' ><LeftLogo src={logoBlack} /></Link>
+                </LeftLogoArea>
+                <MenuBarArea device={device}>
+                    { device !== 'Mobile' ? // PC Tablet 일때 보여지는 메뉴
+                        (<MenuBar>
+                            { dropDownData.data.map( ({list, path, title},index) => (
+                                ( list.length !== 0 ? (
                                     <LinkWrapper key={`menu-bar-text-${index}`}>
-                                        <MenuBarText to={path} page={page}>{title}</MenuBarText>
+                                        <MenuBarText to={path} page={page}>
+                                            {title}
+                                            <IconWrapper><IoIosArrowDown /></IconWrapper>
+                                        </MenuBarText>
+                                        <DropDownWrapper>
+                                            {list.map( ({path, text},index) => (
+                                                <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
+                                            ))}
+                                        </DropDownWrapper>
                                     </LinkWrapper>
-                                )))}
-                            </MenuBar>) : 
-                            ( <MenuBar>
-                                <MenuIconWrapper device={device} page={page}><IoIosMenu size={40}  onClick={CheckClickThreeDot}/></MenuIconWrapper>
-                            </MenuBar>)
-                        }
-                    </MenuBarArea>
-                </TopDropDownWrapper>
-                { device === 'Mobile' && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
-                    (<UnderMenuBar clickMenu={clickMenu} isClick={isClick}>
-                        { dropDownData.data.map( ({list, path, title},index) => (
-                            ( list.length !== 0 ? (
-                                <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
-                                    {clickMenu !== title ? (
-                                        <UnderMenuUnClickWrapper >
+                                )
+                                : 
+                                <LinkWrapper key={`menu-bar-text-${index}`}>
+                                    <MenuBarText to={path} page={page}>{title}</MenuBarText>
+                                </LinkWrapper>
+                            )))}
+                        </MenuBar>) : 
+                        ( <MenuBar>
+                            <MenuIconWrapper device={device} page={page}><IoIosMenu size={40}  onClick={CheckClickThreeDot}/></MenuIconWrapper>
+                        </MenuBar>)
+                    }
+                </MenuBarArea>
+            </TopDropDownWrapper>
+            { device === 'Mobile' && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
+                (<UnderMenuBar clickMenu={clickMenu} isClick={isClick}>
+                    { dropDownData.data.map( ({list, path, title},index) => (
+                        ( list.length !== 0 ? (
+                            <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
+                                {clickMenu !== title ? (
+                                    <UnderMenuUnClickWrapper >
+                                        <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
+                                        <CheckDrop>
+                                            <IoIosAdd />
+                                        </CheckDrop>
+                                    </UnderMenuUnClickWrapper>
+                                ) : (
+                                    <UnderMenuClickWrapper >
+                                        <UnderMenuUnClickWrapper>
                                             <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
                                             <CheckDrop>
-                                                <IoIosAdd />
+                                                <IoIosRemove />
                                             </CheckDrop>
                                         </UnderMenuUnClickWrapper>
-                                    ) : (
-                                        <UnderMenuClickWrapper >
-                                            <UnderMenuUnClickWrapper>
-                                                <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
-                                                <CheckDrop>
-                                                    <IoIosRemove />
-                                                </CheckDrop>
-                                            </UnderMenuUnClickWrapper>
-                                            <UnderMenuTextLinkWrapper>
-                                                {list.map( ({path, text},index) => (
-                                                        <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink} clickMenu={clickMenu}>{text}</UnderMenuTextLink>
-                                                    ))}
-                                            </UnderMenuTextLinkWrapper>
-                                        </UnderMenuClickWrapper>
-                                    )}
-                                </UnderMenuTextWrapper>
-                            )
-                            : ( 
-                                <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
-                                    <UnderMenuTextLink to={path} onClick={MoveToLink} title={title}>{title}</UnderMenuTextLink>
-                                </UnderMenuTextWrapper>   
-                        ))))}
-                    </UnderMenuBar>)}
-            </HeaderMiddleArea>
+                                        <UnderMenuTextLinkWrapper>
+                                            {list.map( ({path, text},index) => (
+                                                    <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink} clickMenu={clickMenu}>{text}</UnderMenuTextLink>
+                                                ))}
+                                        </UnderMenuTextLinkWrapper>
+                                    </UnderMenuClickWrapper>
+                                )}
+                            </UnderMenuTextWrapper>
+                        )
+                        : ( 
+                            <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
+                                <UnderMenuTextLink to={path} onClick={MoveToLink} title={title}>{title}</UnderMenuTextLink>
+                            </UnderMenuTextWrapper>   
+                    ))))}
+                </UnderMenuBar>)}
         </Wrapper>
     );
 };

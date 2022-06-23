@@ -40,6 +40,7 @@ const SliderArea = styled.div`
         ` : 
         css`
             ${({theme}) => theme.divCommon.flex}
+            width: calc(100% - 16px);
             align-items: center;
             padding-left: 16px;
             //background: linear-gradient(45deg,#83bbef,#78c6e2ab);

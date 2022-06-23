@@ -45,7 +45,7 @@ const Kategorie = styled.td`
 `;
 const UnderMenuBar = styled.div`
     position: absolute;
-    width: 100%;
+    width: calc(100% - 24px);
     margin-top: 16px;
     background-color: #e2dddd;
     line-height: 32px;

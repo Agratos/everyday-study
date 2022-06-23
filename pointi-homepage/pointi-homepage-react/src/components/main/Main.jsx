@@ -122,8 +122,7 @@ const SolutionWrapper = styled(Link)`
     font-size: 1.1rem;
     text-decoration: none;
     color: black;
-    ${props=> props.device === 'Mobile' && 
-        css`
+    ${({device})=> device === 'Mobile' && css`
             margin: 8px auto;
             margin: ${({index}) => index === 0 && '8px auto'};
             width: calc(100vw - 100px);
@@ -131,6 +130,9 @@ const SolutionWrapper = styled(Link)`
             font-size: 1rem;
         `
     }
+    ${({device}) => device === 'Tablet' && css`
+        
+    `}
     &:hover {
         color: white !important;
         background: linear-gradient(-135deg, transparent 32px, #1B9CE3 0);
@@ -144,11 +146,11 @@ const Image = styled.img`
     margin: 4px auto;
     width: ${({device}) => device === 'Mobile' ? 'calc(100vw - 100px);' : '90%'};
     height: 80%;
-    ${({device}) => device === 'Mobile' ? css`
+    ${({device}) => device !== 'PC' ? css`
+        width: 100%;
+    `: css`
         width: calc(100vw - 150px);
         height: 200px;
-    `: css`
-        width: 100%;
     `}
     max-width: 256px;
 `;

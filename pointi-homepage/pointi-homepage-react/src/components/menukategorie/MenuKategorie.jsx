@@ -46,12 +46,14 @@ const UnderBar = styled.div`
     position: absolute;
     background-color: #e2dddd;
     line-height: 32px;
-    top: 120px;
+    
     ${({device}) => device === 'PC' ? css`
         width: 450px;
+        top: 124px;
         margin-left: calc(50% - 600px);
     ` : css`
         width: inherit;
+        top: 123px;
     `}
 `;
 const UnderMenuBar = styled(UnderBar)`
@@ -152,7 +154,6 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
             }
         }
     }
-    console.log(device)
 
     return(
         <Wrapper>

@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 const device = {
-    pc: 'min-width: 1200px',
-    tablet: 'max-width: 1200px',
-    mobile: 'max-width: 500px'
+    pc: 'min-width: 920px',
+    tablet: 'max-width: 920px',
+    mobile: 'max-width: 650px'
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
             margin: 0;
             height: 100%;
         };html{
-            font-size: 16px;
+            font-size: 14px;
         }
     }
     @media screen and (${device.mobile}){

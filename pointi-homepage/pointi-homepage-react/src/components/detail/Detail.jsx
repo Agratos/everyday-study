@@ -17,8 +17,8 @@ const SolutionWrapper = styled(Flex)`
     ${({imgWidth, device}) => (imgWidth > 450 || device === 'Mobile') ? css`
     
     ` : css`
-        padding-left: 16px;
-        padding-bottom: 16px;
+        //padding-left: 16px;
+        //padding-bottom: 16px;
     `}
     background-color: rgba(225, 222, 222, 0.2);
     border-top: 2px solid black;
@@ -33,8 +33,8 @@ const SolutionTextWrapper = styled.div`
         margin-top: 16px;
     ` : css`
         border-left: 1px solid #cac9c9b5;
-        margin: -16px 0;
-        margin-left: 16px;
+        margin-top: -16px;
+        //margin-left: 16px;
     `}
 `;
 const Title = styled.div`
@@ -46,10 +46,16 @@ const Title = styled.div`
 const DetailWrapper = styled.div`
     line-height: 24px;
 `;
-const ImgWrapper = styled.div``;
+const ImgWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexCenterCenter};
+`;
 const Img = styled.img`
     ${({device}) => device === 'Mobile' && css`
         max-width: calc(100% - 16px);
+    `}
+    ${({device}) => device === 'Tablet' && css`
+        width: 100%;
+        max-width: fit-content;
     `}
 `;
 const TextWrapper = styled.div`
@@ -143,6 +149,7 @@ const Detail = ({data, type}) => {
     const [ imgWidth, setImgWidth ] = useState(0);
     const playerRef = useRef();
     const imgRef = useRef();
+    const wrapperRef = useRef();
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true});
@@ -167,7 +174,7 @@ const Detail = ({data, type}) => {
     }
 
     return (
-        <Wrapper device={device} id={'detail'}>    
+        <Wrapper device={device} id={'detail'} ref={wrapperRef}>    
             <DetailWrapper>
                 <Title>{data.title}</Title>
                 { type === 'solution' && (
