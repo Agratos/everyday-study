@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useParams, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
@@ -27,7 +27,6 @@ const MenuBar = styled.div`
     //margin-left: calc((100% - 900px) / 2);
 `;
 const Page = styled.div`
-    ${({theme}) => theme.divCommon.flex}
     border: 1px solid #e2dddd;
     padding: 8px;
     padding-left: 16px;
@@ -39,26 +38,37 @@ const Page = styled.div`
 `;
 const Select = styled(Page)``;
 const IconWrapper = styled.div`
-    position: absolute;
     z-index: 1;
-    left: ${({type}) => type === 'select' ? 'calc(50% + 428px)' : 'calc(50% - 32px)'};
+    float: right;
 `;
 const UnderBar = styled.div`
     ${({theme}) => theme.divCommon.flexColumn}
     position: absolute;
     background-color: #e2dddd;
     line-height: 32px;
-    width: 450px;
-    margin-left: calc(50% - 600px);
     top: 120px;
+    ${({device}) => device === 'PC' ? css`
+        width: 450px;
+        margin-left: calc(50% - 600px);
+    ` : css`
+        width: inherit;
+    `}
 `;
 const UnderMenuBar = styled(UnderBar)`
     height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
-    left: 600px;
+    ${({device}) => device === 'PC' ? css`
+        left: 600px;
+    ` : css`
+        right:0px;
+    `}
 `;
 const UnderPageBar = styled(UnderBar)`
     height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
-    left: 150px;
+    ${({device}) => device === 'PC' ? css`
+        left: 150px;
+    ` : css`
+        left:0px;
+    `}
 `;
 const MenuText = styled.div`
     transition-duration: 0.5s;
@@ -101,6 +111,7 @@ const PageLink = styled(Link)`
 const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     const dispatch = useDispatch();
     const params = useParams();
+    const device = useSelector(state => state.setDeviceReducer.device);
     const [ menuTitle, setMenuTitle ] = useState(kategorie[0].title) 
     const [ isMenuClick, setIsMenuClick ] = useState(false);
     const [ isPageClick, setIsPageClick ] = useState(false);
@@ -129,7 +140,6 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
         setIsPageClick(!isPageClick)
     }
 
-
     const findMenuTitle = (type) => {
         for(let i = 0 ; i < kategorie.length; i++){
             if(kategorie[i].id === params.click) {
@@ -142,6 +152,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
             }
         }
     }
+    console.log(device)
 
     return(
         <Wrapper>
@@ -152,7 +163,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         <IconWrapper>
                             {isPageClick ? <AiFillCaretUp /> : <AiFillCaretDown />}
                         </IconWrapper>
-                        <UnderPageBar height={'96px'} isPageClick={isPageClick}>
+                        <UnderPageBar height={'96px'} isPageClick={isPageClick} device={device}>
                             { pageList.map(({page,path},index) => (
                                 <PageLink 
                                     id={page}
@@ -172,7 +183,7 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         <IconWrapper type={'select'}>
                             {isMenuClick ? <AiFillCaretUp /> : <AiFillCaretDown />}
                         </IconWrapper>
-                        <UnderMenuBar height={'130px'} isMenuClick={isMenuClick}>
+                        <UnderMenuBar height={'130px'} isMenuClick={isMenuClick} device={device}>
                             { kategorie.map(({title,id}, index) => (
                                 <MenuText 
                                     id={id}  

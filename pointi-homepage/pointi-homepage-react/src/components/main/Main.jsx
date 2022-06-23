@@ -114,7 +114,7 @@ const Wrapper = styled.div`
 const SolutionWrapper = styled(Link)`
     ${({ theme }) => theme.divCommon.flexSpaceAround}
     ${({ theme }) => theme.divCommon.flexColumn}
-    width: 256px;
+    width: 30%;
     height: 240px;
     max-width: fit-content;
     padding: 8px;
@@ -148,9 +148,9 @@ const Image = styled.img`
         width: calc(100vw - 150px);
         height: 200px;
     `: css`
-        width: 90%;
+        width: 100%;
     `}
-    max-width: 300px;
+    max-width: 256px;
 `;
 const Button = styled(Link)`
     position: absolute;

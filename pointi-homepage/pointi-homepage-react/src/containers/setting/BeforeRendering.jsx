@@ -7,8 +7,8 @@ import sendApi from 'api/sendApi';
 const BeforeRendering = () => {
     const dispatch = useDispatch();
     const isPc = useMediaQuery({ query: '(min-width: 1200px)' })
-    const isTablet = useMediaQuery({ query: '(min-width:910px) and (max-width: 1200px)'})
-    const isMobile = useMediaQuery({ query: '(max-width: 910px)' })
+    const isTablet = useMediaQuery({ query: '(min-width:500px) and (max-width: 1200px)'})
+    const isMobile = useMediaQuery({ query: '(max-width: 500px)' })
     const device = (isPc && 'PC') || (isTablet && 'Tablet') || (isMobile && 'Mobile') || 'PC';
 
     useEffect(() => {

@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const device = {
     pc: 'min-width: 1200px',
     tablet: 'max-width: 1200px',
-    mobile: 'max-width: 900px'
+    mobile: 'max-width: 500px'
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
     @media screen and (${device.mobile}){
         body{
             padding: 0;
-            margin: 0;
+            margin: 0 12px;
             height: 100%;
         };
         html{
