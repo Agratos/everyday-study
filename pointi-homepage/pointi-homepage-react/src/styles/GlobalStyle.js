@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const device = {
     pc: 'min-width: 920px',
     tablet: 'max-width: 920px',
-    mobile: 'max-width: 650px'
+    mobile: 'max-width: 670px'
 }
 
 const GlobalStyle = createGlobalStyle`
