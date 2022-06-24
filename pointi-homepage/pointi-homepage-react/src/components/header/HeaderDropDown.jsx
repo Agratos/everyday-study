@@ -44,7 +44,7 @@ const DropDownWrapper = styled.div`
     position: absolute;
     overflow: hidden;
     width: fit-content;
-    margin-top: 8px;
+    margin-top: ${({device}) => device === 'PC' ? '8px' : '10px'};
 `;
 const MenuBarText = styled(Link)`
     ${({theme}) => theme.divCommon.flex}
@@ -217,7 +217,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                             {title}
                                             <IconWrapper><IoIosArrowDown /></IconWrapper>
                                         </MenuBarText>
-                                        <DropDownWrapper>
+                                        <DropDownWrapper device={device}>
                                             {list.map( ({path, text},index) => (
                                                 <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
                                             ))}
@@ -237,7 +237,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                 </MenuBarArea>
             </TopDropDownWrapper>
             { device === 'Mobile' && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
-                (<UnderMenuBar clickMenu={clickMenu} isClick={isClick}>
+                (<UnderMenuBar clickMenu={clickMenu} isClick={isClick} device={device}>
                     { dropDownData.data.map( ({list, path, title},index) => (
                         ( list.length !== 0 ? (
                             <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
