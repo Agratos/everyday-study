@@ -54,8 +54,7 @@ const Img = styled.img`
         max-width: calc(100% - 16px);
     `}
     ${({device}) => device === 'Tablet' && css`
-        width: 100%;
-        max-width: fit-content;
+        width: ${({imgWidth}) => imgWidth < 500 ? '50%' : '100%'};
     `}
 `;
 const TextWrapper = styled.div`
@@ -172,6 +171,9 @@ const Detail = ({data, type}) => {
     const checkSubText = (str) => {
         return (str[0] === '(' && str[str.length-1] === ')')
     }
+    const checkNaturalWidth = (id) => {
+        setImgWidth(document.getElementById(id).naturalWidth);
+    }
 
     return (
         <Wrapper device={device} id={'detail'} ref={wrapperRef}>    
@@ -179,8 +181,8 @@ const Detail = ({data, type}) => {
                 <Title>{data.title}</Title>
                 { type === 'solution' && (
                     <SolutionWrapper imgWidth={imgWidth} device={device}>
-                        <Img src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
-                            onLoad={() => setImgWidth(imgRef.current.offsetWidth)} imgWidth={imgWidth}
+                        <Img id={'solution-img'} src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
+                            onLoad={(e) => checkNaturalWidth(e.target.id)} imgWidth={imgWidth}
                         />
                         <SolutionTextWrapper imgWidth={imgWidth} device={device}>
                             {data[type].map((solution, index) => (
