@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Nanum Gothic', sans-serif;
     }
+
     @media screen and (${device.pc}){
         body{
             padding: 0;
@@ -20,7 +21,8 @@ const GlobalStyle = createGlobalStyle`
             height: 100%;
             /* border-left: 1px solid black;
             border-right: 1px solid black; */
-        };html{
+        }
+        html{
             font-size: 16px;
         }
     }
@@ -29,7 +31,8 @@ const GlobalStyle = createGlobalStyle`
             padding: 0;
             margin: 0;
             height: 100%;
-        };html{
+        }
+        html{
             font-size: 14px;
         }
     }
@@ -38,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
             padding: 0;
             margin: 0 12px;
             height: 100%;
-        };
+        }
         html{
             font-size: 12px;
         }
@@ -50,6 +53,9 @@ const GlobalStyle = createGlobalStyle`
     :link{
         text-decoration: none;
         font-weight: normal;
+    }
+    html{
+        //font-size: 1vw;
     }
 `;
 
