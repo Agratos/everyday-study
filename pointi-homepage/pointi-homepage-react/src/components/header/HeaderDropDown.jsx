@@ -30,9 +30,9 @@ const Wrapper = styled.div`
 const TopDropDownWrapper = styled(Flex)``;
 const MenuBarArea = styled.div`
     width: 100%;
-    margin: 2.5px 0;
+    margin: 2.5px 1px;
     font-weight: 600;
-    padding-right: ${({device}) => device !== 'PC' && '15px'};
+    padding-right: ${({device}) => device !== 'PC' ? '14px' : '1px'};
 `;
 const MenuBar = styled(Flex)`
     float: right;
