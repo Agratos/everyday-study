@@ -59,7 +59,7 @@ const Footer = () => {
     const device = useSelector(state => state.setDeviceReducer.device);
 
     return (
-        device === 'PC' &&
+        device !== 'Mobile' &&
         <Wrapper id={'footer'} device={device}>
             {device === 'PC' && 
                 <GoToTheMapButton to={'/company/location'}>
