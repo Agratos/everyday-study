@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 //import recruitingData from 'assets/dummy/recruiting.json';
-import MenuCategorieTable from 'components/menucategorie/MenuCategorieTable';
+import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import RecruitingContentList from './RecruitingContentList';
 import RecruitingEmployment from './RecruitingEmployment';
 import RecruitingEmploymentBoard from './RecruitingEmploymentBoard';
@@ -92,8 +92,8 @@ const Recruiting = () => {
             <Location>
                 {`Home > Recruiting > ${recruitingData[isClick].title}`}
             </Location>
-            <MenuCategorieTable 
-                kategorie={recruitingData.kategorie} 
+            <MenuCategoryTable 
+                category={recruitingData.category} 
                 justify={'flex-end'} 
                 setIsClick={setIsClick} 
                 isClick={isClick}

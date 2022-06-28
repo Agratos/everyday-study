@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     margin: 0 auto; */
     //width: 100%;
 `;
-const KategorieWrapper = styled.div`
+const CategoryWrapper = styled.div`
     display: flex;
     //margin-top: 32px;
     //border-bottom: 3px solid #3d74a7;
@@ -108,11 +108,11 @@ const PageLink = styled(Link)`
     }
 `;
 
-const MenuCategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
+const MenuCategory = ({ category, setIsClick, isClick, title, page}) => {
     const dispatch = useDispatch();
     const params = useParams();
     const device = useSelector(state => state.setDeviceReducer.device);
-    const [ menuTitle, setMenuTitle ] = useState(kategorie[0].title) 
+    const [ menuTitle, setMenuTitle ] = useState(category[0].title) 
     const [ isMenuClick, setIsMenuClick ] = useState(false);
     const [ isPageClick, setIsPageClick ] = useState(false);
     const pageList = [
@@ -141,13 +141,13 @@ const MenuCategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     }
 
     const findMenuTitle = (type) => {
-        for(let i = 0 ; i < kategorie.length; i++){
-            if(kategorie[i].id === params.click) {
+        for(let i = 0 ; i < category.length; i++){
+            if(category[i].id === params.click) {
                 switch(type){
                     case 'menu' : 
-                        return kategorie[i].title
+                        return category[i].title
                     case 'id' :
-                        return kategorie[i].id
+                        return category[i].id
                 } 
             }
         }
@@ -155,7 +155,7 @@ const MenuCategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
 
     return(
         <Wrapper>
-            <KategorieWrapper>
+            <CategoryWrapper>
                 <MenuBar>
                     <Page id='page' onClick={onClickPage}>
                         {title}
@@ -183,7 +183,7 @@ const MenuCategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                             {isMenuClick ? <AiFillCaretUp /> : <AiFillCaretDown />}
                         </IconWrapper>
                         <UnderMenuBar height={'130px'} isMenuClick={isMenuClick} device={device}>
-                            { kategorie.map(({title,id}, index) => (
+                            { category.map(({title,id}, index) => (
                                 <MenuText 
                                     id={id}  
                                     onClick={(e) => onClick(e)}
@@ -197,19 +197,19 @@ const MenuCategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
                         </UnderMenuBar>
                     </Select>
                 </MenuBar>
-                {/* { kategorie.map(({title,id}, index) => (
-                    <Kategorie 
+                {/* { category.map(({title,id}, index) => (
+                    <Category 
                         key={`menuKategroie${title}`} 
                         id={id}  
                         onClick={(e) => onClick(e)}
                         isClick={isClick}
                     >
                         {title}
-                    </Kategorie>
+                    </Category>
                 ))} */}
-            </KategorieWrapper>
+            </CategoryWrapper>
         </Wrapper>
     )
 }
 
-export default MenuCategorie;
+export default MenuCategory;

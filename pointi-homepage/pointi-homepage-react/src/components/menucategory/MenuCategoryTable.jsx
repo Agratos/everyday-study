@@ -13,7 +13,7 @@ const MobileWrapper = styled(Wrapper)`
     margin-top: 4px;
     margin-bottom: -12px;
 `;
-const KategorieWrapper = styled.table`
+const CategoryWrapper = styled.table`
     display: flex;
     justify-content: ${props => props.justify};
     flex-wrap: ${props => props.isWrap || 'wrap'};
@@ -30,7 +30,7 @@ const Tbody = styled.tbody`
     border: 1px solid black;
 `;
 const Tr = styled.tr``;
-const Kategorie = styled.td` 
+const Category = styled.td` 
     padding: 12px 24px;
     font-size: 1.2rem;
     &{
@@ -73,7 +73,7 @@ const MenuText = styled.div`
 `
 
 
-const MenuCategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
+const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
     const [ isMenuClick, setIsMenuClick ] = useState(false);
     const device = useSelector(state => state.setDeviceReducer.device);
     const onClick = (e) => {
@@ -86,21 +86,21 @@ const MenuCategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
     return(
         <Wrapper>
             { (device === 'PC' || page === 'recruiting') ? 
-                <KategorieWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
-                    { kategorie.map(({title,id}, index) => (
-                        <Tbody key={`menuKategroieLeftTable${index}`} >
+                <CategoryWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
+                    { category.map(({title,id}, index) => (
+                        <Tbody key={`menuCategroyLeftTable${index}`} >
                             <Tr>
-                                <Kategorie 
+                                <Category 
                                     id={id}  
                                     onClick={(e) => onClick(e)}
                                     isClick={isClick}
                                 >
                                     {title}
-                                </Kategorie>
+                                </Category>
                             </Tr>
                         </Tbody>
                     ))}
-                </KategorieWrapper>
+                </CategoryWrapper>
                 :<MobileWrapper>
                     { !isMenuClick ? <AiFillCaretDown size={32} onClick={CheckClickTriangle}/> 
                         :  <AiFillCaretUp size={32} onClick={CheckClickTriangle}/>}
@@ -109,7 +109,7 @@ const MenuCategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
             }
             { (device === 'Mobile' && page !== 'recruiting') && (
                 <UnderMenuBar height={height} isMenuClick={isMenuClick}>
-                    { kategorie.map(({title,id}, index) => (
+                    { category.map(({title,id}, index) => (
                                 <MenuText 
                                     id={id}  
                                     onClick={(e) => onClick(e)}
@@ -126,4 +126,4 @@ const MenuCategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
     )
 }
 
-export default MenuCategorieTable;
+export default MenuCategoryTable;

@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 //import solutrionData from 'assets/dummy/solutionTest.json';
-import MenuCategorie from 'components/menucategorie/MenuCategorie';
-import MenuCategorieLeft from 'components/menucategorie/MenuCategorieLeft';
-import MenuCategorieTable from 'components/menucategorie/MenuCategorieTable';
+import MenuCategory from 'components/menucategory/MenuCategory';
+import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
+import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import Detail from 'components/detail/Detail';
 
 const Wrapper = styled.div`
@@ -39,15 +39,15 @@ const Solution = () => {
     return (
         <Wrapper>
             { device !== 'Mobile' ? 
-                <MenuCategorie
-                    kategorie={solutrionData[id].kategorie} 
+                <MenuCategory
+                    category={solutrionData[id].category} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     title={solutrionData[id].title}
                     page={'solution'}
                 /> :
-                <MenuCategorieTable 
-                    kategorie={solutrionData[id].kategorie} 
+                <MenuCategoryTable 
+                    category={solutrionData[id].category} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     height={id === 'ict' ? '288px' : '160px'}

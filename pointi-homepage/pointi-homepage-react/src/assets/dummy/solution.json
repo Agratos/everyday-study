@@ -1,7 +1,7 @@
 {
     "ai-bigdata" : {
         "title" : "AIㆍ빅데이터",
-        "kategorie" : [
+        "category" : [
             {
                 "title": "야생동물 감지 시스템",
                 "id":"wild-animal-detection"
@@ -211,7 +211,7 @@
     },
     "5g-ict" : {
         "title" : "5GㆍICT",
-        "kategorie" : [
+        "category" : [
             {
                 "title": "MEC Router",
                 "id":"mec-router"

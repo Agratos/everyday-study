@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import solutrionData from 'assets/dummy/solutionTest.json';
-import MenuCategorie from 'components/menucategorie/MenuCategorie';
-import MenuCategorieTable from 'components/menucategorie/MenuCategorieTable';
+import MenuCategory from 'components/menucategory/MenuCategory';
+import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 
 import TestDetail from 'components/detail/TestDetail';
 
@@ -37,15 +37,15 @@ const Test = () => {
                 {`Home > Solution > ${id} > ${checkUndefined().title}`}
             </Location>
             { device !== 'Mobile' ? 
-                <MenuCategorie 
-                    kategorie={solutrionData[id].kategorie} 
+                <MenuCategory 
+                    category={solutrionData[id].category} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     title={solutrionData[id].title}
                     page={'solution'}
                 /> :
-                <MenuCategorieTable 
-                    kategorie={solutrionData[id].kategorie} 
+                <MenuCategoryTable 
+                    category={solutrionData[id].category} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     height={id === 'ict' ? '288px' : '160px'}

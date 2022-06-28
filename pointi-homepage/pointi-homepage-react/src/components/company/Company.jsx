@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 //import companyData from 'assets/dummy/company.json';
-import MenuCategorie from 'components/menucategorie/MenuCategorie';
+import MenuCategory from 'components/menucategory/MenuCategory';
 import Greeting from './Greeting';
 import Organization from './Organization';
 import PatentBoard from './PatentBoard';
@@ -12,8 +12,8 @@ import Relative from './Relative';
 import History from './History';
 import Location from './Location';
 
-import MenuCategorieTable from 'components/menucategorie/MenuCategorieTable';
-import MenuCategorieLeft from 'components/menucategorie/MenuCategorieLeft';
+import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
+import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
 
 
 const Wrapper = styled.div`
@@ -23,7 +23,7 @@ const RenderWapper = styled.div``;
 const PathWrapper = styled.div`
     margin-bottom: 16px;
 `;
-const MenuKategorieLeftWrapper = styled.div`
+const MenuCategoryLeftWrapper = styled.div`
     ${({theme}) => theme.divCommon.fixedLeftTop}
     height: 100%;
     margin-left: 32px;
@@ -33,8 +33,8 @@ const Company = () => {
     const companyData = useSelector(state => state.setDataReducer.introduce);
     const { click } = useParams();
     const [isClick, setIsClick] = useState(click);
-    const [subjectKategorie , setSubjectKategorie] = useState(companyData.kategorie[0].title);
-    const [subtitleKategorie, setSubtitleKategorie] = useState('All');
+    const [subjectCategory , setSubjectCategory] = useState(companyData.category[0].title);
+    const [subtitleCategory, setSubtitleCategory] = useState('All');
     const device = useSelector(state => state.setDeviceReducer.device);
 
     useEffect(() => {
@@ -53,8 +53,8 @@ const Company = () => {
             case 'history' :
                 return <History 
                             data={companyData.history.data} 
-                            kategorie={companyData.history.kategorie}
-                            setSubtitleKategorie={setSubtitleKategorie}
+                            category={companyData.history.category}
+                            setSubtitleCategory={setSubtitleCategory}
                             device={device}
                         />;
             case 'organization' :
@@ -73,32 +73,32 @@ const Company = () => {
     return (
         <Wrapper id={`company`}>
             <PathWrapper>
-                {`Home > Company > ${subjectKategorie} ${isClick === 'history' ?  `> ${subtitleKategorie}`: ''}`}
+                {`Home > Company > ${subjectCategory} ${isClick === 'history' ?  `> ${subtitleCategory}`: ''}`}
             </PathWrapper>
             { device !== 'Mobile' && (
-                // <MenuKategorie 
-                //     kategorie={companyData.kategorie} 
+                // <MenuKategory 
+                //     category={companyData.category} 
                 //     justify={'flex-end'} 
                 //     setIsClick={setIsClick} 
                 //     isClick={isClick} 
-                //     setSubjectKategorie={setSubjectKategorie}
+                //     setSubjectCategory={setSubjectCategory}
                 // />
-                <MenuCategorieTable 
-                    kategorie={companyData.kategorie} 
+                <MenuCategoryTable 
+                    category={companyData.category} 
                     justify={'flex-end'} 
                     setIsClick={setIsClick} 
                     isClick={isClick} 
-                    setSubjectKategorie={setSubjectKategorie}
+                    setSubjectCategory={setSubjectCategory}
                 />
-                // <MenuCategorieLeftWrapper>
-                //     <MenuCategorieLeft 
-                //         kategorie={companyData.kategorie} 
+                // <MenuCategoryLeftWrapper>
+                //     <MenuCategoryLeft 
+                //         category={companyData.category} 
                 //         justify={'flex-end'} 
                 //         setIsClick={setIsClick} 
                 //         isClick={isClick} 
-                //         setSubjectCategorie={setSubjectKategorie}
+                //         setSubjectCategorie={setSubjectCategory}
                 //     />
-                // </MenuCategorieLeftWrapper>
+                // </MenuCategoryLeftWrapper>
             )}
             <RenderWapper>
                 {renderSwich()}

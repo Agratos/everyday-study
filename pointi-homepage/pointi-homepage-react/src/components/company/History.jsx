@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { BsRecordCircleFill } from 'react-icons/bs';
 
-import MenuCategorieLeft from 'components/menucategorie/MenuCategorieLeft';
-import MenuCategorieTable from 'components/menucategorie/MenuCategorieTable';
-import MenuCategorie from 'components/menucategorie/MenuCategorie';
+import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
+import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
+import MenuCategory from 'components/menucategory/MenuCategory';
 import SeparationOfSelect from 'containers/select/SeparationOfSelect';
 
 const Wrapper = styled.div`

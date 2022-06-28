@@ -300,7 +300,7 @@
             "text" : ["맵 클릭시 카카오 맵으로 이동합니다."]
         }
     ],
-    "kategorie":[
+    "category":[
         {
             "path" :"/company/greeting",
             "id":"greeting",

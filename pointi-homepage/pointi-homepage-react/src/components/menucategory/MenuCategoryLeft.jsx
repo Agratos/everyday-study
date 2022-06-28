@@ -58,7 +58,7 @@ const LinkWrapperIn = styled(Link)`
     margin-top: ${({index}) => index === 0 && '4px'};
 `;
 
-const MenuCategorieLeft = () => {
+const MenuCategoryLeft = () => {
     // const dropDownData = useSelector(state => state.setDataReducer.menu);
     const dispatch = useDispatch();
     const [ isClick, setIsClick ] = useState(false);
@@ -124,4 +124,4 @@ const MenuCategorieLeft = () => {
     )
 }
 
-export default MenuCategorieLeft;
+export default MenuCategoryLeft;
