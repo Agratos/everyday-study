@@ -73,7 +73,7 @@ const MenuText = styled.div`
 `
 
 
-const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
+const MenuCategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
     const [ isMenuClick, setIsMenuClick ] = useState(false);
     const device = useSelector(state => state.setDeviceReducer.device);
     const onClick = (e) => {
@@ -126,4 +126,4 @@ const MenuKategorieTable = ({ kategorie, justify, subtitle, setIsClick, isClick,
     )
 }
 
-export default MenuKategorieTable;
+export default MenuCategorieTable;

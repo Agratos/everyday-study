@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 //import companyData from 'assets/dummy/company.json';
-import MenuKategorie from 'components/menukategorie/MenuKategorie';
+import MenuCategorie from 'components/menucategorie/MenuCategorie';
 import Greeting from './Greeting';
 import Organization from './Organization';
 import PatentBoard from './PatentBoard';
@@ -12,8 +12,8 @@ import Relative from './Relative';
 import History from './History';
 import Location from './Location';
 
-import MenuKategorieTable from 'components/menukategorie/MenuKategorieTable';
-import MenuKategorieLeft from 'components/menukategorie/MenuKategorieLeft';
+import MenuCategorieTable from 'components/menucategorie/MenuCategorieTable';
+import MenuCategorieLeft from 'components/menucategorie/MenuCategorieLeft';
 
 
 const Wrapper = styled.div`
@@ -83,22 +83,22 @@ const Company = () => {
                 //     isClick={isClick} 
                 //     setSubjectKategorie={setSubjectKategorie}
                 // />
-                <MenuKategorieTable 
+                <MenuCategorieTable 
                     kategorie={companyData.kategorie} 
                     justify={'flex-end'} 
                     setIsClick={setIsClick} 
                     isClick={isClick} 
                     setSubjectKategorie={setSubjectKategorie}
                 />
-                // <MenuKategorieLeftWrapper>
-                //     <MenuKategorieLeft 
+                // <MenuCategorieLeftWrapper>
+                //     <MenuCategorieLeft 
                 //         kategorie={companyData.kategorie} 
                 //         justify={'flex-end'} 
                 //         setIsClick={setIsClick} 
                 //         isClick={isClick} 
-                //         setSubjectKategorie={setSubjectKategorie}
+                //         setSubjectCategorie={setSubjectKategorie}
                 //     />
-                // </MenuKategorieLeftWrapper>
+                // </MenuCategorieLeftWrapper>
             )}
             <RenderWapper>
                 {renderSwich()}

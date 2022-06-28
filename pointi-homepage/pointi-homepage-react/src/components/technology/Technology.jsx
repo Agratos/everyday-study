@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 //import technologyData from 'assets/dummy/technology.json';
-import MenuKategorie from 'components/menukategorie/MenuKategorie';
-import MenuKategorieTable from 'components/menukategorie/MenuKategorieTable';
-import MenuKategorieLeft from 'components/menukategorie/MenuKategorieLeft';
+import MenuCategorie from 'components/menucategorie/MenuCategorie';
+import MenuCategorieTable from 'components/menucategorie/MenuCategorieTable';
+import MenuCategorieLeft from 'components/menucategorie/MenuCategorieLeft';
 import Detail from 'components/detail/Detail';
 
 const Wrapper = styled.div`
@@ -40,14 +40,14 @@ const Technology = () => {
     return (
         <Wrapper>
             { device !== 'Mobile' ? 
-                <MenuKategorie
+                <MenuCategorie
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     title={technologyData.title}
                     page={'technology'}
                 /> :  
-                <MenuKategorieTable 
+                <MenuCategorieTable 
                     kategorie={technologyData.kategorie} 
                     setIsClick={setIsClick} 
                     isClick={isClick}

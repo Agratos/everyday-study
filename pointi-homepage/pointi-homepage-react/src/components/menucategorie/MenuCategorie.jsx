@@ -108,7 +108,7 @@ const PageLink = styled(Link)`
     }
 `;
 
-const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
+const MenuCategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     const dispatch = useDispatch();
     const params = useParams();
     const device = useSelector(state => state.setDeviceReducer.device);
@@ -212,4 +212,4 @@ const MenuKategorie = ({ kategorie, setIsClick, isClick, title, page}) => {
     )
 }
 
-export default MenuKategorie;
+export default MenuCategorie;
