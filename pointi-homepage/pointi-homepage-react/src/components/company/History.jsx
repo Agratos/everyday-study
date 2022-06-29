@@ -15,7 +15,7 @@ const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
     margin-bottom: 24px;
 `;
-const MenuKategorieWrapper = styled.div`
+const MenuCategoryWrapper = styled.div`
     ${({theme}) => theme.divCommon.fixedLeftTop}
     top: 137px;
     height: 100%;
@@ -49,7 +49,7 @@ const Left = styled.div`
 `;
 const Right = styled(Left)``;
 
-const History = ({data, kategorie, setSubtitleKategorie, device}) => {
+const History = ({data, category, setSubtitleCategory, device}) => {
     const [isClick, setIsClick] = useState('All');  
     const [selected, setSelected] = useState(data);
 

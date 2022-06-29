@@ -8,6 +8,7 @@ import Copyright from './Copyright';
 import logo from 'assets/imgs/custom/logo.png';
 
 const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter};
     height: 64px;
     padding-top: 24px;
     padding-bottom: 16px;
@@ -23,8 +24,8 @@ const Logo = styled.img`
     height: 40px;
 `;
 const TextArea = styled.div`
-    ${({theme}) => theme.divCommon.flexCenter};
-    margin-left: 16px;
+    ${({theme}) => theme.divCommon.flex};
+    //margin-left: 16px;
 `;
 const TextTable = styled.table`
     ${({theme}) => theme.divCommon.column};
@@ -47,7 +48,7 @@ const GoToTheMapButton = styled(Link)`
     padding: 8px 16px;
     position: absolute;
     left: calc(50% + 320px);
-    margin-top: -24px;
+    margin-top: -80px;
     font-size: 0.9rem;
     &:hover {
         cursor: pointer;
