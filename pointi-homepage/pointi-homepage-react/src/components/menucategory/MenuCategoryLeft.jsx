@@ -6,58 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import dummyData from 'assets/dummy/menu.json';
 import { IoIosMenu } from "react-icons/io";
 
-const Wrapper = styled.div``;
-const MenuClick = styled.div`
-    position: fixed;
-    right: 0;
-    margin: 8px;
-`;
-const LeftMenuWrapper = styled.div`
-    display: ${({isClick}) => isClick === false && 'none'};
-    position: fixed;
-    left:0;
-    top:0;
-    background-color: #adadde;
-    z-index: 10;
-    height: 100%;
-    padding: 16px;
-    overflow: auto;
-`;
-const CloseButton = styled.div`
-    position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 24px;
-    :hover {
-        cursor: pointer;
-    }
-`;
-const MenuWrapper = styled.div`
-    margin: 16px;
-    line-height: 24px;
-`;
-const Title = styled.div`
-    ${({index}) => index !== 2 && index !== 3 ? css`
-        font-size: 1.5rem;
-    `: css`
-        font-size: 1.2rem;
-        margin-left: 16px;
-        margin-top: 4px;
-    `};
-`;
-const Solution = styled.div`
-    font-size: 1.7rem;
-`;
-const LinkWrapperOut = styled.div`
-    font-size: 1rem;
-    margin-left: 16px;
-`;
-const LinkWrapperIn = styled(Link)`
-    ${({theme}) => theme.divCommon.flexColumn}
-    color: black;
-    margin-top: ${({index}) => index === 0 && '4px'};
-`;
-
 const MenuCategoryLeft = () => {
     // const dropDownData = useSelector(state => state.setDataReducer.menu);
     const dispatch = useDispatch();
@@ -123,5 +71,57 @@ const MenuCategoryLeft = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div``;
+const MenuClick = styled.div`
+    position: fixed;
+    right: 0;
+    margin: 8px;
+`;
+const LeftMenuWrapper = styled.div`
+    display: ${({isClick}) => isClick === false && 'none'};
+    position: fixed;
+    left:0;
+    top:0;
+    background-color: #adadde;
+    z-index: 10;
+    height: 100%;
+    padding: 16px;
+    overflow: auto;
+`;
+const CloseButton = styled.div`
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 24px;
+    :hover {
+        cursor: pointer;
+    }
+`;
+const MenuWrapper = styled.div`
+    margin: 16px;
+    line-height: 24px;
+`;
+const Title = styled.div`
+    ${({index}) => index !== 2 && index !== 3 ? css`
+        font-size: 1.5rem;
+    `: css`
+        font-size: 1.2rem;
+        margin-left: 16px;
+        margin-top: 4px;
+    `};
+`;
+const Solution = styled.div`
+    font-size: 1.7rem;
+`;
+const LinkWrapperOut = styled.div`
+    font-size: 1rem;
+    margin-left: 16px;
+`;
+const LinkWrapperIn = styled(Link)`
+    ${({theme}) => theme.divCommon.flexColumn}
+    color: black;
+    margin-top: ${({index}) => index === 0 && '4px'};
+`;
 
 export default MenuCategoryLeft;

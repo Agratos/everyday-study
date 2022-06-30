@@ -1,16 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import kakaoData from 'assets/dummy/kakao.json';
-
-const Wrapper = styled.div`
-    width: inherit;
-    height: inherit;
-`;
-const Map = styled.div`
-    z-index: 1;
-    width: inherit;
-    height: inherit;
-`;
 
 const KakaoMap = () => {
     const location = [
@@ -34,13 +23,13 @@ const KakaoMap = () => {
 
     coordsAround();
 
-    const polyline = new window.kakao.maps.Polyline({
-        path: path,
-        strokeWeight: 3,
-        strokeColor: 'blue',
-        strokeOpactiy: 1,
-        strokeStyle: 'solid',
-    })
+    // const polyline = new window.kakao.maps.Polyline({
+    //     path: path,
+    //     strokeWeight: 3,
+    //     strokeColor: 'blue',
+    //     strokeOpactiy: 1,
+    //     strokeStyle: 'solid',
+    // })
     // const circle = new window.kakao.maps.Circle({
     //     center : new window.kakao.maps.LatLng((location[0].latitude + location[1].latitude)/2, (location[0].longitude + location[1].longitude)/2),  // 원의 중심좌표 입니다 
     //     radius: 94535, // 미터 단위의 원의 반지름입니다 
@@ -59,8 +48,7 @@ const KakaoMap = () => {
 
     const container = useRef(null); //지도를 담을 영역의 DOM 레퍼런스
     
-    useEffect(() => {
-    },[])
+    //useEffect(() => {},[])
 
     useEffect(() => {
         const map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
@@ -100,5 +88,15 @@ const KakaoMap = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    width: inherit;
+    height: inherit;
+`;
+const Map = styled.div`
+    z-index: 1;
+    width: inherit;
+    height: inherit;
+`;
 
 export default KakaoMap;

@@ -1,6 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const SolutionListCard = ({list}) => {
+    return (
+        <Wrapper>
+            {list.map((list, index) => (
+                <CardWrapper index={index}>
+                    <CardImgeWrapper>
+                        <CardImge src={''} />  
+                    </CardImgeWrapper> 
+                    <CardTitle>{list.title}</CardTitle>
+                    <CardIntroduce>{list.inner.introduce}</CardIntroduce>
+                    <DetailButton id={list.title}>자세히</DetailButton>
+                </CardWrapper>
+            ))}
+        </Wrapper>
+    )
+}
+
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
     max-width: 1200px;
@@ -41,22 +58,5 @@ const DetailButton = styled.div`
         cursor: pointer;
     }
 `;
-
-const SolutionListCard = ({list}) => {
-    return (
-        <Wrapper>
-            {list.map((list, index) => (
-                <CardWrapper index={index}>
-                    <CardImgeWrapper>
-                        <CardImge src={''} />  
-                    </CardImgeWrapper> 
-                    <CardTitle>{list.title}</CardTitle>
-                    <CardIntroduce>{list.inner.introduce}</CardIntroduce>
-                    <DetailButton id={list.title}>자세히</DetailButton>
-                </CardWrapper>
-            ))}
-        </Wrapper>
-    )
-}
 
 export default SolutionListCard;

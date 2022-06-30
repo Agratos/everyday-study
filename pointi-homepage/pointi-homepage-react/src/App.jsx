@@ -11,7 +11,6 @@ import CompanyPage from './page/CompanyPage';
 import Technology from 'page/TechnologyPage';
 import SolutionPage from './page/SolutionPage';
 import RecruitingPage from 'page/RecruitingPage';
-import SolutionTestPage from 'page/SolutionTestPage';
 import NotFound from 'page/NotFound';
 
 const App = () => {
@@ -29,7 +28,6 @@ const App = () => {
         <Route path="/solution/:id" element={<SolutionPage />} />
         <Route path="/solution/:id/:click" element={<SolutionPage />} />
         <Route path="/recruiting/:click" element={<RecruitingPage />} />
-        <Route path="/solution/test/:id/:click" element={<SolutionTestPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -9,29 +9,6 @@ import RecruitingContentList from './RecruitingContentList';
 import RecruitingEmployment from './RecruitingEmployment';
 import RecruitingEmploymentBoard from './RecruitingEmploymentBoard';
 
-const Wrapper = styled.div`
-    width: 100%;
-`;
-const RednderSwitchWrapper = styled.div``
-const Location = styled.div`
-    margin: 16px auto;
-`;
-const MainTitle = styled.div`
-    ${({theme}) => theme.fontCommon.title}
-    margin-top: 16px;
-`;
-const ContentWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexAround}
-    ${({device, theme}) => device === 'Mobile' && theme.divCommon.flexColumnCenter}
-    width: 90%;
-    margin: 0 auto;
-    padding: 32px 0;
-    border-top: 1px dotted #eee;
-`;
-const ContentImge = styled.img`
-    width: ${({device}) => device === 'Mobile' ? '100%' : '50%'};
-`;
-
 const Recruiting = () => {
     const recruitingData = useSelector(state => state.setDataReducer.career);
     const device = useSelector(state => state.setDeviceReducer.device);
@@ -103,5 +80,28 @@ const Recruiting = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    width: 100%;
+`;
+const RednderSwitchWrapper = styled.div``
+const Location = styled.div`
+    margin: 16px auto;
+`;
+const MainTitle = styled.div`
+    ${({theme}) => theme.fontCommon.title}
+    margin-top: 16px;
+`;
+const ContentWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexAround}
+    ${({device, theme}) => device === 'Mobile' && theme.divCommon.flexColumnCenter}
+    width: 90%;
+    margin: 0 auto;
+    padding: 32px 0;
+    border-top: 1px dotted #eee;
+`;
+const ContentImge = styled.img`
+    width: ${({device}) => device === 'Mobile' ? '100%' : '50%'};
+`;
 
 export default Recruiting;

@@ -5,6 +5,34 @@ import CounterBanner from 'assets/imgs/counter/counter.png'
 import dummyCounter from 'assets/dummy/counter.json';
 import * as CounterImg from 'assets/imgs/svg_icon';
 
+const Counter = () => {
+    return(
+        <Wrapper id='test'>
+            {dummyCounter.data.map(({mount, title, img},index) => (
+                <DataWrapper key={`counter-data-wrapper-${index}`}>
+                    {
+                        index === 0 ? <DataImg src={CounterImg.GroupImg} />
+                        : (index === 1 ? <DataImg src={CounterImg.CartImg} />
+                        : (index === 2 ? <DataImg src={CounterImg.HeartImg} />
+                        : <DataImg src={CounterImg.RespectImg} />))
+                    }
+                    <DataNumber >
+                        <CountUp end={mount} duration={15} />
+                        {
+                            index === 0 ? <DattaTail>+</DattaTail>
+                            : (index === 1 ? <DattaTail size='0.8em'>호</DattaTail>
+                            : (index === 2 ? <DattaTail size='0.8em'>건</DattaTail>
+                            : <DattaTail size=''>+</DattaTail>))
+                        }
+                    </DataNumber>
+                    <DataText>{title}</DataText>
+                </DataWrapper>
+            ))}
+            {/* <CountUp end={300} /> */}
+        </Wrapper>
+    )
+}
+
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenter}
     background: url(${CounterBanner});
@@ -35,33 +63,5 @@ const DattaTail = styled.div`
     display: inline-block;
     font-size: ${props => props.size};
 `;
-
-const Counter = () => {
-    return(
-        <Wrapper id='test'>
-            {dummyCounter.data.map(({mount, title, img},index) => (
-                <DataWrapper key={`counter-data-wrapper-${index}`}>
-                    {
-                        index === 0 ? <DataImg src={CounterImg.GroupImg} />
-                        : (index === 1 ? <DataImg src={CounterImg.CartImg} />
-                        : (index === 2 ? <DataImg src={CounterImg.HeartImg} />
-                        : <DataImg src={CounterImg.RespectImg} />))
-                    }
-                    <DataNumber >
-                        <CountUp end={mount} duration={15} />
-                        {
-                            index === 0 ? <DattaTail>+</DattaTail>
-                            : (index === 1 ? <DattaTail size='0.8em'>호</DattaTail>
-                            : (index === 2 ? <DattaTail size='0.8em'>건</DattaTail>
-                            : <DattaTail size=''>+</DattaTail>))
-                        }
-                    </DataNumber>
-                    <DataText>{title}</DataText>
-                </DataWrapper>
-            ))}
-            {/* <CountUp end={300} /> */}
-        </Wrapper>
-    );
-};
 
 export default Counter;

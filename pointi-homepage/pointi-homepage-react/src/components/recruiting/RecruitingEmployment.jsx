@@ -1,6 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const RecruitingEmployment = ({list}) => {
+    return (
+        <Wrapper id="employment" key='employment'>
+            <Title>{list.title}</Title>
+            <EmploymentWrapper>
+                <EmploymentImg src={require(`assets/imgs/carreer/${list.image}`)} />
+                <TextWrapper>
+                    <EmploymentTitle>{list.process[0]}</EmploymentTitle>
+                    <EmploymentText>{list.process[1]}</EmploymentText>
+                    <EmploymentTitle>{list.inquiry[0]}</EmploymentTitle>
+                    <EmploymentTextMail href={`mailto:${list.inquiry[1]}`}>{list.inquiry[1]}</EmploymentTextMail>
+                </TextWrapper>
+            </EmploymentWrapper>
+        </Wrapper>
+    )
+}
+
 const Wrapper = styled.div`
     width: 100%;
 `;
@@ -29,22 +46,5 @@ const EmploymentTextMail = styled.a`
     text-decoration-line: none;
     color: black;
 `;
-
-const RecruitingEmployment = ({list}) => {
-    return (
-        <Wrapper id="employment" key='employment'>
-            <Title>{list.title}</Title>
-            <EmploymentWrapper>
-                <EmploymentImg src={require(`assets/imgs/carreer/${list.image}`)} />
-                <TextWrapper>
-                    <EmploymentTitle>{list.process[0]}</EmploymentTitle>
-                    <EmploymentText>{list.process[1]}</EmploymentText>
-                    <EmploymentTitle>{list.inquiry[0]}</EmploymentTitle>
-                    <EmploymentTextMail href={`mailto:${list.inquiry[1]}`}>{list.inquiry[1]}</EmploymentTextMail>
-                </TextWrapper>
-            </EmploymentWrapper>
-        </Wrapper>
-    )
-}
 
 export default RecruitingEmployment;

@@ -1,26 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
 
-const Wrapper = styled.div``;
-const SocialImg = styled.div`
-    display: flex;
-    text-align: left;
-    float: right;
-    margin-right: 3vw;
-    :hover {
-        cursor: pointer;
-    }
-    float: left;
-    margin-right: 1vw;
-`;
-const Img = styled.img`
-    float:left;
-    width: ${props => props.size || '24px'} ;
-    height: ${props => props.size || '24px'};
-    margin-right: 4px;
-    padding-top: ${props => props.padding};
-`;
-
 const KakaoShare= ({imgUrl}) => {
   const url = 'http://pointi.com/'; // 현제 url 가져와서 링크 걸수 있게
   useEffect(() => {
@@ -71,8 +51,27 @@ const KakaoShare= ({imgUrl}) => {
     <Wrapper className="share-node" onClick={shareKakao}>
         <SocialImg><Img src={imgUrl} /></SocialImg>
     </Wrapper>
-  );
-};
+  )
+}
 
+const Wrapper = styled.div``;
+const SocialImg = styled.div`
+    display: flex;
+    text-align: left;
+    float: right;
+    margin-right: 3vw;
+    :hover {
+        cursor: pointer;
+    }
+    float: left;
+    margin-right: 1vw;
+`;
+const Img = styled.img`
+    float:left;
+    width: ${props => props.size || '24px'} ;
+    height: ${props => props.size || '24px'};
+    margin-right: 4px;
+    padding-top: ${props => props.padding};
+`;
 
 export default KakaoShare;

@@ -4,30 +4,15 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 //import companyData from 'assets/dummy/company.json';
-import MenuCategory from 'components/menucategory/MenuCategory';
 import Greeting from './Greeting';
 import Organization from './Organization';
 import PatentBoard from './PatentBoard';
 import Relative from './Relative';
 import History from './History';
 import Location from './Location';
-
+import MenuCategory from 'components/menucategory/MenuCategory';
 import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
-
-
-const Wrapper = styled.div`
-    margin: 16px auto;
-`;
-const RenderWapper = styled.div``;
-const PathWrapper = styled.div`
-    margin-bottom: 16px;
-`;
-const MenuCategoryLeftWrapper = styled.div`
-    ${({theme}) => theme.divCommon.fixedLeftTop}
-    height: 100%;
-    margin-left: 32px;
-`;
 
 const Company = () => {
     const companyData = useSelector(state => state.setDataReducer.introduce);
@@ -106,5 +91,18 @@ const Company = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    margin: 16px auto;
+`;
+const RenderWapper = styled.div``;
+const PathWrapper = styled.div`
+    margin-bottom: 16px;
+`;
+const MenuCategoryLeftWrapper = styled.div`
+    ${({theme}) => theme.divCommon.fixedLeftTop}
+    height: 100%;
+    margin-left: 32px;
+`;
 
 export default Company;

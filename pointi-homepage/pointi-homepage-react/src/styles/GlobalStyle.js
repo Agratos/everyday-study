@@ -19,8 +19,6 @@ const GlobalStyle = createGlobalStyle`
             max-height: 1600px;
             margin: auto;
             height: 100%;
-            /* border-left: 1px solid black;
-            border-right: 1px solid black; */
         }
         html{
             font-size: 16px;
@@ -53,9 +51,6 @@ const GlobalStyle = createGlobalStyle`
     :link{
         text-decoration: none;
         font-weight: normal;
-    }
-    html{
-        //font-size: 1vw;
     }
 `;
 

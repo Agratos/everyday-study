@@ -9,7 +9,43 @@ import phone1 from 'assets/imgs/header/phone1.png';
 import phone2 from 'assets/imgs/header/phone2.png';
 import kakao from 'assets/imgs/header/kakao.png';
 import facebook from 'assets/imgs/header/facebook.png'
-import logo from 'assets/imgs/custom/logo.png';
+import logo from 'assets/imgs/logo/logo.png';
+
+const HeaderTop = () => {
+    return (
+        <Wrapper>
+            <HeaderTopArea>
+                <HeaderTopLeftArea>
+                    <LeftLogoArea>
+                        <Link to='/' ><LeftLogo src={logo} /></Link>
+                    </LeftLogoArea>
+                </HeaderTopLeftArea>
+                <HeaderTopRightArea>
+                    <TopRightAreaLeft>
+                        <TopRightAreaLeftt>
+                            <TopRightAreaInner>                     
+                                <Img src={phone2} size='16px' padding='2px' />
+                                <ImgText>02-2204-3001</ImgText>                                
+                            </TopRightAreaInner>
+                            <TopRightAreaInner>
+                                <Img src={phone1} size='16px' padding='2px' />
+                                <ImgText>02-2204-3000</ImgText>      
+                            </TopRightAreaInner>
+                            <TopRightAreaInner>
+                                <Img src={mail} size='16px' padding='4px' />
+                                <ImgText href={'mailto:support@pointi.com'} target={'top'}>support@pointi.com</ImgText>  
+                            </TopRightAreaInner>
+                        </TopRightAreaLeftt>
+                    </TopRightAreaLeft>
+                    <TopRightAreaRight>
+                        <KakaoShare imgUrl={kakao}/>
+                        <SocialImg><ImgText target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.pointi.com%2F&amp;src=sdkpreparse" padding={`0px`}><Img src={facebook} /></ImgText></SocialImg>        
+                    </TopRightAreaRight>
+                </HeaderTopRightArea>
+            </HeaderTopArea>
+        </Wrapper>
+    )
+}
 
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
@@ -75,40 +111,5 @@ const ImgText = styled.a`
     text-decoration-line: none;
     color: black;
 `;
-const HeaderTop = () => {
-    return (
-        <Wrapper>
-            <HeaderTopArea>
-                <HeaderTopLeftArea>
-                    <LeftLogoArea>
-                        <Link to='/' ><LeftLogo src={logo} /></Link>
-                    </LeftLogoArea>
-                </HeaderTopLeftArea>
-                <HeaderTopRightArea>
-                    <TopRightAreaLeft>
-                        <TopRightAreaLeftt>
-                            <TopRightAreaInner>                     
-                                <Img src={phone2} size='16px' padding='2px' />
-                                <ImgText>02-2204-3001</ImgText>                                
-                            </TopRightAreaInner>
-                            <TopRightAreaInner>
-                                <Img src={phone1} size='16px' padding='2px' />
-                                <ImgText>02-2204-3000</ImgText>      
-                            </TopRightAreaInner>
-                            <TopRightAreaInner>
-                                <Img src={mail} size='16px' padding='4px' />
-                                <ImgText href={'mailto:support@pointi.com'} target={'top'}>support@pointi.com</ImgText>  
-                            </TopRightAreaInner>
-                        </TopRightAreaLeftt>
-                    </TopRightAreaLeft>
-                    <TopRightAreaRight>
-                        <KakaoShare imgUrl={kakao}/>
-                        <SocialImg><ImgText target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.pointi.com%2F&amp;src=sdkpreparse" padding={`0px`}><Img src={facebook} /></ImgText></SocialImg>        
-                    </TopRightAreaRight>
-                </HeaderTopRightArea>
-            </HeaderTopArea>
-        </Wrapper>
-    )
-}
 
 export default HeaderTop;

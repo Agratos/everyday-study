@@ -5,8 +5,6 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 import Recruiting from 'components/recruiting/Recruiting';
 
-const Wrapper = styled.div``;
-
 const RecruitingPage = () => {
     return (
         <Wrapper>
@@ -16,5 +14,7 @@ const RecruitingPage = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div``;
 
 export default RecruitingPage;

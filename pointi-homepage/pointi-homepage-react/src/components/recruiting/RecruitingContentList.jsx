@@ -1,6 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const RecruitingContentList = ({ list, margin }) => {
+    return (
+        <Wrapper margin={margin}>
+            <Title>{list.title}</Title>
+            { list.introduce ? <Introduce>{list.introduce}</Introduce> : null }
+            {list.list.map((text, index) => (
+                <ListWrapper key={`list-wrapper-${index}`}>
+                    { index < 9 ? <ListNumber>{`0${index+1}.`}</ListNumber> : <ListNumber>{`${index+1}.`}</ListNumber> }
+                    <ListText>{text}</ListText>
+                </ListWrapper>
+            ))}
+        </Wrapper>
+    )
+}
+
 const Wrapper = styled.div`
     width: 100%;
     padding-left: ${props => props.margin};
@@ -30,21 +45,5 @@ const ListText = styled.div`
     line-height: 1.5rem;
     font-size: 0.9rem;
 `;
-
-
-const RecruitingContentList = ({ list, margin }) => {
-    return (
-        <Wrapper margin={margin}>
-            <Title>{list.title}</Title>
-            { list.introduce ? <Introduce>{list.introduce}</Introduce> : null }
-            {list.list.map((text, index) => (
-                <ListWrapper key={`list-wrapper-${index}`}>
-                    { index < 9 ? <ListNumber>{`0${index+1}.`}</ListNumber> : <ListNumber>{`${index+1}.`}</ListNumber> }
-                    <ListText>{text}</ListText>
-                </ListWrapper>
-            ))}
-        </Wrapper>
-    )
-}
 
 export default RecruitingContentList;

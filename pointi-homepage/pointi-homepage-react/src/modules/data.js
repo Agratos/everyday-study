@@ -6,7 +6,7 @@ export const setData = (data) => {
     return {
         type: SET_DATA,
         data
-    }
+    };
 }
 
 // 리듀서 초기화

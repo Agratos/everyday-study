@@ -4,10 +4,59 @@ import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 
 //import mainData from 'assets/dummy/mainTest.json'
-
 import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
 import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/io";
 import { BsHandIndex } from 'react-icons/bs';
+
+const Main = () => {
+    const mainData = useSelector(state=>state.setDataReducer.main);
+    const device = useSelector(state=>state.setDeviceReducer.device);
+
+    return (
+        <Wrapper device={device}>
+            {mainData.data.map(({path,title,image,text}, index) => (
+                <SolutionWrapper key={index} to={path} device={device} index={index}>
+                    <Title device={device}>{title}</Title>
+                    <Image src={image} device={device}/>
+                </SolutionWrapper>
+            ))}
+        </Wrapper>
+        // <Wrapper>
+        //     <MainTitle>{mainData.title}</MainTitle>
+        //     <MainIntroSolutionWrapper>
+        //         <MainIntro>
+        //             <SolutionOutWrapper>
+        //                 <MainIntroTitle>{mainData.intro.title}</MainIntroTitle>
+        //                 <MainIntroText>{mainData.intro.text}</MainIntroText>
+        //                 { mainData.solution.map((solution, index) => (
+        //                     <SolutionWrapper key={`solutionWrapper${index}`}>
+        //                         <ReactIconWrapper>
+        //                         {
+        //                             index === 0 ? <IoIosGlobe size={56} />
+        //                             : (index === 1 ? <IoIosBarcode size={56}/>
+        //                             : (index === 2 ? <IoIosRadio size={56}/>
+        //                             : <IoIosStats size={56}/>))
+        //                         }
+        //                         </ReactIconWrapper>
+        //                         { solution.map((data, index) =>(
+        //                             index === 0 ? <SolutionTitle key={`solution${index}`}>{data}</SolutionTitle>
+        //                             : <SolutionText key={`solution${index}`}>{data}</SolutionText>
+        //                         ))}
+        //                     </SolutionWrapper>
+        //                 ))}
+        //             </SolutionOutWrapper>
+        //         </MainIntro>
+        //         <MainSolution>
+        //             <MainSolutionImg img={mainSoultionImg}/>
+        //             <MainSolutionTitle>{mainData.mainSolution.title}</MainSolutionTitle>
+        //             <MainSolutionText>{mainData.mainSolution.text[0]}</MainSolutionText>
+        //             <MainSolutionText>{mainData.mainSolution.text[1]}</MainSolutionText>
+        //             <MainSolutionButton to='/solution'>{mainData.mainSolution.title}</MainSolutionButton>
+        //         </MainSolution>
+        //     </MainIntroSolutionWrapper>
+        // </Wrapper>
+    )
+}
 
 // const Wrapper = styled.div`
 //     margin: 4vh 10vw;
@@ -166,55 +215,5 @@ const Button = styled(Link)`
     }
     animation: test 3s infinite;
 `;
-
-const Main = () => {
-    const mainData = useSelector(state=>state.setDataReducer.main);
-    const device = useSelector(state=>state.setDeviceReducer.device);
-
-    return (
-        <Wrapper device={device}>
-            {mainData.data.map(({path,title,image,text}, index) => (
-                <SolutionWrapper key={index} to={path} device={device} index={index}>
-                    <Title device={device}>{title}</Title>
-                    <Image src={image} device={device}/>
-                </SolutionWrapper>
-            ))}
-        </Wrapper>
-        // <Wrapper>
-        //     <MainTitle>{mainData.title}</MainTitle>
-        //     <MainIntroSolutionWrapper>
-        //         <MainIntro>
-        //             <SolutionOutWrapper>
-        //                 <MainIntroTitle>{mainData.intro.title}</MainIntroTitle>
-        //                 <MainIntroText>{mainData.intro.text}</MainIntroText>
-        //                 { mainData.solution.map((solution, index) => (
-        //                     <SolutionWrapper key={`solutionWrapper${index}`}>
-        //                         <ReactIconWrapper>
-        //                         {
-        //                             index === 0 ? <IoIosGlobe size={56} />
-        //                             : (index === 1 ? <IoIosBarcode size={56}/>
-        //                             : (index === 2 ? <IoIosRadio size={56}/>
-        //                             : <IoIosStats size={56}/>))
-        //                         }
-        //                         </ReactIconWrapper>
-        //                         { solution.map((data, index) =>(
-        //                             index === 0 ? <SolutionTitle key={`solution${index}`}>{data}</SolutionTitle>
-        //                             : <SolutionText key={`solution${index}`}>{data}</SolutionText>
-        //                         ))}
-        //                     </SolutionWrapper>
-        //                 ))}
-        //             </SolutionOutWrapper>
-        //         </MainIntro>
-        //         <MainSolution>
-        //             <MainSolutionImg img={mainSoultionImg}/>
-        //             <MainSolutionTitle>{mainData.mainSolution.title}</MainSolutionTitle>
-        //             <MainSolutionText>{mainData.mainSolution.text[0]}</MainSolutionText>
-        //             <MainSolutionText>{mainData.mainSolution.text[1]}</MainSolutionText>
-        //             <MainSolutionButton to='/solution'>{mainData.mainSolution.title}</MainSolutionButton>
-        //         </MainSolution>
-        //     </MainIntroSolutionWrapper>
-        // </Wrapper>
-    )
-}
 
 export default Main;

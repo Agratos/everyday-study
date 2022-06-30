@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Loading = () => {
+    return(
+        <Wrapper>
+            <LoadingRolling />
+            <LoadingText>Loading</LoadingText>
+        </Wrapper>
+    )
+}
+
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
 `;
@@ -48,14 +57,5 @@ const LoadingText = styled.div`
     top: calc(50vh - 16px);
     animation: zoom 3s linear infinite;
 `;
-
-const Loading = () => {
-    return(
-        <Wrapper>
-            <LoadingRolling />
-            <LoadingText>Loading</LoadingText>
-        </Wrapper>
-    )
-}
 
 export default Loading;

@@ -9,92 +9,6 @@ import logo2 from 'assets/imgs/banner/banner_2.png'
 import { Link, useParams, useLocation } from 'react-router-dom';
 import setChangeReducer from 'modules/change';
 
-const Wrapper = styled.div`
-    ${({theme}) => theme.zIndex.three}
-    /* border-left: 1px solid #e2dddd;
-    border-right: 1px solid #e2dddd; */
-    // background-color: none;
-    /* ${props => props.page === 'main' &&
-        css`
-            min-height: 400px;
-            height: 49vh;
-            background: url(${props => props.logo}) no-repeat center;
-            background-size: cover;
-            background-blend-mode:multiply;
-            background-color: #7794b085;
-            transition: all 1000ms ease 0s;
-        `
-    } */
-    
-`;
-const SliderArea = styled.div`
-    background-color: #0d4bf7aa;
-    transition: all 1000ms ease 0s;
-    ${props => props.page === 'main' ?
-        css`
-            background: url(${props => props.logo}) no-repeat center;
-            background-size: cover;
-            background-blend-mode:multiply;
-            height: 300px;
-            background-color: #0d4bf734;
-        ` : 
-        css`
-            ${({theme}) => theme.divCommon.flex}
-            width: calc(100% - 16px);
-            align-items: center;
-            padding-left: 16px;
-            //background: linear-gradient(45deg,#83bbef,#78c6e2ab);
-            height: ${({device}) => device === 'Mobile' ? '48px' : '48px'};
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #ffffffc2;
-        `
-    }
-`;
-const SliderAreaTextWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexColumnCenter}
-    padding: 10vh;
-    ${props => props.device === 'Mobile' && css`
-        
-    `}
-`;
-const SliderAreaText = styled.div`
-    color: #ebe1e1;
-    font-size: ${props => props.size || '2rem'}; 
-    margin-bottom: 8px;
-`;
-const SliderAreaTextButton = styled(Link)`
-    ${({theme}) => theme.divCommon.flexCenterCenter}
-    background: linear-gradient(45deg,#0181f5,#05aae6);
-    color: #eae3e3;
-    border: none;
-    width: 152px;
-    height: 64px;
-    border-radius: 32px;
-    margin-top: 2vh;
-    text-decoration-line: none;
-    &:hover {
-        background: linear-gradient(45deg,#05aae6,#0181f5);
-    }
-`;
-const LocationText = styled.div`
-    width: 100%;
-    cursor: default;
-`;
-const LocationCurrentText = styled.div`
-    color: #fffffffc;
-    word-break: keep-all;
-`;
-const LocationHome = styled(Link)`
-    width: fit-content;
-    color: #ffffffc2;
-    font-weight: 800;
-    float: left;
-`;
-const LocationMiddle = styled.div`
-    float: left;
-`;
-
 const Header = ({ page }) => {
     const dispatch = useDispatch();
     const data = useSelector(state => state.setDataReducer[page]);
@@ -192,5 +106,91 @@ const Header = ({ page }) => {
         </Wrapper>
     ))
 }
+
+const Wrapper = styled.div`
+    ${({theme}) => theme.zIndex.three}
+    /* border-left: 1px solid #e2dddd;
+    border-right: 1px solid #e2dddd; */
+    // background-color: none;
+    /* ${props => props.page === 'main' &&
+        css`
+            min-height: 400px;
+            height: 49vh;
+            background: url(${props => props.logo}) no-repeat center;
+            background-size: cover;
+            background-blend-mode:multiply;
+            background-color: #7794b085;
+            transition: all 1000ms ease 0s;
+        `
+    } */
+    
+`;
+const SliderArea = styled.div`
+    background-color: #0d4bf7aa;
+    transition: all 1000ms ease 0s;
+    ${props => props.page === 'main' ?
+        css`
+            background: url(${props => props.logo}) no-repeat center;
+            background-size: cover;
+            background-blend-mode:multiply;
+            height: 300px;
+            background-color: #0d4bf734;
+        ` : 
+        css`
+            ${({theme}) => theme.divCommon.flex}
+            width: calc(100% - 16px);
+            align-items: center;
+            padding-left: 16px;
+            //background: linear-gradient(45deg,#83bbef,#78c6e2ab);
+            height: ${({device}) => device === 'Mobile' ? '48px' : '48px'};
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffffc2;
+        `
+    }
+`;
+const SliderAreaTextWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenter}
+    padding: 10vh;
+    ${props => props.device === 'Mobile' && css`
+        
+    `}
+`;
+const SliderAreaText = styled.div`
+    color: #ebe1e1;
+    font-size: ${props => props.size || '2rem'}; 
+    margin-bottom: 8px;
+`;
+const SliderAreaTextButton = styled(Link)`
+    ${({theme}) => theme.divCommon.flexCenterCenter}
+    background: linear-gradient(45deg,#0181f5,#05aae6);
+    color: #eae3e3;
+    border: none;
+    width: 152px;
+    height: 64px;
+    border-radius: 32px;
+    margin-top: 2vh;
+    text-decoration-line: none;
+    &:hover {
+        background: linear-gradient(45deg,#05aae6,#0181f5);
+    }
+`;
+const LocationText = styled.div`
+    width: 100%;
+    cursor: default;
+`;
+const LocationCurrentText = styled.div`
+    color: #fffffffc;
+    word-break: keep-all;
+`;
+const LocationHome = styled(Link)`
+    width: fit-content;
+    color: #ffffffc2;
+    font-weight: 800;
+    float: left;
+`;
+const LocationMiddle = styled.div`
+    float: left;
+`;
 
 export default Header;

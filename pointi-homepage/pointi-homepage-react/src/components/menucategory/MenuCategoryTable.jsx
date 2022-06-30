@@ -4,6 +4,58 @@ import styled, { css } from 'styled-components';
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { IoIosMenu } from "react-icons/io";
 
+const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
+    const [ isMenuClick, setIsMenuClick ] = useState(false);
+    const device = useSelector(state => state.setDeviceReducer.device);
+    const onClick = (e) => {
+        setIsClick(e.target.id);
+        setIsMenuClick(false);
+    }
+    const CheckClickTriangle = () => {
+        setIsMenuClick(!isMenuClick);
+    }
+    return(
+        <Wrapper>
+            { (device === 'PC' || page === 'recruiting') ? 
+                <CategoryWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
+                    { category.map(({title,id}, index) => (
+                        <Tbody key={`menuCategroyLeftTable${index}`} >
+                            <Tr>
+                                <Category 
+                                    id={id}  
+                                    onClick={(e) => onClick(e)}
+                                    isClick={isClick}
+                                >
+                                    {title}
+                                </Category>
+                            </Tr>
+                        </Tbody>
+                    ))}
+                </CategoryWrapper>
+                :<MobileWrapper>
+                    { !isMenuClick ? <AiFillCaretDown size={32} onClick={CheckClickTriangle}/> 
+                        :  <AiFillCaretUp size={32} onClick={CheckClickTriangle}/>}
+                    {/* <IoIosMenu size={32} onClick={CheckClickTriangle}/>  */}
+                </MobileWrapper>
+            }
+            { (device === 'Mobile' && page !== 'recruiting') && (
+                <UnderMenuBar height={height} isMenuClick={isMenuClick}>
+                    { category.map(({title,id}, index) => (
+                                <MenuText 
+                                    id={id}  
+                                    onClick={(e) => onClick(e)}
+                                    isClick={isClick}
+                                    key={`UnderMenuBar${index}`}
+                                    isMenuClick={isMenuClick}
+                                >
+                                    {title}
+                                </MenuText>
+                    ))}
+                </UnderMenuBar>
+            )}
+        </Wrapper>
+    )
+}
 
 const Wrapper = styled.div`
     width: 100%;
@@ -70,60 +122,6 @@ const MenuText = styled.div`
         color: #5DB2FF;
     `}
 
-`
-
-
-const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
-    const [ isMenuClick, setIsMenuClick ] = useState(false);
-    const device = useSelector(state => state.setDeviceReducer.device);
-    const onClick = (e) => {
-        setIsClick(e.target.id);
-        setIsMenuClick(false);
-    }
-    const CheckClickTriangle = () => {
-        setIsMenuClick(!isMenuClick);
-    }
-    return(
-        <Wrapper>
-            { (device === 'PC' || page === 'recruiting') ? 
-                <CategoryWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
-                    { category.map(({title,id}, index) => (
-                        <Tbody key={`menuCategroyLeftTable${index}`} >
-                            <Tr>
-                                <Category 
-                                    id={id}  
-                                    onClick={(e) => onClick(e)}
-                                    isClick={isClick}
-                                >
-                                    {title}
-                                </Category>
-                            </Tr>
-                        </Tbody>
-                    ))}
-                </CategoryWrapper>
-                :<MobileWrapper>
-                    { !isMenuClick ? <AiFillCaretDown size={32} onClick={CheckClickTriangle}/> 
-                        :  <AiFillCaretUp size={32} onClick={CheckClickTriangle}/>}
-                    {/* <IoIosMenu size={32} onClick={CheckClickTriangle}/>  */}
-                </MobileWrapper>
-            }
-            { (device === 'Mobile' && page !== 'recruiting') && (
-                <UnderMenuBar height={height} isMenuClick={isMenuClick}>
-                    { category.map(({title,id}, index) => (
-                                <MenuText 
-                                    id={id}  
-                                    onClick={(e) => onClick(e)}
-                                    isClick={isClick}
-                                    key={`UnderMenuBar${index}`}
-                                    isMenuClick={isMenuClick}
-                                >
-                                    {title}
-                                </MenuText>
-                    ))}
-                </UnderMenuBar>
-            )}
-        </Wrapper>
-    )
-}
+`;
 
 export default MenuCategoryTable;

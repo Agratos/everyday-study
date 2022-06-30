@@ -6,12 +6,109 @@ import { useSelector } from 'react-redux';
 import { IoIosArrowDown, IoIosMenu, IoIosAdd, IoIosRemove} from "react-icons/io";
 //import dropDownData from 'assets/dummy/dorpDownMenu.json';
 import ScrollEvent from 'containers/scroll/ScrollEvent';
-import logoWhite from 'assets/imgs/custom/logo.white.png';
-import logoBlack from 'assets/imgs/custom/logo.png';
+import logoWhite from 'assets/imgs/logo/logo.white.png';
+import logoBlack from 'assets/imgs/logo/logo.png';
+
+const HeaderDropDown = ({page, scrollMenu, device}) => {
+    const isScrollDowun = ScrollEvent();
+    const dropDownData = useSelector(state => state.setDataReducer.menu);
+    const [ isClick, setIsClick ] = useState(false); // 메뉴버튼을 눌렀는지 확인
+    const [ clickMenu, setClickMenu ] = useState(null); // 어떤 메뉴를 눌렀는지 확인
+
+    useEffect(() => {
+        (() => device !== 'Mobile')(
+            setIsClick(false),
+            setClickMenu(null)
+        )
+    },[device])
+    const CheckClickThreeDot = () => {
+        setIsClick(!isClick);
+    }
+    const CheckClickMenu = (e) => {
+        clickMenu !== e.target.id ? setClickMenu(e.target.id) : setClickMenu(null);
+    }
+    const MoveToLink = () => {
+        setIsClick(false);
+        setClickMenu(null)
+    }
+
+    return (
+        <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
+            <TopDropDownWrapper>
+                <LeftLogoArea device={device}>
+                    <Link to='/' ><LeftLogo src={logoBlack} /></Link>
+                </LeftLogoArea>
+                <MenuBarArea device={device}>
+                    { device !== 'Mobile' ? // PC Tablet 일때 보여지는 메뉴
+                        (<MenuBar>
+                            { dropDownData.data.map( ({list, path, title},index) => (
+                                ( list.length !== 0 ? (
+                                    <LinkWrapper key={`menu-bar-text-${index}`}>
+                                        <MenuBarText to={path} page={page}>
+                                            {title}
+                                            <IconWrapper><IoIosArrowDown /></IconWrapper>
+                                        </MenuBarText>
+                                        <DropDownWrapper device={device}>
+                                            {list.map( ({path, text},index) => (
+                                                <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
+                                            ))}
+                                        </DropDownWrapper>
+                                    </LinkWrapper>
+                                )
+                                : 
+                                <LinkWrapper key={`menu-bar-text-${index}`}>
+                                    <MenuBarText to={path} page={page}>{title}</MenuBarText>
+                                </LinkWrapper>
+                            )))}
+                        </MenuBar>) : 
+                        ( <MenuBar>
+                            <MenuIconWrapper device={device} page={page}><IoIosMenu size={40}  onClick={CheckClickThreeDot}/></MenuIconWrapper>
+                        </MenuBar>)
+                    }
+                </MenuBarArea>
+            </TopDropDownWrapper>
+            { device === 'Mobile' && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
+                (<UnderMenuBar clickMenu={clickMenu} isClick={isClick} device={device}>
+                    { dropDownData.data.map( ({list, path, title},index) => (
+                        ( list.length !== 0 ? (
+                            <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
+                                {clickMenu !== title ? (
+                                    <UnderMenuUnClickWrapper >
+                                        <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
+                                        <CheckDrop>
+                                            <IoIosAdd />
+                                        </CheckDrop>
+                                    </UnderMenuUnClickWrapper>
+                                ) : (
+                                    <UnderMenuClickWrapper >
+                                        <UnderMenuUnClickWrapper>
+                                            <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
+                                            <CheckDrop>
+                                                <IoIosRemove />
+                                            </CheckDrop>
+                                        </UnderMenuUnClickWrapper>
+                                        <UnderMenuTextLinkWrapper>
+                                            {list.map( ({path, text},index) => (
+                                                    <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink} clickMenu={clickMenu}>{text}</UnderMenuTextLink>
+                                                ))}
+                                        </UnderMenuTextLinkWrapper>
+                                    </UnderMenuClickWrapper>
+                                )}
+                            </UnderMenuTextWrapper>
+                        )
+                        : ( 
+                            <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
+                                <UnderMenuTextLink to={path} onClick={MoveToLink} title={title}>{title}</UnderMenuTextLink>
+                            </UnderMenuTextWrapper>   
+                    ))))}
+                </UnderMenuBar>)}
+        </Wrapper>
+    );
+};
 
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
-`
+`;
 
 const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
@@ -167,7 +264,7 @@ const UnderMenuTextLinkWrapper = styled.div`
     padding-left: 32px;
     position: relative;
     transition-duration: 0.5s;
-`
+`;
 const UnderMenuUnClickWrapper = styled(Flex)``;
 const UnderMenuClickWrapper = styled.div``;
 const UnderMenuTitle = styled.div`
@@ -176,103 +273,6 @@ const UnderMenuTitle = styled.div`
     padding-left: 24px;
     height: ${({isClick}) => isClick ? '32px' : '0px'};
     transition-duration: 0.5s;
-`
-
-const HeaderDropDown = ({page, scrollMenu, device}) => {
-    const isScrollDowun = ScrollEvent();
-    const dropDownData = useSelector(state => state.setDataReducer.menu);
-    const [ isClick, setIsClick ] = useState(false); // 메뉴버튼을 눌렀는지 확인
-    const [ clickMenu, setClickMenu ] = useState(null); // 어떤 메뉴를 눌렀는지 확인
-
-    useEffect(() => {
-        (() => device !== 'Mobile')(
-            setIsClick(false),
-            setClickMenu(null)
-        )
-    },[device])
-    const CheckClickThreeDot = () => {
-        setIsClick(!isClick);
-    }
-    const CheckClickMenu = (e) => {
-        clickMenu !== e.target.id ? setClickMenu(e.target.id) : setClickMenu(null);
-    }
-    const MoveToLink = () => {
-        setIsClick(false);
-        setClickMenu(null)
-    }
-
-    return (
-        <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
-            <TopDropDownWrapper>
-                <LeftLogoArea device={device}>
-                    <Link to='/' ><LeftLogo src={logoBlack} /></Link>
-                </LeftLogoArea>
-                <MenuBarArea device={device}>
-                    { device !== 'Mobile' ? // PC Tablet 일때 보여지는 메뉴
-                        (<MenuBar>
-                            { dropDownData.data.map( ({list, path, title},index) => (
-                                ( list.length !== 0 ? (
-                                    <LinkWrapper key={`menu-bar-text-${index}`}>
-                                        <MenuBarText to={path} page={page}>
-                                            {title}
-                                            <IconWrapper><IoIosArrowDown /></IconWrapper>
-                                        </MenuBarText>
-                                        <DropDownWrapper device={device}>
-                                            {list.map( ({path, text},index) => (
-                                                <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
-                                            ))}
-                                        </DropDownWrapper>
-                                    </LinkWrapper>
-                                )
-                                : 
-                                <LinkWrapper key={`menu-bar-text-${index}`}>
-                                    <MenuBarText to={path} page={page}>{title}</MenuBarText>
-                                </LinkWrapper>
-                            )))}
-                        </MenuBar>) : 
-                        ( <MenuBar>
-                            <MenuIconWrapper device={device} page={page}><IoIosMenu size={40}  onClick={CheckClickThreeDot}/></MenuIconWrapper>
-                        </MenuBar>)
-                    }
-                </MenuBarArea>
-            </TopDropDownWrapper>
-            { device === 'Mobile' && // 모바일에서 메뉴 클릭시 하단으로 보여지는 부분
-                (<UnderMenuBar clickMenu={clickMenu} isClick={isClick} device={device}>
-                    { dropDownData.data.map( ({list, path, title},index) => (
-                        ( list.length !== 0 ? (
-                            <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
-                                {clickMenu !== title ? (
-                                    <UnderMenuUnClickWrapper >
-                                        <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
-                                        <CheckDrop>
-                                            <IoIosAdd />
-                                        </CheckDrop>
-                                    </UnderMenuUnClickWrapper>
-                                ) : (
-                                    <UnderMenuClickWrapper >
-                                        <UnderMenuUnClickWrapper>
-                                            <UnderMenuTitle id={title} onClick={CheckClickMenu} isClick={isClick}>{title}</UnderMenuTitle>
-                                            <CheckDrop>
-                                                <IoIosRemove />
-                                            </CheckDrop>
-                                        </UnderMenuUnClickWrapper>
-                                        <UnderMenuTextLinkWrapper>
-                                            {list.map( ({path, text},index) => (
-                                                    <UnderMenuTextLink to={path} key={`drop-down-text-${index}`} onClick={MoveToLink} clickMenu={clickMenu}>{text}</UnderMenuTextLink>
-                                                ))}
-                                        </UnderMenuTextLinkWrapper>
-                                    </UnderMenuClickWrapper>
-                                )}
-                            </UnderMenuTextWrapper>
-                        )
-                        : ( 
-                            <UnderMenuTextWrapper key={`underMenuTextWrapper${index}`}>
-                                <UnderMenuTextLink to={path} onClick={MoveToLink} title={title}>{title}</UnderMenuTextLink>
-                            </UnderMenuTextWrapper>   
-                    ))))}
-                </UnderMenuBar>)}
-        </Wrapper>
-    );
-};
+`;
 
 export default HeaderDropDown;

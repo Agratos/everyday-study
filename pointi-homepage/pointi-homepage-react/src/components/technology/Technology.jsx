@@ -9,12 +9,6 @@ import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
 import Detail from 'components/detail/Detail';
 
-const Wrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexColumnCenter}
-`;
-const TechnologyListWrapper = styled.div``;
-
-
 const Technology = () => {
     const dispatch = useDispatch();
     const technologyData = useSelector(state => state.setDataReducer.technology);
@@ -64,5 +58,10 @@ const Technology = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenter}
+`;
+const TechnologyListWrapper = styled.div``;
 
 export default Technology;

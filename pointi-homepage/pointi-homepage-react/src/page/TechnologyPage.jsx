@@ -5,8 +5,6 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer'
 import Technology from 'components/technology/Technology';
 
-const Wrapper = styled.div``;
-
 const TechnologyPage = () => {
     return (
         <Wrapper>
@@ -16,5 +14,7 @@ const TechnologyPage = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div``;
 
 export default TechnologyPage;

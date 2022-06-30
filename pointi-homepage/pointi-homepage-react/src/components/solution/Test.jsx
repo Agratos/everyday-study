@@ -9,15 +9,6 @@ import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 
 import TestDetail from 'components/detail/TestDetail';
 
-const Wrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexColumnCenter}
-    margin: 16px auto;
-`;
-const Location = styled.div``;
-const SolutionListWrapper = styled.div`
-    margin-top: 32px;
-`;
-
 const Test = () => {
     const device = useSelector(state => state.setDeviceReducer.device);
     const { id } = useParams();
@@ -61,5 +52,14 @@ const Test = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenter}
+    margin: 16px auto;
+`;
+const Location = styled.div``;
+const SolutionListWrapper = styled.div`
+    margin-top: 32px;
+`;
 
 export default Test;

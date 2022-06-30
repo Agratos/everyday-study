@@ -3,6 +3,24 @@ import styled from 'styled-components';
 
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
+const Greeting = ({data}) => {
+    //ScrollToMoveId();
+    return (
+        <Wrapper id={`greeting`}>
+            <Title>{data.title}</Title>
+            <DataWrapper>
+                {/* <Img src={require(`assets/imgs/introduce/${data.image}`)} /> */}
+                <TextWrapper>
+                    {data.text.map((text,index) => (
+                        <Text key={`greetingText${index}`}>{text}</Text>
+                    ))}
+                    <Text weight={`bolder`} size={'24px'}>{data.end}</Text>
+                </TextWrapper>
+            </DataWrapper>
+        </Wrapper>
+    )
+}
+
 const Wrapper = styled.div`
     width: 80%;
     text-align: center;
@@ -32,22 +50,5 @@ const Text = styled.div`
     font-size: ${props => props.size};
 `;
 
-const Greeting = ({data}) => {
-    //ScrollToMoveId();
-    return (
-        <Wrapper id={`greeting`}>
-            <Title>{data.title}</Title>
-            <DataWrapper>
-                {/* <Img src={require(`assets/imgs/introduce/${data.image}`)} /> */}
-                <TextWrapper>
-                    {data.text.map((text,index) => (
-                        <Text key={`greetingText${index}`}>{text}</Text>
-                    ))}
-                    <Text weight={`bolder`} size={'24px'}>{data.end}</Text>
-                </TextWrapper>
-            </DataWrapper>
-        </Wrapper>
-    )
-}
 
 export default Greeting;

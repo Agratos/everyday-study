@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 //const pixelToRem = (size) => (size / 16);
 
 const fontCommon = {
@@ -12,7 +10,7 @@ const fontCommon = {
         font-size: 1.5rem;
         font-weight: bolder;
     `,
-}
+};
 
 const animations = {
     rolling: `
@@ -25,7 +23,7 @@ const animations = {
         transition-duration: 0.5s;
         animation: rolling 1s;
     `,
-}
+};
 
 const divCommon = {
     default:`
@@ -101,7 +99,7 @@ const divCommon = {
         justify-content: space-around;
         align-items: center;
     `,
-}
+};
 
 const zIndex = {
     one:`
@@ -120,7 +118,7 @@ const zIndex = {
         position: relative;
         z-index: -1;
     `,
-}
+};
 
 const theme = {
     fontCommon,

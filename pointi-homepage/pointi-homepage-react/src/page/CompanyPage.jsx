@@ -5,8 +5,6 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 import Company from 'components/company/Company';
 
-const Wrapper = styled.div``;
-
 const CompanyPage = () => {
     return (
         <Wrapper id='introduce-page-wrapper'>
@@ -14,7 +12,9 @@ const CompanyPage = () => {
             <Company />
             <Footer />
         </Wrapper>
-    );
-};
+    )
+}
+
+const Wrapper = styled.div``;
 
 export default CompanyPage;

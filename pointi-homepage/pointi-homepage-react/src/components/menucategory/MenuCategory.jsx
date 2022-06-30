@@ -6,108 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
-const Wrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexCenter}
-    /* width: 900px;
-    margin: 0 auto; */
-    //width: 100%;
-`;
-const CategoryWrapper = styled.div`
-    display: flex;
-    //margin-top: 32px;
-    //border-bottom: 3px solid #3d74a7;
-    //line-height: 16px;
-    width: 100%;
-`;
-const MenuBar = styled.div`
-    display: flex;
-    width: 100%;
-    height: 32px;
-    //width: fit-content;
-    //margin-left: calc((100% - 900px) / 2);
-`;
-const Page = styled.div`
-    border: 1px solid #e2dddd;
-    padding: 8px;
-    padding-left: 16px;
-    font-size: 0.9rem;
-    width: 50%;
-    &:hover{
-        cursor: pointer;
-    }
-`;
-const Select = styled(Page)``;
-const IconWrapper = styled.div`
-    z-index: 1;
-    float: right;
-`;
-const UnderBar = styled.div`
-    ${({theme}) => theme.divCommon.flexColumn}
-    position: absolute;
-    background-color: #e2dddd;
-    line-height: 32px;
-    top: 122px;
-    ${({device}) => device === 'PC' ? css`
-        width: 450px;
-        margin-left: calc(50% - 600px);
-    ` : css`
-        width: inherit;
-    `}
-`;
-const UnderMenuBar = styled(UnderBar)`
-    height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
-    ${({device}) => device === 'PC' ? css`
-        left: 600px;
-    ` : css`
-        right:0px;
-    `}
-`;
-const UnderPageBar = styled(UnderBar)`
-    height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
-    ${({device}) => device === 'PC' ? css`
-        left: 150px;
-    ` : css`
-        left:0px;
-    `}
-`;
-const MenuText = styled.div`
-    transition-duration: 0.5s;
-    background-color: #e2dddd;
-    height: ${({isMenuClick}) => isMenuClick ? '32px' : '0px'};
-    opacity: ${({isMenuClick}) => isMenuClick ? '1' : '0'};
-    &{
-        ${ props => props.id === props.isClick && `
-            color: #4e95d7;
-            font-weight: bolder;
-            // padding: 12px 32px;
-        `}
-    }
-    padding-left: 16px;
-    &:hover {
-        background-color: #d5d8e0
-    }
-`;
-const PageLink = styled(Link)`
-    transition-duration: 0.5s;
-    background-color: #e2dddd;
-    height: ${({click}) => click === 'true' ? '32px' : '0px'};
-    opacity: ${({click}) => click === 'true' ? '1' : '0'};
-    color: black;
-    text-align: left;
-    padding-left: 16px;
-    
-    &{
-        ${({title, id}) => id === title && `
-            color: #4e95d7;
-            font-weight: bolder;
-            // padding: 12px 32px;
-        `}
-    }
-    &:hover {
-        background-color: #d5d8e0;
-    }
-`;
-
 const MenuCategory = ({ category, setIsClick, isClick, title, page}) => {
     const dispatch = useDispatch();
     const params = useParams();
@@ -211,5 +109,107 @@ const MenuCategory = ({ category, setIsClick, isClick, title, page}) => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexCenter}
+    /* width: 900px;
+    margin: 0 auto; */
+    //width: 100%;
+`;
+const CategoryWrapper = styled.div`
+    display: flex;
+    //margin-top: 32px;
+    //border-bottom: 3px solid #3d74a7;
+    //line-height: 16px;
+    width: 100%;
+`;
+const MenuBar = styled.div`
+    display: flex;
+    width: 100%;
+    height: 32px;
+    //width: fit-content;
+    //margin-left: calc((100% - 900px) / 2);
+`;
+const Page = styled.div`
+    border: 1px solid #e2dddd;
+    padding: 8px;
+    padding-left: 16px;
+    font-size: 0.9rem;
+    width: 50%;
+    &:hover{
+        cursor: pointer;
+    }
+`;
+const Select = styled(Page)``;
+const IconWrapper = styled.div`
+    z-index: 1;
+    float: right;
+`;
+const UnderBar = styled.div`
+    ${({theme}) => theme.divCommon.flexColumn}
+    position: absolute;
+    background-color: #e2dddd;
+    line-height: 32px;
+    top: 122px;
+    ${({device}) => device === 'PC' ? css`
+        width: 450px;
+        margin-left: calc(50% - 600px);
+    ` : css`
+        width: inherit;
+    `}
+`;
+const UnderMenuBar = styled(UnderBar)`
+    height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
+    ${({device}) => device === 'PC' ? css`
+        left: 600px;
+    ` : css`
+        right:0px;
+    `}
+`;
+const UnderPageBar = styled(UnderBar)`
+    height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
+    ${({device}) => device === 'PC' ? css`
+        left: 150px;
+    ` : css`
+        left:0px;
+    `}
+`;
+const MenuText = styled.div`
+    transition-duration: 0.5s;
+    background-color: #e2dddd;
+    height: ${({isMenuClick}) => isMenuClick ? '32px' : '0px'};
+    opacity: ${({isMenuClick}) => isMenuClick ? '1' : '0'};
+    &{
+        ${ props => props.id === props.isClick && `
+            color: #4e95d7;
+            font-weight: bolder;
+            // padding: 12px 32px;
+        `}
+    }
+    padding-left: 16px;
+    &:hover {
+        background-color: #d5d8e0
+    }
+`;
+const PageLink = styled(Link)`
+    transition-duration: 0.5s;
+    background-color: #e2dddd;
+    height: ${({click}) => click === 'true' ? '32px' : '0px'};
+    opacity: ${({click}) => click === 'true' ? '1' : '0'};
+    color: black;
+    text-align: left;
+    padding-left: 16px;
+    
+    &{
+        ${({title, id}) => id === title && `
+            color: #4e95d7;
+            font-weight: bolder;
+            // padding: 12px 32px;
+        `}
+    }
+    &:hover {
+        background-color: #d5d8e0;
+    }
+`;
 
 export default MenuCategory;

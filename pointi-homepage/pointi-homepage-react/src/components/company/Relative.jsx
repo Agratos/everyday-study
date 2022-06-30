@@ -1,6 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Relative = ({data, device}) => {
+    return (
+        <Wrapper id={`relative`}>
+            <Title>관계사</Title>
+                <DataWrapperOut device={device}>
+                    <DataWrapperIn device={device}>
+                        { data.slice(0,data.length).map(({image, title, text},index) => (
+                            <DataWrapper index={index} last={data.length} key={`relative${index}`} device={device}>
+                                <DataImg src={require(`assets/imgs/introduce/${image}`)} />
+                                <DataTitle>{title}</DataTitle>
+                                <DataText>{text}</DataText>              
+                            </DataWrapper>
+                        ))}
+                    </DataWrapperIn>
+                </DataWrapperOut>
+        </Wrapper>
+    )
+}
+
 const Wrapper = styled.div`
     margin: 0 auto;
 `;
@@ -37,24 +56,5 @@ const DataText = styled.div`
     margin-bottom: 24px;
     font-size: 1.3rem;
 `;
-
-const Relative = ({data, device}) => {
-    return (
-        <Wrapper id={`relative`}>
-            <Title>관계사</Title>
-                <DataWrapperOut device={device}>
-                    <DataWrapperIn device={device}>
-                        { data.slice(0,data.length).map(({image, title, text},index) => (
-                            <DataWrapper index={index} last={data.length} key={`relative${index}`} device={device}>
-                                <DataImg src={require(`assets/imgs/introduce/${image}`)} />
-                                <DataTitle>{title}</DataTitle>
-                                <DataText>{text}</DataText>              
-                            </DataWrapper>
-                        ))}
-                    </DataWrapperIn>
-                </DataWrapperOut>
-        </Wrapper>
-    )
-}
 
 export default Relative

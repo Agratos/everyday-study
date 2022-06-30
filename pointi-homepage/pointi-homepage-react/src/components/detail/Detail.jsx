@@ -4,6 +4,125 @@ import styled, { css } from 'styled-components';
 import ReactPlayer from 'react-player';
 import { VscCircleFilled } from "react-icons/vsc";
 
+const Detail = ({data, type}) => {
+    const device = useSelector(state => state.setDeviceReducer.device); 
+    const [ scrollPosition, setScrollPosition ] = useState(0);
+    const [ windowHeight, setWindowHeightt ] = useState(window.innerHeight);
+    const [ playerHeight, setPlayerHeight ] = useState(10000);
+    const [ start, setStart] = useState(false);
+    const [ imgWidth, setImgWidth ] = useState(0);
+    const playerRef = useRef();
+    const imgRef = useRef();
+    const wrapperRef = useRef();
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true});
+        setWindowHeightt(window.innerHeight);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    },[])
+    useEffect(() => {
+        if(scrollPosition !== 0 && data.video !== undefined){
+            const playerStart = windowHeight + scrollPosition > (playerHeight + 450);
+            setPlayerHeight(playerRef.current.offsetTop);
+            setStart(playerStart);
+        }
+    },[scrollPosition])
+    const handleScroll = (e) => {
+        const position = window.scrollY;
+        setScrollPosition(position);
+    }
+    const checkSubText = (str) => {
+        return (str[0] === '(' && str[str.length-1] === ')')
+    }
+    const checkNaturalWidth = (id) => {
+        setImgWidth(document.getElementById(id).naturalWidth);
+    }
+
+    return (
+        <Wrapper device={device} id={'detail'} ref={wrapperRef}>    
+            <DetailWrapper>
+                <Title>{data.title}</Title>
+                { type === 'solution' && (
+                    <SolutionWrapper imgWidth={imgWidth} device={device}>
+                        <Img id={'solution-img'} src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
+                            onLoad={(e) => checkNaturalWidth(e.target.id)} imgWidth={imgWidth}
+                        />
+                        <SolutionTextWrapper imgWidth={imgWidth} device={device}>
+                            {data[type].map((solution, index) => (
+                                <Solution key={`solution${index}`} index={index} imgWidth={imgWidth} device={device}>
+                                    <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
+                                    {solution}
+                                </Solution>
+                            ))}
+                        </SolutionTextWrapper>
+                    </SolutionWrapper>
+                )}
+
+                <TextWrapper>
+                    { type === 'solution' &&
+                        <TitleWrapper top={'4px'}>
+                            <Title>주요 특징</Title>
+                        </TitleWrapper>
+                    }
+                    <FunctionWrapperOut type={type}>
+                        { type === 'technology' && (
+                            <TechnologyWrapper>
+                                <ImgWrapper>
+                                    <Img src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type}/>
+                                </ImgWrapper>
+                            </TechnologyWrapper>
+                        )}
+                        {data.function.map(({title, explan}, index) => (
+                            <FunctionWrapperIn key={`function${index}`} index={index+1} length={data.function.length}>
+                                <FunctionTitleWrapper>
+                                    <FunctionIconWrapper><VscCircleFilled /></FunctionIconWrapper>
+                                    <FunctionTitle>{title}</FunctionTitle>
+                                </FunctionTitleWrapper>
+                                {explan.map((ex, index) => (
+                                    checkSubText(ex) ? <FunctionExSub key={`explan${index}`}>{ex}</FunctionExSub>
+                                    : <FunctionEx key={`explan${index}`}>- {ex}</FunctionEx>
+                                ))}
+                            </FunctionWrapperIn>
+                        ))}
+                    </FunctionWrapperOut>
+                    {data.video !== undefined && data.video !== null &&
+                        <PlayerWrapperOut>
+                            <TitleWrapper top={'32px'} ref={playerRef}>
+                                <Title>관련 영상</Title>
+                            </TitleWrapper>
+                            <PlayerWrapperIn>
+                                <Player 
+                                    className='react-player'
+                                    url={require(`assets/videos/${data.video}`)}
+                                    playing={start}
+                                    muted={true}
+                                    controls={true}
+                                    light={false}
+                                />
+                            </PlayerWrapperIn>
+                        </PlayerWrapperOut>
+                    }
+                    { data.adaptation !== undefined &&
+                        <TechnologyAdaptionWrapper>
+                            <TitleWrapper>
+                                <Title>적용 분야</Title>
+                            </TitleWrapper>
+                                {data.adaptation.map((adapt, index) => (
+                                    <AdaptionWrapper key={`adaptation ${index}`} index={index+1} length={data.adaptation.length}>
+                                        <FunctionIconWrapper><VscCircleFilled /></FunctionIconWrapper>
+                                        <FunctionTitle>{adapt}</FunctionTitle>
+                                    </AdaptionWrapper>
+                                ))}
+                        </TechnologyAdaptionWrapper>
+                    }
+                </TextWrapper>
+            </DetailWrapper>
+        </Wrapper>
+    )
+}
+
 const Flex = styled.div`
     ${({theme}) => theme.divCommon.flex}
 `
@@ -138,124 +257,5 @@ const TechnologyWrapper = styled.div`
 const TechnologyAdaptionWrapper = styled(TechnologyWrapper)`
     margin-bottom: 32px;
 `;
-
-const Detail = ({data, type}) => {
-    const device = useSelector(state => state.setDeviceReducer.device); 
-    const [ scrollPosition, setScrollPosition ] = useState(0);
-    const [ windowHeight, setWindowHeightt ] = useState(window.innerHeight);
-    const [ playerHeight, setPlayerHeight ] = useState(10000);
-    const [ start, setStart] = useState(false);
-    const [ imgWidth, setImgWidth ] = useState(0);
-    const playerRef = useRef();
-    const imgRef = useRef();
-    const wrapperRef = useRef();
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true});
-        setWindowHeightt(window.innerHeight);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-    },[])
-    useEffect(() => {
-        if(scrollPosition !== 0 && data.video !== undefined){
-            const playerStart = windowHeight + scrollPosition > (playerHeight + 450);
-            setPlayerHeight(playerRef.current.offsetTop);
-            setStart(playerStart);
-        }
-    },[scrollPosition])
-    const handleScroll = (e) => {
-        const position = window.scrollY;
-        setScrollPosition(position);
-    }
-    const checkSubText = (str) => {
-        return (str[0] === '(' && str[str.length-1] === ')')
-    }
-    const checkNaturalWidth = (id) => {
-        setImgWidth(document.getElementById(id).naturalWidth);
-    }
-
-    return (
-        <Wrapper device={device} id={'detail'} ref={wrapperRef}>    
-            <DetailWrapper>
-                <Title>{data.title}</Title>
-                { type === 'solution' && (
-                    <SolutionWrapper imgWidth={imgWidth} device={device}>
-                        <Img id={'solution-img'} src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
-                            onLoad={(e) => checkNaturalWidth(e.target.id)} imgWidth={imgWidth}
-                        />
-                        <SolutionTextWrapper imgWidth={imgWidth} device={device}>
-                            {data[type].map((solution, index) => (
-                                <Solution key={`solution${index}`} index={index} imgWidth={imgWidth} device={device}>
-                                    <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
-                                    {solution}
-                                </Solution>
-                            ))}
-                        </SolutionTextWrapper>
-                    </SolutionWrapper>
-                )}
-
-                <TextWrapper>
-                    { type === 'solution' &&
-                        <TitleWrapper top={'4px'}>
-                            <Title>주요 특징</Title>
-                        </TitleWrapper>
-                    }
-                    <FunctionWrapperOut type={type}>
-                        { type === 'technology' && (
-                            <TechnologyWrapper>
-                                <ImgWrapper>
-                                    <Img src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type}/>
-                                </ImgWrapper>
-                            </TechnologyWrapper>
-                        )}
-                        {data.function.map(({title, explan}, index) => (
-                            <FunctionWrapperIn key={`function${index}`} index={index+1} length={data.function.length}>
-                                <FunctionTitleWrapper>
-                                    <FunctionIconWrapper><VscCircleFilled /></FunctionIconWrapper>
-                                    <FunctionTitle>{title}</FunctionTitle>
-                                </FunctionTitleWrapper>
-                                {explan.map((ex, index) => (
-                                    checkSubText(ex) ? <FunctionExSub key={`explan${index}`}>{ex}</FunctionExSub>
-                                    : <FunctionEx key={`explan${index}`}>- {ex}</FunctionEx>
-                                ))}
-                            </FunctionWrapperIn>
-                        ))}
-                    </FunctionWrapperOut>
-                    {data.video !== undefined && data.video !== null &&
-                        <PlayerWrapperOut>
-                            <TitleWrapper top={'32px'} ref={playerRef}>
-                                <Title>관련 영상</Title>
-                            </TitleWrapper>
-                            <PlayerWrapperIn>
-                                <Player 
-                                    className='react-player'
-                                    url={require(`assets/videos/${data.video}`)}
-                                    playing={start}
-                                    muted={true}
-                                    controls={true}
-                                    light={false}
-                                />
-                            </PlayerWrapperIn>
-                        </PlayerWrapperOut>
-                    }
-                    { data.adaptation !== undefined &&
-                        <TechnologyAdaptionWrapper>
-                            <TitleWrapper>
-                                <Title>적용 분야</Title>
-                            </TitleWrapper>
-                                {data.adaptation.map((adapt, index) => (
-                                    <AdaptionWrapper key={`adaptation ${index}`} index={index+1} length={data.adaptation.length}>
-                                        <FunctionIconWrapper><VscCircleFilled /></FunctionIconWrapper>
-                                        <FunctionTitle>{adapt}</FunctionTitle>
-                                    </AdaptionWrapper>
-                                ))}
-                        </TechnologyAdaptionWrapper>
-                    }
-                </TextWrapper>
-            </DetailWrapper>
-        </Wrapper>
-    )
-}
 
 export default Detail;

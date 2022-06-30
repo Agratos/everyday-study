@@ -9,9 +9,10 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { legacy_createStore as createStore } from 'redux';
 import rootReducer from './modules';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import { ThemeProvider } from 'styled-components';
 import theme from 'styles/theme';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 import BeforeRendering from 'containers/setting/BeforeRendering';
 

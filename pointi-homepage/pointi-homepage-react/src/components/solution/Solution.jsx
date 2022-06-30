@@ -9,12 +9,6 @@ import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
 import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import Detail from 'components/detail/Detail';
 
-const Wrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexColumnCenter}
-    margin: 0 auto;
-`;
-const SolutionListWrapper = styled.div``;
-
 const Solution = () => {
     const dispatch = useDispatch();
     const solutrionData = useSelector(state => state.setDataReducer.solution);
@@ -62,5 +56,11 @@ const Solution = () => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenter}
+    margin: 0 auto;
+`;
+const SolutionListWrapper = styled.div``;
 
 export default Solution;
