@@ -33,8 +33,8 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
                     ))}
                 </CategoryWrapper>
                 :<MobileWrapper>
-                    { !isMenuClick ? <AiFillCaretDown size={32} onClick={CheckClickTriangle}/> 
-                        :  <AiFillCaretUp size={32} onClick={CheckClickTriangle}/>}
+                    { !isMenuClick ? <AiFillCaretDown size={30} onClick={CheckClickTriangle}/> 
+                        :  <AiFillCaretUp size={30} onClick={CheckClickTriangle}/>}
                     {/* <IoIosMenu size={32} onClick={CheckClickTriangle}/>  */}
                 </MobileWrapper>
             }

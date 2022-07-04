@@ -44,7 +44,7 @@ const Solution = () => {
                     category={solutrionData[id].category} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
-                    height={id === 'ict' ? '288px' : '160px'}
+                    height={id === 'ict' ? '288px' : '130px'}
                 />
             }
             <SolutionListWrapper >
