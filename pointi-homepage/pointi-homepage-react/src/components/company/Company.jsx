@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 //import companyData from 'assets/dummy/company.json';
@@ -15,24 +15,29 @@ import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
 
 const Company = () => {
+    const dispatch = useDispatch();
     const companyData = useSelector(state => state.setDataReducer.introduce);
     const { click } = useParams();
     const [isClick, setIsClick] = useState(click);
     const [subjectCategory , setSubjectCategory] = useState(companyData.category[0].title);
     const [subtitleCategory, setSubtitleCategory] = useState('All');
     const device = useSelector(state => state.setDeviceReducer.device);
-
+    
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
             window.history.pushState('','company click시 url 변경',`/company/${isClick}`);
-        }
+            dispatch({
+                type: 'SET_CHANGE',
+                isChange: window.location.pathname,
+            })
+        } 
     },[isClick])
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick){
             setIsClick(window.location.pathname.split('/')[2]);
         }
     })
-
+    console.log(companyData);
     const renderSwich = () => {
         switch(isClick) {
             case 'history' :
@@ -57,9 +62,9 @@ const Company = () => {
 
     return (
         <Wrapper id={`company`}>
-            <PathWrapper>
+            {/* <PathWrapper>
                 {`Home > Company > ${subjectCategory} ${isClick === 'history' ?  `> ${subtitleCategory}`: ''}`}
-            </PathWrapper>
+            </PathWrapper> */}
             { device !== 'Mobile' && (
                 // <MenuKategory 
                 //     category={companyData.category} 

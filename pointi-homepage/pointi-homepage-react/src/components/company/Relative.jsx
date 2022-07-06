@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Relative = ({data, device}) => {
+    console.log(data);
     return (
         <Wrapper id={`relative`}>
             <Title>관계사</Title>

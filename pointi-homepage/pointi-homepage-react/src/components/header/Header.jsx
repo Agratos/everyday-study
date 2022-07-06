@@ -7,7 +7,6 @@ import HeaderDropDown from './HeaderDropDown';
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
 import { Link, useParams, useLocation } from 'react-router-dom';
-import setChangeReducer from 'modules/change';
 
 const Header = ({ page }) => {
     const dispatch = useDispatch();
@@ -20,7 +19,9 @@ const Header = ({ page }) => {
     const imgData = [logo1,logo2];
     const headerData = useSelector(state => state.setDataReducer.header);
     const device = useSelector(state => state.setDeviceReducer.device);
-    
+
+    console.log(data[click]);
+
     useEffect(() => {
         dispatch({
             type: 'SET_CHANGE',
@@ -38,16 +39,16 @@ const Header = ({ page }) => {
         }
     },[ isChange ])
 
-    useEffect(() => {
-        setTimeout(() =>{
-            setDataIndex((dataIndex + 1) % 3)
-        }, 5000)
-    }, [dataIndex] )
+    // useEffect(() => {
+    //     setTimeout(() =>{
+    //         setDataIndex((dataIndex + 1) % 3)
+    //     }, 5000)
+    // }, [dataIndex] )
 
     const ChangeFirstToUpper = (str) => {
         return str[0].toUpperCase() + str.slice(1);
     }
-    
+
     return (
         page === 'main' ? (
         <Wrapper id={'top'} device={device}>
@@ -89,7 +90,7 @@ const Header = ({ page }) => {
                         </LocationCurrentText>
                     </LocationText>
                 } 
-                { page === 'technology' &&
+                { page !== 'solution' &&
                     <LocationText device={device}>
                         <LocationHome to={'/'}>
                             Home

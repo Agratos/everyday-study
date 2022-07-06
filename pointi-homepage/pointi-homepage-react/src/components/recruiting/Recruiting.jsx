@@ -66,9 +66,9 @@ const Recruiting = () => {
 
     return(
         <Wrapper id='talent'> 
-            <Location>
+            {/* <Location>
                 {`Home > Recruiting > ${recruitingData[isClick].title}`}
-            </Location>
+            </Location> */}
             <MenuCategoryTable 
                 category={recruitingData.category} 
                 justify={'flex-end'} 

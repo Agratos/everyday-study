@@ -19,7 +19,7 @@ const BeforeRendering = () => {
             header: response[1],
             footer: response[2],
             main: response[3],
-            introduce: response[4],
+            company: response[4],
             technology: response[5],
             solution: response[6],
             career: response[7],

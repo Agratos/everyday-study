@@ -19,7 +19,7 @@ const Location = ({data, device}) => {
                 return <GiClick size={24} />
         }
     }
-
+    console.log(data)
     return(
         <Wrapper id={`location`}>
             <Title>오시는 길</Title>

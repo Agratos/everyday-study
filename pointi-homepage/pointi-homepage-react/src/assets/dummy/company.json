@@ -1,5 +1,5 @@
 {
-    "ceo" : {
+    "greeting" : {
         "title" : "CEO 인사말",
         "image" : "pic_building.png",
         "text" : [
@@ -87,7 +87,9 @@
             "name" : "단절없는 음성통화를 위한 배경음악 제공 장치 및 그 방법"
         }
     ]},
-    "relative" : [
+    "relative" : {
+        "title": "관계사",
+        "data": [
         {
             "image" : "sk_telecom.png",
             "title" : "SK Telecom",
@@ -109,8 +111,10 @@
             "title" : "SK C&C",
             "text": "Consumer Products Consulting"
         }
-    ],
+    ]
+},
     "history" : {
+        "title": "회사 연역",
         "kategorie" : [
             {
                 "title" : "All",
@@ -282,7 +286,9 @@
             }
         ]
     },
-    "location": [
+    "location": {
+        "title":"오시는길",
+        "data":[
         {
             "image" : "phone.png",
             "text" : ["02-2204-3000"]
@@ -299,7 +305,7 @@
             "image" : "click.png",
             "text" : ["맵 클릭시 카카오 맵으로 이동합니다."]
         }
-    ],
+    ]},
     "category":[
         {
             "path" :"/company/greeting",
