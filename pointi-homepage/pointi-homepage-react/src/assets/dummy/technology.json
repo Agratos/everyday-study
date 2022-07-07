@@ -27,7 +27,7 @@
         ],
         "function" : [
             {
-                "title": "대용량 실시간 4k/8K Transcoding, Streaming",
+                "title": "대용량 실시간 4K/8K Transcoding, Streaming",
                 "explan": []
             },
             {
@@ -121,13 +121,23 @@
             {
                 "title": "딥러닝 기반 영상분석",
                 "explan": [
-                    "객체 검출, 인식, 추적"
+                    "객체 검출",
+                    "야생동물 분류: 고라니, 멧돼지, 너구리",
+                    "사람특징 분류: 안경, 모자, 마스크 ",
+                    "얼굴인식",
+                    "상황/행동 인식및 추적: 객체의 크기, 방향, 이동경로",
+                    "정도판단: ‘좋음/보통/나쁨’의 정도를 판단/분류",
+                    "* 제품의 양품/불량품 판단",
+                    "* 시멘트와 골재의 조합이 좋다/나쁘다 판단",
+                    "카메라 캘리브레이션 기술을 이용한 ROI(Region Of Interest) 설정 및 감시"
                 ]
             },
             {
                 "title": "딥러닝 기반 음성인식",
                 "explan": [
-                    "탐색엔진, 음향/언어 모델"
+                    "탐색엔진, 음향/언어 모델",
+                    "TTS, STT",
+                    "음성/음향 인식 및 합성"
                 ]
             },
             {
@@ -140,7 +150,9 @@
             }
         ],
         "adaptation" : [
-            "영상인식, TTS, 음성인식"
+            "지능형CCTV, 제조결함 인식, 이미지 분류, 이상행동 감지, 야생동물 감지",
+            "목소리 합성, STT, TTS, 언어 발음평가",
+            "챗봇, 수화 텍스트 변환"
         ]
     },
     "operation-management-service" :{
@@ -205,24 +217,26 @@
             },
             {
                 "title": "COTS환경의 NFV(가상화) 기반 처리 지원",
-                "explan": []
+                "explan": [
+                    "VM(Virtual Machine), Docker 지원"
+                ]
             },
             {
                 "title": "다양한 연동 Interface 지원",
                 "explan": [
                     "IP, ATM, E1 기반 Interface",
-                    "IP <-> ATM, IP ↔ E1 Base Protocol 변환"
+                    "IP ↔ ATM, IP ↔ E1 Base Protocol 변환"
                 ]
             },
             {
                 "title": "Media Transcoding, Streaming",
                 "explan": [
-                    "실시간 Audio/Video Codec변환 및 송출"
+                    "S/W 및 H/W기반 실시간 Audio/Video Codec 변환 및 송출"
                 ]
             }
         ],
         "adaptation" : [
-            "IMS Core : MGCF, IMS-MGW, IBCF, MRF  등",
+            "IMS Core: CSCF, TAS, MGCF, IMS-MGW, IBCF, MRF 등",
             "감청/녹취, 패킷 분석, Protocol 변환 시스템"
         ]
     }

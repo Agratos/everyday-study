@@ -34,7 +34,7 @@ const Detail = ({data, type}) => {
         setScrollPosition(position);
     }
     const checkSubText = (str) => {
-        return (str[0] === '(' && str[str.length-1] === ')')
+        return (str[0] === '(' && str[str.length-1] === ')') || (str[0] === '*')
     }
     const checkNaturalWidth = (id) => {
         setImgWidth(document.getElementById(id).naturalWidth);

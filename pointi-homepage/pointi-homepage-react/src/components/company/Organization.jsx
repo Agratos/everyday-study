@@ -5,7 +5,7 @@ const Organization = ({data}) => {
     return (
         <Wrapper id={`organization`}>
             <Title>{data.title}</Title>
-            <Img src={require(`assets/imgs/introduce/${data.image}`)} />
+            <Img src={require(`assets/imgs/company/${data.image}`)} />
         </Wrapper>
     )
 }

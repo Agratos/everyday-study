@@ -26,7 +26,10 @@ const Location = ({data, device}) => {
             <Title>오시는 길</Title>
             <LocationWrapperOut device={device}>
                 <KakaoMapWrapper device={device}>
-                    <CilckTextMessage>클릭 하시면 길찾기로 이동합니다.</CilckTextMessage>
+                    <ClickTextMessageWrapper>
+                        <ClickImage src={require(`assets/imgs/company/${data.list[3].image}`)} />
+                        <ClickTextMessage>{data.list[3].text}</ClickTextMessage>
+                    </ClickTextMessageWrapper>
                     <KakaoMap />
                 </KakaoMapWrapper>
             </LocationWrapperOut>
@@ -44,33 +47,31 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    margin-bottom: 32px;
+    padding: 4px 24px;
 `;
 const LocationWrapperOut =styled(Flex)`
     ${({theme}) => theme.divCommon.flexCenter}
     ${({device, theme})=> device === 'Mobile' && theme.divCommon.flexColumn}
-    margin-top: 5vh;
 `;
 const KakaoMapWrapper = styled.div`
-    width: 900px;
+    width: 1100px;
     height: 50vh;
+    margin-bottom: 64px;
     ${props => props.device === 'Mobile' && css`
         width: 100%;
         margin-bottom: 32px;
     `}
 `;
-const LocationWrapperIn = styled.div``;
-const TextWrapperOut = styled(Flex)`
-    margin: 0 32px 32px 32px;
+const ClickTextMessageWrapper = styled(Flex)`
+    align-items: center;
+    margin-bottom: 8px;
+    margin-left: 0;
 `;
-const TextWrapperIn = styled.div`
-    ${({theme}) => theme.divCommon.flexColumnAround}
+const ClickImage = styled.img``;
+const ClickTextMessage = styled.div`
+    margin-top: 16px;
+    margin-left: 8px;
 `;
-const Text = styled.div`
-    color: #8A8A8A;
-    margin-left: 16px;
-`;
-const Img = styled.img``;
-const CilckTextMessage = styled.div``;
+
 
 export default Location;

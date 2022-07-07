@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 const device = {
-    pc: 'min-width: 920px',
-    tablet: 'max-width: 920px',
+    pc: 'min-width: 1100px',
+    tablet: 'max-width: 1100px',
     mobile: 'max-width: 670px'
 }
 

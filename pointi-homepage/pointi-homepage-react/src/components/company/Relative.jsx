@@ -9,7 +9,7 @@ const Relative = ({data, device}) => {
                     <DataWrapperIn device={device}>
                         { data.list.slice(0,data.list.length).map(({image, title, text},index) => (
                             <DataWrapper index={index} last={data.list.length} key={`relative${index}`} device={device}>
-                                <DataImg src={require(`assets/imgs/introduce/${image}`)} />
+                                <DataImg src={require(`assets/imgs/company/${image}`)} />
                                 <DataTitle>{title}</DataTitle>
                                 <DataText>{text}</DataText>              
                             </DataWrapper>

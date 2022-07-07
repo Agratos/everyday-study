@@ -15,6 +15,9 @@
             }, {
                 "title": "통합관제 시스템(UI, UX)",
                 "id":"integrated-control-gui"
+            }, {
+                "title": "콘크리트 재료배합 정도 판단시스템",
+                "id":"concrete-material-mixing-degree-judgment-system"
             }
         ],
         "wild-animal-detection" :{
@@ -23,40 +26,48 @@
             "video" : "Solution_AI_BigData_wildAnimalDetection.mp4",
             "solution" : [
                 "인공지능을 활용하여 CCTV 카메라 영상에서 실시간으로 사람 및 야생동물(고라니, 맷돼지, 오소리, 너구리 등)을 감지하여 통지하는 솔루션",
-                "실시간 영상 중계, 녹화를 지원하며, 5G 네트워크를 활용하여 초저지연으로 신속한 감지 및 통지를 지원"
+                "실시간 영상 중계, 녹화를 지원하며, 5G 네트워크를 활용하여 초저지연으로 신속한 감지 및 통지를 지원",
+                "야생동물 종류에 따라 소리에 의한 퇴치(총소리, 개소리 조합 송출), 초음파 및 빛 송출에 의한 퇴치 기술 적용",
+                "야생동물 감지를 위한 고라니, 멧돼지, 오소리, 너구리, 사람 학습데이터 약 5만장 확보"
             ],
             "function" : [
                 {
-                    "title": "PTZ CCTV 카메라 제어",
-                    "explan": []
+                    "title": "카메라가 장착된 ‘침입감지기’로 동물감시",
+                    "explan": [
+                        "PTZ(Pan-Tilt-Zoom) 카메라 제어",
+                        "5G Network와 연결하여 초저지연 영상 전송처리",
+                        "야생동물 퇴치를 위한 초음파/가청 스피커, LED 장착",
+                        "감시환경에 따른 동작감시(근거리 집중감시), 패트롤 감시(원거리 감시)방법 선택 적용 가능"
+                    ]
                 },
                 {
-                    "title": "AI (인공지능)기술을 통한 동물 검출",
-                    "explan": []
+                    "title": "영상 AI기술을 이용한 야생동물 검출",
+                    "explan": [
+                        "멧돼지, 고라니, 오소리, 너구리 등 야생동물 및 사람 검출",
+                        "주∙야간 24시간 야생동물 검출",
+                        "감시 불가능 환경(안개, 폭우, 폭설 등) 자동 인식 및 통보 ",
+                        "다중 객체 감지",
+                        "TTA 공인인증을 받은 솔루션"
+                    ]
                 },
                 {
-                    "title": "실시간 야생동물 검출 및 통지",
-                    "explan": []
+                    "title": "야생동물 검출시, 다양한 통지/퇴치 기능 제공",
+                    "explan": [
+                        "가청 알람 및 SMS/MMS 통지",
+                        "ROI(Region Of Interest)에 따른 다른 통지, 퇴치 기능 제공",
+                        "음향 퇴치 (초음파 및 가청 스피커) 제공",
+                        "시각 퇴치 (LED) 제공"
+                    ]
                 },
                 {
-                    "title": "실시간 야생동물 이동경로 추적 및 분석 기능",
-                    "explan": []
-                },
-                {
-                    "title": "실시간 CCTV 영상 중계 및 녹화",
-                    "explan": []
-                },
-                {
-                    "title": "Region Of Interest에 따른 다른 보고/조치 적용",
-                    "explan": []
-                },
-                {
-                    "title": "야생동물 종류에 따른 퇴치기술(초음파, 소리, 빛) 적용",
-                    "explan": []
-                },
-                {
-                    "title": "TTA공인인증을 받은 솔루션",
-                    "explan": []
+                    "title": "다양한 분석 기능 제공",
+                    "explan": [
+                        "실시간 CCTV영상 중계 및 녹화",
+                        "야생동물 검출시 Snapshot제공",
+                        "야생동물 실시간 이동경로 추적 및 분석",
+                        "야생동물 이동경로 heatmap 제공",
+                        "야생동물 상습 침입시간, 침입 분포 표시 및 분석"
+                    ]
                 }
             ],
             "keyword" : [
@@ -76,28 +87,52 @@
             "title" : "영상분석 통합플랫폼 - 이미지 분류 서비스",
             "image" : "Solution_AI_BigData_imageClassfication.png",
             "solution" : [
-                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스"     
+                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스",
+                "이미지를 분석하여 카테고리로 분류하고,  필요시 관련 기관, 부서에 전송",
+                "현장의 작업 전, 후의 사진일 경우 (거리 청소 전, 후)  작업의 상태를 파악하고 이를 보고 또한  사진에 포함된 GPS정보를 이용하여 MAP에 표시 및 이력 제공",
+                "고객 맞춤형 통계 및 보고서 기능 제공"
             ],
             "function" : [
                 {
-                    "title": "사진 및 동영상 촬영, 업로드 기능",
-                    "explan": []
+                    "title": "사진 및 동영상 촬영, 업로드 기능 제공",
+                    "explan": [
+                        "App이나 Web을 통한 이미지/동영상을 분석 플랫폼에 업로드",
+                        "휴대폰, 카메라 등 다양한 디바이스를 통한 분석요청 데이터 업로드(서비스 확장성 제공)"
+                    ]
                 },
                 {
-                    "title": "이미지 분석/식별/분류/전송 기능",
-                    "explan": []
+                    "title": "AI를 적용하여 이미지 분석/식별/분류 전송 기능 제공",
+                    "explan": [
+                        "요청된 데이터를 분석하여 식별/분류하는 알고리즘 적용",
+                        "메타데이터 추가 활용하여 정확도 향상적용",
+                        "분류된 데이터를 저장소별로 자동으로 전송",
+                        "이미지내의 GPS정보를 활용하여 MAP표시, 위치 구별"
+                    ]
                 },
                 {
                     "title": "통계 데이터 및 운영보고서 제출 기능",
-                    "explan": []
+                    "explan": [
+                        "요청  데이터 일자/월/지역별 통계",
+                        "분석 결과 및 분류/전송 결과 통계",
+                        "서비스 운영 현황 보고서 제공"
+                    ]
                 },
                 {
-                    "title": "실시간 스트리밍 분석 기반의 데이터 최적화 및 고도화",
-                    "explan": []
+                    "title": "고도화 기술 적용",
+                    "explan": [
+                        "스트리밍 분석 기반의 데이터 최적화 기술",
+                        "영상 조합/보완 기술 기반의 영상 보정 기술",
+                        "분석 효율화를 위한 실시간 분석 기술"
+                    ]
                 },
                 {
-                    "title": "운용자를 위한 강력한 EMS 기능 제공(GUI, MMI)",
-                    "explan": []
+                    "title": "고객 맞춤형 확장 가능",
+                    "explan": [
+                        "고객 요구 플랫폼으로 확장 적용 지원",
+                        "(Legacy H/W, Cloud, 가상화, MEC 플랫폼 등)",
+                        "고객 요구 성능에 따른 구성 지원",
+                        "(소용량, 대용량 등 용량별 증설단위 제공)"
+                    ]
                 }
             ],
             "keyword" : [
@@ -149,7 +184,7 @@
             "title" : "통합관제 시스템(UI, UX)",
             "image" : "Solution_AI_BigData_integratedControlGui.png",
             "solution" : [
-                "다년간에 걸쳐 쌓인 노하우가 담긴 통합관제 서비스 제공",
+                "다년간 쌓인 노하우 및 고객과 진화해온 통합관제 서비스제공",
                 "사용자 중심 GUI 및 MMI(Man Machine Interface) 제공"
             ],
             "function" : [
@@ -174,7 +209,7 @@
                 {
                     "title": "통계",
                     "explan": [
-                        "H/W Resource, Network 통계",
+                        "H/W Resource(CPU,MEM,DISK), Network 사용률 통계",
                         "서비스 별 통계",
                         "단위: 1분, 5분, 1시간, 1일, 1주, 1일, 1년"
                     ]
@@ -193,9 +228,15 @@
                     ]
                 },
                 {
-                    "title": "표준화된 프로토콜 적용 및 시스템 가상화(VNF) 적용",
+                    "title": "표준화된 프로토콜  적용",
                     "explan": [
-                        "ICMP, SNMP, Telnet, SSH, syslog, Trap, HTTP, JSON"
+                        "ICMP, SNMP, SSH, Syslog, Trap, HTTP, JSON"
+                    ]
+                },
+                {
+                    "title": "가상화(VNF) 적용",
+                    "explan": [
+                        "Legacy H/W뿐 아니라 VM(Virtual Machine), Docker기반 가상화에 적용 가능"
                     ]
                 }
             ],
@@ -207,11 +248,58 @@
                 "MMI",
                 "MMC"
             ]
+        },
+        "concrete-material-mixing-degree-judgment-system": {
+            "title": "영상분석 통합플랫폼 - 콘크리트 재료배합 정도 판단시스템",
+            "image" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.png",
+            "video" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.mp4",
+            "solution" : [
+                "콘크리트 레미콘 펌프 시 콘크리트 재료배합의 품질 검사는 작업자의 육안을 통한 주관적 경험에 의존한 랜덤한 검사로 수행되기 때문에 많은 작업 시간과 결과에 대한 객관성과 신뢰성이 떨어지는 문제점이 발생",
+                "이를 개선하기 위해 AI 영상분석 기술을 적용한 콘크리트 재료배합 정도 판단 시스템임",
+                "작업현장을 스마트폰으로 촬영하고, 이를 영상AI시스템에서 실시간으로 분석하여 그 결과를 스마트폰으로 바로 알려주는 시스템",
+                "비정형데이터에 대한 정도를 판단하는 AI엔진 적용"
+            ],
+            "function": [
+                {
+                    "title": "실시간 콘크리트 재료배합 정도 판단 및 통지",
+                    "explan": [
+                        "단말App.에서 콘크리트 재료배합 작업현장을 촬영",
+                        "실시간 재료배합 정도 판단 결과를 바로 통지(SMS, Push)"
+                    ]
+                },
+                {
+                    "title": "분석결과에 대한 사용자 편의 제공",
+                    "explan": [
+                        "측정이력 화면 및 녹화 영상 제공",
+                        "작업현장, 업체별 별 통계"
+                    ]
+                },
+                {
+                    "title": "다양한 플랫폼에 적용 가능",
+                    "explan": [
+                        "Legacy H/W 적용",
+                        "Private, Public Cloud 적용",
+                        "VM, Docker기반 가상화 환경 적용"
+                    ]
+                },
+                {
+                    "title": "가상화 클라우드 시스템으로도 가능",
+                    "explan": [
+                        "기업별 맞춤형 분석 솔루션 제공",
+                        "기업별 데이터 분리",
+                        "모니터링 및 사용량 측정(컨테이너 상태, 성능, 서비스 성공률"
+                    ]
+                }
+            ]
         }
     },
     "5g-ict" : {
         "title" : "5GㆍICT",
         "category" : [
+            {
+                "title": "T그룹통화",
+                "id":"t-group-call"
+            },
             {
                 "title": "MEC Router",
                 "id":"mec-router"
@@ -233,9 +321,6 @@
             },{
                 "title": "영상정보센터",
                 "id":"video-information-center"
-            },{
-                "title": "T그룹통화",
-                "id":"t-group-call"
             }
         ],
         "mec-router" :{
@@ -312,7 +397,7 @@
                 {
                     "title": "IP 기반(IMS) 기반 Signal/Media 처리",
                     "explan": [
-                        "P 기반 Signaling/Media Processing",
+                        "IP 기반 Signaling/Media Processing",
                         "(SIP, SDP, RTP/RTCP)",
                         "다양한 방식의 DTMF처리",
                         "(RFC2833, In-Band, SIP INFO)"
@@ -515,7 +600,7 @@
                     "explan": [
                         "E1 기반 Signaling/Media Processing",
                         "(ISUP, SS7, SIGTRAN, E1, H324, H.245, H.223)",
-                        "P 기반 Signaling/Media Processing",
+                        "IP 기반 Signaling/Media Processing",
                         "(SIP, SDP, RTP/RTCP)",
                         "다양한 방식의 DTMF처리",
                         "(RFC2833, In-Band, SIP INFO)"

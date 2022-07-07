@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 //import footerData from 'assets/dummy/footer.json';
@@ -10,11 +10,17 @@ import logo from 'assets/imgs/logo/logo.png';
 const Footer = () => {
     const footerData = useSelector(state => state.setDataReducer.footer);
     const device = useSelector(state => state.setDeviceReducer.device);
-
+    const isChange = useSelector(state => state.setChangeReducer.isChange);
+    const [click, setClick] = useState('');
+    useEffect(() => {
+        const url = window.location.pathname.split('/');
+        setClick(url[2])
+    },[ isChange ])
+    
     return (
         device !== 'Mobile' &&
         <Wrapper id={'footer'} device={device}>
-            {device === 'PC' && 
+            {device === 'PC' && click !== 'location' &&
                 <GoToTheMapButton to={'/company/location'}>
                     오시는 길
                 </GoToTheMapButton>
