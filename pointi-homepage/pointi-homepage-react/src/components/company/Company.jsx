@@ -8,7 +8,6 @@ import Greeting from './Greeting';
 import Organization from './Organization';
 import PatentBoard from './PatentBoard';
 import Relative from './Relative';
-import History from './History';
 import Location from './Location';
 import MenuCategory from 'components/menucategory/MenuCategory';
 import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
@@ -16,13 +15,13 @@ import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
 
 const Company = () => {
     const dispatch = useDispatch();
-    const companyData = useSelector(state => state.setDataReducer.introduce);
+    const companyData = useSelector(state => state.setDataReducer.company);
     const { click } = useParams();
     const [isClick, setIsClick] = useState(click);
     const [subjectCategory , setSubjectCategory] = useState(companyData.category[0].title);
     const [subtitleCategory, setSubtitleCategory] = useState('All');
     const device = useSelector(state => state.setDeviceReducer.device);
-    
+
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
             window.history.pushState('','company click시 url 변경',`/company/${isClick}`);
@@ -36,17 +35,10 @@ const Company = () => {
         if(window.location.pathname.split('/')[2] !== isClick){
             setIsClick(window.location.pathname.split('/')[2]);
         }
-    })
-    console.log(companyData);
+    },[click])
+
     const renderSwich = () => {
         switch(isClick) {
-            case 'history' :
-                return <History 
-                            data={companyData.history.data} 
-                            category={companyData.history.category}
-                            setSubtitleCategory={setSubtitleCategory}
-                            device={device}
-                        />;
             case 'organization' :
                 return <Organization data={companyData.organization} device={device} />;
             case 'patent' :
@@ -56,23 +48,13 @@ const Company = () => {
             case 'location' :
                 return <Location data={companyData.location} device={device} />;
             default :
-                return <Greeting data={companyData.ceo} device={device} />;
+                return <Greeting data={companyData.greeting} device={device} />;
         }
     }
 
     return (
-        <Wrapper id={`company`}>
-            {/* <PathWrapper>
-                {`Home > Company > ${subjectCategory} ${isClick === 'history' ?  `> ${subtitleCategory}`: ''}`}
-            </PathWrapper> */}
+        <Wrapper>
             { device !== 'Mobile' && (
-                // <MenuKategory 
-                //     category={companyData.category} 
-                //     justify={'flex-end'} 
-                //     setIsClick={setIsClick} 
-                //     isClick={isClick} 
-                //     setSubjectCategory={setSubjectCategory}
-                // />
                 <MenuCategoryTable 
                     category={companyData.category} 
                     justify={'flex-end'} 
@@ -80,15 +62,6 @@ const Company = () => {
                     isClick={isClick} 
                     setSubjectCategory={setSubjectCategory}
                 />
-                // <MenuCategoryLeftWrapper>
-                //     <MenuCategoryLeft 
-                //         category={companyData.category} 
-                //         justify={'flex-end'} 
-                //         setIsClick={setIsClick} 
-                //         isClick={isClick} 
-                //         setSubjectCategorie={setSubjectCategory}
-                //     />
-                // </MenuCategoryLeftWrapper>
             )}
             <RenderWapper>
                 {renderSwich()}

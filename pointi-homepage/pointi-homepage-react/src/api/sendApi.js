@@ -13,8 +13,8 @@ export default {
     getMain : () => {
         return api.get('/main');
     },
-    getIntroduce : () => {
-        return api.get('/introduce')
+    getCompany : () => {
+        return api.get('/company')
     }, 
     getTechnology : () => {
         return api.get('/technology');
@@ -22,10 +22,10 @@ export default {
     getSolution : () => {
         return api.get('/solution');
     },
-    getCareer : () => {
-        return api.get('/career');
+    getRecruiting : () => {
+        return api.get('/recruiting');
     },
     getAll : () => {
-        return api.getAll('/menu','/menu/header','/menu/footer', '/main', '/introduce','/technology','/solution','/career');
+        return api.getAll('/menu','/menu/header','/menu/footer', '/main', '/company','/technology','/solution','/recruiting');
     }
 }  

@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Relative = ({data, device}) => {
-    console.log(data);
     return (
         <Wrapper id={`relative`}>
             <Title>관계사</Title>
                 <DataWrapperOut device={device}>
                     <DataWrapperIn device={device}>
-                        { data.slice(0,data.length).map(({image, title, text},index) => (
-                            <DataWrapper index={index} last={data.length} key={`relative${index}`} device={device}>
+                        { data.list.slice(0,data.list.length).map(({image, title, text},index) => (
+                            <DataWrapper index={index} last={data.list.length} key={`relative${index}`} device={device}>
                                 <DataImg src={require(`assets/imgs/introduce/${image}`)} />
                                 <DataTitle>{title}</DataTitle>
                                 <DataText>{text}</DataText>              

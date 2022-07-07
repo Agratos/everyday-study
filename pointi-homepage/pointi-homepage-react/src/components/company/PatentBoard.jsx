@@ -6,7 +6,7 @@ const PatentBoard = ({data, device}) => {
     const [ limit ] = useState(10);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
-    
+
     return (
         <Wrapper id='patent'>
             <Title>{data.title}</Title>

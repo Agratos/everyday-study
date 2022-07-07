@@ -7,6 +7,7 @@ import { HiMail } from "react-icons/hi";
 import { MdLocationOn } from "react-icons/md";
 
 const Location = ({data, device}) => {
+
     const CheckIcon = (index) => {
         switch(index){
             case 0:
@@ -19,28 +20,15 @@ const Location = ({data, device}) => {
                 return <GiClick size={24} />
         }
     }
-    console.log(data)
+
     return(
         <Wrapper id={`location`}>
             <Title>오시는 길</Title>
             <LocationWrapperOut device={device}>
                 <KakaoMapWrapper device={device}>
+                    <CilckTextMessage>클릭 하시면 길찾기로 이동합니다.</CilckTextMessage>
                     <KakaoMap />
                 </KakaoMapWrapper>
-                <LocationWrapperIn>
-                    {data.map(({image, text}, index) => (
-                        <TextWrapperOut key={`location${index}`}>
-                            {CheckIcon(index)}
-                            <TextWrapperIn >
-                                {text.map((text,index) => (
-                                    <Text key={`locationTextWrapper${index}`}>
-                                        {text}
-                                    </Text>
-                                ))}
-                            </TextWrapperIn>
-                        </TextWrapperOut>
-                    ))} 
-                </LocationWrapperIn>
             </LocationWrapperOut>
         </Wrapper>
     )
@@ -64,7 +52,7 @@ const LocationWrapperOut =styled(Flex)`
     margin-top: 5vh;
 `;
 const KakaoMapWrapper = styled.div`
-    width: 35vw;
+    width: 900px;
     height: 50vh;
     ${props => props.device === 'Mobile' && css`
         width: 100%;
@@ -83,5 +71,6 @@ const Text = styled.div`
     margin-left: 16px;
 `;
 const Img = styled.img``;
+const CilckTextMessage = styled.div``;
 
 export default Location;

@@ -18,7 +18,7 @@ const initialState = {
     company: null,
     technology: null,
     solution: null,
-    career: null,
+    recruiting: null,
     isLoading: true,
 };
 
@@ -31,10 +31,10 @@ export default function setDataReducer ( state = initialState, action ) {
                 header: action.header,
                 footer: action.footer,
                 main: action.main,
-                company: action.introduce,
+                company: action.company,
                 technology: action.technology,
                 solution: action.solution,
-                career: action.career,
+                recruiting: action.recruiting,
                 isLoading: false,
             };
         default:

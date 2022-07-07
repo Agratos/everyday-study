@@ -112,8 +112,8 @@ const MenuCategory = ({ category, setIsClick, isClick, title, page}) => {
 
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenter}
-    /* width: 900px;
-    margin: 0 auto; */
+    width: 900px;
+    margin: 0 auto;
     //width: 100%;
 `;
 const CategoryWrapper = styled.div`

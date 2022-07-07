@@ -20,8 +20,6 @@ const Header = ({ page }) => {
     const headerData = useSelector(state => state.setDataReducer.header);
     const device = useSelector(state => state.setDeviceReducer.device);
 
-    console.log(data[click]);
-
     useEffect(() => {
         dispatch({
             type: 'SET_CHANGE',

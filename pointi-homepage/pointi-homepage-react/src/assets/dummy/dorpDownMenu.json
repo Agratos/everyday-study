@@ -10,10 +10,6 @@
                     "text" :"CEO 인사말"
                 },
                 {
-                    "path" :"/company/history",
-                    "text" :"회사 연역"
-                },
-                {
                     "path" :"/company/organization",
                     "text" :"조직 구성"
                 },

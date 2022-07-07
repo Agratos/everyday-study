@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, dispatch, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 //import recruitingData from 'assets/dummy/recruiting.json';
@@ -10,7 +10,8 @@ import RecruitingEmployment from './RecruitingEmployment';
 import RecruitingEmploymentBoard from './RecruitingEmploymentBoard';
 
 const Recruiting = () => {
-    const recruitingData = useSelector(state => state.setDataReducer.career);
+    const dispatch = useDispatch();
+    const recruitingData = useSelector(state => state.setDataReducer.recruiting);
     const device = useSelector(state => state.setDeviceReducer.device);
     const { click } = useParams();
     const [isClick, setIsClick] = useState(click);
@@ -18,13 +19,17 @@ const Recruiting = () => {
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick) {
             window.history.pushState('','recruiting click시 url 변경',`/recruiting/${isClick}`);
-        }           
+            dispatch({
+                type: 'SET_CHANGE',
+                isChange: window.location.pathname,
+            })
+        } 
     },[isClick])
     useEffect(() => {
         if(window.location.pathname.split('/')[2] !== isClick){
             setIsClick(window.location.pathname.split('/')[2]);
         }
-    })
+    },[click])
     
     const renderSwitch = () => {
         switch(isClick) {
@@ -66,9 +71,6 @@ const Recruiting = () => {
 
     return(
         <Wrapper id='talent'> 
-            {/* <Location>
-                {`Home > Recruiting > ${recruitingData[isClick].title}`}
-            </Location> */}
             <MenuCategoryTable 
                 category={recruitingData.category} 
                 justify={'flex-end'} 

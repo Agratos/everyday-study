@@ -7,22 +7,19 @@ const KakaoMap = () => {
         {latitude:35.81820900081049, longitude:127.10553536304494, text:'포인트아이 전주 지사 2층 205E호'}
     ];
     const [linePath, setLinePath] = useState([])
-    const startLat = 33.669620417716707;
-    const startLng = 127.070803467558335;
-    const length = 94535;
-    const path = []
-
-    const coordsAround = () => { // 반원 그릴 좌표 자동 계산
-        let degree = 90;
-        while(true){
-            path.push(new window.kakao.maps.LatLng(3+startLat + length / 111190 * Math.sin(degree * Math.PI / 180),startLng + length / 88900  * Math.cos(degree * Math.PI / 180)));
-            degree += 10; // 각도
-            if (degree > 270) break;
-        }
-    }
-
-    coordsAround();
-
+    // const startLat = 33.669620417716707;
+    // const startLng = 127.070803467558335;
+    // const length = 94535;
+    // const path = []
+    // const coordsAround = () => { // 반원 그릴 좌표 자동 계산
+    //     let degree = 90;
+    //     while(true){
+    //         path.push(new window.kakao.maps.LatLng(3+startLat + length / 111190 * Math.sin(degree * Math.PI / 180),startLng + length / 88900  * Math.cos(degree * Math.PI / 180)));
+    //         degree += 10; // 각도
+    //         if (degree > 270) break;
+    //     }
+    // }
+    // coordsAround();
     // const polyline = new window.kakao.maps.Polyline({
     //     path: path,
     //     strokeWeight: 3,
@@ -42,8 +39,8 @@ const KakaoMap = () => {
 
     const options = {
         //지도를 생성할 때 필요한 기본 옵션
-        center: new window.kakao.maps.LatLng(36.7, 127), //지도의 중심좌표.
-        level: 13, //지도의 레벨(확대, 축소 정도)
+        center: new window.kakao.maps.LatLng(36.8, 127), //지도의 중심좌표.
+        level: 12, //지도의 레벨(확대, 축소 정도)
     };
 
     const container = useRef(null); //지도를 담을 영역의 DOM 레퍼런스
@@ -52,29 +49,43 @@ const KakaoMap = () => {
 
     useEffect(() => {
         const map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
-        map.setDraggable(false);
-        map.setZoomable(false);
+        // map.setDraggable(false);
+        // map.setZoomable(false);
         location.map(({latitude,longitude,text}) => {
             const marker = new window.kakao.maps.Marker({
+                map: map,
                 position: new window.kakao.maps.LatLng(latitude, longitude),
                 clickalbe: true
             })
+
+            var content = `<div style='
+                background-color: white; 
+                padding: 4px 8px; 
+                border-radius: 16px;
+                font-size: 12px;
+                position: relative;
+                top: -55px;
+            '>
+            ${text}
+            </div>`;
+            const customOverlay = new window.kakao.maps.CustomOverlay({
+                content: content,   
+                map: map,
+                position: marker.getPosition()
+            });
+
             window.kakao.maps.event.addListener(marker, 'click', () => {
                 window.open(`https://map.kakao.com/link/to/${text},${latitude},${longitude}`,'포인트아이 길찾기');  
             });
-            var content = `<div style="background-color:white; padding:4px; font-size:8px; border-radius:8px">${text}</div>`;
-            const customOverlay = new window.kakao.maps.CustomOverlay({
-                position: new window.kakao.maps.LatLng(latitude+0.5, longitude),
-                content: content   
+
+            window.kakao.maps.event.addListener(marker, 'click', function() {
+                customOverlay.setMap(map);
             });
 
-            marker.setMap(map);
-            customOverlay.setMap(map);
+            // marker.setMap(map);
+            // customOverlay.setMap(map);
         })
-        window.kakao.maps.event.addListener(map, 'click' , (mouseEvent) => {
-            let clickPosition = mouseEvent.latLng;
-            setLinePath([...linePath, new window.kakao.maps.LatLng(clickPosition.getLat(), clickPosition.getLng())])
-        })
+
         //circle.setMap(map);
         //polyline.setMap(map);
     });
@@ -98,5 +109,6 @@ const Map = styled.div`
     width: inherit;
     height: inherit;
 `;
+const Text = styled.div``;
 
 export default KakaoMap;

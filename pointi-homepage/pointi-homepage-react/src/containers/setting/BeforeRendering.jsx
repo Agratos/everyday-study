@@ -22,7 +22,7 @@ const BeforeRendering = () => {
             company: response[4],
             technology: response[5],
             solution: response[6],
-            career: response[7],
+            recruiting: response[7],
         })
         })
     },[])
