@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 
 //import mainData from 'assets/dummy/mainTest.json'
-import mainSoultionImg from 'assets/imgs/main/main_solution.jpg';
 import { IoIosGlobe, IoIosBarcode, IoIosRadio, IoIosStats  } from "react-icons/io";
 import { BsHandIndex } from 'react-icons/bs';
 

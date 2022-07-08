@@ -172,7 +172,7 @@ const LinkWrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
     
     margin: 8px 16px 8px 0px;
-    margin-left: ${({device}) => device === 'PC' ? '64px' : 'calc()'};
+    margin-left: ${({device}) => device === 'PC' ? '64px' : 'calc(5vw - 8px)'};
     &:hover ${DropDownText}{
         height: 32px;
         padding: 4px 16px;
