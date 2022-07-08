@@ -2,17 +2,17 @@
     "data": [
         {
             "title" : "Technology",
-            "image" : "https://rtatransgroup.com.ng/wp-content/uploads/2020/09/Modren-Tech-1056x594.jpg",
+            "image" : "technology.png",
             "path": "/technology/multi-media-process",
             "text": ""
         },{
             "title" : "AIㆍ빅데이터",
-            "image" : "http://edu.chosun.com/site/data/img_dir/2020/08/18/2020081802298_0.jpg",
+            "image" : "ai-bigdata.png",
             "path": "/solution/ai-bigdata/wild-animal-detection",
             "text": ""
         },{
             "title" : "5GㆍICT",
-            "image" : "https://www.techm.kr/news/photo/202004/70500_60671_050.jpg",
+            "image" : "5g-ict.png",
             "path": "/solution/5g-ict/mec-router",
             "text": ""
         }

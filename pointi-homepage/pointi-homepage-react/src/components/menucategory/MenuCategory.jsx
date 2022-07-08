@@ -153,7 +153,9 @@ const UnderBar = styled.div`
     top: 122px;
     ${({device}) => device === 'PC' ? css`
         width: 450px;
+        //width: 550px;
         margin-left: calc(50% - 600px);
+        //margin-left: calc(50% - 700px)
     ` : css`
         width: inherit;
     `}
@@ -163,6 +165,7 @@ const UnderMenuBar = styled(UnderBar)`
     pointer-events: ${({isMenuClick}) => isMenuClick ? 'all' : 'none'};
     ${({device}) => device === 'PC' ? css`
         left: 600px;
+        //left: 700px;
     ` : css`
         right:0px;
     `}

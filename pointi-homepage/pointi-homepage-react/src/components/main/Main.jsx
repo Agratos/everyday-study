@@ -17,7 +17,7 @@ const Main = () => {
             {mainData.data.map(({path,title,image,text}, index) => (
                 <SolutionWrapper key={index} to={path} device={device} index={index}>
                     <Title device={device}>{title}</Title>
-                    <Image src={image} device={device}/>
+                    <Image src={require(`assets/imgs/main/${image}`)} device={device}/>
                 </SolutionWrapper>
             ))}
         </Wrapper>
