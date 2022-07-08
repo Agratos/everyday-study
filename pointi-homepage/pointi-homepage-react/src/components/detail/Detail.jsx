@@ -170,6 +170,7 @@ const ImgWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter};
 `;
 const Img = styled.img`
+    max-width: 900px;
     ${({imgWidth}) => imgWidth < 600 && css`
         padding-top: 8px;
         margin-top: -16px;
