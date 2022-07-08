@@ -171,7 +171,7 @@ const ImgWrapper = styled.div`
 `;
 const Img = styled.img`
     ${({imgWidth}) => imgWidth < 600 && css`
-        padding: 25px;
+        padding-top: 8px;
         margin-top: -16px;
         max-width: 500px;
     ` };

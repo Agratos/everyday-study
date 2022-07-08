@@ -87,9 +87,6 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 const RednderSwitchWrapper = styled.div``
-const Location = styled.div`
-    margin: 16px auto;
-`;
 const MainTitle = styled.div`
     ${({theme}) => theme.fontCommon.title}
     margin-top: 16px;

@@ -69,7 +69,7 @@ const CategoryWrapper = styled.table`
     display: flex;
     justify-content: ${props => props.justify};
     flex-wrap: ${props => props.isWrap || 'wrap'};
-    margin: 32px 0;
+    margin-bottom: 16px;
     border-bottom: 2px solid #3d74a7;
     line-height: 16px;
     ${props => props.subtitle && 

@@ -47,7 +47,7 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    padding: 4px 24px;
+    margin-top: 32px;
 `;
 const LocationWrapperOut =styled(Flex)`
     ${({theme}) => theme.divCommon.flexCenter}

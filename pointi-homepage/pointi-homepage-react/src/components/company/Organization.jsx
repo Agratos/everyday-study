@@ -17,7 +17,8 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    margin-bottom: 32px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 `;
 const Img = styled.img``;
 

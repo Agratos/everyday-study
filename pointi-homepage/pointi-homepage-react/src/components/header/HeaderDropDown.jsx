@@ -171,7 +171,7 @@ const DropDownText = styled(Link)`
 const LinkWrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
     
-    margin: 8px 16px 8px 32px;
+    margin: 8px 16px 8px 64px;
     &:hover ${DropDownText}{
         height: 32px;
         padding: 4px 16px;

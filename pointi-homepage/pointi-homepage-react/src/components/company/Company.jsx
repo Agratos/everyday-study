@@ -63,24 +63,13 @@ const Company = () => {
                     setSubjectCategory={setSubjectCategory}
                 />
             )}
-            <RenderWapper>
-                {renderSwich()}
-            </RenderWapper>
+            {renderSwich()}
         </Wrapper>
     )
 }
 
 const Wrapper = styled.div`
-    margin: 16px auto;
-`;
-const RenderWapper = styled.div``;
-const PathWrapper = styled.div`
-    margin-bottom: 16px;
-`;
-const MenuCategoryLeftWrapper = styled.div`
-    ${({theme}) => theme.divCommon.fixedLeftTop}
-    height: 100%;
-    margin-left: 32px;
+    width: 100%;
 `;
 
 export default Company;

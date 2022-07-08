@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    margin-bottom: 32px;
+    margin-top: 32px;
 `;
 const DataWrapperOut = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}

@@ -69,7 +69,8 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    margin-bottom: 24px;
+    margin-top: 32px;
+    margin-bottom: 16px;
 `;
 const ListWrapper = styled.table``;
 const Tbody = styled.tbody``;

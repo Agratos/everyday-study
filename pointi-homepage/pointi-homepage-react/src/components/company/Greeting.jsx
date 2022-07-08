@@ -28,18 +28,15 @@ const Wrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.title}
-    margin-bottom: 32px;
+    margin-top: 32px;
 `;
 const DataWrapper = styled.div`
     ${({theme}) => theme.divCommon.flex}
-    margin-top: 5vh;
-`;
-const Img = styled.img`
-    width: 40vw;
-    height: 40vh;
+    margin-top: 16px;
 `;
 const TextWrapper = styled.div`
-    margin-left: 40px;
+    max-width: 600px;
+    margin: 0 auto;
 `;
 const Text = styled.div`
     text-align: left;
