@@ -160,6 +160,7 @@ const UnderBar = styled.div`
 `;
 const UnderMenuBar = styled(UnderBar)`
     height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
+    pointer-events: ${({isMenuClick}) => isMenuClick ? 'all' : 'none'};
     ${({device}) => device === 'PC' ? css`
         left: 600px;
     ` : css`
@@ -168,6 +169,7 @@ const UnderMenuBar = styled(UnderBar)`
 `;
 const UnderPageBar = styled(UnderBar)`
     height: ${({height, isPageClick}) => isPageClick ? height : '0px'};
+    pointer-events: ${({isPageClick}) => isPageClick ? 'all' : 'none'};
     ${({device}) => device === 'PC' ? css`
         left: 150px;
     ` : css`

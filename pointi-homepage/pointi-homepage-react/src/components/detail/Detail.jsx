@@ -14,7 +14,7 @@ const Detail = ({data, type}) => {
     const playerRef = useRef();
     const imgRef = useRef();
     const wrapperRef = useRef();
-    console.log(data.video);
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true});
         setWindowHeightt(window.innerHeight);
@@ -173,7 +173,7 @@ const Img = styled.img`
     ${({imgWidth}) => imgWidth < 600 && css`
         padding-top: 8px;
         margin-top: -16px;
-        max-width: 500px;
+        max-width: 550px;
     ` };
     ${({device}) => device === 'Mobile' && css`
         max-width: calc(100% - 16px);
