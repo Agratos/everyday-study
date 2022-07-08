@@ -16,7 +16,7 @@ const MenuCategory = ({ category, setIsClick, isClick, title, page}) => {
     const pageList = [
                         {page:'Technology', path:'/technology/multi-media-process'},
                         {page:'AIㆍ빅데이터', path:'/solution/ai-bigdata/wild-animal-detection'},
-                        {page:'5GㆍICT', path:'/solution/5g-ict/mec-router'}];
+                        {page:'5GㆍICT', path:'/solution/5g-ict/t-group-call'}];
 
     useEffect(() => {
         const menu = findMenuTitle('menu');

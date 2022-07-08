@@ -14,7 +14,7 @@ const Detail = ({data, type}) => {
     const playerRef = useRef();
     const imgRef = useRef();
     const wrapperRef = useRef();
-
+    console.log(data.video);
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true});
         setWindowHeightt(window.innerHeight);
@@ -132,14 +132,14 @@ const Wrapper = styled.div`
     margin-top: 16px;
 `;
 const SolutionWrapper = styled(Flex)`
-    ${({theme, imgWidth, device}) => (imgWidth > 450 || device === 'Mobile') && theme.divCommon.flexColumnCenterCenter};
-    ${({imgWidth, device}) => (imgWidth > 450 || device === 'Mobile') ? css`
+    ${({theme, imgWidth, device}) => (imgWidth > 600 || device === 'Mobile') && theme.divCommon.flexColumnCenterCenter};
+    ${({imgWidth, device}) => (imgWidth > 600 || device === 'Mobile') ? css`
     
     ` : css`
         //padding-left: 16px;
         //padding-bottom: 16px;
     `}
-    background-color: rgba(225, 222, 222, 0.2);
+    //background-color: rgba(225, 222, 222, 0.2);
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     padding-top: 16px;
@@ -148,7 +148,8 @@ const SolutionWrapper = styled(Flex)`
 `;
 const SolutionTextWrapper = styled.div`
     width: 100%;
-    ${({imgWidth, device}) => (imgWidth > 450 || device === 'Mobile') ? css`
+    background-color: rgba(225, 222, 222, 0.2);
+    ${({imgWidth, device}) => (imgWidth > 600 || device === 'Mobile') ? css`
         margin-top: 16px;
     ` : css`
         border-left: 1px solid #cac9c9b5;
@@ -169,11 +170,16 @@ const ImgWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter};
 `;
 const Img = styled.img`
+    ${({imgWidth}) => imgWidth < 600 && css`
+        padding: 25px;
+        margin-top: -16px;
+        max-width: 500px;
+    ` };
     ${({device}) => device === 'Mobile' && css`
         max-width: calc(100% - 16px);
     `}
     ${({device}) => device === 'Tablet' && css`
-        width: ${({imgWidth}) => imgWidth < 500 ? '50%' : '100%'};
+        width: ${({imgWidth}) => imgWidth < 600 ? '50%' : '100%'};
     `}
 `;
 const TextWrapper = styled.div`
@@ -190,7 +196,7 @@ const TextFont = styled.div`
 `;
 const Solution = styled(TextFont)`
     ${({theme}) => theme.divCommon.flex}
-    ${({imgWidth, index, device}) => (imgWidth > 450 || device === 'Mobile') && index === 0 ? css`
+    ${({imgWidth, index, device}) => (imgWidth > 600 || device === 'Mobile') && index === 0 ? css`
         border-top: 1px solid #cac9c9b5;
     ` : css`
         
@@ -252,7 +258,8 @@ const Player = styled(ReactPlayer)`
 `;
 
 const TechnologyWrapper = styled.div`
-    margin: 16px 0 8px 0;
+    padding: 8px 0;
+    background-color: white;
 `;
 const TechnologyAdaptionWrapper = styled(TechnologyWrapper)`
     margin-bottom: 32px;
