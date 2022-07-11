@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ScrollToMoveId from 'containers/scroll/ScrollToMoveId';
 
-const Greeting = ({data}) => {
+const CeoMessage = ({data}) => {
     //ScrollToMoveId();
     return (
         <Wrapper id={`greeting`}>
@@ -22,13 +22,11 @@ const Greeting = ({data}) => {
 }
 
 const Wrapper = styled.div`
-    width: 80%;
-    text-align: center;
-    margin: 0 auto;
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter}
+    width: 100%;
 `;
 const Title = styled.div`
-    ${({theme}) => theme.fontCommon.title}
-    margin-top: 32px;
+    ${({theme}) => theme.fontCommon.companySubTitle};
 `;
 const DataWrapper = styled.div`
     ${({theme}) => theme.divCommon.flex}
@@ -48,4 +46,4 @@ const Text = styled.div`
 `;
 
 
-export default Greeting;
+export default CeoMessage;

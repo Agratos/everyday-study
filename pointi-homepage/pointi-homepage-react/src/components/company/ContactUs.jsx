@@ -6,8 +6,7 @@ import { GiRotaryPhone, GiClick } from "react-icons/gi";
 import { HiMail } from "react-icons/hi";
 import { MdLocationOn } from "react-icons/md";
 
-const Location = ({data, device}) => {
-
+const ContactUs = ({data, device}) => {
     const CheckIcon = (index) => {
         switch(index){
             case 0:
@@ -43,11 +42,11 @@ const Flex = styled.div`
 `
 const Wrapper = styled.div`
     ${({theme}) => theme.zIndex.one}
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter}
     margin: 0 auto;
 `;
 const Title = styled.div`
-    ${({theme}) => theme.fontCommon.title}
-    margin-top: 32px;
+    ${({theme}) => theme.fontCommon.companySubTitle};
 `;
 const LocationWrapperOut =styled(Flex)`
     ${({theme}) => theme.divCommon.flexCenter}
@@ -74,4 +73,4 @@ const ClickTextMessage = styled.div`
 `;
 
 
-export default Location;
+export default ContactUs;

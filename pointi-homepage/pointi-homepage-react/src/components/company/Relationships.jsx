@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Relative = ({data, device}) => {
+const Relationships = ({data, device}) => {
     return (
         <Wrapper id={`relative`}>
-            <Title>관계사</Title>
+            <Title>{data.title}</Title>
                 <DataWrapperOut device={device}>
                     <DataWrapperIn device={device}>
                         { data.list.slice(0,data.list.length).map(({image, title, text},index) => (
                             <DataWrapper index={index} last={data.list.length} key={`relative${index}`} device={device}>
-                                <DataImg src={require(`assets/imgs/company/${image}`)} />
-                                <DataTitle>{title}</DataTitle>
-                                <DataText>{text}</DataText>              
+                                <DataImgWrapper>
+                                    <DataImg src={require(`assets/imgs/company/${image}`)} />
+                                </DataImgWrapper>
+                                {/* <DataTitle>{title}</DataTitle>
+                                <DataText>{text}</DataText>               */}
                             </DataWrapper>
                         ))}
                     </DataWrapperIn>
@@ -21,14 +23,15 @@ const Relative = ({data, device}) => {
 }
 
 const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter}
     margin: 0 auto;
 `;
 const Title = styled.div`
-    ${({theme}) => theme.fontCommon.title}
-    margin-top: 32px;
+    ${({theme}) => theme.fontCommon.companyTitle};
 `;
 const DataWrapperOut = styled.div`
     ${({theme}) => theme.divCommon.flexWrap}
+    margin: 40px 0 64px 0;
     justify-content: center;
 `; 
 const DataWrapperIn = styled.div`
@@ -42,8 +45,13 @@ const DataWrapper = styled.div`
     box-shadow: 4px 4px 4px #919191; 
     margin: 16px;
 `;
+const DataImgWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter}
+    height: 150px;
+    padding: 8px;
+`;
 const DataImg = styled.img`
-    width: 100%;
+    max-width: 100%;
 `;
 const DataTitle = styled.div`
     color: #919191;
@@ -57,4 +65,4 @@ const DataText = styled.div`
     font-size: 1.3rem;
 `;
 
-export default Relative
+export default Relationships;

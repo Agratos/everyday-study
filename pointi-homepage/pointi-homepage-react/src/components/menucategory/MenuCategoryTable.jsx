@@ -19,7 +19,7 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
             { (device === 'PC' || page === 'recruiting') ? 
                 <CategoryWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
                     { category.map(({title,id}, index) => (
-                        <Tbody key={`menuCategroyLeftTable${index}`} >
+                        <Tbody key={`menuCategroyLeftTable${index}`} index={index}>
                             <Tr>
                                 <Category 
                                     id={id}  
@@ -79,7 +79,10 @@ const CategoryWrapper = styled.table`
     }
 `;
 const Tbody = styled.tbody`
-    border: 1px solid black;
+    border-left: 1px solid black;
+    ${({index}) => index === 4 && css`
+        border-right: 1px solid black;
+    `}
 `;
 const Tr = styled.tr``;
 const Category = styled.td` 

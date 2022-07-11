@@ -20,8 +20,8 @@ const Footer = () => {
     return (
         device !== 'Mobile' &&
         <Wrapper id={'footer'} device={device}>
-            {device === 'PC' && click !== 'location' &&
-                <GoToTheMapButton to={'/company/location'}>
+            {device === 'PC' && click !== 'contact' &&
+                <GoToTheMapButton to={'/company/contact'}>
                     오시는 길
                 </GoToTheMapButton>
             }

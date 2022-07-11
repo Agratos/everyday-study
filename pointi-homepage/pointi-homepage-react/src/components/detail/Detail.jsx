@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import ReactPlayer from 'react-player';
+
+import useWindowScrollPosition from 'containers/scroll/useWindowScrollPosition';
 import { VscCircleFilled } from "react-icons/vsc";
 
 const Detail = ({data, type}) => {
     const device = useSelector(state => state.setDeviceReducer.device); 
-    const [ scrollPosition, setScrollPosition ] = useState(0);
-    const [ windowHeight, setWindowHeightt ] = useState(window.innerHeight);
+    const scrollPosition = useWindowScrollPosition();
+    const windowHeight = window.innerHeight
     const [ playerHeight, setPlayerHeight ] = useState(10000);
     const [ start, setStart] = useState(false);
     const [ imgWidth, setImgWidth ] = useState(0);
@@ -16,23 +18,13 @@ const Detail = ({data, type}) => {
     const wrapperRef = useRef();
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true});
-        setWindowHeightt(window.innerHeight);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-    },[])
-    useEffect(() => {
         if(scrollPosition !== 0 && data.video !== undefined){
-            const playerStart = windowHeight + scrollPosition > (playerHeight + 450);
+            const playerStart = windowHeight + scrollPosition > (playerHeight + 350);
             setPlayerHeight(playerRef.current.offsetTop);
             setStart(playerStart);
         }
     },[scrollPosition])
-    const handleScroll = (e) => {
-        const position = window.scrollY;
-        setScrollPosition(position);
-    }
+
     const checkSubText = (str) => {
         return (str[0] === '(' && str[str.length-1] === ')') || (str[0] === '*')
     }

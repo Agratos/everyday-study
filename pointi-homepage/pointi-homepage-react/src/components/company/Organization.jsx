@@ -5,7 +5,7 @@ const Organization = ({data}) => {
     return (
         <Wrapper id={`organization`}>
             <Title>{data.title}</Title>
-            <Img src={require(`assets/imgs/company/${data.image}`)} />
+            {/* <Img src={require(`assets/imgs/company/${data.image}`)} /> */}
         </Wrapper>
     )
 }
@@ -16,9 +16,7 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 const Title = styled.div`
-    ${({theme}) => theme.fontCommon.title}
-    margin-top: 16px;
-    margin-bottom: 16px;
+    ${({theme}) => theme.fontCommon.companyTitle};
 `;
 const Img = styled.img``;
 

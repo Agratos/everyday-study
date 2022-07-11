@@ -112,9 +112,9 @@ const MenuCategory = ({ category, setIsClick, isClick, title, page}) => {
 
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenter}
-    width: 900px;
+    //width: 900px;
     margin: 0 auto;
-    //width: 100%;
+    width: 100%;
 `;
 const CategoryWrapper = styled.div`
     display: flex;
@@ -152,10 +152,10 @@ const UnderBar = styled.div`
     line-height: 32px;
     top: 122px;
     ${({device}) => device === 'PC' ? css`
-        width: 450px;
-        //width: 550px;
+        //width: 450px;
+        width: 550px;
         margin-left: calc(50% - 600px);
-        //margin-left: calc(50% - 700px)
+        margin-left: calc(50% - 700px)
     ` : css`
         width: inherit;
     `}
@@ -164,8 +164,8 @@ const UnderMenuBar = styled(UnderBar)`
     height: ${({height, isMenuClick}) => isMenuClick ? height : '0px'};
     pointer-events: ${({isMenuClick}) => isMenuClick ? 'all' : 'none'};
     ${({device}) => device === 'PC' ? css`
-        left: 600px;
-        //left: 700px;
+        //left: 600px;
+        left: 700px;
     ` : css`
         right:0px;
     `}

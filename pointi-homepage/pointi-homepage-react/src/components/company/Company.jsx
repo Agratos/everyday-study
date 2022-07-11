@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 //import companyData from 'assets/dummy/company.json';
-import Greeting from './Greeting';
+import AboutPointi from './AboutPointi';
 import Organization from './Organization';
-import PatentBoard from './PatentBoard';
-import Relative from './Relative';
-import Location from './Location';
+import Relationships from './Relationships';
+import CeoMessage from './CeoMessage';
+import ContactUs from './ContactUs';
+
 import MenuCategory from 'components/menucategory/MenuCategory';
 import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
@@ -39,16 +40,16 @@ const Company = () => {
 
     const renderSwich = () => {
         switch(isClick) {
+            case 'about' :
+                return <AboutPointi data={companyData.about} device={device} />;
             case 'organization' :
                 return <Organization data={companyData.organization} device={device} />;
-            case 'patent' :
-                return <PatentBoard data={companyData.patent} device={device} />;
-            case 'relative' :
-                return <Relative data={companyData.relative} device={device} />;
-            case 'location' :
-                return <Location data={companyData.location} device={device} />;
+            case 'relationships' :
+                return <Relationships data={companyData.relationships} device={device} />;
+            case 'ceo' :
+                return <CeoMessage data={companyData.ceo} device={device} />;
             default :
-                return <Greeting data={companyData.greeting} device={device} />;
+                return <ContactUs data={companyData.contact} device={device} />;
         }
     }
 

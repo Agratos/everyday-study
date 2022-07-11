@@ -2,28 +2,28 @@
     "data":[
         {
             "id":0,
-            "path":"/company/greeting", 
+            "path":"/company/about", 
             "title":"Company",
             "list": [
                 {
-                    "path" :"/company/greeting",
-                    "text" :"CEO 인사말"
+                    "path" :"/company/about",
+                    "text" :"About POINT-I"
                 },
                 {
                     "path" :"/company/organization",
-                    "text" :"조직 구성"
+                    "text" :"Organization"
                 },
                 {
-                    "path" :"/company/patent",
-                    "text" :"특허 현황"
+                    "path" :"/company/relationships",
+                    "text" :"Relationships"
                 },
                 {
-                    "path" :"/company/relative",
-                    "text" :"관계사"
+                    "path" :"/company/ceo",
+                    "text" :"CEO Message"
                 },
                 {
-                    "path" :"/company/location",
-                    "text" :"오시는 길"
+                    "path" :"/company/contact",
+                    "text" :"Contact Us"
                 }
             ]
         },{

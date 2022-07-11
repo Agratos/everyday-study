@@ -10,6 +10,22 @@ const fontCommon = {
         font-size: 1.5rem;
         font-weight: bolder;
     `,
+    companyTitle: `
+        font-size: 3rem;
+        font-weight: 900;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        border-bottom: 3px solid black;
+        width: fit-content;
+        padding: 24px;
+    `,
+    companySubTitle: `
+        font-size: 2rem;
+        font-weight: 900;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        width: fit-content;
+    `
 };
 
 const animations = {
