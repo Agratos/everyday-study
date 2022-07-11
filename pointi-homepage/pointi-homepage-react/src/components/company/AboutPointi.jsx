@@ -11,6 +11,8 @@ const AboutPointi = ({data, device}) => {
     
     const scrollY = useWindowScrollPosition();
 
+    // 스크롤 한번 하면 자동으로 다음 Component까지 부드럽게 이동하는거 구현중
+
     return (
         <Wrapper id='patent'>
             <AboutUs id='about-us'>
