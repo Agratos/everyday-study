@@ -46,9 +46,11 @@ const Detail = ({data, type}) => {
                 <Title>{data.title}</Title>
                 { type === 'solution' && (
                     <SolutionWrapper imgWidth={imgWidth} device={device}>
-                        <Img id={'solution-img'} src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
-                            onLoad={(e) => checkNaturalWidth(e.target.id)} imgWidth={imgWidth}
-                        />
+                        <SolutionImgWrapper device={device}>
+                            <Img id={'solution-img'} src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
+                                onLoad={(e) => checkNaturalWidth(e.target.id)} imgWidth={imgWidth}
+                            />
+                        </SolutionImgWrapper>
                         <SolutionTextWrapper imgWidth={imgWidth} device={device}>
                             {data[type].map((solution, index) => (
                                 <Solution key={`solution${index}`} index={index} imgWidth={imgWidth} device={device}>
@@ -133,28 +135,25 @@ const Wrapper = styled.div`
 `;
 const SolutionWrapper = styled(Flex)`
     ${({theme, imgWidth, device}) => (imgWidth > 600 || device === 'Mobile') && theme.divCommon.flexColumnCenterCenter};
-    ${({imgWidth, device}) => (imgWidth > 600 || device === 'Mobile') ? css`
-    
-    ` : css`
-        //padding-left: 16px;
-        //padding-bottom: 16px;
-    `}
-    //background-color: rgba(225, 222, 222, 0.2);
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     padding-top: 16px;
     margin-top: 8px;
     margin-bottom: 32px;
 `;
+const SolutionImgWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter};
+    width: ${({device}) => device === 'Mobile' ? '100%' : '50%'};
+`;
 const SolutionTextWrapper = styled.div`
-    width: 100%;
+    width: ${({imgWidth}) => imgWidth > 600 ? '100%' : '50%'};
     background-color: rgba(225, 222, 222, 0.2);
     ${({imgWidth, device}) => (imgWidth > 600 || device === 'Mobile') ? css`
+        width: 100%;
         margin-top: 16px;
     ` : css`
         border-left: 1px solid #cac9c9b5;
         margin-top: -16px;
-        //margin-left: 16px;
     `}
 `;
 const Title = styled.div`
@@ -172,17 +171,19 @@ const ImgWrapper = styled.div`
 const Img = styled.img`
     max-width: 900px;
     ${({imgWidth}) => imgWidth < 600 && css`
-        padding-top: 8px;
-        margin-top: -16px;
         max-width: 550px;
+        margin-top: -8px;
+        margin-bottom: 8px;
     ` };
+    ${({device, imgWidth}) => (device === 'Tablet' && imgWidth > 600) ? css`
+        width: 100vw;
+    `: css`
+        max-width: 50vw;   
+    `}
     ${({device}) => device === 'Mobile' && css`
         max-width: calc(100% - 16px);
     `}
-    ${({device}) => device === 'Tablet' && css`
-        width: ${({imgWidth}) => imgWidth < 600 ? '50%' : '100%'};
-    `}
-`;
+`; 
 const TextWrapper = styled.div`
     margin-top: 8px; 
     margin-bottom: ${({bottom}) => bottom};

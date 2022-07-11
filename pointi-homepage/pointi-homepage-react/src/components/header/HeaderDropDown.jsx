@@ -14,7 +14,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
     const dropDownData = useSelector(state => state.setDataReducer.menu);
     const [ isClick, setIsClick ] = useState(false); // 메뉴버튼을 눌렀는지 확인
     const [ clickMenu, setClickMenu ] = useState(null); // 어떤 메뉴를 눌렀는지 확인
-    console.log(window.innerWidth);
+
     useEffect(() => {
         (() => device !== 'Mobile')(
             setIsClick(false),
