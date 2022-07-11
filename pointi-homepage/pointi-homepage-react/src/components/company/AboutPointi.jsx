@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Pagination from 'containers/pagenation/Pagination';
 
@@ -8,12 +8,12 @@ const AboutPointi = ({data, device}) => {
     const [ limit ] = useState(10);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
-
+    
     const scrollY = useWindowScrollPosition();
 
     return (
         <Wrapper id='patent'>
-            <AboutUs>
+            <AboutUs id='about-us'>
                 <Title>{data['about-us'].title}</Title>
                 <TextBoldWrapper>
                     {data['about-us']['text-bold'].map((text, index) => (
@@ -25,9 +25,9 @@ const AboutPointi = ({data, device}) => {
                         <TextNomal key={`textnomal-${index}`}>{text}</TextNomal>
                     ))}
                 </TextNomalWrapper>
+                <MouseWhellImage></MouseWhellImage>
             </AboutUs>
-            <MouseWhellImage></MouseWhellImage>
-            <Patent>
+            <Patent id='patent'>
                 <Title>{data.patent.title}</Title>
                 <ListWrapper>
                     { device !== 'Mobile' ? 
