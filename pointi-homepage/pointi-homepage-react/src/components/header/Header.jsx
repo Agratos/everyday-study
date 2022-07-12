@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import HeaderTop from './HeaderTop';
 import HeaderDropDown from './HeaderDropDown';
+import banner from 'assets/imgs/header/banner.png'
 import logo1 from 'assets/imgs/banner/banner.png';
 import logo2 from 'assets/imgs/banner/banner_2.png'
 import { Link, useParams, useLocation } from 'react-router-dom';
@@ -53,7 +54,8 @@ const Header = ({ page }) => {
             {/* <HeaderTop /> */}
             <HeaderDropDown  page={page} device={device}/>
             {/* <HeaderDropDown scrollMenu={true} /> */}
-            <SliderArea logo={imgData[dataIndex%2]} page={page}> 
+            {/* <SliderArea logo={imgData[dataIndex%2]} page={page}>  */}
+            <SliderArea logo={banner} page={page}>
                     {headerData.data.map(({id, text1, text2},index) => (
                         ( id === dataIndex && (
                             <SliderAreaTextWrapper key={`slider-area-${index}`} device={device}>
@@ -131,9 +133,9 @@ const SliderArea = styled.div`
         css`
             background: url(${props => props.logo}) no-repeat center;
             background-size: cover;
-            background-blend-mode:multiply;
+            //background-blend-mode:multiply;
             height: 350px;
-            background-color: #0d4bf734;
+            //background-color: #0d4bf734;
         ` : 
         css`
             ${({theme}) => theme.divCommon.flex}
