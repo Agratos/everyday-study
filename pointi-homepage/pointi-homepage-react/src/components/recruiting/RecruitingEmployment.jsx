@@ -6,7 +6,7 @@ const RecruitingEmployment = ({list}) => {
         <Wrapper id="employment" key='employment'>
             <Title>{list.title}</Title>
             <EmploymentWrapper>
-                <EmploymentImg src={require(`assets/imgs/carreer/${list.image}`)} />
+
                 <TextWrapper>
                     <EmploymentTitle>{list.process[0]}</EmploymentTitle>
                     <EmploymentText>{list.process[1]}</EmploymentText>

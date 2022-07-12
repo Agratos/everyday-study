@@ -35,7 +35,7 @@ const RecruitingEmploymentBoard = ( {list} ) => {
                     {
                         isClick === (index + offset) && (
                             <ImgWrapper>
-                                <Img src={require(`assets/imgs/carreer/${image}`)} />
+                                
                             </ImgWrapper>
                         )
                     }

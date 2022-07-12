@@ -43,14 +43,14 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                         (<MenuBar>
                             { dropDownData.data.map( ({list, path, title},index) => (
                                 ( list.length !== 0 ? (
-                                    <LinkWrapper key={`menu-bar-text-${index}`} device={device}>
+                                    <LinkWrapper key={`menu-bar-text-${index}`} device={device} title={title}>
                                         <MenuBarText to={path} page={page}>
                                             {title}
                                             <IconWrapper><IoIosArrowDown /></IconWrapper>
                                         </MenuBarText>
                                         <DropDownWrapper device={device}>
                                             {list.map( ({path, text},index) => (
-                                                <DropDownText to={path} key={`drop-down-text-${index}`} title={title}>{text}</DropDownText>
+                                                <DropDownText to={path} key={`drop-down-text-${index}`} title={title} device={device}>{text}</DropDownText>
                                             ))}
                                         </DropDownWrapper>
                                     </LinkWrapper>
@@ -140,7 +140,6 @@ const DropDownWrapper = styled.div`
     align-items: center;
     position: absolute;
     overflow: hidden;
-    width: fit-content;
     margin-top: ${({device}) => device === 'PC' ? '8px' : '10px'};
 `;
 const MenuBarText = styled(Link)`
@@ -160,7 +159,7 @@ const DropDownText = styled(Link)`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     font-size: 0.9rem;
     color: black;
-    width: ${({title}) => title === 'Company' ? '104px' : '88px'};
+    width: ${({title}) => title === 'Company' ? '104px' : title === 'Recruiting' ? '116px' : '88px'};
     height: 0px;
     transition-duration: 0.4s;
     overflow: hidden;
@@ -172,7 +171,8 @@ const LinkWrapper = styled.div`
     ${({theme}) => theme.zIndex.three}
     
     margin: 8px 16px 8px 0px;
-    margin-left: ${({device}) => device === 'PC' ? '64px' : 'calc(5vw - 8px)'};
+    margin-left: ${({device}) => device === 'PC' ? '20px' : 'calc(5vw - 8px)'};
+    margin-right: ${({device, title}) => device === 'PC' ? '44px' : title === 'Recruiting' ? '44px' : '16px'};
     &:hover ${DropDownText}{
         height: 32px;
         padding: 4px 16px;

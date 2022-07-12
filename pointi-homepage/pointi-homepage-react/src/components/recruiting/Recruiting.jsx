@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
 import RecruitingContentList from './RecruitingContentList';
 import RecruitingEmployment from './RecruitingEmployment';
+import RecruitingTalentBenefit from './RecruitingTalentBenefit';
 import RecruitingEmploymentBoard from './RecruitingEmploymentBoard';
 
 const Recruiting = () => {
@@ -33,36 +34,15 @@ const Recruiting = () => {
     
     const renderSwitch = () => {
         switch(isClick) {
-            case 'philosophy-talent' :
+            case 'talent-benefit' :
                 return (
                     <RednderSwitchWrapper>
-                        <MainTitle>{recruitingData[isClick].title}</MainTitle>
-                        <ContentWrapper device={device}>
-                            <ContentImge 
-                                src={require(`assets/imgs/carreer/${recruitingData[isClick].philosophy.image}`)} 
-                                device={device}
-                            />
-                            <RecruitingContentList 
-                                list={recruitingData[isClick].philosophy}
-                                margin={device !== 'Mobile' && '24px'}
-                            />
-                        </ContentWrapper>
-                        <ContentWrapper device={device}>
-                            <RecruitingContentList 
-                                list={recruitingData[isClick].talent} 
-                                //margin={device === 'PC' && '60px'}
-                            />
-                            <ContentImge 
-                                src={require(`assets/imgs/carreer/${recruitingData[isClick].talent.image}`)} 
-                                device={device}
-                            />
-                        </ContentWrapper> 
+                        <RecruitingTalentBenefit data={recruitingData[isClick]}></RecruitingTalentBenefit>
                     </RednderSwitchWrapper>
                 )
                 default :
                     return (
                         <RednderSwitchWrapper>
-                            <RecruitingEmployment list={recruitingData[isClick].employment} />
                             <RecruitingEmploymentBoard list={recruitingData[isClick].announcement} />
                         </RednderSwitchWrapper>
                     );
@@ -88,20 +68,6 @@ const Wrapper = styled.div`
     flex: 1;
 `;
 const RednderSwitchWrapper = styled.div``
-const MainTitle = styled.div`
-    ${({theme}) => theme.fontCommon.title}
-    margin-top: 16px;
-`;
-const ContentWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexAround}
-    ${({device, theme}) => device === 'Mobile' && theme.divCommon.flexColumnCenter}
-    width: 90%;
-    margin: 0 auto;
-    padding: 32px 0;
-    border-top: 1px dotted #eee;
-`;
-const ContentImge = styled.img`
-    width: ${({device}) => device === 'Mobile' ? '100%' : '50%'};
-`;
+
 
 export default Recruiting;

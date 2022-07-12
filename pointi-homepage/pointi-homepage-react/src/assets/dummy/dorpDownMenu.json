@@ -48,16 +48,16 @@
             ]
         },{
             "id":3,
-            "path":"/recruiting/philosophy-talent", 
+            "path":"/recruiting/talent-benefit", 
             "title":"Recruiting",
             "list": [
                 {
-                    "path" :"/recruiting/philosophy-talent",
-                    "text" :"인재관리철학"
+                    "path" :"/recruiting/talent-benefit",
+                    "text" :"Talent / Benefit"
                 },
                 {
-                    "path" :"/recruiting/employment-announcement",
-                    "text" :"입사지원"
+                    "path" :"/recruiting/recruit",
+                    "text" :"Jobs (Recruit)"
                 }
             ]
         }
