@@ -13,27 +13,34 @@ const AboutPointi = ({data, device}) => {
     
     const scrollPageRef = useRef([]);
     const [ scrollPage, setScrollPage ] = useState(0);
-    //console.log(scrollY);
-    // 스크롤 한번 하면 자동으로 다음 Component까지 부드럽게 이동하는거 구현중
+    const [ reset, setReset ] = useState(false);
 
     useEffect(() => {
         window.scroll({top: window.document.body.scrollHeight});
+        setReset(false);
     },[scrollPage])
 
     const scrollAction = (e) => {
-        if(e.deltaY > 0){
-            if(scrollPage + 1 >= scrollPageRef.current.length) return
-            else setScrollPage(scrollPage + 1);
-        }else{
-            if(scrollPage - 1 < 0 ) return
-            else {
-                setScrollPage(scrollPage - 1); 
+        if(reset){
+            if(e.deltaY > 0){
+                if(scrollPage + 1 >= scrollPageRef.current.length) return
+                else setScrollPage(scrollPage + 1);
+            }else{
+                if(scrollPage - 1 < 0 ) return
+                else {
+                    setScrollPage(scrollPage - 1); 
+                }
             }
         }
     }
 
     return (
-        <Wrapper id='patent' ref={element => (scrollPageRef.current[0] = element)} onWheel={(e) => {scrollAction(e)}}>
+        <Wrapper 
+            id='patent' 
+            ref={element => (scrollPageRef.current[0] = element)} 
+            onWheel={(e) => {scrollAction(e)}}
+            onAnimationEnd={(e) => {setReset(true)}}
+        >
             <AboutUs id='about-us' scrollPage={scrollPage}>
                 <Title>{data['about-us'].title}</Title>
                 <TextBoldWrapper>
@@ -112,6 +119,7 @@ const AboutPointi = ({data, device}) => {
 const Wrapper = styled.div`
     margin: 0 auto;
     width: 100%;
+    height: 100%;
     overflow: hidden;
 `;
 const AboutUs = styled.div`
