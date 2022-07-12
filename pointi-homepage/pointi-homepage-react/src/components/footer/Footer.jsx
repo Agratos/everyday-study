@@ -53,7 +53,6 @@ const Wrapper = styled.div`
     padding-top: 24px;
     padding-bottom: 16px;
     border: 1px solid #e0e1e27a;
-    //background-color: #BDD7EE;
 `;
 const LogoWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter};

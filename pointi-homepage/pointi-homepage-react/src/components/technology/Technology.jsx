@@ -61,6 +61,7 @@ const Technology = () => {
 
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
+    flex: 1;
 `;
 const TechnologyListWrapper = styled.div``;
 

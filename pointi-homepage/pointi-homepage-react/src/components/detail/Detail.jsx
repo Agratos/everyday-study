@@ -38,7 +38,7 @@ const Detail = ({data, type}) => {
                 <Title>{data.title}</Title>
                 { type === 'solution' && (
                     <SolutionWrapper imgWidth={imgWidth} device={device}>
-                        <SolutionImgWrapper device={device}>
+                        <SolutionImgWrapper device={device} imgWidth={imgWidth}>
                             <Img id={'solution-img'} src={require(`assets/imgs/${type}/${device === 'Mobile' ? 'Mobile_' + data.image : data.image}`)} device={device} type={type} ref={imgRef} 
                                 onLoad={(e) => checkNaturalWidth(e.target.id)} imgWidth={imgWidth}
                             />
@@ -135,7 +135,8 @@ const SolutionWrapper = styled(Flex)`
 `;
 const SolutionImgWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter};
-    width: ${({device}) => device === 'Mobile' ? '100%' : '50%'};
+    width: ${({imgWidth}) => imgWidth > 600 ? '100%' : '50%'};
+    width: ${({device}) => device === 'Mobile' && '100%'};
 `;
 const SolutionTextWrapper = styled.div`
     width: ${({imgWidth}) => imgWidth > 600 ? '100%' : '50%'};
@@ -167,10 +168,8 @@ const Img = styled.img`
         margin-top: -8px;
         margin-bottom: 8px;
     ` };
-    ${({device, imgWidth}) => (device === 'Tablet' && imgWidth > 600) ? css`
-        width: 100vw;
-    `: css`
-        max-width: 50vw;   
+    ${({device}) => (device === 'Tablet') && css`
+        width: 100%;
     `}
     ${({device}) => device === 'Mobile' && css`
         max-width: calc(100% - 16px);

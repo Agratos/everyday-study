@@ -45,6 +45,11 @@ const divCommon = {
     default:`
         display: block;
     `,
+    footerWrapper:`
+        display: flex;
+        height: 100vh;
+        flex-direction: column
+    `,
     fixedLeftTop:`
         position: fixed;
         left: 0;

@@ -85,6 +85,7 @@ const Recruiting = () => {
 
 const Wrapper = styled.div`
     width: 100%;
+    flex: 1;
 `;
 const RednderSwitchWrapper = styled.div``
 const MainTitle = styled.div`

@@ -1,36 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import KakaoMap from 'containers/kakao/KakaoMap';
-import { GiRotaryPhone, GiClick } from "react-icons/gi";
-import { HiMail } from "react-icons/hi";
-import { MdLocationOn } from "react-icons/md";
 
 const ContactUs = ({data, device}) => {
-    const CheckIcon = (index) => {
-        switch(index){
-            case 0:
-                return <GiRotaryPhone size={24}/>
-            case 1:
-                return <HiMail size={24} />
-            case 2:
-                return <MdLocationOn size={24} />
-            default:
-                return <GiClick size={24} />
-        }
+    const [ resize, setResize ] = useState(false);
+
+    const resizeHandeler = () => {
+        setResize(!resize);
     }
 
     return(
         <Wrapper id={`location`}>
             <Title>오시는 길</Title>
             <LocationWrapperOut device={device}>
-                <KakaoMapWrapper device={device}>
+                <KakaoMapWrapper device={device} >
                     <ClickTextMessageWrapper>
                         <ClickImage src={require(`assets/imgs/company/${data.list[3].image}`)} />
                         <ClickTextMessage>{data.list[3].text}</ClickTextMessage>
                     </ClickTextMessageWrapper>
-                    <KakaoMap />
+                    <KakaoMap resize={resize}/>
                 </KakaoMapWrapper>
+                <KakaoMapRerenderButton 
+                    device={device}
+                    onClick={() => resizeHandeler()}
+                >지도 범위 재설정 하기</KakaoMapRerenderButton>
             </LocationWrapperOut>
         </Wrapper>
     )
@@ -49,17 +43,26 @@ const Title = styled.div`
     ${({theme}) => theme.fontCommon.companySubTitle};
 `;
 const LocationWrapperOut =styled(Flex)`
-    ${({theme}) => theme.divCommon.flexCenter}
+    ${({theme}) => theme.divCommon.flexColumnCenter}
     ${({device, theme})=> device === 'Mobile' && theme.divCommon.flexColumn}
+    width: 100%;
 `;
 const KakaoMapWrapper = styled.div`
-    width: 1100px;
+    width: inherit;
     height: 50vh;
     margin-bottom: 64px;
     ${props => props.device === 'Mobile' && css`
         width: 100%;
         margin-bottom: 32px;
     `}
+`;
+const KakaoMapRerenderButton = styled.div`
+    background-color: #0d4bf7aa;
+    color: #fffffffc;
+    width: fit-content;
+    padding: 4px 8px;
+    border-radius: 16px;
+    margin-top: ${({device}) => device === 'Mobile' ? '16px' : '-16px'};
 `;
 const ClickTextMessageWrapper = styled(Flex)`
     align-items: center;

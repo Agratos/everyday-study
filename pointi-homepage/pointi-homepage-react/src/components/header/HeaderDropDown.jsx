@@ -50,7 +50,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
                                         </MenuBarText>
                                         <DropDownWrapper device={device}>
                                             {list.map( ({path, text},index) => (
-                                                <DropDownText to={path} key={`drop-down-text-${index}`}>{text}</DropDownText>
+                                                <DropDownText to={path} key={`drop-down-text-${index}`} title={title}>{text}</DropDownText>
                                             ))}
                                         </DropDownWrapper>
                                     </LinkWrapper>
@@ -160,7 +160,7 @@ const DropDownText = styled(Link)`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     font-size: 0.9rem;
     color: black;
-    width: 88px;
+    width: ${({title}) => title === 'Company' ? '104px' : '88px'};
     height: 0px;
     transition-duration: 0.4s;
     overflow: hidden;

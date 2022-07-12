@@ -16,6 +16,7 @@
         "image" : ""
     },
     "about" : {
+        "title": "About POINT-I",
         "about-us" : {
             "title": "About Us",
             "text-bold": [

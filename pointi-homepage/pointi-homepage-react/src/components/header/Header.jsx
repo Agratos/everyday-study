@@ -132,7 +132,7 @@ const SliderArea = styled.div`
             background: url(${props => props.logo}) no-repeat center;
             background-size: cover;
             background-blend-mode:multiply;
-            height: 300px;
+            height: 350px;
             background-color: #0d4bf734;
         ` : 
         css`

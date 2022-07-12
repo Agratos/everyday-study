@@ -71,6 +71,7 @@ const Company = () => {
 
 const Wrapper = styled.div`
     width: 100%;
+    flex: 1;
 `;
 
 export default Company;

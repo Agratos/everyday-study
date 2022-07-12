@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import Pagination from 'containers/pagenation/Pagination';
 
+import { BsMouse } from 'react-icons/bs';
+
 import useWindowScrollPosition from 'containers/scroll/useWindowScrollPosition';
 
 const AboutPointi = ({data, device}) => {
-    const [ limit ] = useState(10);
+    const [ limit ] = useState(5);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
     
@@ -15,18 +17,18 @@ const AboutPointi = ({data, device}) => {
     // 스크롤 한번 하면 자동으로 다음 Component까지 부드럽게 이동하는거 구현중
 
     useEffect(() => {
-        //console.log(scrollPageRef.current[scrollPage]); 
-        //scrollPageRef.current[scrollPage].scrollIntoView();  
+        window.scroll({top: window.document.body.scrollHeight});
     },[scrollPage])
 
     const scrollAction = (e) => {
-        //e.preventDefault();
         if(e.deltaY > 0){
             if(scrollPage + 1 >= scrollPageRef.current.length) return
             else setScrollPage(scrollPage + 1);
         }else{
             if(scrollPage - 1 < 0 ) return
-            else setScrollPage(scrollPage - 1);
+            else {
+                setScrollPage(scrollPage - 1); 
+            }
         }
     }
 
@@ -44,9 +46,14 @@ const AboutPointi = ({data, device}) => {
                         <TextNomal key={`textnomal-${index}`}>{text}</TextNomal>
                     ))}
                 </TextNomalWrapper>
-                <MouseWhellImage></MouseWhellImage>
+                <MouseIconWrapper>
+                    <BsMouse size={24}/>
+                </MouseIconWrapper>
             </AboutUs>
             <Patent id='patent' ref={element => (scrollPageRef.current[1] = element)} scrollPage={scrollPage}>
+                <PatentMouseIconWrapper>
+                    <BsMouse size={24}/>
+                </PatentMouseIconWrapper>
                 <Title>{data.patent.title}</Title>
                 <ListWrapper>
                     { device !== 'Mobile' ? 
@@ -105,13 +112,25 @@ const AboutPointi = ({data, device}) => {
 const Wrapper = styled.div`
     margin: 0 auto;
     width: 100%;
-    
+    overflow: hidden;
 `;
 const AboutUs = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
+
+    @keyframes changeAbout {
+        from{
+            transform: translateY(100%);
+            visibility: visible;
+        }
+        to{
+            transform: translateY(0);
+        }
+    }
+
     ${({scrollPage}) => scrollPage === 0 ? css`
-        margin-bottom: 25vh;
+        //margin-bottom: 22vh;
         display: !none;
+        animation: changeAbout 1s ease forwards;
     ` : css`
         display: none;
     `}
@@ -131,13 +150,42 @@ const TextNomalWrapper = styled.div`
 const TextNomal = styled.div`
     font-size: 1.5rem;
 `;
-const MouseWhellImage = styled.img``;
+const MouseIconWrapper = styled.div`
+    @keyframes mouseMove {
+        form{
+            transform: translateY(-10px);
+        }
+        to{
+            transform: translateY(10px);
+        }
+    }
+    //position: absolute;
+    animation-direction: reverse;
+    animation: mouseMove 0.8s ease-in-out infinite alternate;
+    margin: 16px;
+`;
+const PatentMouseIconWrapper = styled(MouseIconWrapper)`
+    position: absolute;
+    top: -16px;
+`;
 const Patent = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
-    //margin-top: 40vh;
+    //margin-top: -40px;
     margin-bottom: 150px;
+
+    @keyframes changePatent {
+        from{
+            transform: translateY(-100%);
+            visibility: visible;
+        }
+        to{
+            transform: translateY(0);
+        }
+    }
+
     ${({scrollPage}) => scrollPage === 1 ? css`
         display: !none;
+        animation: changePatent 1s ease forwards;
     ` : css`
         display: none;
     `}

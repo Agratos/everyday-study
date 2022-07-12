@@ -60,6 +60,7 @@ const Solution = () => {
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenter}
     margin: 0 auto;
+    flex: 1;
 `;
 const SolutionListWrapper = styled.div``;
 

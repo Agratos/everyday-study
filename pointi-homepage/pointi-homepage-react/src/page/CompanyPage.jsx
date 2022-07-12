@@ -15,6 +15,8 @@ const CompanyPage = () => {
     )
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+    ${({theme}) => theme.divCommon.footerWrapper};
+`;
 
 export default CompanyPage;

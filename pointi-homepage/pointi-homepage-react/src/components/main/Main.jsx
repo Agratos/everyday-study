@@ -150,6 +150,7 @@ const Wrapper = styled.div`
     ${({ theme }) => theme.divCommon.flexSpaceAroundCenter}
     //height: calc(52vh - 96px);
     padding: 32px 0;
+    flex: 1;
     ${props=> props.device === 'Mobile' && 
         css`
             ${({ theme }) => theme.divCommon.flexColumn}
@@ -201,18 +202,6 @@ const Image = styled.img`
         height: 200px;
     `}
     max-width: 256px;
-`;
-const Button = styled(Link)`
-    position: absolute;
-    top:0;
-    right:0;
-    padding: 16px 32px;
-    @keyframes test {
-        50% {
-            top: 32px;
-        }
-    }
-    animation: test 3s infinite;
 `;
 
 export default Main;

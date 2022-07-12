@@ -6,7 +6,7 @@ const KakaoMap = () => {
         {latitude:37.521031834622924, longitude:127.03607157207173,text:'포인트아이 본사 청호빌딩 5층'},
         {latitude:35.81820900081049, longitude:127.10553536304494, text:'포인트아이 전주 지사 2층 205E호'}
     ];
-    const [linePath, setLinePath] = useState([])
+    //const [linePath, setLinePath] = useState([])
     // const startLat = 33.669620417716707;
     // const startLng = 127.070803467558335;
     // const length = 94535;
@@ -38,17 +38,14 @@ const KakaoMap = () => {
     //let map;
 
     const options = {
-        //지도를 생성할 때 필요한 기본 옵션
-        center: new window.kakao.maps.LatLng(36.8, 127), //지도의 중심좌표.
-        level: 12, //지도의 레벨(확대, 축소 정도)
+        center: new window.kakao.maps.LatLng(36.8, 127),
+        level: 12,
     };
 
-    const container = useRef(null); //지도를 담을 영역의 DOM 레퍼런스
+    const container = useRef(null);
     
-    //useEffect(() => {},[])
-
     useEffect(() => {
-        const map = new window.kakao.maps.Map(container.current, options) //지도 생성 및 객체 리턴
+        const map = new window.kakao.maps.Map(container.current, options)
         // map.setDraggable(false);
         // map.setZoomable(false);
         location.map(({latitude,longitude,text}) => {
@@ -64,31 +61,23 @@ const KakaoMap = () => {
                 border-radius: 16px;
                 font-size: 12px;
                 position: relative;
-                top: -55px;
             '>
             ${text}
             </div>`;
-            const customOverlay = new window.kakao.maps.CustomOverlay({
-                content: content,   
-                map: map,
-                position: marker.getPosition()
+
+            const infowindow = new window.kakao.maps.InfoWindow({
+                content
             });
+            infowindow.open(map, marker);
 
             window.kakao.maps.event.addListener(marker, 'click', () => {
                 window.open(`https://map.kakao.com/link/to/${text},${latitude},${longitude}`,'포인트아이 길찾기');  
             });
-
-            window.kakao.maps.event.addListener(marker, 'click', function() {
-                customOverlay.setMap(map);
-            });
-
-            // marker.setMap(map);
-            // customOverlay.setMap(map);
         })
 
         //circle.setMap(map);
         //polyline.setMap(map);
-    });
+    },);
    
     return (
         <Wrapper>
@@ -109,6 +98,5 @@ const Map = styled.div`
     width: inherit;
     height: inherit;
 `;
-const Text = styled.div``;
 
 export default KakaoMap;
