@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect, useRef } from 'react';
+import styled, { css } from 'styled-components';
 import Pagination from 'containers/pagenation/Pagination';
 
 import useWindowScrollPosition from 'containers/scroll/useWindowScrollPosition';
@@ -9,13 +9,30 @@ const AboutPointi = ({data, device}) => {
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
     
-    const scrollY = useWindowScrollPosition();
-
+    const scrollPageRef = useRef([]);
+    const [ scrollPage, setScrollPage ] = useState(0);
+    //console.log(scrollY);
     // 스크롤 한번 하면 자동으로 다음 Component까지 부드럽게 이동하는거 구현중
 
+    useEffect(() => {
+        //console.log(scrollPageRef.current[scrollPage]); 
+        //scrollPageRef.current[scrollPage].scrollIntoView();  
+    },[scrollPage])
+
+    const scrollAction = (e) => {
+        //e.preventDefault();
+        if(e.deltaY > 0){
+            if(scrollPage + 1 >= scrollPageRef.current.length) return
+            else setScrollPage(scrollPage + 1);
+        }else{
+            if(scrollPage - 1 < 0 ) return
+            else setScrollPage(scrollPage - 1);
+        }
+    }
+
     return (
-        <Wrapper id='patent'>
-            <AboutUs id='about-us'>
+        <Wrapper id='patent' ref={element => (scrollPageRef.current[0] = element)} onWheel={(e) => {scrollAction(e)}}>
+            <AboutUs id='about-us' scrollPage={scrollPage}>
                 <Title>{data['about-us'].title}</Title>
                 <TextBoldWrapper>
                     {data['about-us']['text-bold'].map((text, index) => (
@@ -29,7 +46,7 @@ const AboutPointi = ({data, device}) => {
                 </TextNomalWrapper>
                 <MouseWhellImage></MouseWhellImage>
             </AboutUs>
-            <Patent id='patent'>
+            <Patent id='patent' ref={element => (scrollPageRef.current[1] = element)} scrollPage={scrollPage}>
                 <Title>{data.patent.title}</Title>
                 <ListWrapper>
                     { device !== 'Mobile' ? 
@@ -88,9 +105,16 @@ const AboutPointi = ({data, device}) => {
 const Wrapper = styled.div`
     margin: 0 auto;
     width: 100%;
+    
 `;
 const AboutUs = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
+    ${({scrollPage}) => scrollPage === 0 ? css`
+        margin-bottom: 25vh;
+        display: !none;
+    ` : css`
+        display: none;
+    `}
 `;
 const TextBoldWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
@@ -110,8 +134,13 @@ const TextNomal = styled.div`
 const MouseWhellImage = styled.img``;
 const Patent = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
-    margin-top: 40vh;
+    //margin-top: 40vh;
     margin-bottom: 150px;
+    ${({scrollPage}) => scrollPage === 1 ? css`
+        display: !none;
+    ` : css`
+        display: none;
+    `}
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.companyTitle};
