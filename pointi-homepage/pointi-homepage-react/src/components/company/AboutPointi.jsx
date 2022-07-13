@@ -25,7 +25,17 @@ const AboutPointi = ({data, device}) => {
         if(reset && !isOpenModal){
             if(e.deltaY > 0){
                 if(scrollPage + 1 >= scrollPageRef.current.length) return
-                else setScrollPage(scrollPage + 1);
+                else {
+                    setScrollPage(scrollPage + 1);
+                    document.body.style.cssText = `
+                        position: fixed; 
+                        top: calc(50%);
+                        left: calc(50%);
+                        transform: translate(-50%, -50%);
+                        overflow-y: scroll;
+                        pointer-events: none;
+                    `;
+                }
             }else if(e.deltaY < 0 && scrollPoistion === 0){
                 if(scrollPage - 1 < 0 ) return
                 else {
@@ -46,15 +56,6 @@ const AboutPointi = ({data, device}) => {
                 position: block;
                 pointer-events: auto;
             `;
-        }else{
-            document.body.style.cssText = `
-                position: fixed; 
-                top: calc(50%);
-                left: calc(50%);
-                transform: translate(-50%, -50%);
-                overflow-y: scroll;
-                pointer-events: none;
-            `;
         }
     }
 
@@ -64,7 +65,6 @@ const AboutPointi = ({data, device}) => {
             ref={element => (scrollPageRef.current[0] = element)} 
             onWheel={(e) => {scrollAction(e)}}
             onAnimationEnd={(e) => {blockEvent(true)}}
-            onAnimationStart={(e) => {blockEvent(false)}}
         >
             {isOpenModal && 
                 <Modal onClickModal={onClickModal}>
@@ -199,7 +199,6 @@ const MouseIconWrapper = styled.div`
             transform: translateY(10px);
         }
     }
-    //position: absolute;
     animation-direction: reverse;
     animation: mouseMove 0.8s ease-in-out infinite alternate;
     margin: 16px;
