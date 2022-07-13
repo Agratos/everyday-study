@@ -9,7 +9,6 @@ const CeoMessage = ({data}) => {
         <Wrapper id={`greeting`}>
             <Title>{data.title}</Title>
             <DataWrapper>
-                {/* <Img src={require(`assets/imgs/introduce/${data.image}`)} /> */}
                 <TextWrapper>
                     {data.text.map((text,index) => (
                         <Text key={`greetingText${index}`}>{text}</Text>

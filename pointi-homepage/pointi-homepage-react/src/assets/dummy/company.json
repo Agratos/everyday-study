@@ -12,8 +12,8 @@
         "end" : "포인트아이(주) 대표이사 이 봉 문"
     },
     "organization" : {
-        "title" : "test",
-        "image" : ""
+        "title" : "Organization",
+        "image" : "organization.png"
     },
     "about" : {
         "title": "About POINT-I",
