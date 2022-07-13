@@ -2,11 +2,20 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Modal = (props) => {
-    
     useEffect(() => {
-        document.body.style= `overflow: hidden`;
-        return () => document.body.style = `overflow: auto`
-    },[])
+        document.body.style.cssText = `
+                position: fixed; 
+                top: calc(50%);
+                left: calc(50%);
+                transform: translate(-50%, -50%);
+                overflow-y: scroll;
+            `;
+        return () => {
+            const scrollY = document.body.style.top;
+            document.body.style.cssText = '';
+            window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+        };
+    }, [])
 
     return (
         <Wrapper>
@@ -21,10 +30,13 @@ const Modal = (props) => {
     )
 }
 const Wrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: calc(50%);
+    left: calc(50%);
+    transform: translate(-50%, -50%);
+    z-index: 999;
 `;
 const DialogBox = styled.div`
     width: fit-content;

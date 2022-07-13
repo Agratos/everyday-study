@@ -1,34 +1,32 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 
-import Modal from 'components/modal/Modal';
 import Pagination from 'containers/pagenation/Pagination';
+import Modal from 'components/modal/Modal';
+import PatentModal from 'components/modal/PatentModal';
 import { BsMouse } from 'react-icons/bs';
 
 import useWindowScrollPosition from 'containers/scroll/useWindowScrollPosition';
 
 const AboutPointi = ({data, device}) => {
-    const [ limit ] = useState(5);
+    const [ limit ] = useState(10);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
     
     const [ isOpenModal, setIsOpenModal ] = useState(false);
+    const [ imageUrl, setImageUrl ] = useState(null);
 
+    const scrollPoistion = useWindowScrollPosition();
     const scrollPageRef = useRef([]);
     const [ scrollPage, setScrollPage ] = useState(0);
     const [ reset, setReset ] = useState(false);
-
-    useEffect(() => {
-        window.scroll({top: window.document.body.scrollHeight});
-        setReset(false);
-    },[scrollPage])
 
     const scrollAction = (e) => {
         if(reset && !isOpenModal){
             if(e.deltaY > 0){
                 if(scrollPage + 1 >= scrollPageRef.current.length) return
                 else setScrollPage(scrollPage + 1);
-            }else{
+            }else if(e.deltaY < 0 && scrollPoistion === 0){
                 if(scrollPage - 1 < 0 ) return
                 else {
                     setScrollPage(scrollPage - 1); 
@@ -41,14 +39,37 @@ const AboutPointi = ({data, device}) => {
         setIsOpenModal(!isOpenModal);
     }, [isOpenModal]);
 
+    const blockEvent = (state) => {
+        setReset(state);
+        if(state){
+            document.body.style.cssText = `
+                position: block;
+                pointer-events: auto;
+            `;
+        }else{
+            document.body.style.cssText = `
+                position: fixed; 
+                top: calc(50%);
+                left: calc(50%);
+                transform: translate(-50%, -50%);
+                overflow-y: scroll;
+                pointer-events: none;
+            `;
+        }
+    }
+
     return (
         <Wrapper 
             id='patent' 
             ref={element => (scrollPageRef.current[0] = element)} 
             onWheel={(e) => {scrollAction(e)}}
-            onAnimationEnd={(e) => {setReset(true)}}
+            onAnimationEnd={(e) => {blockEvent(true)}}
+            onAnimationStart={(e) => {blockEvent(false)}}
         >
-            {isOpenModal && <Modal onClickModal={onClickModal}><div>text중이다</div></Modal>}
+            {isOpenModal && 
+                <Modal onClickModal={onClickModal}>
+                    <PatentModal imageUrl={imageUrl} onClickModal={onClickModal}/>
+                </Modal>}
             <AboutUs id='about-us' scrollPage={scrollPage}>
                 <Title>{data['about-us'].title}</Title>
                 <TextBoldWrapper>
@@ -78,11 +99,14 @@ const AboutPointi = ({data, device}) => {
                                     <NumberWrapper>특허번호</NumberWrapper>
                                     <ListTitleWrapper>특허명</ListTitleWrapper>
                             </TextWrapper>
-                            {data.patent.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
-                                <TextWrapper key={`patent-board${index}`} onClick={onClickModal}>
+                            {data.patent.list.slice(offset, offset + limit).map(({date, number, name, image}, index) => (
+                                <TextWrapper key={`patent-board${index}`} >
                                     <DateWrapper>{date}</DateWrapper>
                                     <NumberWrapper>{number}</NumberWrapper>
-                                    <ListTitleWrapper>{name}</ListTitleWrapper>
+                                    <ListTitleWrapper onClick={() => {
+                                        onClickModal();
+                                        setImageUrl(image);
+                                    }}>{name}</ListTitleWrapper>
                                 </TextWrapper>
                             ))}
                         </Tbody>) : (
@@ -187,7 +211,7 @@ const PatentMouseIconWrapper = styled(MouseIconWrapper)`
 const Patent = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
     //margin-top: -40px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 
     @keyframes changePatent {
         from{
@@ -222,14 +246,20 @@ const TextWrapper = styled.tr`
 const DateWrapper = styled.td`
     border: 1px solid black;
     width: 15%;
+    min-width: 120px;
     font-size: 1.1rem;
     padding: 8px;
+    vertical-align: top;
 `;
 const NumberWrapper =styled(DateWrapper)`
     margin-left: 32px;
+    min-width: 150px;
 `;
 const ListTitleWrapper = styled(NumberWrapper)`
     width: 60%;
+    :hover{
+        cursor: pointer;
+    }
 `;
 const MobilePatentWrapper =styled(DateWrapper)`
     border-left: none;

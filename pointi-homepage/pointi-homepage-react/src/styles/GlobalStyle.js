@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 const device = {
     pc: 'min-width: 1120px',
@@ -9,16 +9,16 @@ const device = {
 const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Nanum Gothic', sans-serif;
+        overflow-y: scroll;
     }
-
     @media screen and (${device.pc}){
         body{
             padding: 0;
             width: 1100px;
+            height: 100%;
             max-width: 2000px;
             max-height: 1600px;
             margin: auto;
-            height: 100%;
         }
         html{
             font-size: 16px;
