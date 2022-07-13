@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
-import Pagination from 'containers/pagenation/Pagination';
 
+import Modal from 'components/modal/Modal';
+import Pagination from 'containers/pagenation/Pagination';
 import { BsMouse } from 'react-icons/bs';
 
 import useWindowScrollPosition from 'containers/scroll/useWindowScrollPosition';
@@ -11,6 +12,8 @@ const AboutPointi = ({data, device}) => {
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
     
+    const [ isOpenModal, setIsOpenModal ] = useState(false);
+
     const scrollPageRef = useRef([]);
     const [ scrollPage, setScrollPage ] = useState(0);
     const [ reset, setReset ] = useState(false);
@@ -21,7 +24,7 @@ const AboutPointi = ({data, device}) => {
     },[scrollPage])
 
     const scrollAction = (e) => {
-        if(reset){
+        if(reset && !isOpenModal){
             if(e.deltaY > 0){
                 if(scrollPage + 1 >= scrollPageRef.current.length) return
                 else setScrollPage(scrollPage + 1);
@@ -34,6 +37,10 @@ const AboutPointi = ({data, device}) => {
         }
     }
 
+    const onClickModal = useCallback(() => {
+        setIsOpenModal(!isOpenModal);
+    }, [isOpenModal]);
+
     return (
         <Wrapper 
             id='patent' 
@@ -41,6 +48,7 @@ const AboutPointi = ({data, device}) => {
             onWheel={(e) => {scrollAction(e)}}
             onAnimationEnd={(e) => {setReset(true)}}
         >
+            {isOpenModal && <Modal onClickModal={onClickModal}><div>text중이다</div></Modal>}
             <AboutUs id='about-us' scrollPage={scrollPage}>
                 <Title>{data['about-us'].title}</Title>
                 <TextBoldWrapper>
@@ -71,7 +79,7 @@ const AboutPointi = ({data, device}) => {
                                     <ListTitleWrapper>특허명</ListTitleWrapper>
                             </TextWrapper>
                             {data.patent.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
-                                <TextWrapper key={`patent-board${index}`}>
+                                <TextWrapper key={`patent-board${index}`} onClick={onClickModal}>
                                     <DateWrapper>{date}</DateWrapper>
                                     <NumberWrapper>{number}</NumberWrapper>
                                     <ListTitleWrapper>{name}</ListTitleWrapper>
