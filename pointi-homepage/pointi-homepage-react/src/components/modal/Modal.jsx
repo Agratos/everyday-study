@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Modal = (props) => {
+    const [ scrollYPosition, setScrollYPosition ] = useState(window.scrollY);
     useEffect(() => {
         document.body.style.cssText = `
-                position: fixed; 
-                top: calc(50%);
-                left: calc(50%);
-                transform: translate(-50%, -50%);
-                overflow-y: scroll;
-            `;
+            position: fixed; 
+            top: -${window.scrollY}px;
+            left: 50%;
+            transform: translate(-50%);
+            overflow-y: scroll;
+        `;
         return () => {
             const scrollY = document.body.style.top;
             document.body.style.cssText = '';
@@ -18,9 +19,9 @@ const Modal = (props) => {
     }, [])
 
     return (
-        <Wrapper>
+        <Wrapper scrollYPosition={scrollYPosition}>
             <DialogBox>{props.children}</DialogBox>
-            <Backdrop onClick={(e) => { 
+            <Background onClick={(e) => { 
                 e.preventDefault(); 
                 if(props.onClickModal){
                     props.onClickModal();
@@ -33,9 +34,9 @@ const Wrapper = styled.div`
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: calc(50%);
-    left: calc(50%);
-    transform: translate(-50%, -50%);
+    top: ${({scrollYPosition}) => `${scrollYPosition}px`};
+    left: 50%;
+    transform: translate(-50%);
     z-index: 999;
 `;
 const DialogBox = styled.div`
@@ -48,17 +49,14 @@ const DialogBox = styled.div`
     box-sizing: border-box;
     background-color: white;
     position: fixed;
-    top: calc(50%);
-    left: calc(50%);
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
 `;
-const Backdrop = styled.div`
+const Background = styled.div`
   width: 100vw;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: rgba(0, 0, 0, 0.2);
 `;
 
