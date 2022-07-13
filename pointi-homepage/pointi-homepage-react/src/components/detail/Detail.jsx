@@ -46,8 +46,18 @@ const Detail = ({data, type}) => {
                         <SolutionTextWrapper imgWidth={imgWidth} device={device}>
                             {data[type].map((solution, index) => (
                                 <Solution key={`solution${index}`} index={index} imgWidth={imgWidth} device={device}>
-                                    <SolutionIconWrapper><VscCircleFilled /></SolutionIconWrapper>
-                                    {solution}
+                                    {!checkSubText(solution) ? 
+                                        <SolutionOut>
+                                            <SolutionIconWrapper>
+                                                <VscCircleFilled />
+                                            </SolutionIconWrapper>
+                                            <SolutionIn>
+                                                {solution}
+                                            </SolutionIn>
+                                        </SolutionOut> : 
+                                        <SolutionIn sub={true}>
+                                            {solution}
+                                        </SolutionIn>}
                                 </Solution>
                             ))}
                         </SolutionTextWrapper>
@@ -68,20 +78,23 @@ const Detail = ({data, type}) => {
                                 </ImgWrapper>
                             </TechnologyWrapper>
                         )}
-                        {data.function.map(({title, explan}, index) => (
+                        {data.function.map(({title, explan, image}, index) => (
                             <FunctionWrapperIn key={`function${index}`} index={index+1} length={data.function.length}>
                                 <FunctionTitleWrapper>
                                     <FunctionIconWrapper><VscCircleFilled /></FunctionIconWrapper>
                                     <FunctionTitle>{title}</FunctionTitle>
                                 </FunctionTitleWrapper>
                                 {explan.map((ex, index) => (
-                                    checkSubText(ex) ? <FunctionExSub key={`explan${index}`}>{ex}</FunctionExSub>
+                                    checkSubText(ex) ? <FunctionExSub key={`explan${index}`} index={index}>{ex}</FunctionExSub>
                                     : <FunctionEx key={`explan${index}`}>- {ex}</FunctionEx>
                                 ))}
+                                {image.map((img, index) => {
+                                    console.log(img)
+                                })}
                             </FunctionWrapperIn>
                         ))}
                     </FunctionWrapperOut>
-                    {data.video !== undefined && data.video !== null &&
+                    {data.video !== undefined && data.video !== "" && data.video !== null &&
                         <PlayerWrapperOut>
                             <TitleWrapper top={'32px'} ref={playerRef}>
                                 <Title>관련 영상</Title>
@@ -196,6 +209,15 @@ const Solution = styled(TextFont)`
     `}
     padding: 8px;
 `;
+const SolutionOut = styled.div`
+    ${({theme}) => theme.divCommon.flex}
+`;
+const SolutionIn = styled.div`
+    ${({sub}) => sub && css`
+        margin-top: -16px;
+        margin-left: 12px;
+    `}
+`;
 const SolutionIconWrapper = styled.div`
     font-size: 0.6rem;
     margin-right: 4px;
@@ -231,7 +253,7 @@ const FunctionExSub = styled.div`
     font-size: 0.85rem;
     color: #4d4a4af3;
     margin-top: -4px;
-    margin-left: 48px;
+    margin-left: ${({index}) => index === 0 ? '28px' : '48px'}
 `;
 const AdaptionWrapper = styled(Flex)`
     background-color: ${({index}) => index%2 === 0 ? 'rgba(225, 222, 222, 0.2)' : 'rgba(225, 222, 222, 0.2)'}; // 번갈아 가면서 작동 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-//import solutrionData from 'assets/dummy/solutionTest.json';
+//import solutionData from 'assets/dummy/solutionTest.json';
 import MenuCategory from 'components/menucategory/MenuCategory';
 import MenuCategoryLeft from 'components/menucategory/MenuCategoryLeft';
 import MenuCategoryTable from 'components/menucategory/MenuCategoryTable';
@@ -11,7 +11,7 @@ import Detail from 'components/detail/Detail';
 
 const Solution = () => {
     const dispatch = useDispatch();
-    const solutrionData = useSelector(state => state.setDataReducer.solution);
+    const solutionData = useSelector(state => state.setDataReducer.solution);
     const device = useSelector(state => state.setDeviceReducer.device);
     const { id, click } = useParams();
     const [isClick, setIsClick] = useState(click);
@@ -27,21 +27,21 @@ const Solution = () => {
     },[isClick])
 
     const checkUndefined = () => {
-        return (solutrionData[id][isClick] !== undefined ? solutrionData[id][isClick] : solutrionData[id][click])
+        return (solutionData[id][isClick] !== undefined ? solutionData[id][isClick] : solutionData[id][click])
     }
 
     return (
         <Wrapper>
             { device !== 'Mobile' ? 
                 <MenuCategory
-                    category={solutrionData[id].category} 
+                    category={solutionData[id].category} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
-                    title={solutrionData[id].title}
+                    title={solutionData[id].title}
                     page={'solution'}
                 /> :
                 <MenuCategoryTable 
-                    category={solutrionData[id].category} 
+                    category={solutionData[id].category} 
                     setIsClick={setIsClick} 
                     isClick={isClick}
                     height={id === 'ict' ? '288px' : '130px'}

@@ -3,23 +3,172 @@
         "title" : "AIㆍ빅데이터",
         "category" : [
             {
-                "title": "야생동물 감지 시스템",
-                "id":"wild-animal-detection"
+                "title": "지능형 영상분석 PaaS",
+                "id":"intelligent-video-analysis-PaaS"
+            },
+            {
+                "title": "콘크리트 재료배합 정도 판단시스템",
+                "id":"concrete-material-mixing-degree-judgment-system"
             },
             {
                 "title": "이미지분류서비스",
                 "id":"image-classfication"
-            }, {
+            },
+            {
+                "title": "야생동물 감지 시스템",
+                "id":"wild-animal-detection"
+            },
+            {
                 "title": "빅데이터 UI/UX",
                 "id":"bigdata-ui-ux"
             }, {
                 "title": "통합관제 시스템(UI, UX)",
                 "id":"integrated-control-gui"
-            }, {
-                "title": "콘크리트 재료배합 정도 판단시스템",
-                "id":"concrete-material-mixing-degree-judgment-system"
-            }
+            } 
         ],
+        "intelligent-video-analysis-PaaS": {
+            "title": "영상분석 통합플랫폼 – 지능형 영상분석 PaaS",
+            "image": "Solution_AI_BigData_intelligentVideoAnalysisPaaS.png",
+            "video": "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.mp4",
+            "solution": [
+                "비용이 높은 영상 인식/분석/학습 블록을 서버 또는 클라우드에 가상화/모듈화하여 개인 및 사업자의 비즈니스 목적에 부합하는 다양한 지능형 영상 분석 서비스를 저비용으로 쉽게 제공하는 솔루션.",
+                "Edge 플랫폼, 가상화 플랫폼에 주요 블록을 모듈화/가상화 클라우드에 PaaS(Platform-as-a-Service)로 제공",
+                "(AWS, Azure 등의 Public Cloud에 적용 가능)",
+                "다개체 추적, 원거리 객체, ROI(Region Of Interest) 설정 분석등을 쉽게 지정 분석 가능",
+                "카메라 캘리브리션 토털 솔루션 카메라 설치 높이, 각도, 방향 등의 카메라 모든 파라메터 추출"
+            ],
+            "function": [
+                {
+                    "title": "다객체 추적 - 사람/자동차/동물 등 80종 동시추적(YOLO기반)",
+                    "explan": [
+                        "다개체 탐지 및 위치/크기/속도/추적/동선 분석(기하분석적용)"
+                    ],
+                    "image": ["function_image_1.png"]
+                },{
+                    "title": "원거리 객체 감지 (ROI 설정시, 눈오는 날 최대 100m까지 감지)",
+                    "explan": [],
+                    "image": ["function_image_2.png"]
+                },{
+                    "title": "기하분석 제공 - 객체별 위치(2D좌표), 크기, 속도, 물리좌표, 시점변환(Top- View변환), 왜곡보정",
+                    "explan": [],
+                    "image": ["function_image_3.png"]
+                },{
+                    "title": "ROI 설정 및 내부 체류시간, 정체분석, 침입 회수",
+                    "explan": [],
+                    "image": ["function_image_4.png"]
+                },{
+                    "title": "Line ROI를 이용한 객체 출입 감지 및 회수",
+                    "explan": [],
+                    "image": ["function_image_5.png"]
+                },{
+                    "title": "객체의 키와 이동패턴, 속도 등을 분석하여 쓰러짐 여부 감시",
+                    "explan": [
+                        "(특허 보유 – 영상분석 기반 취객감지 장치 및 방법)"
+                    ],
+                    "image": ["function_image_6.png"]
+                }
+            ]
+        },
+        "concrete-material-mixing-degree-judgment-system": {
+            "title": "영상분석 통합플랫폼 - 콘크리트 재료배합 정도 판단시스템",
+            "image" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.png",
+            "video" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.mp4",
+            "solution" : [
+                "콘크리트 레미콘 펌프 시 콘크리트 재료배합의 품질 검사는 작업자의 육안을 통한 주관적 경험에 의존한 랜덤한 검사로 수행되기 때문에 많은 작업 시간과 결과에 대한 객관성과 신뢰성이 떨어지는 문제점이 발생",
+                "이를 개선하기 위해 AI 영상분석 기술을 적용한 콘크리트 재료배합 정도 판단 시스템임",
+                "작업현장을 스마트폰으로 촬영하고, 이를 영상AI시스템에서 실시간으로 분석하여 그 결과를 스마트폰으로 바로 알려주는 시스템",
+                "비정형데이터에 대한 정도를 판단하는 AI엔진 적용"
+            ],
+            "function": [
+                {
+                    "title": "실시간 콘크리트 재료배합 정도 판단 및 통지",
+                    "explan": [
+                        "단말App.에서 콘크리트 재료배합 작업현장을 촬영",
+                        "실시간 재료배합 정도 판단 결과를 바로 통지(SMS, Push)"
+                    ]
+                },{
+                    "title": "분석결과에 대한 사용자 편의 제공",
+                    "explan": [
+                        "측정이력 화면 및 녹화 영상 제공",
+                        "작업현장, 업체별 별 통계"
+                    ]
+                },{
+                    "title": "다양한 플랫폼에 적용 가능",
+                    "explan": [
+                        "Legacy H/W 적용",
+                        "Private, Public Cloud 적용",
+                        "VM, Docker기반 가상화 환경 적용"
+                    ]
+                },{
+                    "title": "가상화 클라우드 시스템으로도 가능",
+                    "explan": [
+                        "기업별 맞춤형 분석 솔루션 제공",
+                        "기업별 데이터 분리",
+                        "모니터링 및 사용량 측정(컨테이너 상태, 성능, 서비스 성공률"
+                    ]
+                }
+            ]
+        },
+        "image-classfication" :{
+            "title" : "영상분석 통합플랫폼 - 이미지 분류 서비스",
+            "image" : "Solution_AI_BigData_imageClassfication.png",
+            "solution" : [
+                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스",
+                "이미지를 분석하여 카테고리로 분류하고,  필요시 관련 기관, 부서에 전송",
+                "현장의 작업 전, 후의 사진일 경우 (거리 청소 전, 후)  작업의 상태를 파악하고 이를 보고 또한  사진에 포함된 GPS정보를 이용하여 MAP에 표시 및 이력 제공",
+                "고객 맞춤형 통계 및 보고서 기능 제공"
+            ],
+            "function" : [
+                {
+                    "title": "사진 및 동영상 촬영, 업로드 기능 제공",
+                    "explan": [
+                        "App이나 Web을 통한 이미지/동영상을 분석 플랫폼에 업로드",
+                        "휴대폰, 카메라 등 다양한 디바이스를 통한 분석요청 데이터 업로드(서비스 확장성 제공)"
+                    ]
+                },
+                {
+                    "title": "AI를 적용하여 이미지 분석/식별/분류 전송 기능 제공",
+                    "explan": [
+                        "요청된 데이터를 분석하여 식별/분류하는 알고리즘 적용",
+                        "메타데이터 추가 활용하여 정확도 향상적용",
+                        "분류된 데이터를 저장소별로 자동으로 전송",
+                        "이미지내의 GPS정보를 활용하여 MAP표시, 위치 구별"
+                    ]
+                },
+                {
+                    "title": "통계 데이터 및 운영보고서 제출 기능",
+                    "explan": [
+                        "요청  데이터 일자/월/지역별 통계",
+                        "분석 결과 및 분류/전송 결과 통계",
+                        "서비스 운영 현황 보고서 제공"
+                    ]
+                },
+                {
+                    "title": "고도화 기술 적용",
+                    "explan": [
+                        "스트리밍 분석 기반의 데이터 최적화 기술",
+                        "영상 조합/보완 기술 기반의 영상 보정 기술",
+                        "분석 효율화를 위한 실시간 분석 기술"
+                    ]
+                },
+                {
+                    "title": "고객 맞춤형 확장 가능",
+                    "explan": [
+                        "고객 요구 플랫폼으로 확장 적용 지원",
+                        "(Legacy H/W, Cloud, 가상화, MEC 플랫폼 등)",
+                        "고객 요구 성능에 따른 구성 지원",
+                        "(소용량, 대용량 등 용량별 증설단위 제공)"
+                    ]
+                }
+            ],
+            "keyword" : [
+                "AI",
+                "인공지능",
+                "객체분류",
+                "이미지분류",
+                "5G"
+            ]
+        },
         "wild-animal-detection" :{
             "title" : "영상분석 통합플랫폼 - 야생동물 감지 시스템",
             "image" : "Solution_AI_BigData_wildAnimalDetection.png",
@@ -81,66 +230,6 @@
                 "동물퇴치",
                 "객체검출",
                 "객체추적"
-            ]
-        },
-        "image-classfication" :{
-            "title" : "영상분석 통합플랫폼 - 이미지 분류 서비스",
-            "image" : "Solution_AI_BigData_imageClassfication.png",
-            "solution" : [
-                "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스",
-                "이미지를 분석하여 카테고리로 분류하고,  필요시 관련 기관, 부서에 전송",
-                "현장의 작업 전, 후의 사진일 경우 (거리 청소 전, 후)  작업의 상태를 파악하고 이를 보고 또한  사진에 포함된 GPS정보를 이용하여 MAP에 표시 및 이력 제공",
-                "고객 맞춤형 통계 및 보고서 기능 제공"
-            ],
-            "function" : [
-                {
-                    "title": "사진 및 동영상 촬영, 업로드 기능 제공",
-                    "explan": [
-                        "App이나 Web을 통한 이미지/동영상을 분석 플랫폼에 업로드",
-                        "휴대폰, 카메라 등 다양한 디바이스를 통한 분석요청 데이터 업로드(서비스 확장성 제공)"
-                    ]
-                },
-                {
-                    "title": "AI를 적용하여 이미지 분석/식별/분류 전송 기능 제공",
-                    "explan": [
-                        "요청된 데이터를 분석하여 식별/분류하는 알고리즘 적용",
-                        "메타데이터 추가 활용하여 정확도 향상적용",
-                        "분류된 데이터를 저장소별로 자동으로 전송",
-                        "이미지내의 GPS정보를 활용하여 MAP표시, 위치 구별"
-                    ]
-                },
-                {
-                    "title": "통계 데이터 및 운영보고서 제출 기능",
-                    "explan": [
-                        "요청  데이터 일자/월/지역별 통계",
-                        "분석 결과 및 분류/전송 결과 통계",
-                        "서비스 운영 현황 보고서 제공"
-                    ]
-                },
-                {
-                    "title": "고도화 기술 적용",
-                    "explan": [
-                        "스트리밍 분석 기반의 데이터 최적화 기술",
-                        "영상 조합/보완 기술 기반의 영상 보정 기술",
-                        "분석 효율화를 위한 실시간 분석 기술"
-                    ]
-                },
-                {
-                    "title": "고객 맞춤형 확장 가능",
-                    "explan": [
-                        "고객 요구 플랫폼으로 확장 적용 지원",
-                        "(Legacy H/W, Cloud, 가상화, MEC 플랫폼 등)",
-                        "고객 요구 성능에 따른 구성 지원",
-                        "(소용량, 대용량 등 용량별 증설단위 제공)"
-                    ]
-                }
-            ],
-            "keyword" : [
-                "AI",
-                "인공지능",
-                "객체분류",
-                "이미지분류",
-                "5G"
             ]
         },
         "bigdata-ui-ux" :{
@@ -247,49 +336,6 @@
                 "GUI",
                 "MMI",
                 "MMC"
-            ]
-        },
-        "concrete-material-mixing-degree-judgment-system": {
-            "title": "영상분석 통합플랫폼 - 콘크리트 재료배합 정도 판단시스템",
-            "image" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.png",
-            "video" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.mp4",
-            "solution" : [
-                "콘크리트 레미콘 펌프 시 콘크리트 재료배합의 품질 검사는 작업자의 육안을 통한 주관적 경험에 의존한 랜덤한 검사로 수행되기 때문에 많은 작업 시간과 결과에 대한 객관성과 신뢰성이 떨어지는 문제점이 발생",
-                "이를 개선하기 위해 AI 영상분석 기술을 적용한 콘크리트 재료배합 정도 판단 시스템임",
-                "작업현장을 스마트폰으로 촬영하고, 이를 영상AI시스템에서 실시간으로 분석하여 그 결과를 스마트폰으로 바로 알려주는 시스템",
-                "비정형데이터에 대한 정도를 판단하는 AI엔진 적용"
-            ],
-            "function": [
-                {
-                    "title": "실시간 콘크리트 재료배합 정도 판단 및 통지",
-                    "explan": [
-                        "단말App.에서 콘크리트 재료배합 작업현장을 촬영",
-                        "실시간 재료배합 정도 판단 결과를 바로 통지(SMS, Push)"
-                    ]
-                },
-                {
-                    "title": "분석결과에 대한 사용자 편의 제공",
-                    "explan": [
-                        "측정이력 화면 및 녹화 영상 제공",
-                        "작업현장, 업체별 별 통계"
-                    ]
-                },
-                {
-                    "title": "다양한 플랫폼에 적용 가능",
-                    "explan": [
-                        "Legacy H/W 적용",
-                        "Private, Public Cloud 적용",
-                        "VM, Docker기반 가상화 환경 적용"
-                    ]
-                },
-                {
-                    "title": "가상화 클라우드 시스템으로도 가능",
-                    "explan": [
-                        "기업별 맞춤형 분석 솔루션 제공",
-                        "기업별 데이터 분리",
-                        "모니터링 및 사용량 측정(컨테이너 상태, 성능, 서비스 성공률"
-                    ]
-                }
             ]
         }
     },

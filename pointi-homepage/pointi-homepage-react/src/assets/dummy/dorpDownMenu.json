@@ -34,11 +34,11 @@
         }
         ,{
             "id":2,
-            "path":"/solution/ai-bigdata/wild-animal-detection", 
+            "path":"/solution/ai-bigdata/intelligent-video-analysis-PaaS", 
             "title":"Solution",
             "list": [
                 {
-                    "path" :"/solution/ai-bigdata/wild-animal-detection",
+                    "path" :"/solution/ai-bigdata/intelligent-video-analysis-PaaS",
                     "text" :"AIㆍ빅데이터"
                 },
                 {
