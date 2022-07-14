@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
 `;
 const Title = styled.div`
-    ${({theme}) => theme.fontCommon.companySubTitle};
+    ${({theme}) => theme.fontCommon.companyTitle};
 `;
 const LocationWrapperOut =styled(Flex)`
     ${({theme}) => theme.divCommon.flexColumnCenter}
