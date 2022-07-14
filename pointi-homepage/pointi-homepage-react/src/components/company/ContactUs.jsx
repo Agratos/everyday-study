@@ -63,6 +63,9 @@ const KakaoMapRerenderButton = styled.div`
     padding: 4px 8px;
     border-radius: 16px;
     margin-top: ${({device}) => device === 'Mobile' ? '16px' : '-16px'};
+    :hover {
+        cursor: pointer;
+    }
 `;
 const ClickTextMessageWrapper = styled(Flex)`
     align-items: center;

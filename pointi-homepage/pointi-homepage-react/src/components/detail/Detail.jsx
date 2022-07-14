@@ -95,10 +95,10 @@ const Detail = ({data, type}) => {
                                     : <FunctionEx key={`explan${index}`} device={device}>- {ex}</FunctionEx>
                                 ))}
                                 {checkDataNull(image) && 
-                                    image.map((img, index) => (
+                                    image.map((img) => (
                                         <FunctionImage 
                                             src={require(`assets/imgs/solution/${findeImageFolder(data.image)}/${img}`)} 
-                                            key={`${findeImageFolder(data.image)}-${index}`}    
+                                            key={`${findeImageFolder(data.image)}-${index}`}
                                         />
                                     )) 
                                 }
@@ -271,8 +271,8 @@ const FunctionExSub = styled.div`
     word-break: keep-all;
 `;
 const FunctionImage = styled.img`
-    min-width: 300px;
-    max-width: 50%;
+    max-height: 150px;
+    max-width: calc(100% - 64px);
     margin-left: 32px;
 `;
 const AdaptionWrapper = styled(Flex)`

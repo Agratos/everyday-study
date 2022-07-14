@@ -12,8 +12,6 @@ const Relationships = ({data, device}) => {
                                 <DataImgWrapper>
                                     <DataImg src={require(`assets/imgs/company/relationships/${image}`)} />
                                 </DataImgWrapper>
-                                {/* <DataTitle>{title}</DataTitle>
-                                <DataText>{text}</DataText> */}
                             </DataWrapper>
                         ))}
                     </DataWrapperIn>
@@ -30,18 +28,18 @@ const Title = styled.div`
     ${({theme}) => theme.fontCommon.companyTitle};
 `;
 const DataWrapperOut = styled.div`
-    ${({theme}) => theme.divCommon.flexWrap}
-    margin: 40px 0 64px 0;
-    justify-content: center;
+    margin: 40px 0;
+    text-align: center;
 `; 
 const DataWrapperIn = styled.div`
     ${({theme, device}) => device === 'Mobile' && theme.divCommon.flexColumnCenterCenter}
     ${({theme}) => theme.divCommon.flexWrap}
-    width: 900px;
+    justify-content: center;
+    width: inherit;
 `; 
 const DataWrapper = styled.div`
     border: 1px solid black;
-    width: ${({device}) => device === 'Mobile' ? '65%' : '264px'};
+    width: ${({device}) => device === 'Mobile' ? '350px' : '300px'};
     box-shadow: 4px 4px 4px #919191; 
     margin: 16px;
 `;
@@ -52,17 +50,6 @@ const DataImgWrapper = styled.div`
 `;
 const DataImg = styled.img`
     max-width: 100%;
-`;
-const DataTitle = styled.div`
-    color: #919191;
-    text-align: left;
-    margin-left: 24px;
-`;
-const DataText = styled.div`
-    margin-top: 8px;
-    margin-left: 24px;
-    margin-bottom: 24px;
-    font-size: 1.3rem;
 `;
 
 export default Relationships;
