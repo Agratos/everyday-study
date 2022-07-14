@@ -31,6 +31,12 @@ const Detail = ({data, type}) => {
     const checkNaturalWidth = (id) => {
         setImgWidth(document.getElementById(id).naturalWidth);
     }
+    const checkDataNull = (data) => {
+        return (data !== undefined && data !== '' && data !== null)
+    }
+    const findeImageFolder = (imageUrl) => {
+        return imageUrl.split('_')[imageUrl.split('_').length - 1].split('.')[0];
+    }
 
     return (
         <Wrapper device={device} id={'detail'} ref={wrapperRef}>    
@@ -85,16 +91,18 @@ const Detail = ({data, type}) => {
                                     <FunctionTitle>{title}</FunctionTitle>
                                 </FunctionTitleWrapper>
                                 {explan.map((ex, index) => (
-                                    checkSubText(ex) ? <FunctionExSub key={`explan${index}`} index={index}>{ex}</FunctionExSub>
-                                    : <FunctionEx key={`explan${index}`}>- {ex}</FunctionEx>
+                                    checkSubText(ex) ? <FunctionExSub key={`explan${index}`} index={index} device={device}>{ex}</FunctionExSub>
+                                    : <FunctionEx key={`explan${index}`} device={device}>- {ex}</FunctionEx>
                                 ))}
-                                {image.map((img, index) => {
-                                    console.log(img)
-                                })}
+                                {checkDataNull(image) && 
+                                    image.map((img, index) => (
+                                        <FunctionImage src={require(`assets/imgs/solution/${findeImageFolder(data.image)}/${image}`)} />
+                                    )) 
+                                }
                             </FunctionWrapperIn>
                         ))}
                     </FunctionWrapperOut>
-                    {data.video !== undefined && data.video !== "" && data.video !== null &&
+                    {checkDataNull(data.video) &&
                         <PlayerWrapperOut>
                             <TitleWrapper top={'32px'} ref={playerRef}>
                                 <Title>관련 영상</Title>
@@ -245,15 +253,21 @@ const FunctionTitle = styled(TextFont)`
     color: #4d4a4ae7;
 `;
 const FunctionEx = styled.div`
-    margin-left: 32px;
     font-size: 0.9rem;
     color: #4d4a4af3;
+    margin-top: ${({device}) => device === 'Mobile' ? '-4px' : '2px'};
+    margin-left: 28px;
 `;
 const FunctionExSub = styled.div`
     font-size: 0.85rem;
     color: #4d4a4af3;
-    margin-top: -4px;
-    margin-left: ${({index}) => index === 0 ? '28px' : '48px'}
+    margin-top: ${({device}) => device === 'Mobile' ? '-10px' : '-8px'};
+    margin-left: ${({index}) => index === 0 ? '28px' : '36px'};
+`;
+const FunctionImage = styled.img`
+    min-width: 300px;
+    max-width: 50%;
+    margin-left: 32px;
 `;
 const AdaptionWrapper = styled(Flex)`
     background-color: ${({index}) => index%2 === 0 ? 'rgba(225, 222, 222, 0.2)' : 'rgba(225, 222, 222, 0.2)'}; // 번갈아 가면서 작동 
