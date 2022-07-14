@@ -221,6 +221,7 @@ const SolutionOut = styled.div`
     ${({theme}) => theme.divCommon.flex}
 `;
 const SolutionIn = styled.div`
+    ${({theme}) => theme.divCommon.flexColumnCenterCenter}
     ${({sub}) => sub && css`
         margin-top: -16px;
         margin-left: 12px;
@@ -228,7 +229,7 @@ const SolutionIn = styled.div`
 `;
 const SolutionIconWrapper = styled.div`
     font-size: 0.6rem;
-    margin-right: 4px;
+    margin-right: 6px;
 `;
 const FunctionWrapperOut = styled.div`
     margin-bottom: 32px;
@@ -246,7 +247,7 @@ const FunctionIconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter}
     font-size: 0.6rem;
     height: 24px;
-    margin: 0 8px 0 12px;
+    margin: 0 6px 0 8px;
 `;
 const FunctionTitle = styled(TextFont)`
     font-weight: bold;
