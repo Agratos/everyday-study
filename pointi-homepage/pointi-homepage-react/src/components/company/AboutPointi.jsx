@@ -87,9 +87,9 @@ const AboutPointi = ({data, device}) => {
                 </MouseIconWrapper>
             </AboutUs>
             <Patent id='patent' ref={element => (scrollPageRef.current[1] = element)} scrollPage={scrollPage}>
-                <PatentMouseIconWrapper>
+                {/* <PatentMouseIconWrapper>
                     <BsMouse size={24}/>
-                </PatentMouseIconWrapper>
+                </PatentMouseIconWrapper> */}
                 <Title>{data.patent.title}</Title>
                 <ListWrapper>
                     { device !== 'Mobile' ? 
@@ -192,15 +192,18 @@ const TextNomal = styled.div`
 `;
 const MouseIconWrapper = styled.div`
     @keyframes mouseMove {
-        form{
+        0%{
             transform: translateY(-10px);
         }
-        to{
+        50%{
             transform: translateY(10px);
+        }
+        100%{
+            transform: translateY(-10px);
         }
     }
     animation-direction: reverse;
-    animation: mouseMove 0.8s ease-in-out infinite alternate;
+    animation: mouseMove 1.5s ease-in-out infinite alternate;
     margin: 16px;
 `;
 const PatentMouseIconWrapper = styled(MouseIconWrapper)`
@@ -234,6 +237,7 @@ const Title = styled.div`
 `;
 const ListWrapper = styled.table`
     margin-top: 40px;
+    table-layout: fixed;
 `;
 const Tbody = styled.tbody``;
 const TextWrapper = styled.tr`
@@ -245,7 +249,7 @@ const TextWrapper = styled.tr`
 const DateWrapper = styled.td`
     border: 1px solid black;
     width: 15%;
-    min-width: 120px;
+    max-width: 100px;
     font-size: 1.1rem;
     padding: 8px;
     vertical-align: top;

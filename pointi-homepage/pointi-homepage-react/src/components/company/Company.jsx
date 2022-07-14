@@ -55,7 +55,7 @@ const Company = () => {
 
     return (
         <Wrapper>
-            { device !== 'Mobile' && (
+
                 <MenuCategoryTable 
                     category={companyData.category} 
                     justify={'flex-end'} 
@@ -63,7 +63,7 @@ const Company = () => {
                     isClick={isClick} 
                     setSubjectCategory={setSubjectCategory}
                 />
-            )}
+
             {renderSwich()}
         </Wrapper>
     )

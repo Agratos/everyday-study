@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef} from 'react';
+import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 
 import { BsMouse } from 'react-icons/bs';
 
 const RecruitingTalentBenefit = ({data}) => {
     const scrollPageRef = useRef([]);
+    const device = useSelector(state => state.setDeviceReducer.device);
     const [ scrollPage, setScrollPage ] = useState(0);
     const [ reset, setReset ] = useState(false);
 
@@ -28,29 +30,42 @@ const RecruitingTalentBenefit = ({data}) => {
     }
     return (
         <Wrapper
+            device={device}
             ref={element => (scrollPageRef.current[0] = element)} 
             onWheel={(e) => {scrollAction(e)}}
             onAnimationEnd={(e) => {setReset(true)}}
-        >
-            <TalentWrapper ref={element => (scrollPageRef.current[0] = element)} scrollPage={scrollPage}>
-                <ImgWrapper>
-                    <Img src={require(`assets/imgs/recruiting/${data['talent'].image}`)} />
-                </ImgWrapper>
-                <Title scrollPage={scrollPage}> 
-                    {data['talent'].title}
-                    <MouseIconWrapper>
-                        <BsMouse size={24}/>
-                    </MouseIconWrapper>
-                </Title>
-            </TalentWrapper>
-            <BenefitWrapper ref={element => (scrollPageRef.current[1] = element)} scrollPage={scrollPage}>
+        >   
+            {device !== 'Mobile' ?
+                <TalentWrapper ref={element => (scrollPageRef.current[0] = element)} scrollPage={scrollPage} device={device}>
+                    <ImgWrapper device={device}>
+                        <Img src={require(`assets/imgs/recruiting/${data['talent'].image}`)} />
+                    </ImgWrapper>
+                    <Title scrollPage={scrollPage}> 
+                        {data['talent'].title}
+                        <MouseIconWrapper>
+                            <BsMouse size={24}/>
+                        </MouseIconWrapper>
+                    </Title>
+                </TalentWrapper>:
+                <TalentWrapper ref={element => (scrollPageRef.current[0] = element)} scrollPage={scrollPage} device={device}>
+                    <Title scrollPage={scrollPage} device={device}> 
+                        {data['talent'].title}
+                    </Title>
+                    <ImgWrapper device={device}>
+                        <Img src={require(`assets/imgs/recruiting/${data['talent'].image}`)} />
+                    </ImgWrapper>
+                </TalentWrapper>
+            }
+            <BenefitWrapper ref={element => (scrollPageRef.current[1] = element)} scrollPage={scrollPage} device={device}>
                 <Title scrollPage={scrollPage}> 
                     {data['benefit'].title}
-                    <MouseIconWrapper>
-                        <BsMouse size={24}/>
-                    </MouseIconWrapper>
+                    {device !== 'Mobile' &&
+                        <MouseIconWrapper>
+                            <BsMouse size={24}/>
+                        </MouseIconWrapper>
+                    }
                 </Title>
-                <ImgWrapper scrollPage={scrollPage}>
+                <ImgWrapper scrollPage={scrollPage} device={device}>
                     <Img src={require(`assets/imgs/recruiting/${data['benefit'].image}`)} />
                 </ImgWrapper>
             </BenefitWrapper>
@@ -61,9 +76,12 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+    ${({device}) => device === 'Mobile' && css`
+        margin-top: -32px;
+    `}
 `;
 const TalentWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexCenter}
+    ${({theme, device}) => device !== 'Mobile' ? theme.divCommon.flexCenter : theme.divCommon.flexColumnCenterCenet}
     padding-top: 32px;
     @keyframes changeTalent {
         from{
@@ -83,7 +101,7 @@ const TalentWrapper = styled.div`
     `}
 `;
 const BenefitWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexCenter}
+    ${({theme, device}) => device !== 'Mobile' ? theme.divCommon.flexCenter : theme.divCommon.flexColumnCenterCenet}
     padding-top: 32px;
     @keyframes changeBenfit {
         from{
@@ -104,18 +122,22 @@ const BenefitWrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.companyTitle}
-    ${({scrollPage}) => scrollPage === 0 ? css`
-        margin-left: 80px;
+    ${({scrollPage, device}) => device !== 'Mobile' && scrollPage === 0 ? css`
+        margin-left: 40px;
+        margin-top: -16px ;
     `:css`
-        margin-right: 80px;
+        margin-right: 40px;
+        margin-top: 8px;
+    `}
+    ${({device}) => device === 'Mobile' && css`
+        margin-bottom: -16px;
     `}
     font-size: 4rem;
     height: fit-content;
     border: none;
-    margin-top: -16px ;
 `;
 const ImgWrapper = styled.div`
-    max-width: ${({scrollPage}) => scrollPage === 1 ? '60%' : '50%'};
+    max-width: ${({scrollPage, device}) => device === 'Mobile' ? '100%' : scrollPage === 1 ? '60%' : '50%'};
 `;
 const Img = styled.img`
     width: 100%;
@@ -123,16 +145,18 @@ const Img = styled.img`
 const MouseIconWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexCenterCenter}
     @keyframes mouseMove {
-        form{
+        0%{
             transform: translateY(-10px);
         }
-        to{
+        50%{
             transform: translateY(10px);
         }
+        100%{
+            transform: translateY(-10px);
+        }
     }
-    //position: absolute;
     animation-direction: reverse;
-    animation: mouseMove 0.8s ease-in-out infinite alternate;
+    animation: mouseMove 1.5s ease-in-out infinite alternate;
     margin: 16px;
 `;
 

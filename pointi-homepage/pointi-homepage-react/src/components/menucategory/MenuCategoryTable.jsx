@@ -100,7 +100,6 @@ const Category = styled.td`
 `;
 const UnderMenuBar = styled.div`
     position: absolute;
-    width: calc(100% - 24px);
     margin-top: 16px;
     background-color: #e2dddd;
     line-height: 32px;
@@ -108,6 +107,7 @@ const UnderMenuBar = styled.div`
     ${({isMenuClick, height}) => isMenuClick && css`
         height: ${height};
     `}
+    ${({theme}) => theme.zIndex.three}
 `;
 const MenuText = styled.div`
     transition-duration: 0.5s;

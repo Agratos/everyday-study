@@ -20,27 +20,7 @@ const RecruitingEmploymentBoard = ( {list} ) => {
     return (
         <Wrapper id='board-top'>
             <Title>채용 공고</Title>
-            <ListWrapper>
-                <TextWrapper none={true} position={'top'} weight={`bolder`}>
-                    <DateWrapper>날자</DateWrapper>
-                    <ListTitleWrapper>제목</ListTitleWrapper>
-                </TextWrapper>
-            </ListWrapper>
-            {list.slice(offset, offset + limit).map(({date, title, image}, index) => (
-                <ListWrapper key={`list${index}`} >
-                    <TextWrapper>
-                        <DateWrapper>{date}</DateWrapper>
-                        <ListTitleWrapper id={offset + index} onClick={(e) => IsClickHandlle(e)}>{title}</ListTitleWrapper>
-                    </TextWrapper>
-                    {
-                        isClick === (index + offset) && (
-                            <ImgWrapper>
-                                
-                            </ImgWrapper>
-                        )
-                    }
-                </ListWrapper>
-            ))}
+
             <Pagination
                 total={list.length}
                 limit={limit}

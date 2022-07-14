@@ -256,14 +256,16 @@ const FunctionTitle = styled(TextFont)`
 const FunctionEx = styled.div`
     font-size: 0.9rem;
     color: #4d4a4af3;
-    margin-top: ${({device}) => device === 'Mobile' ? '-4px' : '2px'};
+    margin-top: ${({device}) => device === 'Mobile' ? '' : '2px'};
     margin-left: 28px;
+    word-break: keep-all;
 `;
 const FunctionExSub = styled.div`
     font-size: 0.85rem;
     color: #4d4a4af3;
-    margin-top: ${({device}) => device === 'Mobile' ? '-10px' : '-8px'};
+    margin-top: ${({device}) => device === 'Mobile' ? '-4px' : '-4px'};
     margin-left: ${({index}) => index === 0 ? '28px' : '36px'};
+    word-break: keep-all;
 `;
 const FunctionImage = styled.img`
     min-width: 300px;
