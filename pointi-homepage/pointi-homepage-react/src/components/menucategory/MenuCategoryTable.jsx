@@ -79,9 +79,9 @@ const CategoryWrapper = styled.table`
     }
 `;
 const Tbody = styled.tbody`
-    border-left: 1px solid black;
+    border-left: 1px solid #3d74a7;
     ${({index}) => index === 4 && css`
-        border-right: 1px solid black;
+        border-right: 1px solid #3d74a7;
     `}
 `;
 const Tr = styled.tr``;

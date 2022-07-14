@@ -248,7 +248,7 @@ const TextWrapper = styled.tr`
 `;
 const DateWrapper = styled.td`
     border: 1px solid black;
-    width: 15%;
+    width: 50px;
     max-width: 100px;
     font-size: 1.1rem;
     padding: 8px;
