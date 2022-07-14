@@ -96,7 +96,10 @@ const Detail = ({data, type}) => {
                                 ))}
                                 {checkDataNull(image) && 
                                     image.map((img, index) => (
-                                        <FunctionImage src={require(`assets/imgs/solution/${findeImageFolder(data.image)}/${image}`)} />
+                                        <FunctionImage 
+                                            src={require(`assets/imgs/solution/${findeImageFolder(data.image)}/${img}`)} 
+                                            key={`${findeImageFolder(data.image)}-${index}`}    
+                                        />
                                     )) 
                                 }
                             </FunctionWrapperIn>
