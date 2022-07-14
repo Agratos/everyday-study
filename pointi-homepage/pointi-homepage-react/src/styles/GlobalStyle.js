@@ -10,14 +10,14 @@ const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Nanum Gothic', sans-serif;
         overflow-y: scroll;
+        max-width: 2000px;
+        max-height: 1200px;
     }
     @media screen and (${device.pc}){
         body{
             padding: 0;
             width: 1100px;
             height: 100%;
-            max-width: 2000px;
-            max-height: 1600px;
             margin: auto;
         }
         html{
