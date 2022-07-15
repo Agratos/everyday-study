@@ -6,11 +6,10 @@ export default {
         return await axios.get(url);
     },
 
-    getAll : async (menuUrl,headerUrl,footerUrl,mainUrl,companyUrl,technologyUrl,solutionUrl,recruitingUrl) => {
+    getAll : async (menuUrl,footerUrl,mainUrl,companyUrl,technologyUrl,solutionUrl,recruitingUrl) => {
         return await axios
         .all([
             axios.get(menuUrl), 
-            axios.get(headerUrl), 
             axios.get(footerUrl), 
             axios.get(mainUrl), 
             axios.get(companyUrl),
@@ -18,10 +17,9 @@ export default {
             axios.get(solutionUrl),
             axios.get(recruitingUrl)])
         .then(
-            axios.spread((menu,header,footer,main,company,technology,solution,recruiting) => {
+            axios.spread((menu,footer,main,company,technology,solution,recruiting) => {
                 const data = [
                     menu.data, 
-                    header.data, 
                     footer.data, 
                     main.data, 
                     company.data, 

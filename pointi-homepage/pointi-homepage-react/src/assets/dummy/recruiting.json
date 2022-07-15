@@ -14,79 +14,14 @@
         "title" : "Talent & Benefit",
         "talent" : {
             "title": "Talent",
-            "image" : "talent.png"
+            "image" : "talent.bmp"
         },
         "benefit" : {
             "title": "Benefit",
-            "image": "benefit.png"
+            "image": "benefit.bmp"
         }
     },
     "recruit": {
-        "title" : "입사지원 & 채용공고",
-        "employment" : {
-            "image" : "announcementImg.png",
-            "title" : "입사지원 & 채용공고",
-            "process" : [
-                "전형 절차",
-                "입사지원 → 서류심사 → 면접"
-            ],
-            "inquiry" : [
-                "채용 문의",
-                "recruit@pointi.com"
-            ]
-        },
-        "announcement" : [
-            {
-                "date" : "2019-01-31",
-                "title" : "ICT 솔루션 개발자 채용공고",
-                "image" : "recuit_001.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "ICT 사업 - 이동통신사 기술지원 업무수행 채용공고",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            },
-            {
-                "date" : "2019-01-30",
-                "title" : "더미 테스트",
-                "image" : "recuit_002.png"
-            }
-        ]
+        "title" : "입사지원 & 채용공고"
     }
-    
 }

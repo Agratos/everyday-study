@@ -1,19 +1,7 @@
 {
-    "ceo" : {
-        "title" : "CEO 인사말",
-        "image" : "",
-        "text" : [
-            "당사는 대용량 Service Platform에서 부터 Handset에 이르는 다양한 IT 관련 Core Technology를 공급해오며, 다양한 산업 분야 고객들의 진정한 기술 파트너로 성장해 온 IT Solution 전문 업체 입니다.",
-            "음성/영상사서함 등 메세징사업 분야, 세계최초로 한국에 상용화된 LTE망의 데이타최적화 기술, 위치기반사업 등 다양한 분야의 솔루션개발 및 서비스사업을 지속적으로 진행하고 있으며, 급변하는 시장 환경에 맞추어 ICT(Information & communication Technology)분야의 솔루션개발 및 서비스 개발에도 최선의 노력을 다하고 있습니다.",
-            "ICT분야는 정보와 통신을 통합하는 사업 영역으로, 현재의 사회/경제 구조상 매우 중요한 부분을 차지하고 있으며, 미래창조과학부 등 정부정책의 핵심 추진과제로 대두되어 있습니다.",
-            "당사는 이러한 글로벌 생태계에 아주 밀접한 사업영역에 대한 기술개발, 서비스운영 사업을 적극 추진하고 있으며, 주 고객인 이동통신사 뿐만 아니라, 스마트교육 인프라 구축사업, 금융ICT사업, 사물/지능 ICT사업 등으로 영역을 확장하고 있습니다.",
-            "뿐만 아니라, 사업다각화를 위해 기존사업 외 여러 수익모델을 검토하고 있으며, 글로벌 중심의 해외사업 등으로 영역을 점차 확대하는 노력을 쏟고 있습니다."
-        ] ,
-        "end" : "포인트아이(주) 대표이사 이 봉 문"
-    },
     "organization" : {
         "title" : "Organization",
-        "image" : "organization.png"
+        "image" : "organization.bmp"
     },
     "about" : {
         "title": "About POINT-I",
@@ -29,188 +17,188 @@
                 "다양한 기술과 신사업을 바탕으로 IT Solution의",
                 "든든한 연결고리가 되겠습니다"
             ]
-        },
-        "patent" : {
-            "title" : "PATENT",
-            "image": "",
-            "list" : [{
-                "date" : "2022.4.12",
-                "number" : "제10-2387273호",
-                "name" : "음원 합성 기반 통화 연결음 서비스 시스템 및 방법",
-                "image":"patent_20.png"
-            },{
-                "date" : "2021.9.30",
-                "number" : "제10-2310144호",
-                "name" : "스마트 IoT 터치 패널 제어기 및 방법",
-                "image": "patent_19.png"
-            },{
-                "date" : "2020.10.08",
-                "number" : "제10-2166264호",
-                "name" : "텍스트 통화 서비스 제공 시스템",
-                "image": "patent_18.png"
-            },{
-                "date" : "2019.12.03",
-                "number" : "제10-2053678호",
-                "name" : "블록체인 기술 기반 의사표시 시스템 및 방법",
-                "image": "patent_17.png"
-            },{
-                "date" : "2015.08.04",
-                "number" : "제10-1543366호 ",
-                "name" : "고객 감정 지수를 이용한 호 또는 상담원 평가 방법 및 장치",
-                "image": "patent_16.png"
-            },{
-                "date" : "2013.02.13",
-                "number" : "제10-1234671호",
-                "name" : "멀티미디어 기반의 자동 응답 방법, 시스템 및 장치",
-                "image": "patent_15.png"
-            },{
-                "date" : "2013.01.10",
-                "number" : "제10-1223150호",
-                "name" : "애플리케이션 저작권 보호 방법과 그를 위한 단말기, 장치 및  프로그램을 기록한 컴퓨터로 읽을 수 있는 매체",
-                "image": "patent_14.png"
-            },{
-                "date" : "2008.10.30",
-                "number" : "제10-0867168호",
-                "name" : "통신망에서 실시간 메시지 통화 서비스 시스템 및 그 방법",
-                "image": "patent_13.png"
-            },{
-                "date" : "2008.01.29",
-                "number" : "제10-0800973호",
-                "name" : "사용자 단말기가 대기화면에 지인 단말기로부터 전송된 데이터를 표시하는 방법 및 이를 실행하기 위한 휴대폰 프로그램 저장매체",
-                "image": "patent_12.png"
-            },{
-                "date" : "2007.12.03",
-                "number" : "제10-0783668호",
-                "name" : "이동통신망에서 주문형 멀티미디어 서비스를위한 미디어스트리밍 서비스 장치 및 그 방법",
-                "image": "patent_11.png"
-            },{
-                "date" : "2007.11.23",
-                "number" : "제10-0780827호",
-                "name" : "배경음 통화서비스에서 배경음 음질 향상 방법",
-                "image": "patent_10.png"
-            },{
-                "date" : "2007.02.09",
-                "number" : "제10-0683895호",
-                "name" : "멀티미디어 메시징 서비스 방법",
-                "image": "patent_9.png"
-            },{
-                "date" : "2006.12.05",
-                "number" : "제10-0656417호",
-                "name" : "동기 방식 이동통신 시스템에서의 발신 영상 전송 서비스 방법",
-                "image": "patent_8.png"
-            },{
-                "date" : "2005.12.05",
-                "number" : "제10-0535888호",
-                "name" : "2차원 순방향 에러 정정방법 및 이를 이용한 데이터 통신방법",
-                "image": "patent_7.png"
-            },{
-                "date" : "2005.06.15",
-                "number" : "제10-0497223호",
-                "name" : "위치 기반 신용카드 인증 서비스 제공 방법 및 시스템",
-                "image": "patent_6.png"
-            },{
-                "date" : "2004.11.15",
-                "number" : "제10-0458452호",
-                "name" : "단말저장 방식을 이용한 인스턴스 메시지 전송 방법",
-                "image": "patent_5.png"
-            },{
-                "date" : "2004.03.19",
-                "number" : "제10-0425510호",
-                "name" : "반이중 방식의 패킷 전송 방법",
-                "image": "patent_4.png"
-            },{
-                "date" : "2003.12.22",
-                "number" : "제10-0413978호",
-                "name" : "멀티미디어 통신 서비스를 위한 신호 정합 장치 및 그 방법",
-                "image": "patent_3.png"
-            },{
-                "date" : "2003.12.11",
-                "number" : "제10-0412316호",
-                "name" : "이동통신 시스템의 멀티미디어 서비스에 있어서 문자 및 정보의 동시전송 방법",
-                "image": "patent_2.png"
-            },{
-                "date" : "2002.12.02",
-                "number" : "제10-0364689호",
-                "name" : "단절없는 음성통화를 위한 배경음악 제공 장치 및 그 방법",
-                "image": "patent_1.png"
-            }]
         }
+    },
+    "patent" : {
+        "title" : "PATENT",
+        "image": "",
+        "list" : [{
+            "date" : "2022.4.12",
+            "number" : "제10-2387273호",
+            "name" : "음원 합성 기반 통화 연결음 서비스 시스템 및 방법",
+            "image":"patent_20.bmp"
+        },{
+            "date" : "2021.9.30",
+            "number" : "제10-2310144호",
+            "name" : "스마트 IoT 터치 패널 제어기 및 방법",
+            "image": "patent_19.bmp"
+        },{
+            "date" : "2020.10.08",
+            "number" : "제10-2166264호",
+            "name" : "텍스트 통화 서비스 제공 시스템",
+            "image": "patent_18.bmp"
+        },{
+            "date" : "2019.12.03",
+            "number" : "제10-2053678호",
+            "name" : "블록체인 기술 기반 의사표시 시스템 및 방법",
+            "image": "patent_17.bmp"
+        },{
+            "date" : "2015.08.04",
+            "number" : "제10-1543366호 ",
+            "name" : "고객 감정 지수를 이용한 호 또는 상담원 평가 방법 및 장치",
+            "image": "patent_16.bmp"
+        },{
+            "date" : "2013.02.13",
+            "number" : "제10-1234671호",
+            "name" : "멀티미디어 기반의 자동 응답 방법, 시스템 및 장치",
+            "image": "patent_15.bmp"
+        },{
+            "date" : "2013.01.10",
+            "number" : "제10-1223150호",
+            "name" : "애플리케이션 저작권 보호 방법과 그를 위한 단말기, 장치 및  프로그램을 기록한 컴퓨터로 읽을 수 있는 매체",
+            "image": "patent_14.bmp"
+        },{
+            "date" : "2008.10.30",
+            "number" : "제10-0867168호",
+            "name" : "통신망에서 실시간 메시지 통화 서비스 시스템 및 그 방법",
+            "image": "patent_13.bmp"
+        },{
+            "date" : "2008.01.29",
+            "number" : "제10-0800973호",
+            "name" : "사용자 단말기가 대기화면에 지인 단말기로부터 전송된 데이터를 표시하는 방법 및 이를 실행하기 위한 휴대폰 프로그램 저장매체",
+            "image": "patent_12.bmp"
+        },{
+            "date" : "2007.12.03",
+            "number" : "제10-0783668호",
+            "name" : "이동통신망에서 주문형 멀티미디어 서비스를위한 미디어스트리밍 서비스 장치 및 그 방법",
+            "image": "patent_11.bmp"
+        },{
+            "date" : "2007.11.23",
+            "number" : "제10-0780827호",
+            "name" : "배경음 통화서비스에서 배경음 음질 향상 방법",
+            "image": "patent_10.bmp"
+        },{
+            "date" : "2007.02.09",
+            "number" : "제10-0683895호",
+            "name" : "멀티미디어 메시징 서비스 방법",
+            "image": "patent_9.bmp"
+        },{
+            "date" : "2006.12.05",
+            "number" : "제10-0656417호",
+            "name" : "동기 방식 이동통신 시스템에서의 발신 영상 전송 서비스 방법",
+            "image": "patent_8.bmp"
+        },{
+            "date" : "2005.12.05",
+            "number" : "제10-0535888호",
+            "name" : "2차원 순방향 에러 정정방법 및 이를 이용한 데이터 통신방법",
+            "image": "patent_7.bmp"
+        },{
+            "date" : "2005.06.15",
+            "number" : "제10-0497223호",
+            "name" : "위치 기반 신용카드 인증 서비스 제공 방법 및 시스템",
+            "image": "patent_6.bmp"
+        },{
+            "date" : "2004.11.15",
+            "number" : "제10-0458452호",
+            "name" : "단말저장 방식을 이용한 인스턴스 메시지 전송 방법",
+            "image": "patent_5.bmp"
+        },{
+            "date" : "2004.03.19",
+            "number" : "제10-0425510호",
+            "name" : "반이중 방식의 패킷 전송 방법",
+            "image": "patent_4.bmp"
+        },{
+            "date" : "2003.12.22",
+            "number" : "제10-0413978호",
+            "name" : "멀티미디어 통신 서비스를 위한 신호 정합 장치 및 그 방법",
+            "image": "patent_3.bmp"
+        },{
+            "date" : "2003.12.11",
+            "number" : "제10-0412316호",
+            "name" : "이동통신 시스템의 멀티미디어 서비스에 있어서 문자 및 정보의 동시전송 방법",
+            "image": "patent_2.bmp"
+        },{
+            "date" : "2002.12.02",
+            "number" : "제10-0364689호",
+            "name" : "단절없는 음성통화를 위한 배경음악 제공 장치 및 그 방법",
+            "image": "patent_1.bmp"
+        }]
     },
     "relationships" : {
         "title": "Relationships",
         "list": [
         {
-            "image" : "sk_telecom.png",
+            "image" : "sk_telecom.bmp",
             "title" : "SK Telecom",
             "text": ""
         },{
-            "image" : "lg.png",
+            "image" : "lg.bmp",
             "title" : "LG U+",
             "text": ""
         },{
-            "image" : "kt.png",
+            "image" : "kt.bmp",
             "title" : "KT",
             "text": ""
         },{
-            "image" : "hyundai.png",
+            "image" : "hyundai.bmp",
             "title" : "HYUNDAI ENGINERRING & CONSTRUCTION",
             "text": ""
         },{
-            "image" : "korail.png",
+            "image" : "korail.bmp",
             "title" : "KORAIL",
             "text": ""
         },{
-            "image" : "ksa.png",
+            "image" : "ksa.bmp",
             "title" : "KSA 한국표준협회",
             "text": ""
         }
     ]
 },
     "contact": {
-        "title":"Contact Us",
+        "title": "Contact Us",
         "list":[
         {
-            "image" : "phone.png",
+            "image" : "phone.bmp",
             "text" : ["02-2204-3000"]
         },{
-            "image" : "mail.png",
+            "image" : "mail.bmp",
             "text" : ["support@pointi.com"]
         },{
-            "image" : "home.png",
+            "image" : "home.bmp",
             "text" : [
                 "본사: 서울시 강남구 언주로148길 19, 청호빌딩 5층",
                 "지사: 전북 전주시 완산구 홍산로 275, 2층 205E호"
             ]
         },{
-            "image" : "click.png",
+            "image" : "click.bmp",
             "text" : ["맵 클릭시 카카오 맵으로 이동합니다."]
         }
     ]},
     "category":[
         {
-            "path" :"/company/about",
-            "id":"about",
-            "title" :"About POINT-I"
+            "path" : "/company/about",
+            "id" : "about",
+            "title" : "About POINT-I"
         },
         {
-            "path" :"/company/organization",
-            "id":"organization",
-            "title" :"Organization"
+            "path" : "/company/patent",
+            "id" : "patent",
+            "title" : "POINT-I Patent"
         },
         {
-            "path" :"/company/relationships",
-            "id":"relationships",
-            "title" :"Relationships"
+            "path" : "/company/organization",
+            "id" : "organization",
+            "title" : "Organization"
         },
         {
-            "path" :"/company/ceo",
-            "id":"ceo",
-            "title" :"CEO Message"
+            "path" : "/company/relationships",
+            "id" :"relationships",
+            "title" : "Relationships"
         },
         {
-            "path" :"/company/contact",
-            "id":"contact",
-            "title" :"Contact Us"
+            "path" : "/company/contact",
+            "id" : "contact",
+            "title" : "Contact Us"
         }
     ]
 }

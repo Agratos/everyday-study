@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
-import { IoIosMenu } from "react-icons/io";
 
 const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, isWrap, height, page}) => {
     const [ isMenuClick, setIsMenuClick ] = useState(false);
@@ -35,7 +34,6 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
                 :<MobileWrapper>
                     { !isMenuClick ? <AiFillCaretDown size={30} onClick={CheckClickTriangle}/> 
                         :  <AiFillCaretUp size={30} onClick={CheckClickTriangle}/>}
-                    {/* <IoIosMenu size={32} onClick={CheckClickTriangle}/>  */}
                 </MobileWrapper>
             }
             { (device === 'Mobile' && page !== 'recruiting') && (

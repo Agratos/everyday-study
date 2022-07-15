@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import sendApi from 'api/sendApi';
 
@@ -16,13 +16,12 @@ const BeforeRendering = () => {
         dispatch({
             type: 'SET_DATA',
             menu: response[0],
-            header: response[1],
-            footer: response[2],
-            main: response[3],
-            company: response[4],
-            technology: response[5],
-            solution: response[6],
-            recruiting: response[7],
+            footer: response[1],
+            main: response[2],
+            company: response[3],
+            technology: response[4],
+            solution: response[5],
+            recruiting: response[6],
         })
         })
     },[])

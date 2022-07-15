@@ -4,9 +4,6 @@ export default {
     getMenu : () => {
         return api.get('/menu')
     },
-    getHeader : () => {
-        return api.get('/menu/header');
-    },
     getFooter : () => {
         return api.get('/menu/footer');
     },
@@ -26,6 +23,6 @@ export default {
         return api.get('/recruiting');
     },
     getAll : () => {
-        return api.getAll('/menu','/menu/header','/menu/footer', '/main', '/company','/technology','/solution','/recruiting');
+        return api.getAll('/menu', '/menu/footer', '/main', '/company','/technology','/solution','/recruiting');
     }
 }  

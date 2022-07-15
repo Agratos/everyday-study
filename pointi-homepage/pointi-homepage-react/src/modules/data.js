@@ -12,7 +12,6 @@ export const setData = (data) => {
 // 리듀서 초기화
 const initialState = {
     menu: null,
-    header: null,
     footer: null,
     main: null,
     company: null,
@@ -28,7 +27,6 @@ export default function setDataReducer ( state = initialState, action ) {
             return {
                 ...state,
                 menu: action.menu,
-                header: action.header,
                 footer: action.footer,
                 main: action.main,
                 company: action.company,

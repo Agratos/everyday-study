@@ -1,30 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-//import footerData from 'assets/dummy/footer.json';
 import Copyright from './Copyright';
 import logo from 'assets/imgs/logo/logo.png';
 
 const Footer = () => {
     const footerData = useSelector(state => state.setDataReducer.footer);
     const device = useSelector(state => state.setDeviceReducer.device);
-    const isChange = useSelector(state => state.setChangeReducer.isChange);
-    const [click, setClick] = useState('');
-    useEffect(() => {
-        const url = window.location.pathname.split('/');
-        setClick(url[2])
-    },[ isChange ])
     
     return (
         device !== 'Mobile' &&
         <Wrapper id={'footer'} device={device}>
-            {device === 'PC' && click !== 'contact' &&
-                <GoToTheMapButton to={'/company/contact'}>
-                    오시는 길
-                </GoToTheMapButton>
-            }
             <TextArea>
                 <LogoWrapper>
                     <Logo src={logo} />
@@ -64,34 +51,17 @@ const Logo = styled.img`
 `;
 const TextArea = styled.div`
     ${({theme}) => theme.divCommon.flex};
-    //margin-left: 16px;
 `;
 const TextTable = styled.table`
     ${({theme}) => theme.divCommon.column};
 `;
 const TextTbody = styled.tbody`
     font-size: 0.8rem;
-    /* font-size: ${({index}) => index === 1 && '0.9rem'};
-    margin-top: ${({index}) => index === 2 && '2px'}; */
 `;
 const TextTr = styled.tr``;
 const TextTd = styled.td``;
 const TextA = styled.a`
     color: black;
-`;
-const GoToTheMapButton = styled(Link)`
-    ${({theme}) => theme.divCommon.flexCenter};
-    background-color: #F8CBAD;
-    color: #242323d7;
-    width: fit-content;
-    padding: 8px 16px;
-    position: absolute;
-    left: calc(50% + 320px);
-    margin-top: -80px;
-    font-size: 0.9rem;
-    &:hover {
-        cursor: pointer;
-    }
 `;
 
 export default Footer;

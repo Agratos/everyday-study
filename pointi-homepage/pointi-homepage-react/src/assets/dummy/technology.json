@@ -21,7 +21,7 @@
     ],
     "multi-media-process" :{
         "title": "Multi-Media Process",
-        "image" : "Technology_multiMediaProcess.png",
+        "image" : "Technology_multiMediaProcess.bmp",
         "technology" : [
             "대용량(4K/8K) 영상처리 및 Transcoding, Streaming"
         ],
@@ -64,7 +64,7 @@
     },
     "mass-capacity-ip-platform" :{
         "title": "Mass capacity IP Platform",
-        "image" : "Technology_massCapacityIpPlatform.png",
+        "image" : "Technology_massCapacityIpPlatform.bmp",
         "technology" : [
             "대용량 IP 플랫폼"
         ],
@@ -113,7 +113,7 @@
     },
     "media-analytics-based-on-deep-learning" :{
         "title": "Media Analytics Based on Deep Learning",
-        "image" : "Technology_mediaAnalyticsBasedonDeepLearning.png",
+        "image" : "Technology_mediaAnalyticsBasedonDeepLearning.bmp",
         "technology" : [
             "Deep Learning기반 Media(Audio/Video) Analytics"
         ],
@@ -157,7 +157,7 @@
     },
     "operation-management-service" :{
         "title": "Operation/Management Service",
-        "image" : "Technology_operationManagementService.png",
+        "image" : "Technology_operationManagementService.bmp",
         "technology" : [
             "다양한 IT Service 경험을 기반으로 한 UI/UX 제공"
         ],
@@ -195,7 +195,7 @@
     },
     "mobile-core-network" :{
         "title": "Mobile Core Network",
-        "image" : "Technology_mobileCoreNetwork.png",
+        "image" : "Technology_mobileCoreNetwork.bmp",
         "technology" : [
             "CDMA, WCDMA, 4G LTE, 5G Mobile Core Network System 및 Service",
             "“이동통신 발전”과 함께 다양한 기술, 서비스 제공"

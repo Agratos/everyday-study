@@ -1,98 +1,65 @@
 {
-    "menu" : [
-        {   "title": "Company",
-            "list" : [
-            {
-                "title" : "CEO 인사말",
-                "path" : "/company/greeting"
-            },{
-                "title" : "회사 연역",
-                "path" : "/company/history"
-            },{
-                "title" : "조직 구성",
-                "path" : "/company/organization"
-            },{
-                "title" : "특허 현황",
-                "path" : "/company/patent"
-            },{
-                "title" : "관계사",
-                "path" : "/company/relative"
-            },{
-                "title" : "오시는 길",
-                "path" : "/company/location"
-            }
-        ]},
-        {   "title" : "Technology",
-            "list" : [
-            {
-                "title": "Multi-Media Process",
-                "path": "/technology/multi-media-process"
-            },{
-                "title": "Mass capacity IP Platform",
-                "path": "/technology/mass-capacity-ip-platform"
-            },{
-                "title": "Media Analytics Based on Deep Learning",
-                "path": "/technology/media-analytics-based-on-deep-learning"
-            },{
-                "title": "Multi-Media Process",
-                "path": "/technology/operation-management-service"
-            },{
-                "title": "Mobile Core Network",
-                "path": "/technology/mobile-core-network"
-            }
-        ]},
-        {   "title" :"AIㆍ빅데이터",
-            "list" : [{
-                    "title" : "야생동물 감지 시스템",
-                    "path" : "/solution/ai-bigdata/wild-animal-detection"
-                },{
-                    "title" : "이미지분류서비스",
-                    "path" : "/solution/ai-bigdata/image-classfication"
-                },{
-                    "title" : "빅데이터 UI / UX",
-                    "path" : "/solution/ai-bigdata/bigdata-ui-ux"
-                },{
-                    "title" : "통합관제 시스템(UI, UX)",
-                    "path" : "/solution/ai-bigdata/integrated-control-gui"
-                }
-            ]},
-        {   "title": "5GㆍICT",
-            "list" : [{
-                    "title" : "MEC Router",
-                    "path" : "/solution/5g-ict/mec-router"
-                },{
-                    "title" : "MGCF",
-                    "path" : "/solution/5g-ict/mgcf"
-                },{
-                    "title" : "IBC",
-                    "path" : "/solution/5g-ict/ibc"
-                },{
-                    "title" : "컬러링",
-                    "path" : "/solution/5g-ict/coloring"
-                },{
-                    "title" : "부가서비스",
-                    "path" : "/solution/5g-ict/extra-service"
-                },{
-                    "title" : "통합 사서함",
-                    "path" : "/solution/5g-ict/unified-mailbox"
-                },{
-                    "title" : "영상정보센터",
-                    "path" : "/solution/5g-ict/video-information-center"
-                },{
-                    "title" : "T그룹통화",
-                    "path" : "/solution/5g-ict/t-group-call"
-                }
-        ]},
-        {   "title": "Recruiting",
-            "list" : [
+    "data":[
+        {
+            "id":0,
+            "path":"/company/about", 
+            "title":"Company",
+            "list": [
                 {
-                    "title" : "인재관리철학 & 인재상",
-                    "path" : "/recruiting/philosophy-talent"
+                    "path" :"/company/about",
+                    "text" :"About POINT-I"
                 },
                 {
-                    "title" : "입사지원 & 채용공고",
-                    "path" : "/recruiting/employment-announcement"
+                    "path" :"/company/patent",
+                    "text" :"POINT-I Patent"
+                },
+                {
+                    "path" :"/company/organization",
+                    "text" :"Organization"
+                },
+                {
+                    "path" :"/company/relationships",
+                    "text" :"Relationships"
+                },
+                {
+                    "path" :"/company/contact",
+                    "text" :"Contact Us"
                 }
-            ]}
+            ]
+        },{
+            "id":1,
+            "path":"/technology/multi-media-process", 
+            "title":"Technology",
+            "list": []
+        }
+        ,{
+            "id":2,
+            "path":"/solution/ai-bigdata/intelligent-video-analysis-PaaS", 
+            "title":"Solution",
+            "list": [
+                {
+                    "path" :"/solution/ai-bigdata/intelligent-video-analysis-PaaS",
+                    "text" :"AIㆍ빅데이터"
+                },
+                {
+                    "path" :"/solution/5g-ict/t-group-call",
+                    "text" :"5GㆍICT"
+                }
+            ]
+        },{
+            "id":3,
+            "path":"/recruiting/talent-benefit", 
+            "title":"Recruiting",
+            "list": [
+                {
+                    "path" :"/recruiting/talent-benefit",
+                    "text" :"Talent / Benefit"
+                },
+                {
+                    "path" :"/recruiting/recruit",
+                    "text" :"Jobs (Recruit)"
+                }
+            ]
+        }
     ]
 }

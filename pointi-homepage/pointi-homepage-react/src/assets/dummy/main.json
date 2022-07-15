@@ -1,40 +1,20 @@
 {
-    "title": "What we Do ?",
-    "intro": {
-        "title": "사업 영역",
-        "text": "포인트아이는 고성능/고품질의 멀티미디어와 데이터를 처리하여 이동통신 분야에서 안정적인 서비스를 제공하고 있으며, 최근에는 Analytics 플랫폼을 시작으로 IoT와 AR/VR 영역에까지 사업 영역을 확장하고 있습니다."
-    },
-    "mainSolution": {
-        "title":"주요 솔루션",
-        "text": [
-            "포인트아이는 2000년 휴림인터랙티브로 시작하여 20여년 동안 ICT Core 및 모바일 영역에서 다양한 멀티미디어 시스템과 플랫폼을 제공하고 있습니다.",
-            "포인트아이는 소리샘/컬러링 등 ARS 기반의 다양한 부가 서비스를 시작으로 IBC/IMGW/EMP 등의 Network Function들과 계측 장비를 공급해 오고 있습니다. 최근에는 멀티미디어 및 데이터 분석과 AI/IoT를 결합한 솔루션을 공급하고 있으며 변화하는 시장에 대응하기 위해 AR/VR 솔루션을 준비하고 있습니다."
-        ]
-    },
-    "solution": [
-        [
-            "Core Nf",
-            "서로 다른 Network 간에", 
-            "영상/음성 데이터를 변환/전송하는",
-            "대용량 미디어 솔루션"
-        ],
-        [
-            "VAS Solutions",
-            "음성/영상 통화 망에서",
-            "국가단위의 가입자 처리가 가능한",
-            "ARS기반의 부가서비스"
-        ],
-        [
-            "AI / AR / IoT",
-            "모든 사물에 통신과 지능을 부여하여",
-            "사람에게 더 풍부한",
-            "기술의 가치를 제공"
-        ],
-        [
-            "Data Analytics / SI",
-            "데이터의 가치를 살려내고",
-            "대량의 데이터를 실시간 분석하여",
-            "빠른 변화에 대응할 기회를 제공"
-        ]
+    "data": [
+        {
+            "title" : "Technology",
+            "image" : "technology.bmp",
+            "path": "/technology/multi-media-process",
+            "text": ""
+        },{
+            "title" : "AIㆍ빅데이터",
+            "image" : "ai-bigdata.bmp",
+            "path": "/solution/ai-bigdata/intelligent-video-analysis-PaaS",
+            "text": ""
+        },{
+            "title" : "5GㆍICT",
+            "image" : "5g-ict.bmp",
+            "path": "/solution/5g-ict/mec-router",
+            "text": ""
+        }
     ]
 }
