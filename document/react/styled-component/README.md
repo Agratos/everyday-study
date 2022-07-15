@@ -158,3 +158,16 @@ const StyledLink = styled(({ isCurrent, ...rest }) => <Link {...rest} />)(
 )
 ```
  - 다른 component 상속 받을 때
+
+### attrs
+- attributes를 삽입하기 위한 메서드 1개의 객체 타입의 arg를 받는다
+- passing props와 차이점
+ - attrs는 in-line style이 적용
+ - 애니메이션과 같이 자주 변경되는 style은 attrs를 사용 하는 것이 성능에 좋다.
+ ```
+   const CheckboxInput = styled.input.attrs({ type: "checkbox" })`
+     margin: 10px;
+   `;
+ ```
+  - <CheckboxInput /> 을 사용할 때마다 type="checkbox"를 넣어줄 필요가 없다
+
