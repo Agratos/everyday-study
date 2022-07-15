@@ -25,18 +25,18 @@ const Patent = ({data, device}) => {
                 </Modal>
             }
             <Title>{data.title}</Title>
-            <ListWrapper>
+            <ListTableWrapper>
                 { device !== 'Mobile' ? 
                     (<Tbody>
                         <TextWrapper none={true} weight={`bolder`}>
-                                <DateWrapper>등록일자</DateWrapper>
-                                <NumberWrapper>특허번호</NumberWrapper>
-                                <ListTitleWrapper>특허명</ListTitleWrapper>
+                                <ListDateWrapper top={true} >등록일자</ListDateWrapper>
+                                <ListNumberWrapper top={true} >특허번호</ListNumberWrapper>
+                                <ListTitleWrapper top={true} >특허명</ListTitleWrapper>
                         </TextWrapper>
                         {data.list.slice(offset, offset + limit).map(({date, number, name, image}, index) => (
                             <TextWrapper key={`patent-board${index}`} >
-                                <DateWrapper>{date}</DateWrapper>
-                                <NumberWrapper>{number}</NumberWrapper>
+                                <ListDateWrapper>{date}</ListDateWrapper>
+                                <ListNumberWrapper>{number}</ListNumberWrapper>
                                 <ListTitleWrapper onClick={() => {
                                     onClickModal();
                                     setImageUrl(image);
@@ -48,8 +48,14 @@ const Patent = ({data, device}) => {
                         <TextWrapper none={true} weight={`bolder`}>
                                 <MobilePatentWrapper>특허</MobilePatentWrapper>
                         </TextWrapper>
-                        {data.list.slice(offset, offset + limit).map(({date, number, name}, index) => (
-                            <TextWrapper key={`patent-board${index}`}>
+                        {data.list.slice(offset, offset + limit).map(({date, number, name, image}, index) => (
+                            <TextWrapper 
+                                key={`patent-board${index}`}
+                                onClick={() => {
+                                    onClickModal();
+                                    setImageUrl(image);
+                                }}
+                            >
                                 <MobilePatentWrapper>
                                     <MobilePatentText>
                                         등록일자: {date}
@@ -57,8 +63,8 @@ const Patent = ({data, device}) => {
                                     <MobilePatentText>
                                         특허번호: {number}
                                     </MobilePatentText> 
-                                    <MobilePatentText type={'특허명'}>
-                                        <MobilePatentText width={'64px'}>
+                                    <MobilePatentText type={'nameWrapper'}>
+                                        <MobilePatentText width={'64px'} type={'특허명'}>
                                             특허명: 
                                         </MobilePatentText>
                                         <MobilePatentText width={'80%'}>
@@ -70,7 +76,7 @@ const Patent = ({data, device}) => {
                         ))}
                     </Tbody>
                 )}
-            </ListWrapper>
+            </ListTableWrapper>
             <Pagination
                 total={data.list.length}
                 limit={limit}
@@ -87,40 +93,46 @@ const Wrapper = styled.div`
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.companyTitle};
 `;
-const ListWrapper = styled.table`
+const ListTableWrapper = styled.table`
     margin-top: 40px;
+    min-width: inherit;
     table-layout: fixed;
 `;
 const Tbody = styled.tbody``;
 const TextWrapper = styled.tr`
     &:hover {
-        background-color: #cac5c5;
+        background-color: #cac5c54f;
     }
     pointer-events: ${props => props.none && `none`};
 `;
-const DateWrapper = styled.td`
+const ListDateWrapper = styled.td`
+    ${({top}) => top && css`
+        text-align: center;
+        background-color: #cac5c58c;
+    `}
     border: 1px solid black;
-    width: 50px;
-    max-width: 100px;
     font-size: 1.1rem;
     padding: 8px;
     vertical-align: top;
+    width: 100px;
 `;
-const NumberWrapper =styled(DateWrapper)`
-    margin-left: 32px;
-    min-width: 150px;
+const ListNumberWrapper =styled(ListDateWrapper)`
+    width: 136px;
 `;
-const ListTitleWrapper = styled(NumberWrapper)`
-    width: 60%;
+const ListTitleWrapper = styled(ListDateWrapper)`
+    width: calc(100% - 240px);
     :hover{
         cursor: pointer;
     }
 `;
-const MobilePatentWrapper =styled(DateWrapper)`
+const MobilePatentWrapper =styled(ListDateWrapper)`
     border-left: none;
 `;
 const MobilePatentText = styled.div`
-    ${({type, theme}) => type === '특허명' && theme.divCommon.flex}
+    ${({type, theme}) => type === 'nameWrapper' && theme.divCommon.flex}
+    ${({type}) => type === '특허명' && css`
+        margin-right: -8px;
+    `}
     width: ${({width}) => width};
 `;
 export default Patent;

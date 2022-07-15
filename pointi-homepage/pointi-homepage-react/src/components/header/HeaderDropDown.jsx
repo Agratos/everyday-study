@@ -149,7 +149,6 @@ const MenuBarText = styled(Link)`
     text-decoration: none;
     &:hover {
         cursor: pointer;
-        //border-bottom: 4px solid #5db2ff;
         padding-bottom: 16px;
         margin-bottom: -16px;
     }

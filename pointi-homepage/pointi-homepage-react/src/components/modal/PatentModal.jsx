@@ -1,21 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import { IoCloseSharp } from 'react-icons/io5';
 
 const PatentModal = ({imageUrl, onClickModal}) => {
+    const device = useSelector(state => state.setDeviceReducer.device);
     return (
-        <Wrapper>
+        <Wrapper device={device}>
             <CloseButton onClick={onClickModal}><IoCloseSharp size={24}/></CloseButton>
             <Image src={require(`assets/imgs/company/patents/${imageUrl}`)} />
         </Wrapper>
     )
 }
 const Wrapper = styled.div`
-    width: 600px;
+    width: ${({device}) => device === 'Mobile' ? '100%' : '600px'};
 `;
 const CloseButton = styled.div`
     width: fit-content;
-    margin: 8px;
+    float: right;
     :hover{
         cursor: pointer;
     }

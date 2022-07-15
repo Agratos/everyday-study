@@ -69,10 +69,10 @@ const CategoryWrapper = styled.table`
     flex-wrap: ${props => props.isWrap || 'wrap'};
     margin-bottom: 16px;
     border-bottom: 2px solid #3d74a7;
-    line-height: 16px;
+    line-height: 8px;
     ${props => props.subtitle && 
         css`
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #3d74a7;
         `
     }
 `;
@@ -85,7 +85,7 @@ const Tbody = styled.tbody`
 const Tr = styled.tr``;
 const Category = styled.td` 
     padding: 12px 24px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     &{
         ${ props => props.id === props.isClick && `
             color: #5DB2FF;
