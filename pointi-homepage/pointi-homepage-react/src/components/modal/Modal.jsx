@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const Modal = (props) => {
     const [ scrollYPosition, setScrollYPosition ] = useState(window.scrollY);
+    const [ startPosition, setStartPosition ] = useState({ x: 0, y: 0});
+    const [ endPosition, setEndPosition ] = useState({ x: 0, y: 0});
+    const [ isDrag, setIsDrag ] = useState(false);
     useEffect(() => {
         document.body.style.cssText = `
             position: fixed; 
@@ -18,9 +21,40 @@ const Modal = (props) => {
         };
     }, [])
 
+    const dragStart = (e) => {
+        setStartPosition({
+            x: e.screenX - e.currentTarget.getBoundingClientRect().left,
+            y: e.screenY - e.currentTarget.getBoundingClientRect().top,
+        })
+        setIsDrag(true);
+    }
+
+    const dragging = (e) => {
+        if(isDrag){
+            const left = e.screenX - startPosition.x;
+            const top = e.screenY - startPosition.y;
+
+            setEndPosition({
+                x: left,
+                y: top
+            })
+        }
+    }
+
+    const dragEnd = () => {
+        setIsDrag(false);
+    }
+
     return (
         <Wrapper scrollYPosition={scrollYPosition}>
-            <DialogBox>{props.children}</DialogBox>
+            <DialogBox 
+                onMouseDown={(e) => dragStart(e)}
+                onMouseMove={(e) => dragging(e)}
+                onMouseUp={dragEnd}
+                endPosition={endPosition}
+            >
+                {props.children}
+            </DialogBox>
             <Background onClick={(e) => { 
                 e.preventDefault(); 
                 if(props.onClickModal){
@@ -39,7 +73,20 @@ const Wrapper = styled.div`
     transform: translate(-50%);
     z-index: 999;
 `;
-const DialogBox = styled.div`
+const DialogBox = styled.div.attrs(({endPosition}) => (
+    endPosition.x === 0 && endPosition.y === 0 ? {
+        style:{
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%,-50%)'
+        }
+    } : {
+        style:{
+            top: `${endPosition.y}px`,
+            left: `${endPosition.x}px`
+        }
+    }
+))`
     width: fit-content;
     height: fit-content;
     border: none;
@@ -49,9 +96,6 @@ const DialogBox = styled.div`
     box-sizing: border-box;
     background-color: white;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 1000;
 `;
 const Background = styled.div`

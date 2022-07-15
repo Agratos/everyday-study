@@ -52,6 +52,9 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         font-weight: normal;
     }
+    img{
+        -webkit-user-drag: none;
+    }
 `;
 
 export default GlobalStyle;

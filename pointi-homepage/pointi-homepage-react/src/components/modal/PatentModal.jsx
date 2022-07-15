@@ -15,9 +15,6 @@ const Wrapper = styled.div`
 `;
 const CloseButton = styled.div`
     width: fit-content;
-    position: fixed;
-    right: 0;
-    top: 0;
     margin: 8px;
     :hover{
         cursor: pointer;
