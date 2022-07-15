@@ -48,12 +48,16 @@
             ]
         },{
             "id":3,
-            "path":"/recruiting/talent-benefit", 
+            "path":"/recruiting/talent", 
             "title":"Recruiting",
             "list": [
                 {
-                    "path" :"/recruiting/talent-benefit",
-                    "text" :"Talent / Benefit"
+                    "path" :"/recruiting/talent",
+                    "text" :"Talent"
+                },
+                {
+                    "path" :"/recruiting/benefit",
+                    "text" :"Benefit"
                 },
                 {
                     "path" :"/recruiting/recruit",

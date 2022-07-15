@@ -19,12 +19,12 @@ const ContactUs = ({data, device}) => {
                         <ClickImage src={require(`assets/imgs/company/${data.list[3].image}`)} />
                         <ClickTextMessage>{data.list[3].text}</ClickTextMessage>
                     </ClickTextMessageWrapper>
+                    <KakaoMapRerenderButton 
+                        device={device}
+                        onClick={() => resizeHandeler()}
+                    >Reset</KakaoMapRerenderButton>
                     <KakaoMap resize={resize}/>
                 </KakaoMapWrapper>
-                <KakaoMapRerenderButton 
-                    device={device}
-                    onClick={() => resizeHandeler()}
-                >지도 범위 재설정 하기</KakaoMapRerenderButton>
             </LocationWrapperOut>
         </Wrapper>
     )
@@ -62,7 +62,8 @@ const KakaoMapRerenderButton = styled.div`
     width: fit-content;
     padding: 4px 8px;
     border-radius: 16px;
-    margin-top: ${({device}) => device === 'Mobile' ? '16px' : '-16px'};
+    float: right;
+    margin-top: ${({device}) => device === 'Mobile' ? '-28px' : '-32px'};
     :hover {
         cursor: pointer;
     }
@@ -75,7 +76,7 @@ const ClickTextMessageWrapper = styled(Flex)`
 const ClickImage = styled.img``;
 const ClickTextMessage = styled.div`
     margin-top: 16px;
-    margin-left: 8px;
+    margin-left: 4px;
 `;
 
 

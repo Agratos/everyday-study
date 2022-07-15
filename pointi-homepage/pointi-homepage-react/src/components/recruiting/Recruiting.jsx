@@ -34,18 +34,18 @@ const Recruiting = () => {
     
     const renderSwitch = () => {
         switch(isClick) {
-            case 'talent-benefit' :
+            case 'recruiting' :
+                return (
+                    <RednderSwitchWrapper>
+                        <RecruitingEmploymentBoard list={recruitingData[isClick].announcement} />
+                    </RednderSwitchWrapper>
+                );
+            default :
                 return (
                     <RednderSwitchWrapper>
                         <RecruitingTalentBenefit data={recruitingData[isClick]}></RecruitingTalentBenefit>
                     </RednderSwitchWrapper>
                 )
-                default :
-                    return (
-                        <RednderSwitchWrapper>
-                            <RecruitingEmploymentBoard list={recruitingData[isClick].announcement} />
-                        </RednderSwitchWrapper>
-                    );
         }
     }
 
@@ -65,9 +65,13 @@ const Recruiting = () => {
 
 const Wrapper = styled.div`
     width: 100%;
+    height: 100%;
     flex: 1;
 `;
-const RednderSwitchWrapper = styled.div``
+const RednderSwitchWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexCenterCenter}
+    height: 90%;
+`
 
 
 export default Recruiting;

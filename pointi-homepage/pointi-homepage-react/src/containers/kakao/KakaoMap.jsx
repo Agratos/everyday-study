@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const KakaoMap = () => {
     const location = [
         {latitude:37.521031834622924, longitude:127.03607157207173,text:'포인트아이 본사 청호빌딩 5층'},
-        {latitude:35.81820900081049, longitude:127.10553536304494, text:'포인트아이 전주 지사 2층 205E호'}
+        {latitude:35.8238423, longitude:127.153766, text:'포인트아이 전주 지사 신지식산업센터'}
     ];
     //const [linePath, setLinePath] = useState([])
     // const startLat = 33.669620417716707;
@@ -57,7 +57,7 @@ const KakaoMap = () => {
 
             var content = `<div style='
                 background-color: white; 
-                padding: 4px 8px; 
+                padding: 4px 5px; 
                 border-radius: 16px;
                 font-size: 12px;
                 position: relative;

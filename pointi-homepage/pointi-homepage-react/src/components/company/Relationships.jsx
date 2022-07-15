@@ -38,7 +38,7 @@ const DataWrapperIn = styled.div`
     width: inherit;
 `; 
 const DataWrapper = styled.div`
-    border: 1px solid black;
+    border: 1px solid #cac5c5;
     width: ${({device}) => device === 'Mobile' ? '350px' : '300px'};
     box-shadow: 4px 4px 4px #919191; 
     margin: 16px;

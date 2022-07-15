@@ -1,25 +1,28 @@
 {
     "category" : [
         {
-            "path" :"/recruiting/talent-benefit",
-            "id":"talent-benefit",
-            "title" : "Talent / Benefit"
-        },{
+            "path" :"/recruiting/talent",
+            "id":"talent",
+            "title" : "Talent"
+        },
+        {
+            "path" :"/recruiting/benefit",
+            "id":"benefit",
+            "title" : "Benefit"
+        },
+        {
             "path" :"/recruiting/recruit",
             "id":"recruit",
             "title" :"Jobs (Recruit)"
         }
     ],
-    "talent-benefit": {
-        "title" : "Talent & Benefit",
-        "talent" : {
-            "title": "Talent",
-            "image" : "talent.bmp"
-        },
-        "benefit" : {
-            "title": "Benefit",
-            "image": "benefit.bmp"
-        }
+    "talent": {
+        "title" : "Talent",
+        "image" : "talent.bmp" 
+    },
+    "benefit":{
+        "title" : "Benefit",
+        "image": "benefit.bmp"
     },
     "recruit": {
         "title" : "입사지원 & 채용공고"
