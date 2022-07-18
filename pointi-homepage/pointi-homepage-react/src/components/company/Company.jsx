@@ -55,6 +55,7 @@ const Company = () => {
                 justify={'flex-end'} 
                 setIsClick={setIsClick} 
                 isClick={isClick} 
+                page={'company'}
             />
             {renderSwich()}
         </Wrapper>

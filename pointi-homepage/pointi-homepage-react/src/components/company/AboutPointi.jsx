@@ -11,11 +11,18 @@ const AboutPointi = ({data, device}) => {
     const beforPage = useRef();
     const [ scrollPage, setScrollPage ] = useState(0);
     const [ reset, setReset ] = useState(false);
+    const [ touchYPosition, setTouchYPosition ] = useState(0);
 
     useEffect(() => {
         blockEvent(false);
         setTimeout(() => {
             blockEvent(true);
+            if(scrollPage === 0){
+                document.body.style.cssText = `
+                    position: block;
+                    pointer-events: auto;
+                `;
+            }
         },1100)
     },[scrollPage])
 
@@ -39,7 +46,6 @@ const AboutPointi = ({data, device}) => {
             }
         }
     }
-
     const stopMove = () =>{
         if(device === 'PC'){
             return document.body.style.cssText = `
@@ -73,6 +79,7 @@ const AboutPointi = ({data, device}) => {
             document.body.style.cssText = `
                 position: block;
                 pointer-events: auto;
+                overscroll-behavior-y: none;
             `;
         }
     }
@@ -88,9 +95,34 @@ const AboutPointi = ({data, device}) => {
         )
     }
 
+    const onTouchScreenEnd = (e) => {
+        if(reset){
+            if(touchYPosition > e.changedTouches[0].pageY){ // 움직임 위든 아래든
+                //page down
+                if(scrollPage + 1 >= scrollPageRef.current.length) return
+                else{
+                    setScrollPage(scrollPage + 1);
+                }
+            } else{
+                //page up
+                if(scrollPage - 1 < 0 ) return
+                else {
+                    setScrollPage(scrollPage - 1);
+                }
+            }
+        }
+    }
+
     return (
         <Wrapper 
             onWheel={(e) => {scrollAction(e)}}
+            onTouchStart={(e) => setTouchYPosition(e.changedTouches[0].pageY)}
+            onTouchEnd={onTouchScreenEnd}
+            onAnimationStart={() => {
+                document.body.style.cssText = `
+                    overscroll-behavior-y: none;
+                `;
+            }}
         >
             {data.list.map((list, index) => (
                 <AboutUs 
@@ -169,7 +201,7 @@ const ImageWrapper = styled.div`
 `;
 const Image = styled.img`
     width: 100%;
-    
+
 `;
 const MouseIconWrapper = styled.div`
     @keyframes mouseMove {

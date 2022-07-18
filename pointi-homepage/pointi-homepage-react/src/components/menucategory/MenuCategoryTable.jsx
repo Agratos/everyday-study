@@ -13,6 +13,7 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
     const CheckClickTriangle = () => {
         setIsMenuClick(!isMenuClick);
     }
+
     return(
         <Wrapper>
             { (device === 'PC' || page === 'recruiting') ?
@@ -31,7 +32,8 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
                         </Tbody>
                     ))}
                 </CategoryWrapper> 
-                :<MobileWrapper>
+                : ( device === 'Mobile' && page !== 'company') &&
+                <MobileWrapper>
                     { !isMenuClick ? <AiFillCaretDown size={30} onClick={CheckClickTriangle}/> 
                         :  <AiFillCaretUp size={30} onClick={CheckClickTriangle}/>}
                 </MobileWrapper>
@@ -105,7 +107,7 @@ const UnderMenuBar = styled.div`
     ${({isMenuClick, height}) => isMenuClick && css`
         height: ${height};
     `}
-    ${({theme}) => theme.zIndex.four}
+
     width: calc(100% - 24px);
 `;
 const MenuText = styled.div`
