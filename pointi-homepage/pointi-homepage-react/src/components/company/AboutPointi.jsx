@@ -1,4 +1,4 @@
-import React, { useState , useRef, useCallback } from 'react';
+import React, { useState , useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 import { BsMouse } from 'react-icons/bs';
@@ -8,33 +8,48 @@ import useWindowScrollPosition from 'containers/scroll/useWindowScrollPosition';
 const AboutPointi = ({data, device}) => {
     const scrollPoistion = useWindowScrollPosition();
     const scrollPageRef = useRef([]);
+    const beforPage = useRef();
     const [ scrollPage, setScrollPage ] = useState(0);
     const [ reset, setReset ] = useState(false);
 
+    useEffect(() => {
+        blockEvent(false);
+        setTimeout(() => {
+            blockEvent(true);
+        },1100)
+    },[scrollPage])
+
     const scrollAction = (e) => {
         if(reset){
-            if(e.deltaY > 0){
-                if(scrollPage + 1 >= scrollPageRef.current.length) return
-                else {
-                    setScrollPage(scrollPage + 1);
-                    document.body.style.cssText = `
-                        position: fixed; 
-                        top: calc(50%);
-                        left: calc(50%);
-                        transform: translate(-50%, -50%);
-                        overflow-y: scroll;
-                        pointer-events: none;
-                    `;
-                }
-            }else if(e.deltaY < 0 && scrollPoistion === 0){
+            if(e.deltaY < 0 && scrollPoistion + e.deltaY === e.deltaY){
                 if(scrollPage - 1 < 0 ) return
                 else {
-                    setScrollPage(scrollPage - 1); 
+                    stopMove();
+                    beforPage.current = scrollPage;
+                    setScrollPage(scrollPage - 1);
+                    
+                }
+            }else if(e.deltaY > 0 && parseInt(window.innerHeight + scrollPoistion) === document.body.scrollHeight){
+                if(scrollPage + 1 >= scrollPageRef.current.length) return
+                else{
+                    stopMove();
+                    beforPage.current = scrollPage;
+                    setScrollPage(scrollPage + 1);
                 }
             }
         }
     }
 
+    const stopMove = () =>{
+        return document.body.style.cssText = `
+            position: fixed; 
+            top: calc(50%);
+            left: calc(50%);
+            transform: translate(-50%, -50%);
+            overflow-y: scroll;
+            pointer-events: none;
+        `;
+    } 
     const blockEvent = (state) => {
         setReset(state);
         if(state){
@@ -44,30 +59,47 @@ const AboutPointi = ({data, device}) => {
             `;
         }
     }
+    const changeTextColor = (text) => {
+        const str = text.split("\"");
+        return (
+            <TextBold>
+                {str.map((list, index) => (
+                    index === 1 ? <Span color={'#2f6975'} key={`span-${index}`}>"{list}"</Span> 
+                    : list
+                ))}
+            </TextBold>
+        )
+    }
 
     return (
         <Wrapper 
-            id='patent' 
-            ref={element => (scrollPageRef.current[0] = element)} 
             onWheel={(e) => {scrollAction(e)}}
-            onAnimationEnd={(e) => {blockEvent(true)}}
         >
-            <AboutUs id='about-us' scrollPage={scrollPage}>
-                <Title>{data['about-us'].title}</Title>
-                <TextBoldWrapper>
-                    {data['about-us']['text-bold'].map((text, index) => (
-                        <TextBold key={`textbold-${index}`}>{text}</TextBold>
+            {data.list.map((list, index) => (
+                <AboutUs 
+                    key={`about-us-${index}`}
+                    scrollPage={scrollPage}
+                    index={index}
+                    ref={element => (scrollPageRef.current[index] = element)} 
+                >   
+                    {list.title !== '' &&
+                        <Title>{list.title}</Title>
+                    }
+                    {list['text-bold'].map((text,index) => (
+                        <TextBoldWrapper key={`text-bold-wrapper-${index}`} index={index}>
+                            {changeTextColor(text)}
+                        </TextBoldWrapper>
                     ))}
-                </TextBoldWrapper>
-                <TextNomalWrapper>
-                    {data['about-us']['text-nomal'].map((text, index) => (
-                        <TextNomal key={`textnomal-${index}`}>{text}</TextNomal>
-                    ))}
-                </TextNomalWrapper>
-                <MouseIconWrapper>
-                    <BsMouse size={24}/>
-                </MouseIconWrapper>
-            </AboutUs>
+                    <ImageWrapper>
+                        <Image src={require(`assets/imgs/company/about/${list.image}`)} />
+                    </ImageWrapper>
+                    {data.list.length !== index + 1 &&
+                        <MouseIconWrapper>
+                            <BsMouse size={24}/>
+                        </MouseIconWrapper>
+                    }
+                </AboutUs>
+            ))}
         </Wrapper>
     )
 }
@@ -91,28 +123,35 @@ const AboutUs = styled.div`
         }
     }
 
-    ${({scrollPage}) => scrollPage === 0 ? css`
-        //margin-bottom: 22vh;
-        display: !none;
-        animation: changeAbout 1s ease forwards;
-    ` : css`
-        display: none;
-    `}
+    &{
+        ${({scrollPage,index}) => scrollPage === index ? css`
+            display: !none;
+            animation: changeAbout 1s ease forwards;
+        `: css`
+            display: none;
+        `}
+    }
 `;
 const TextBoldWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
-    margin: 40px 0 24px 0;
+    margin: ${({index}) => index === 0 ? '40px 0 16px 0' : '0 0 24px 0'};
+    max-width: 750px;
 `;
 const TextBold = styled.div`
     ${({theme}) => theme.fontCommon.subtitle}
+    text-align: center;
+    word-break: keep-all;
+    color: ${({color}) => color};
     font-size: 1.6rem;
 `;
-const TextNomalWrapper = styled.div`
+const Span = styled.span`
+    color: ${({color}) => color};
+`
+const ImageWrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
-    margin: 24px 0 40px 0;
 `;
-const TextNomal = styled.div`
-    font-size: 1.5rem;
+const Image = styled.img`
+    width: 100%;
 `;
 const MouseIconWrapper = styled.div`
     @keyframes mouseMove {
@@ -132,6 +171,7 @@ const MouseIconWrapper = styled.div`
 `;
 const Title = styled.div`
     ${({theme}) => theme.fontCommon.companyTitle};
+    margin-bottom: -8px;
 `;
 
 

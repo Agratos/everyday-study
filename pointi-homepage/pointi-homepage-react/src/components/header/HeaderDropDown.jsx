@@ -155,9 +155,14 @@ const MenuBarText = styled(Link)`
 `;
 const DropDownText = styled(Link)`
     ${({theme}) => theme.divCommon.flexColumnCenter}
-    font-size: 0.9rem;
+    ${({device}) => device === 'PC' ? css`
+        width: ${({title}) => title === 'Company' ? '104px' : title === 'Recruiting' ? '116px' : '88px'}; 
+        font-size: 0.9rem;
+    `: css`
+        width: ${({title}) => title === 'Company' ? '96px' : title === 'Recruiting' ? '88px' : '80px'};
+        font-size: 1rem;
+    `}
     color: black;
-    width: ${({title}) => title === 'Company' ? '104px' : title === 'Recruiting' ? '116px' : '88px'};
     height: 0px;
     transition-duration: 0.4s;
     overflow: hidden;
@@ -170,7 +175,12 @@ const LinkWrapper = styled.div`
     
     margin: 8px 16px 8px 0px;
     margin-left: ${({device}) => device === 'PC' ? '20px' : 'calc(5vw - 8px)'};
-    margin-right: ${({device, title}) => device === 'PC' ? '44px' : title === 'Recruiting' ? '44px' : '16px'};
+    /* margin-right: ${({device, title}) => device === 'PC' ? '44px' : title === 'Recruiting' ? '44px' : '16px'}; */
+    ${({device}) => device === 'PC' ? css`
+        margin-right: ${({title}) => title === 'Recruiting' ? '44px' : '56px'};
+    ` : css`
+        margin-right: 16px;
+    `}
     &:hover ${DropDownText}{
         height: 32px;
         padding: 4px 16px;

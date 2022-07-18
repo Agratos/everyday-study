@@ -15,7 +15,7 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
     }
     return(
         <Wrapper>
-            { (device === 'PC' || page === 'recruiting') ? 
+            { device === 'PC' && 
                 <CategoryWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
                     { category.map(({title,id}, index) => (
                         <Tbody key={`menuCategroyLeftTable${index}`} index={index}>
@@ -31,10 +31,6 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
                         </Tbody>
                     ))}
                 </CategoryWrapper>
-                :<MobileWrapper>
-                    { !isMenuClick ? <AiFillCaretDown size={30} onClick={CheckClickTriangle}/> 
-                        :  <AiFillCaretUp size={30} onClick={CheckClickTriangle}/>}
-                </MobileWrapper>
             }
             { (device === 'Mobile' && page !== 'recruiting') && (
                 <UnderMenuBar height={height} isMenuClick={isMenuClick}>

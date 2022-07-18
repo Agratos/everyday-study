@@ -11,10 +11,22 @@ const RecruitingTalentBenefit = ({data}) => {
     )
 }
 const Wrapper = styled.div`
-    ${({device}) => device === 'Mobile' && css`
+    ${({device}) => device === 'PC' ? css`
+        width: ${({type}) => type === 'Talent' ? '50%' : '70%'};
+    `: device === 'Tablet' ? css`
+        ${({type}) => type === 'Talent' ? css`
+            width: inherit;
+            max-width: 500px;
+        ` : css`
+            width: inherit;
+            max-width: 700px;
+            margin-top: auto;
+        `};
+
+    `: css`
+        width: 100%;
         margin-top: -32px;
     `}
-    width: ${({type}) => type === 'Talent' ? '50%' : '70%'};
 `;
 const Img = styled.img`
     width: 100%;
