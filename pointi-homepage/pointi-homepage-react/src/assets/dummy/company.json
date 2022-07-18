@@ -5,19 +5,29 @@
     },
     "about" : {
         "title": "About POINT-I",
-        "about-us" : {
-            "title": "About Us",
-            "text-bold": [
-                "포인트아이는 소프트웨어 솔루션 및 시스템 개발을 전문으로 하는",
-                "소프트웨어 개발 전문 업체입니다"
-            ],
-            "text-nomal": [
-                "ICT 솔루션 경력 20년이 넘는 경험을 바탕으로",
-                "소프트웨어 개발, 유지보수 등의 전반적인 서비스를 제공합니다",
-                "다양한 기술과 신사업을 바탕으로 IT Solution의",
-                "든든한 연결고리가 되겠습니다"
-            ]
-        }
+        "about-us" : [
+            {
+                "title": "About Us",
+                "text-bold": [
+                    "포인트아이는 소프트웨어 솔루션 및 시스템 개발을 전문으로 하는",
+                    "소프트웨어 개발 전문 업체입니다"
+                ],
+                "image": "about_1.bmp"
+            },{
+                "title": "",
+                "text-bold": [
+                    "\"이동통신 발전\"과 함께한 ICT 솔루션"
+                ],
+                "image": "about_2.bmp"
+            },{
+                "title": "",
+                "text-bold": [
+                    "\"신시장 창출과 진입\"에 대한 도전과 투자",
+                    "\"고객들에게 실질적인 가치 제공\"을 실현하는 최고의 ICT 솔루션 기업"
+                ],
+                "image": "about_3.bmp"
+            }
+        ]
     },
     "patent" : {
         "title" : "PATENT",
