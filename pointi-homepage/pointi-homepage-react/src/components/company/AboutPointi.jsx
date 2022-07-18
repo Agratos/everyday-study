@@ -41,14 +41,31 @@ const AboutPointi = ({data, device}) => {
     }
 
     const stopMove = () =>{
-        return document.body.style.cssText = `
-            position: fixed; 
-            top: calc(50%);
-            left: calc(50%);
-            transform: translate(-50%, -50%);
-            overflow-y: scroll;
-            pointer-events: none;
-        `;
+        if(device === 'PC'){
+            return document.body.style.cssText = `
+                position: fixed; 
+                top: calc(50%);
+                left: calc(50%);
+                transform: translate(-50%, -50%);
+                overflow-y: scroll;
+                pointer-events: none;
+            `;
+        }else if(device === 'Tablet'){
+            return document.body.style.cssText = `
+                position: fixed;
+                width: 100%;
+                overflow-y: scroll;
+                pointer-events: none;
+            `;
+        }else{
+            return document.body.style.cssText = `
+                position: fixed;
+                width: calc(100% -24px);  
+                overflow-y: scroll;
+                pointer-events: none;
+            `;
+        }
+
     } 
     const blockEvent = (state) => {
         setReset(state);
@@ -152,6 +169,7 @@ const ImageWrapper = styled.div`
 `;
 const Image = styled.img`
     width: 100%;
+    
 `;
 const MouseIconWrapper = styled.div`
     @keyframes mouseMove {

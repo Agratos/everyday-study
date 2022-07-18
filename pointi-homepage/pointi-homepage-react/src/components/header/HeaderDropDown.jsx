@@ -223,7 +223,11 @@ const UnderMenuBar = styled.div`
     border-top: 1px solid #ccbebe;
     background-color: #e2dddd;
     line-height: 32px;
-    height: ${({isClick, clickMenu}) => !isClick ? '0px' : clickMenu === null ? '129px' : clickMenu === 'Company' ? '322px' : '193px'};
+    height: ${({isClick, clickMenu}) => !isClick ? '0px' 
+    : clickMenu === null ? '129px' 
+    : clickMenu === 'Company' ? '290px' 
+    : clickMenu === 'Solution' ? '193px' : '230px'};
+    
     ${({isClick}) => isClick ? css`
         opacity: 1;
     `:css`

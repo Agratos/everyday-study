@@ -7,13 +7,35 @@ const Modal = (props) => {
     const [ endPosition, setEndPosition ] = useState({ x: 0, y: 0});
     const [ isDrag, setIsDrag ] = useState(false);
     useEffect(() => {
-        document.body.style.cssText = `
-            position: fixed; 
-            top: -${window.scrollY}px;
-            left: 50%;
-            transform: translate(-50%);
-            overflow-y: scroll;
-        `;
+        if(props.device === 'PC')
+        {
+            document.body.style.cssText = `
+                position: fixed; 
+                top: -${window.scrollY}px;
+                left: 50%;
+                transform: translate(-50%);
+                overflow-y: scroll;
+            `;
+        } else if(props.device === 'Tablet'){
+            document.body.style.cssText = `
+                position: fixed; 
+                top: -${window.scrollY}px;
+                left: 50%;
+                transform: translate(-50%);
+                overflow-y: scroll;
+                width: 100%;
+            `;
+        } else {
+            document.body.style.cssText = `
+                position: fixed; 
+                top: -${window.scrollY}px;
+                left: 50%;
+                transform: translate(-50%);
+                overflow-y: scroll;
+                width: calc(100% - 24px);
+                margin: 0 12px 0 0;
+            `;
+        }
         return () => {
             const scrollY = document.body.style.top;
             document.body.style.cssText = '';
@@ -65,9 +87,9 @@ const Modal = (props) => {
     )
 }
 const Wrapper = styled.div`
+    position: fixed;
     width: 100vw;
     height: 100vh;
-    position: fixed;
     top: ${({scrollYPosition}) => `${scrollYPosition}px`};
     left: 50%;
     transform: translate(-50%);

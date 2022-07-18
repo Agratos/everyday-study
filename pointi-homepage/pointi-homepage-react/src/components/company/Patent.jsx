@@ -20,7 +20,7 @@ const Patent = ({data, device}) => {
     return (
         <Wrapper id='patent'>
             {isOpenModal && 
-                <Modal onClickModal={onClickModal}>
+                <Modal onClickModal={onClickModal} device={device}>
                     <PatentModal imageUrl={imageUrl} onClickModal={onClickModal}/>
                 </Modal>
             }
@@ -88,6 +88,7 @@ const Patent = ({data, device}) => {
 }
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
+    width: 100%;
     margin-bottom: 100px;
 `;
 const Title = styled.div`

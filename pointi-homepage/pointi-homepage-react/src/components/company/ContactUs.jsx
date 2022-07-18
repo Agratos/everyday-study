@@ -23,7 +23,7 @@ const ContactUs = ({data, device}) => {
                         device={device}
                         onClick={() => resizeHandeler()}
                     >Reset</KakaoMapRerenderButton>
-                    <KakaoMap resize={resize}/>
+                    <KakaoMap resize={resize} device={device}/>
                 </KakaoMapWrapper>
             </LocationWrapperOut>
         </Wrapper>

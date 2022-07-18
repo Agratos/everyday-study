@@ -15,7 +15,7 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
     }
     return(
         <Wrapper>
-            { device === 'PC' && 
+            { (device === 'PC' || page === 'recruiting') ?
                 <CategoryWrapper justify={justify} subtitle={subtitle} wrap={isWrap}>
                     { category.map(({title,id}, index) => (
                         <Tbody key={`menuCategroyLeftTable${index}`} index={index}>
@@ -30,7 +30,11 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
                             </Tr>
                         </Tbody>
                     ))}
-                </CategoryWrapper>
+                </CategoryWrapper> 
+                :<MobileWrapper>
+                    { !isMenuClick ? <AiFillCaretDown size={30} onClick={CheckClickTriangle}/> 
+                        :  <AiFillCaretUp size={30} onClick={CheckClickTriangle}/>}
+                </MobileWrapper>
             }
             { (device === 'Mobile' && page !== 'recruiting') && (
                 <UnderMenuBar height={height} isMenuClick={isMenuClick}>
@@ -101,7 +105,8 @@ const UnderMenuBar = styled.div`
     ${({isMenuClick, height}) => isMenuClick && css`
         height: ${height};
     `}
-    ${({theme}) => theme.zIndex.three}
+    ${({theme}) => theme.zIndex.four}
+    width: calc(100% - 24px);
 `;
 const MenuText = styled.div`
     transition-duration: 0.5s;

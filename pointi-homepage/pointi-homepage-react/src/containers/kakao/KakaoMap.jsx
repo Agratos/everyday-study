@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
-const KakaoMap = () => {
+const KakaoMap = ({device}) => {
     const location = [
         {latitude:37.521031834622924, longitude:127.03607157207173,text:'포인트아이 본사 청호빌딩 5층'},
         {latitude:35.8238423, longitude:127.153766, text:'포인트아이 전주 지사 신지식산업센터'}
@@ -38,8 +38,8 @@ const KakaoMap = () => {
     //let map;
 
     const options = {
-        center: new window.kakao.maps.LatLng(36.8, 127),
-        level: 12,
+        center: new window.kakao.maps.LatLng(36.85, 127),
+        level: device === 'Mobile' ? '13' : '12',
     };
 
     const container = useRef(null);
@@ -60,6 +60,9 @@ const KakaoMap = () => {
                 padding: 4px 5px; 
                 border-radius: 16px;
                 font-size: 12px;
+                word-break: keep-all;
+                width: 200px;
+                text-align: center;
                 position: relative;
             '>
             ${text}
@@ -97,6 +100,7 @@ const Map = styled.div`
     z-index: 1;
     width: inherit;
     height: inherit;
+    
 `;
 
 export default KakaoMap;
