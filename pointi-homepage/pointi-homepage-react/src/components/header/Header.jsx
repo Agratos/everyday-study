@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
 import HeaderDropDown from './HeaderDropDown';
-import banner from 'assets/imgs/header/banner.bmp';
+import banner from 'assets/imgs/header/banner.jpg';
 import { Link, useParams, useLocation } from 'react-router-dom';
 
 const Header = ({ page }) => {

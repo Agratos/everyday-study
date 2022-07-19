@@ -2,17 +2,17 @@
     "data": [
         {
             "title" : "Technology",
-            "image" : "technology.bmp",
+            "image" : "technology.jpg",
             "path": "/technology/multi-media-process",
             "text": ""
         },{
             "title" : "AIㆍ빅데이터",
-            "image" : "ai-bigdata.bmp",
+            "image" : "ai-bigdata.jpg",
             "path": "/solution/ai-bigdata/intelligent-video-analysis-PaaS",
             "text": ""
         },{
             "title" : "5GㆍICT",
-            "image" : "5g-ict.bmp",
+            "image" : "5g-ict.jpg",
             "path": "/solution/5g-ict/mec-router",
             "text": ""
         }

@@ -18,11 +18,11 @@
     ],
     "talent": {
         "title" : "Talent",
-        "image" : "talent.bmp" 
+        "image" : "talent.jpg" 
     },
     "benefit":{
         "title" : "Benefit",
-        "image": "benefit.bmp"
+        "image": "benefit.jpg"
     },
     "recruit": {
         "title" : "입사지원 & 채용공고"

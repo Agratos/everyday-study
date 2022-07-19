@@ -28,7 +28,7 @@
         ],
         "intelligent-video-analysis-PaaS": {
             "title": "영상분석 통합플랫폼 – 지능형 영상분석 PaaS",
-            "image": "Solution_AI_BigData_intelligentVideoAnalysisPaaS.bmp",
+            "image": "Solution_AI_BigData_intelligentVideoAnalysisPaaS.jpg",
             "video": "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.mp4",
             "solution": [
                 "비용이 높은 영상 인식/분석/학습 블록을 서버 또는 클라우드에 가상화/모듈화하여 개인 및 사업자의 비즈니스 목적에 부합하는 다양한 지능형 영상 분석 서비스를 저비용으로 쉽게 제공하는 솔루션.",
@@ -43,35 +43,35 @@
                     "explan": [
                         "다개체 탐지 및 위치/크기/속도/추적/동선 분석(기하분석적용)"
                     ],
-                    "image": ["function_image_1.bmp"]
+                    "image": ["function_image_1.jpg"]
                 },{
                     "title": "원거리 객체 감지 (ROI 설정시, 눈오는 날 최대 100m까지 감지)",
                     "explan": [],
-                    "image": ["function_image_2.bmp"]
+                    "image": ["function_image_2.jpg"]
                 },{
                     "title": "기하분석 제공 - 객체별 위치(2D좌표), 크기, 속도, 물리좌표, 시점변환(Top- View변환), 왜곡보정",
                     "explan": [],
-                    "image": ["function_image_3.bmp"]
+                    "image": ["function_image_3.jpg"]
                 },{
                     "title": "ROI 설정 및 내부 체류시간, 정체분석, 침입 회수",
                     "explan": [],
-                    "image": ["function_image_4.bmp"]
+                    "image": ["function_image_4.jpg"]
                 },{
                     "title": "Line ROI를 이용한 객체 출입 감지 및 회수",
                     "explan": [],
-                    "image": ["function_image_5.bmp"]
+                    "image": ["function_image_5.jpg"]
                 },{
                     "title": "객체의 키와 이동패턴, 속도 등을 분석하여 쓰러짐 여부 감시",
                     "explan": [
                         "(특허 보유 – 영상분석 기반 취객감지 장치 및 방법)"
                     ],
-                    "image": ["function_image_6.bmp"]
+                    "image": ["function_image_6.jpg"]
                 }
             ]
         },
         "concrete-material-mixing-degree-judgment-system": {
             "title": "영상분석 통합플랫폼 - 콘크리트 재료배합 정도 판단시스템",
-            "image" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.bmp",
+            "image" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.jpg",
             "video" : "Solution_AI_BigData_concreteMaterialMixingDegreeJudgmentSystem.mp4",
             "solution" : [
                 "콘크리트 레미콘 펌프 시 콘크리트 재료배합의 품질 검사는 작업자의 육안을 통한 주관적 경험에 의존한 랜덤한 검사로 수행되기 때문에 많은 작업 시간과 결과에 대한 객관성과 신뢰성이 떨어지는 문제점이 발생",
@@ -111,7 +111,7 @@
         },
         "image-classfication" :{
             "title" : "영상분석 통합플랫폼 - 이미지 분류 서비스",
-            "image" : "Solution_AI_BigData_imageClassfication.bmp",
+            "image" : "Solution_AI_BigData_imageClassfication.jpg",
             "solution" : [
                 "인공지능을 활용하여 사진 및 동영상에서 이미지를 분석/식별/분류/전송하는 기능을 제공하는 이미지 분류 서비스",
                 "이미지를 분석하여 카테고리로 분류하고,  필요시 관련 기관, 부서에 전송",
@@ -171,7 +171,7 @@
         },
         "wild-animal-detection" :{
             "title" : "영상분석 통합플랫폼 - 야생동물 감지 시스템",
-            "image" : "Solution_AI_BigData_wildAnimalDetection.bmp",
+            "image" : "Solution_AI_BigData_wildAnimalDetection.jpg",
             "video" : "Solution_AI_BigData_wildAnimalDetection.mp4",
             "solution" : [
                 "인공지능을 활용하여 CCTV 카메라 영상에서 실시간으로 사람 및 야생동물(고라니, 맷돼지, 오소리, 너구리 등)을 감지하여 통지하는 솔루션",
@@ -234,7 +234,7 @@
         },
         "bigdata-ui-ux" :{
             "title" : "빅데이터 UI/UX",
-            "image" : "Solution_AI_BigData_bigdataUiUx.bmp",
+            "image" : "Solution_AI_BigData_bigdataUiUx.jpg",
             "solution" : [
                 "다양하고 데이터베이스 및 대용량의 데이터 소스를 (MSSQL, MySQL, MongoDB, 로그 등)를 빠른 시간에 수집하고, 가공하여 유효한 정보를 Local DB에 저장하고, 이를 분석하는  솔루션"     
             ],
@@ -271,7 +271,7 @@
         },
         "integrated-control-gui" :{
             "title" : "통합관제 시스템(UI, UX)",
-            "image" : "Solution_AI_BigData_integratedControlGui.bmp",
+            "image" : "Solution_AI_BigData_integratedControlGui.jpg",
             "solution" : [
                 "다년간 쌓인 노하우 및 고객과 진화해온 통합관제 서비스제공",
                 "사용자 중심 GUI 및 MMI(Man Machine Interface) 제공"
@@ -371,7 +371,7 @@
         ],
         "mec-router" :{
             "title" : "MEC Router",
-            "image" : "Solution_ICT_mecRouter.bmp",
+            "image" : "Solution_ICT_mecRouter.jpg",
             "solution" : [
                 "5G 패킷을 Rule에 의해 초저지연으로 Local(Private) 또는 Public Network로 Routing해주는 시스템",
                 "MEC : Mobile/Multi-access Edge Computing",
@@ -422,7 +422,7 @@
         },
         "mgcf" :{
             "title" : "MGCF(Media Gateway Control Function)",
-            "image" : "Solution_ICT_mgcf.bmp",
+            "image" : "Solution_ICT_mgcf.jpg",
             "solution" : [
                 "IP기반 Network(IMS, EVDO PS)와 Circuit Network간의 연동Gateway로 Signal 및 Media변환을 수행하여 음성/영상 통화를 가능하게 하는 시스템",
                 "Signal처리부인 IMGC와 Media처리부인 IMGW로 구성",
@@ -476,7 +476,7 @@
         },
         "ibc" :{
             "title" : "IBC",
-            "image" : "Solution_ICT_ibc.bmp",
+            "image" : "Solution_ICT_ibc.jpg",
             "solution" : [
                 "타사업자의 IMS Network 연동하는 Gateway로 타사업자와의 음성/영상통화 및 RCS서비스를 제공하는 시스템",
                 "Signal처리부인 IBCF와 Media처리부인 TrGW로 구성",
@@ -531,7 +531,7 @@
         },
         "coloring" :{
             "title" : "컬러링, V-컬러링",
-            "image" : "Solution_ICT_coloring.bmp",
+            "image" : "Solution_ICT_coloring.jpg",
             "solution" : [
                 "기존의 RBT(Ring Back Tone) 대신 사용자가 선택한 음원으로RBT를 발신자에게 송출하는 서비스",
                 "음성, 영상 컬러링 제공",
@@ -583,7 +583,7 @@
         },
         "extra-service" :{
             "title" : "부가서비스(ARS, T-메모링, 비즈링)",
-            "image" : "Solution_ICT_exttraService.bmp",
+            "image" : "Solution_ICT_exttraService.jpg",
             "solution" : [
                 "통화용 다양한 부가서비스를 제공하는 시스템",
                 "T-ARS: 전화를 받지 못할 경우 나만의 ARS로 자동응답",
@@ -630,7 +630,7 @@
         },
         "unified-mailbox" :{
             "title" : "통합 사서함(음성, 영상 사서함)",
-            "image" : "Solution_ICT_unifiedMailbox.bmp",
+            "image" : "Solution_ICT_unifiedMailbox.jpg",
             "solution" : [
                 "상대방이 전화를 받을 수 없을 때, 음성 또는 영상메시지를 남겨 나중에 이를 확인할 수 있는 서비스",
                 "VMS: Voice Mailing Service",
@@ -682,7 +682,7 @@
         },
         "video-information-center" :{
             "title" : "영상정보센터",
-            "image" : "Solution_ICT_videoInformationCenter.bmp",
+            "image" : "Solution_ICT_videoInformationCenter.jpg",
             "solution" : [
                 "Mobile Network 환경에서 멀티미디어 서비스 제공을 위한 시스템으로 영상사서함, 영상편지, 영상수화, 영상회의, 영상전화 개통시험 등의 서비스 제공",
                 "VIC: Video Information Center"     
@@ -729,7 +729,7 @@
         },
         "t-group-call" :{
             "title" : "T그룹통화",
-            "image" : "Solution_ICT_tGroupCall.bmp",
+            "image" : "Solution_ICT_tGroupCall.jpg",
             "solution" : [
                 "T그룹통화 앱을 통해 최대 참여자 100명까지 음성 그룹통화 서비스를 제공하는 시스템"     
             ],

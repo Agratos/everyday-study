@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { IoIosArrowDown, IoIosMenu, IoIosAdd, IoIosRemove} from "react-icons/io";
 //import dropDownData from 'assets/dummy/dorpDownMenu.json';
 import ScrollEvent from 'containers/scroll/ScrollEvent';
-import logoBlack from 'assets/imgs/logo/logo.bmp';
+import logoBlack from 'assets/imgs/logo/logo.jpg';
 
 const HeaderDropDown = ({page, scrollMenu, device}) => {
     const isScrollDowun = ScrollEvent();
