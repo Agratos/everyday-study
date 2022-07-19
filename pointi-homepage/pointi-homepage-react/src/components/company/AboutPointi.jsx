@@ -69,6 +69,7 @@ const AboutPointi = ({data, device}) => {
                 width: calc(100% -24px);  
                 overflow-y: scroll;
                 pointer-events: none;
+                overscroll-behavior-y: none;
             `;
         }
 
@@ -118,11 +119,7 @@ const AboutPointi = ({data, device}) => {
             onWheel={(e) => {scrollAction(e)}}
             onTouchStart={(e) => setTouchYPosition(e.changedTouches[0].pageY)}
             onTouchEnd={onTouchScreenEnd}
-            onAnimationStart={() => {
-                document.body.style.cssText = `
-                    overscroll-behavior-y: none;
-                `;
-            }}
+            onAnimationStart={stopMove}
         >
             {data.list.map((list, index) => (
                 <AboutUs 

@@ -97,7 +97,6 @@ const Title = styled.div`
 const ListTableWrapper = styled.table`
     margin-top: 40px;
     min-width: inherit;
-    table-layout: fixed;
 `;
 const Tbody = styled.tbody``;
 const TextWrapper = styled.tr`
@@ -111,11 +110,11 @@ const ListDateWrapper = styled.td`
         text-align: center;
         background-color: #cac5c58c;
     `}
-    border: 1px solid black;
     font-size: 1.1rem;
     padding: 8px;
     vertical-align: top;
     width: 100px;
+    border: 0.5px solid black;
 `;
 const ListNumberWrapper =styled(ListDateWrapper)`
     width: 136px;
@@ -127,7 +126,7 @@ const ListTitleWrapper = styled(ListDateWrapper)`
     }
 `;
 const MobilePatentWrapper =styled(ListDateWrapper)`
-    border-left: none;
+    border: 0.1px solid black;
 `;
 const MobilePatentText = styled.div`
     ${({type, theme}) => type === 'nameWrapper' && theme.divCommon.flex}

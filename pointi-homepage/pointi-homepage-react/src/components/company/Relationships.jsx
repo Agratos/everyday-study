@@ -29,6 +29,7 @@ const Title = styled.div`
 `;
 const DataWrapperOut = styled.div`
     margin: 40px 0;
+    margin: ${({device}) => device === 'Mobile' && 'auto'};
     text-align: center;
 `; 
 const DataWrapperIn = styled.div`

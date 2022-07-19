@@ -20,12 +20,11 @@ const Wrapper = styled.div`
         ` : css`
             width: inherit;
             max-width: 700px;
-            margin-top: auto;
         `};
 
-    `: css`
+    `: css` // mobile 일때
         width: 100%;
-        margin-top: -32px;
+        
     `}
 `;
 const Img = styled.img`
