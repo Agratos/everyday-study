@@ -59,6 +59,7 @@ const MenuCategoryTable = ({ category, justify, subtitle, setIsClick, isClick, i
 
 const Wrapper = styled.div`
     width: 100%;
+    margin-top: 3px;
 `;
 const MobileWrapper = styled(Wrapper)`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter}
@@ -79,6 +80,7 @@ const CategoryWrapper = styled.table`
     }
 `;
 const Tbody = styled.tbody`
+    border-top: 1px solid #3d74a7;
     border-left: 1px solid #3d74a7;
     //border-bottom: 1px solid #3d74a7;
     margin-bottom: -1px;

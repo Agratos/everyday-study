@@ -1,16 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+
 
 import Copyright from './Copyright';
 import logo from 'assets/imgs/logo/logo.png';
 
 const Footer = () => {
+    const params = useParams();
     const footerData = useSelector(state => state.setDataReducer.footer);
     const device = useSelector(state => state.setDeviceReducer.device);
     
     return (
-        device !== 'Mobile' &&
+        (device !== 'Mobile' || params.click === 'contact') &&
         <Wrapper id={'footer'} device={device}>
             <TextArea>
                 <LogoWrapper>
@@ -18,7 +21,7 @@ const Footer = () => {
                 </LogoWrapper>
                 <TextTable>
                     <TextTbody>
-                    {footerData.data[0].list.map((list,index) => (
+                    {footerData.data[device === 'Mobile' && params.click === 'contact' ? 1 : 0].list.map((list,index) => (
                         <TextTr key={`footer-text-wrapper${index}`} index={index}>
                             {index === 0 ? 
                                 <TextTd><TextA href={'tel:02-2204-3000'}>{list}</TextA></TextTd> 
@@ -38,6 +41,7 @@ const Footer = () => {
 const Wrapper = styled.div`
     ${({theme}) => theme.divCommon.flexColumnCenterCenter};
     height: 64px;
+    margin-top: ${({device}) => device === 'Mobile' ? '32px' : '4px'};
     padding-top: 24px;
     padding-bottom: 16px;
     border: 1px solid #e0e1e27a;
