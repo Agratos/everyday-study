@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
+import styled, { css } from 'styled-components';
 
 const Main = () => {
     const mainData = useSelector(state=>state.setDataReducer.main);

@@ -31,7 +31,7 @@ const Solution = () => {
     }
 
     return (
-        <Wrapper>
+        <Wrapper onLoad={() => {window.scrollTo(0, 0)}}>
             { device !== 'Mobile' ? 
                 <MenuCategory
                     category={solutionData[id].category} 
