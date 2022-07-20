@@ -24,8 +24,8 @@ const Wrapper = styled.div`
 
     `: css` // mobile 일때
         width: 100%;
-        
     `}
+    margin-bottom: 16px;
 `;
 const Img = styled.img`
     width: 100%;

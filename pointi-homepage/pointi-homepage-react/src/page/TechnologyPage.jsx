@@ -15,8 +15,6 @@ const TechnologyPage = () => {
     )
 }
 
-const Wrapper = styled.div`
-    ${({theme}) => theme.divCommon.footerWrapper};
-`;
+const Wrapper = styled.div``;
 
 export default TechnologyPage;

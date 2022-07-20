@@ -36,7 +36,7 @@ const AboutPointi = ({data, device}) => {
                     setScrollPage(scrollPage - 1);
                     
                 }
-            }else if(e.deltaY > 0 && parseInt(window.innerHeight + scrollPoistion) === document.body.scrollHeight){
+            }else if(e.deltaY > 0 && parseInt(window.innerHeight + scrollPoistion) >= document.body.scrollHeight){
                 if(scrollPage + 1 >= scrollPageRef.current.length) return
                 else{
                     stopMove();
@@ -152,6 +152,7 @@ const AboutPointi = ({data, device}) => {
 
 const Wrapper = styled.div`
     margin: 0 auto;
+    margin-bottom: 32px;
     width: 100%;
     height: 100%;
     overflow: hidden;

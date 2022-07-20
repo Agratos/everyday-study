@@ -113,6 +113,7 @@ const Wrapper = styled.div`
     display: ${props => props.scrollMenu && 'none'};
     height: 40px;
     margin-top: 2px;
+    margin-bottom: 2px;
     ${(props) => props.isScrollDowun && props.scrollMenu &&
         css`
             display: block;
@@ -126,7 +127,7 @@ const Wrapper = styled.div`
 const TopDropDownWrapper = styled(Flex)``;
 const MenuBarArea = styled.div`
     width: 100%;
-    margin: 2.5px 1px;
+    margin: 2px 1px;
     font-weight: 600;
     padding-right: ${({device}) => device !== 'PC' ? '14px' : '1px'};
 `;

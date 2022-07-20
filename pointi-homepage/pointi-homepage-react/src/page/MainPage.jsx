@@ -16,8 +16,6 @@ const MainPage = () => {
     )
 }
 
-const Wrapper = styled.div`
-    ${({theme}) => theme.divCommon.footerWrapper};
-`;
+const Wrapper = styled.div``;
 
 export default MainPage;

@@ -69,7 +69,7 @@ const Wrapper = styled.div`
     flex: 1;
 `;
 const RednderSwitchWrapper = styled.div`
-    ${({theme}) => theme.divCommon.flexCenterCenter}
+    ${({theme}) => theme.divCommon.flexCenter}
     height: 90%;
 `
 
