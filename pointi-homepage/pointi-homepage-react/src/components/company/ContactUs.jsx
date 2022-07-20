@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 
 import KakaoMap from 'containers/kakao/KakaoMap';
 
 const ContactUs = ({data, device}) => {
+    const footerData = useSelector(state => state.setDataReducer.footer);
     const [ resize, setResize ] = useState(false);
 
     const resizeHandeler = () => {
         setResize(!resize);
+    }
+
+    const separateText = (text) => {
+        return text.split('. ')
     }
 
     return(
@@ -26,6 +32,25 @@ const ContactUs = ({data, device}) => {
                     <KakaoMap resize={resize} device={device}/>
                 </KakaoMapWrapper>
             </LocationWrapperOut>
+            {device === 'Mobile' && (
+                <TextWrapper>
+                    {footerData.data[1].list.map((text, index) => (
+                        <Text key={`contact-us-text-${index}`}>
+                            {index === 0 ? (
+                                <a href={`tel:${separateText(text)[1]}`} >
+                                    <TextSpan>{separateText(text)[0]}. </TextSpan>
+                                    {separateText(text)[1]}
+                                </a>
+                            ): index === 1 ? (
+                                <a href={`mailto:${separateText(text)[1]}`} >
+                                    <TextSpan>{separateText(text)[0]}. </TextSpan>
+                                    {separateText(text)[1]}
+                                </a>
+                            ): text}
+                        </Text>
+                    ))}
+                </TextWrapper>
+            )}
         </Wrapper>
     )
 }
@@ -77,6 +102,18 @@ const ClickImage = styled.img``;
 const ClickTextMessage = styled.div`
     margin-top: 16px;
     margin-left: 4px;
+`;
+const TextWrapper = styled.div`
+    ${({theme}) => theme.divCommon.flexColumn};
+    width: 100%;
+    margin-top: 24px;
+`;
+const Text = styled.div`
+    font-size: 1.2rem;
+    margin: 8px;
+`;
+const TextSpan = styled.span`
+    color: black;
 `;
 
 

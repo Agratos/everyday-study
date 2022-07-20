@@ -20,9 +20,10 @@ const Footer = () => {
                     <TextTbody>
                     {footerData.data[0].list.map((list,index) => (
                         <TextTr key={`footer-text-wrapper${index}`} index={index}>
-                            {index !== 1 ? 
-                                <TextTd>{list}</TextTd> :
-                                <TextTd><TextA href={'mailto:support@pointi.com'}>{list}</TextA></TextTd> 
+                            {index === 0 ? 
+                                <TextTd><TextA href={'tel:02-2204-3000'}>{list}</TextA></TextTd> 
+                                : index === 1 ? <TextTd><TextA href={'mailto:support@pointi.com'}>{list}</TextA></TextTd> 
+                                : <TextTd>{list}</TextTd>
                             }  
                         </TextTr>
                     ))}

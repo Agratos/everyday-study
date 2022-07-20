@@ -94,7 +94,8 @@ const SliderArea = styled.div`
             width: calc(100% - 16px);
             align-items: center;
             padding-left: 16px;
-            height: ${({device}) => device === 'Mobile' ? '48px' : '48px'};
+            min-height: ${({device}) => device === 'Mobile' ? '32px' : '48px'};
+            height: fit-content;
             font-size: 0.95rem;
             font-weight: 600;
             color: #ffffffc2;
