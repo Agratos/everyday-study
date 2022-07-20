@@ -48,7 +48,7 @@ const divCommon = {
     footerWrapper:`
         display: flex;
         height: 920px;
-        flex-direction: column
+        flex-direction: column;
     `,
     fixedLeftTop:`
         position: fixed;
