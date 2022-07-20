@@ -195,7 +195,6 @@ const IconWrapper = styled.div`
         css`
             position: absolute;
             right: 0;
-            margin: 0 16px;
         `
     }
 `;
