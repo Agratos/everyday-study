@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { IoIosArrowDown, IoIosMenu, IoIosAdd, IoIosRemove} from "react-icons/io";
 //import dropDownData from 'assets/dummy/dorpDownMenu.json';
 import ScrollEvent from 'containers/scroll/ScrollEvent';
-import logoBlack from 'assets/imgs/logo/logo.jpg';
+import logo from 'assets/imgs/logo/logo.png';
 
 const HeaderDropDown = ({page, scrollMenu, device}) => {
     const isScrollDowun = ScrollEvent();
@@ -35,7 +35,7 @@ const HeaderDropDown = ({page, scrollMenu, device}) => {
         <Wrapper isScrollDowun={isScrollDowun} scrollMenu={scrollMenu} color={'#0f0e0e'} page={page}>
             <TopDropDownWrapper>
                 <LeftLogoArea device={device}>
-                    <Link to='/' ><LeftLogo src={logoBlack} /></Link>
+                    <Link to='/' ><LeftLogo src={logo} /></Link>
                 </LeftLogoArea>
                 <MenuBarArea device={device}>
                     { device !== 'Mobile' ? // PC Tablet 일때 보여지는 메뉴

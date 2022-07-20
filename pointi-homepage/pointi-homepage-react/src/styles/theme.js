@@ -47,7 +47,7 @@ const divCommon = {
     `,
     footerWrapper:`
         display: flex;
-        height: 100vh;
+        height: 920px;
         flex-direction: column
     `,
     fixedLeftTop:`
